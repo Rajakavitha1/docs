@@ -26,8 +26,9 @@ deprecated: false
 
 MariaDB is a fork of the popular cross-platform MySQL database management system and is considered a full [drop-in replacement](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/) for MySQL. MariaDB was created by one of MySQL's original developers in 2009 after MySQL was acquired by Oracle during the Sun Microsystems merger. Today MariaDB is maintained and developed by the [MariaDB Foundation](https://mariadb.org/en/foundation/) and community contributors with the intention that it remain GNU GPL software.
 
-**Note:**
+{{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< /note >}}
 
 ## Before You Begin
 
@@ -50,8 +51,9 @@ Install MariaDB using the package manager.
 
 MariaDB will bind to localhost (127.0.0.1) by default. For information on connecting to a remote database using SSH, see our [MySQL remote access](/docs/guides/create-an-ssh-tunnel-for-mysql-remote-access/) guide, which also applies to MariaDB.
 
-**Note:**
+{{< note >}}
 Allowing unrestricted access to MariaDB on a public IP is not advised. However, you can change the address it listens on by modifying the `bind-address` parameter in `/etc/mysql/mariadb.conf.d/50-server.cnf`. If you decide to bind MariaDB to your public IP address, you should implement firewall rules that restrict access to specific IP addresses.
+{{< /note >}}
 
 ### MariaDB Client
 
@@ -63,9 +65,9 @@ Log into MariaDB as the root user:
 
         sudo mysql -u root -p
 
-
-**Note:**
-  On Debian 12, MariaDB uses the `unix_socket` plugin by default. This means that if you're logged into the system as a user with root privileges, you can press **Enter** at the password prompt and still gain access--no password is required.
+{{< note >}}
+On Debian 12, MariaDB uses the `unix_socket` plugin by default. This means that if you're logged into the system as a user with root privileges, you can press **Enter** at the password prompt and still gain access--no password is required.
+{{< /note >}}
 
     You'll then be presented with a welcome header and the MariaDB prompt as shown below:
 
@@ -218,8 +220,9 @@ If you forget your root MariaDB password, it can be reset.
 
         sudo systemctl set-environment MYSQLD_OPTS="--skip-grant-tables --skip-networking"
 
-**Note:** 
+{{< note >}}
 This method disables grant tables and networking. While it still works in Debian 12, it is temporary and insecure--use only in emergency recovery situations.
+{{< /note >}}
 
 1.  Restart MariaDB:
 
