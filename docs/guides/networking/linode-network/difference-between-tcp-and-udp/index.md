@@ -1,17 +1,16 @@
 ---
 slug: difference-between-tcp-and-udp
-description: 'What is the difference between TCP and UDP? This guide explains how each works, the key differences between these two internet protocols. Learn more here.'
-keywords: ['difference between tcp and udp','what is tcp and udp','tcp vs udp','tcp/udp']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-25
-modified_by:
-  name: Linode
 title: "What is the Difference Between TCP and UDP? "
 title_meta: "The Difference Between TCP and UDP Explained | Linode"
+description: 'What is the difference between TCP and UDP? This guide explains how each works, the key differences between these two internet protocols. Learn more here.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-03-25
+keywords: ['difference between tcp and udp','what is tcp and udp','tcp vs udp','tcp/udp']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[IETF TCP RFC 793](https://datatracker.ietf.org/doc/html/rfc793)'
 - '[IETF UDP RFC 768](https://datatracker.ietf.org/doc/html/rfc768)'
-authors: ["Jeff Novotny"]
 ---
 
 Many users might not understand the network protocols they are using, but networking is a critical topic for application programmers and architects. In particular, the choice between the *Transmission Control Protocol* (TCP) or the *User Datagram Protocol* (UDP) can drastically alter how an application behaves. This guide introduces both transport protocols and explains the difference between TCP and UDP. It also discusses the advantages of both protocols and when they should be used.
@@ -24,7 +23,7 @@ The TCP/IP suite divides the communication channel between the source and the de
 
 - **Application Layer**: Users directly interact with the networking stack only at the application layer. Applications collect and assemble the data to transmit. Each application chooses the transport protocol that best meets its requirements. Applications such as HTTP and FTP are part of this layer.
 - **Transport Layer**: This layer establishes a channel for host-to-host communications. The destination can reside either on the local network or on a remote network anywhere in the world. Transport protocols can be either connection oriented or connectionless. A communication port is associated with each application using the transport layer. The main transport protocols are TCP and UDP.
-- **Internet Layer**: The internet layer contains the core functionality associated with the modern internet. The Internet Protocol handles implementation of this layer. It constructs IP packets, complete with source and destination *IP addresses*, and transmits them across the network. This layer also handles the routing of packets across the network from source to destination. To learn more about the internet Layer, see our guide [How to Understand and Use IP Addresses](/docs/guides/how-to-understand-ip-addresses/).
+- **Internet Layer**: The internet layer contains the core functionality associated with the modern internet. The Internet Protocol handles implementation of this layer. It constructs IP packets, complete with source and destination *IP addresses*, and transmits them across the network. This layer also handles the routing of packets across the network from source to destination. To learn more about the internet Layer, see our guide [How to Understand and Use IP Addresses](/cloud/guides/how-to-understand-ip-addresses).
 - **Link Layer**: This layer handles the low-level transmission of packets across the physical layer without the use of routers. An example of a link-layer technology is Ethernet and the *media access control* (MAC) addressing system. The TCP/IP suite is hardware independent and less concerned with the specifics of packet transmission.
 
 During transmission, data is passed down from one layer to the next. At each layer, the data is encapsulated inside a new packet with header information for the layer. The application layer sends data to the transport layer, which forwards it to the internet layer. Finally, the link layer physically transmits the data. Upon reception, the order is reversed. Data is passed upward from the link layer until it arrives at the application. A full description and tutorial of the TCP/IP suite is available as an [IETF RFC](https://datatracker.ietf.org/doc/html/rfc1180).

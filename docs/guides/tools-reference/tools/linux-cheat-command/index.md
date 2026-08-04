@@ -1,14 +1,13 @@
 ---
 slug: linux-cheat-command
-description: "Learn how to install and use the cheat command to view and manage cheat sheets from the command line. The cheat command gives you quick access to a repository of community cheat sheets and also allows you to easily create your own."
-keywords: ['cheat linux commands','cheat linux install','linux cheat sheet app']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-12-23
-modified_by:
-  name: Nathaniel Stickman
 title: "Install and Use the cheat Command on Linux"
 title_meta: "How to Install and Use the cheat Command on Linux"
+description: "Learn how to install and use the cheat command to view and manage cheat sheets from the command line. The cheat command gives you quick access to a repository of community cheat sheets and also allows you to easily create your own."
 authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-12-23
+keywords: ['cheat linux commands','cheat linux install','linux cheat sheet app']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 `cheat` is a command-line tool that lets you view, create, and manage cheat sheets. This tool is ideal for Linux system administrators because you can access your cheat sheets directly from the command line. This minimizes your need to hunt down a refresher for a command you haven't used in while. You can find what you need without leaving your terminal.
@@ -17,12 +16,12 @@ In this guide you learn more about the `cheat`command-line tool, including how t
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is cheat?
@@ -77,7 +76,7 @@ Architecture:        x86_64
 
 On its own, `cheat` does not come with any cheat sheets. However, you can have `cheat` download a collection of community-sourced cheat sheets from the [`cheatsheets` project](https://github.com/cheat/cheatsheets). When you first run `cheat`, it prompts you about downloading the collection, as well as about creating a default configuration file.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 To automatically download the community cheat sheets, `cheat` uses Git. If your system does not have Git installed, install it prior to following the steps below.
 
     sudo apt-get install git
@@ -185,8 +184,8 @@ You can combine query options, too, to make fine-tuned searches:
 
 You can also use `cheat` to create cheat sheets of your own. The steps below create a cheat sheet for the `bat` command, a more-readable and modern clone of `cat`, as an example.
 
-{{< note respectIndent=false >}}
-If you think you may be interested in `bat`, check out our guide [How to Install and Use the Linux bat Command](/docs/guides/how-to-install-and-use-the-bat-command-on-linux/) to learn more.
+{{< note >}}
+If you think you may be interested in `bat`, check out our guide [How to Install and Use the Linux bat Command](/cloud/guides/how-to-install-and-use-the-bat-command-on-linux) to learn more.
 {{< /note >}}
 
 1. Use the `-e` option to start creating the new cheat sheet:
@@ -228,7 +227,7 @@ The command below opens an editor for the (community) cheat sheet file on `ls`:
 
     cheat -e ls
 
-In the [Setting Up cheatsheets](/docs/guides/linux-cheat-command/#setting-up-cheatsheets) section near the start of this guide, you got steps for installing a script for managing community cheat sheets. One of the primary benefits of this script is its ability to easily and automatically make sure your community sheets are up to date:
+In the [Setting Up cheatsheets](/cloud/guides/linux-cheat-command#setting-up-cheatsheets) section near the start of this guide, you got steps for installing a script for managing community cheat sheets. One of the primary benefits of this script is its ability to easily and automatically make sure your community sheets are up to date:
 
     cheatsheets pull
 

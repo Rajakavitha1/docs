@@ -1,8 +1,11 @@
 # If you update baseURL, *YOU NEED TO UPDATE* scripts/generate_permanent_redirects.sh
 # so that it correctly parses the URL
-baseURL = "https://www.linode.com/docs/"
+baseURL = "https://www.akamai.com/cloud/"
 languageCode = "en-us"
 title = "Linode Guides & Tutorials"
+
+
+disableAliases = false
 
 # disableKinds = ["taxonomy", "taxonomyTerm"]
 themeDir = ".."
@@ -14,17 +17,20 @@ disqusShortname="linode-1"
 
 enableGitInfo = true
 
+[sitemap]
+filename = "sitemap.xml"
+
 [outputs]
-# The JSON is for the search index. We build this on every build to make sure we have the image thumbnails in sync.
-home = ["HTML", "JSON", "RSS"]
+home = ["HTML", "RSS"]
 
 [taxonomies]
 bundle = "bundles"
-tags = "tags"
-authors = "authors"
+tag = "tags"
+contributor = "contributors"
+
 
 [frontmatter]
-lastmod = [":git", "lastmod", "date", "publishDate"]
+lastmod = ["updated", "lastmod", "date", "publishDate"]
 publishDate = ["published", "publishDate", "date"]
 
 [params]
@@ -148,6 +154,9 @@ explorer_regular_pages_start_level = 4 # Not relevant, set it high to avoid trig
 hits_per_page = 4
 # filtering_facets = [{ name = "category", title = "Doc Category" }]
 
+[params.file_issue_button]
+enable = false
+
 [minify]
 disableSVG = false
 
@@ -162,7 +171,7 @@ anchor = "smart"
 [security]
   enableInlineShortcodes = false
   [security.exec]
-    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$']
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^git$']
     osEnv = ['(?i)^(.*)$']
 
   [security.funcs]

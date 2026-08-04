@@ -1,33 +1,33 @@
 ---
 slug: secrets-management-with-terraform
+title: "Managing Secrets with Terraform"
+title_meta: "Secrets Management with Terraform"
 description: 'Learn everything you need to know about secrets management with Terraform.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-12-12
+modified: 2025-06-18
 keywords: ['terraform','secrets','secrets management','backend','hcl']
 tags: ["security"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-12-12
-modified: 2021-08-13
-modified_by:
-  name: Linode
 image: SecretsManagementwithTerraform.png
-title: "Managing Secrets with Terraform"
-title_meta: "Secrets Management with Terraform"
 external_resources:
 - '[Terraform Input Variable Configuration](https://www.terraform.io/docs/configuration/variables.html)'
 - '[Terraform Backend Configuration](https://www.terraform.io/docs/backends/config.html)'
 - '[Terraform Backend Types](https://www.terraform.io/docs/backends/types/index.html)'
 - '[Terraform State Storage and Locking](https://www.terraform.io/docs/backends/state.html)'
 - '[GitHub Discussion - Storing Sensitive Values in State Files](https://github.com/hashicorp/terraform/issues/516)'
-aliases: ['/applications/configuration-management/terraform/secrets-management-with-terraform/','/applications/configuration-management/secrets-management-with-terraform/']
-authors: ["Linode"]
-tags: ["saas"]
+aliases: []
 ---
 
 Terraform is an Infrastructure as Code (IaC) tool that allows you to write declarative code to manage your infrastructure. In order to implement IaC with Terraform it is necessary to supply secrets, such as server passwords and API tokens, in the code. This guide discusses methods for securing those secrets within Terraform.
 
-{{< note >}}
-[Terraform’s Linode Provider](https://github.com/terraform-providers/terraform-provider-linode) has been updated and now requires Terraform version 0.12 or later. To learn how to safely upgrade to Terraform version 0.12 or later, see [Terraform’s official documentation](https://www.terraform.io/upgrade-guides/0-12.html). View [Terraform v0.12’s changelog](https://github.com/hashicorp/terraform/blob/v0.12.0/CHANGELOG.md) for a full list of new features and version incompatibility notes.
+{{< note title ="Linode Provider Version 3.0.0" >}}
+As of June, 2025, the [Linode Terraform Provider](https://github.com/linode/terraform-provider-linode/) version is 3.0.0. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
 
-The examples in this guide were written to be compatible with [Terraform version 0.11](https://www.terraform.io/docs/configuration-0-11/terraform.html).
+The Linode Terraform Provider version 3.0.0 requires `terraform` version 1.0 or greater. See [Terraform's developer documentation](https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/1-0) for guidance on upgrading to version 1.0.
+
+The examples in this guide were originally written to be compatible with [Terraform version 0.11](https://www.terraform.io/docs/configuration-0-11/terraform.html).
 {{< /note >}}
 
 ## Keeping Secrets Out of .tf Files
@@ -115,7 +115,7 @@ variable "database_username" {
 }
 {{< /file >}}
 
-Define another variable here named "data_password" that you intend to use later in this guide.
+Define another variable here named `data_password` that you intend to use later in this guide.
 
 {{< file >}}
 variable "database_password" {
@@ -174,7 +174,7 @@ As of the writing of this guide, **sensitive information used to generate your T
 
 ### Remote Backends
 
-Terraform [*backends*](https://www.terraform.io/docs/backends/index.html) allow the user to securely store their state in a remote location. For example, a key/value store like [Consul](https://www.consul.io/), or an S3 compatible bucket storage like [Minio](https://www.minio.io/). This allows the Terraform state to be read from the remote store. Because the state only ever exists locally in memory, there is no worry about storing secrets in plain text.
+Terraform [*backends*](https://www.terraform.io/docs/backends/index.html) allow the user to securely store their state in a remote location. For example, a key/value store like [Consul](https://www.consul.io/), or an Amazon S3-compatible bucket storage like [Minio](https://www.minio.io/). This allows the Terraform state to be read from the remote store. Because the state only ever exists locally in memory, there is no worry about storing secrets in plain text.
 
 Some backends, like Consul, also allow for state locking. If one user is applying a state, another user cannot make any changes.
 
@@ -255,11 +255,11 @@ After `pass` is installed, you can store your secrets by running `pass insert` f
 
         pass insert database_username
 
-Enter password for database_username: admin
+Enter password for `database_username`: admin
 
         pass insert database_password
 
-Enter password for database_password: password
+Enter password for `database_password`: password
 
 Now run the following command : `pass <your secret>`
 
@@ -280,9 +280,9 @@ data "vault_generic_secret" "linode_auth" {
 {{< /file >}}
 
 {{< note >}}
-For this example, in Vault there is a key named "auth_token" and the value is the token we need to keep secret.
+For this example, in Vault there is a key named `auth_token` and the value is the token we need to keep secret.
 
-In general usage, replace "auth_token" with the key you wish to extract from Vault.
+In general usage, replace `auth_token` with the key you wish to extract from Vault.
 
 {{< file >}}
 provider "linode" {

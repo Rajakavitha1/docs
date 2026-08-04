@@ -1,17 +1,16 @@
 ---
 slug: vsftpd-on-ubuntu-2004-installation-and-configuration
+title: "Install VSFTPD on Ubuntu 20.04"
+title_meta: "VSFTPD on Ubuntu 20.04: Installation and Configuration"
 description: 'Learn to install a VSFTPD server on Ubuntu 20.04 for FTP file transfers.'
+authors: ["Cameron Laird"]
+contributors: ["Cameron Laird"]
+published: 2021-12-14
 keywords: ['vsftpd','vstpd conf','vsftpd ubuntu']
 tags: ['ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-12-14
-modified_by:
-  name: Linode
-title: "Install VSFTPD on Ubuntu 20.04"
-title_meta: "VSFTPD on Ubuntu 20.04: Installation and Configuration"
 external_resources:
 - '[VSFTPD.CONF man page](http://vsftpd.beasts.org/vsftpd_conf.html)'
-authors: ["Cameron Laird"]
 ---
 
 ## What is VSFTPD?
@@ -34,10 +33,10 @@ This guide demonstrates:
 
 ## Before You Begin
 
-This guide assumes that you have access to a server running Ubuntu 20.04 that you can install the FTP server on and upload files to. To create a server on Linode, follow the [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) and [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides. Be sure to [add a limited Linux user](/docs/products/compute/compute-instances/guides/set-up-and-secure/#add-a-limited-user-account) to issue the commands in this guide from.
+This guide assumes that you have access to a server running Ubuntu 20.04 that you can install the FTP server on and upload files to. To create a server on Linode, follow the [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) and [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides. Be sure to [add a limited Linux user](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#add-a-limited-user-account) to issue the commands in this guide from.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/#understanding-the-sudo-linux-group-and-user) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups#understanding-the-sudo-linux-group-and-user) guide.
 {{< /note >}}
 
 ## VSFTPD Installation Steps
@@ -171,12 +170,10 @@ To make VSFTPD useful for some real-world use-cases, you can adjust some of the 
 1.  Restart VSFTPD to activate these changes:
 
         systemctl restart vsftpd
-
-{{< note respectIndent=false >}}
+{{< note >}}
 A common strategy for securing user accounts is to use VSFTPD's `userlist_enable`, `userlist_file`, and `userlist_deny` attributes. These can be configured to only allow a selected subset of local accounts to establish FTP sessions.
 {{< /note >}}
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 By default, FTP connections are communicated in clear text and not encrypted. Investigate the SSL options available to VSFTPD to set up encryption.
 {{< /note >}}
 
@@ -269,7 +266,7 @@ testfile.txt testfile2.txt
 
 ## Connect to Your Server using VSFTPD
 
-This section shows how to allow connections from remote clients to VSFTPD by configuring the [UFW](/docs/guides/configure-firewall-with-ufw/) firewall. The UFW firewall was installed as part of the [VSFTPD Installation Steps](#vsftpd-installation-steps) section.
+This section shows how to allow connections from remote clients to VSFTPD by configuring the [UFW](/cloud/guides/configure-firewall-with-ufw) firewall. The UFW firewall was installed as part of the [VSFTPD Installation Steps](#vsftpd-installation-steps) section.
 
 1.  Before enabling VSFTPD connections, make sure SSH connections are also allowed:
 

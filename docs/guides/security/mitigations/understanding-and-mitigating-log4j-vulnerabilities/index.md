@@ -1,16 +1,14 @@
 ---
 slug: understanding-and-mitigating-log4j-vulnerabilities
+title: Understanding and Mitigating log4j Vulnerabilities
 description: 'Vulnerabilities in log4j are resulting in RCE exploits and more. This guide empowers users to stay ahead of the issue as it develops.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2021-12-17
 keywords: ["log4j","security","log4shell"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2021-12-17
-modified_by:
-  name: Linode
-published: 2021-12-17
-title: Understanding and Mitigating log4j Vulnerabilities
 tags: ["security"]
-aliases: ['/security/mitigations/mitigating-log4j-vulnerabilities/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ## Understanding log4j Vulnerabilities
@@ -23,7 +21,7 @@ Before proceeding, it should be noted that the above mentioned log4j vulnerabili
 
 The steps in this guide aim to empower you to proactively discover log4j vulnerabilities on your system, and mitigate them where needed.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 For more information on how Linode has handled log4j vulnerabilities, and a detailed writeup on [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) specifically, as well as mitigation steps, see our [Security Digest](https://www.linode.com/blog/security/linode-security-digest-log4j2/).
 {{< /note >}}
 
@@ -39,8 +37,7 @@ Searching for software affected by log4j is a good first step for identifying im
 - [Log4j-Detector](https://github.com/mergebase/log4j-detector): **log4j-detector** is an open source tool that performs local queries to detect versions of log4j that are vulnerable to both CVE-2021-44228 and CVE-2021-45046.
 - [Log4j RCE Exploitation Detection](https://gist.github.com/Neo23x0/e4c8b03ff8cdf1fa63b7d15db6e3860b): A list of commands compiled by security expert [Florian Roth](https://twitter.com/cyb3rops) built to help users identify exploitation attempts.
 - [Trivy](https://github.com/aquasecurity/trivy): Trivy is an image vulnerability scanning tool that includes log4j vulnerabilities, and can help users to identify log4j in containerized applications such as with [Docker](https://www.docker.com/) or [Kubernetes](https://kubernetes.io/)
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Containerized applications using tools like Docker and Kubernetes may not be detected via the above methods if performed only from the host device, and identification steps should be performed directly from within containers.
 {{< /note >}}
 
@@ -56,6 +53,6 @@ The following commands may also be used towards manually identifying log4j packa
 
 If log4j is detected on your system, mitigation can be performed by immediately installing the [Latest Software Version](https://logging.apache.org/log4j/2.x/download.html) which will include the latest available software patches. Installing `log4j 2.16.0` for example will completely disables JNDI by default and removes support for Message Lookups to apply mitigation. If patching your system is not possible by updating your version of log4j, then users should follow CISA's [Recommended Workarounds](https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance) with the understanding that a full log4j software version update is recommended.
 
-If you believe a compromise has occurred, we recommend following the steps in our guide for [Recovering From a System Compromise](/docs/guides/recovering-from-a-system-compromise/).
+If you believe a compromise has occurred, we recommend following the steps in our guide for [Recovering From a System Compromise](/cloud/guides/recovering-from-a-system-compromise).
 
 As log4j is, at the time of this writing, still a developing issue, it is recommended that users continue to regularly monitor the situation from both CISA's [Guidance Page](https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance) and [Apache's log4j Vulnerabilities Page](https://logging.apache.org/log4j/2.x/security.html)

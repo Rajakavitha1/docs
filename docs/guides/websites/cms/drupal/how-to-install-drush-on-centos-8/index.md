@@ -1,16 +1,15 @@
 ---
 slug: how-to-install-drush-on-centos-8
-description: 'Drush is a command line tool for creating, maintaining, and modifying Drupal websites. This guide will walk you through installing Drush on CentOS 8'
-keywords: ["drupal", "cms", "content management system", "content management framework", "centos", "drush"]
-aliases: ['/websites/cms/drupal/drush-drupal/how-to-install-drush-on-centos-8/','/websites/cms/drupal/how-to-install-drush-on-centos-8/']
-tags: ["drupal","centos","cms","lamp"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2020-02-29
-modified_by:
-    name: Linode
-published: 2020-02-29
 title: Install Drush on CentOS 8
 title_meta: How to Install Drush on CentOS 8
+description: 'Drush is a command line tool for creating, maintaining, and modifying Drupal websites. This guide will walk you through installing Drush on CentOS 8'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-02-29
+keywords: ["drupal", "cms", "content management system", "content management framework", "centos", "drush"]
+aliases: []
+tags: ["drupal","centos","cms","lamp"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 image: InstallDrushonCentOS8.png
 external_resources:
  - '[Drush Documentation](https://docs.drush.org/en/master/)'
@@ -20,7 +19,6 @@ relations:
         key: how-to-install-drush
         keywords:
            - distribution: CentOS 8
-authors: ["Linode"]
 ---
 
 [Drush](https://www.drush.org/) is a command line tool for creating, administrating, and modifying Drupal websites. Command line tools, like Drush, add functionality through additional command packages. Once installed, Drush is as easy to use as any of the basic Linux commands. The name comes from combining the words Drupal and shell. Drush is designed only for Drupal and cannot be used with other content management systems.
@@ -31,19 +29,19 @@ Both new and experienced Drupal users can benefit from learning Drush. Users tha
 
 Before installing Drush, ensure that you complete the following steps:
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Install and configure a [LAMP stack on CentOS 8](/docs/guides/how-to-install-a-lamp-stack-on-centos-8/).
+1.  Install and configure a [LAMP stack on CentOS 8](/cloud/guides/how-to-install-a-lamp-stack-on-centos-8).
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with ``sudo``. If you're not familiar with the ``sudo`` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Git & Composer
 
-The developers of Drush recommend installing Drush using [Composer](https://getcomposer.org/doc/00-intro.md), a PHP dependency manager. Since the Drush project is hosted on [GitHub](https://github.com/) and controlled with [Git](/docs/guides/how-to-configure-git/), you will also need to install Git. In this section, you will install both dependencies.
+The developers of Drush recommend installing Drush using [Composer](https://getcomposer.org/doc/00-intro.md), a PHP dependency manager. Since the Drush project is hosted on [GitHub](https://github.com/) and controlled with [Git](/cloud/guides/how-to-configure-git), you will also need to install Git. In this section, you will install both dependencies.
 
 1.  Install Git:
 
@@ -69,7 +67,7 @@ Composer is designed to install PHP dependencies on a per-project basis. The ste
 
         sudo ln -s /usr/local/bin/composer /usr/bin/composer
 
-1.  Use Git to download - or [clone](/docs/guides/how-to-install-git-and-clone-a-github-repository/#clone-a-github-test-repository) - the [GitHub Drush project](https://github.com/drush-ops/drush) into a new directory, `/usr/local/src/drush`:
+1.  Use Git to download - or [clone](/cloud/guides/how-to-install-git-and-clone-a-github-repository#clone-a-github-test-repository) - the [GitHub Drush project](https://github.com/drush-ops/drush) into a new directory, `/usr/local/src/drush`:
 
         sudo git clone https://github.com/drush-ops/drush.git /usr/local/src/drush
 

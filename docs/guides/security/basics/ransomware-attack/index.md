@@ -1,14 +1,13 @@
 ---
 slug: ransomware-attack
-description: 'A ransomware attack can encrypt files on a system, making them inaccessible. Find out more about these attacks, including prevention and recovery tips.'
-keywords: ['what is ransomware','ransomware definition','ransomware meaning']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-01-26
-modified_by:
-  name: Linode
 title: "Ransomware Attack: What It Is and How to Prevent It "
 title_meta: "Ransomware Defined: What It Is and How to Prevent an Attack"
+description: 'A ransomware attack can encrypt files on a system, making them inaccessible. Find out more about these attacks, including prevention and recovery tips.'
 authors: ["David Strom"]
+contributors: ["David Strom"]
+published: 2022-01-26
+keywords: ['what is ransomware','ransomware definition','ransomware meaning']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 Cybersecurity continues to be a challenge as adversaries come up with new and innovative ways to penetrate computer networks and steal data. One of the more popular attack methods is ransomware. There are tools to defend yourself against potential attack and techniques to strengthen your computer security posture.
@@ -41,7 +40,7 @@ The ability of intruders to access the network, and then wait undetected, before
 
 A [Twitter thread by security researcher Ming Zhao](https://twitter.com/FabiusMercurius/status/1413601716918910978) shows the depth of the ransomware marketplace and the variety of actors. The flow of funds from victims to criminals, how their attacks have grown, and how the price of cryptocurrency influences their actions, are also revealed in this thread.
 
-Ransomware criminals count on several weak links in an IT department’s governance that often leave entry points easily exposed. For example, there are [numerous open network ports](/docs/guides/check-linux-ports-in-use/) that aren’t carefully monitored, or infrastructure that isn’t consistently managed or maintained with delays in patching and deploying system updates. The role of backups has completely changed in the ransomware era. Attackers are more adept at penetrating networks which forces backup strategies to become more sophisticated and cover a wider variety of circumstances, threat models, and conditions. As more of us use our smartphones for work purposes, this means that we store data on our phones, making corporate backup solutions ineffective if our phones are lost or stolen. Backup tools also weren't initially designed for heavily virtualized and cloud computing environments, which makes them difficult to scale as virtual and cloud servers are brought online.
+Ransomware criminals count on several weak links in an IT department’s governance that often leave entry points easily exposed. For example, there are [numerous open network ports](/cloud/guides/check-linux-ports-in-use) that aren’t carefully monitored, or infrastructure that isn’t consistently managed or maintained with delays in patching and deploying system updates. The role of backups has completely changed in the ransomware era. Attackers are more adept at penetrating networks which forces backup strategies to become more sophisticated and cover a wider variety of circumstances, threat models, and conditions. As more of us use our smartphones for work purposes, this means that we store data on our phones, making corporate backup solutions ineffective if our phones are lost or stolen. Backup tools also weren't initially designed for heavily virtualized and cloud computing environments, which makes them difficult to scale as virtual and cloud servers are brought online.
 
 There are a variety of delivery systems for ransomware. Phished email is most common, but there are other mechanisms that involve malware-infected smartphone apps that masquerade as innocent tools or games, infected software injected into supply chains, or websites that contain malware that can be inadvertently downloaded. Phishing can also come from a poisoned SMS text (Smishing), a voicemail message (vishing) or an instant message.
 

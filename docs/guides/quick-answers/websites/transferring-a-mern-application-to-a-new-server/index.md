@@ -1,41 +1,39 @@
 ---
 slug: transferring-a-mern-application-to-a-new-server
-description: "This guide discusses guidelines for quickly transferring a MERN stack application over to Linode built with Linode's Marketplace App."
+title: "Transfer a MERN application to Linode's MERN Quick Deploy App"
+description: "This guide discusses guidelines for quickly transferring a MERN stack application over to Linode built with Linode's Quick Deploy App."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2022-02-25
 keywords: ['mern stack','node.js','javascript','mongodb']
 tags: ['apache', 'nginx', 'ubuntu', 'centos']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-02-25
-modified_by:
-  name: Linode
-title: "Transfer a MERN application to Linode's MERN Marketplace App"
 external_resources:
 - '[MongoDB MERN Stack Explained](https://www.mongodb.com/mern-stack)'
 - '[Node.js](https://nodejs.org/en/)'
 - '[NPM](https://www.npmjs.com/)'
-authors: ["Linode"]
 ---
 
-The [Linode Marketplace App](/docs/products/tools/marketplace/guides/mern-stack/) for the MERN stack (MongoDB, Express, React, Node.js) is a great way to create the base configuration equipped with all the essentials for a MERN stack quickly, however the Marketplace APP itself will still require tuning to host your MERN application. Transferring an application to a new host for example, can be a complex process depending on the specifics of your configuration. This guide was designed to serve as reference for users currently undergoing the migration process, and aims to clear up potential confusion and common issues that can occur.
+The [Quick Deploy App](/cloud/marketplace-docs/guides/mern-stack) for the MERN stack (MongoDB, Express, React, Node.js) is a great way to create the base configuration equipped with all the essentials for a MERN stack quickly, however the Akamai Quick Deploy App itself will still require tuning to host your MERN application. Transferring an application to a new host for example, can be a complex process depending on the specifics of your configuration. This guide was designed to serve as reference for users currently undergoing the migration process, and aims to clear up potential confusion and common issues that can occur.
 
 ## Transferring the Application
 
-Before proceeding with any migration, it is first recommended that the Marketplace APP for the MERN stack is fully deployed. This will install an up to date version of most of the essentials required for many working MERN applications including the following:
+Before proceeding with any migration, it is first recommended that the Akamai Quick Deploy App for the MERN stack is fully deployed. This will install an up to date version of most of the essentials required for many working MERN applications including the following:
 
 - UFW
 - Fail2Ban
 - MongoDB
 - Node.js
 - NPM
-
-{{< note respectIndent=false >}}
-Users who prefer building applications with alternative package Managers for Node.js like [Yarn](/docs/guides/install-and-use-the-yarn-package-manager/) will need to install the package manager manually.
+{{< note >}}
+Users who prefer building applications with alternative package Managers for Node.js like [Yarn](/cloud/guides/install-and-use-the-yarn-package-manager) will need to install the package manager manually.
 {{< /note >}}
 
 Additionally, this will install the default `hello-world` react application which you may opt to remove to.
 
 ## Removing the default Flask Application
 
-The default `hello-world` Flask application included as part of the MERN Marketplace App can be removed manually from the command line. For some use cases and application,this step may be required to ensure that the necessary resources are available. The commands to remove this application are as follows:
+The default `hello-world` Flask application included as part of the MERN Quick Deploy App can be removed manually from the command line. For some use cases and application,this step may be required to ensure that the necessary resources are available. The commands to remove this application are as follows:
 
     sudo systemctl disable hello-world
     sudo systemctl stop hello-world
@@ -46,9 +44,9 @@ The default `hello-world` Flask application included as part of the MERN Marketp
 
 ## Preparing for The Transfer
 
-Before, proceeding with any remote transfer, it is strongly recommended the original host that will be transferring data to the Linode has [Backups](/docs/guides/backing-up-your-data/) available to restore from. While standard backup solutions will work for the majority of the MERN Stack, a database dump for MongoDB should be performed by using the [mongodump](https://docs.mongodb.com/database-tools/mongodump/) command.
+Before, proceeding with any remote transfer, it is strongly recommended the original host that will be transferring data to the Linode has [Backups](/cloud/guides/backing-up-your-data) available to restore from. While standard backup solutions will work for the majority of the MERN Stack, a database dump for MongoDB should be performed by using the [mongodump](https://docs.mongodb.com/database-tools/mongodump/) command.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If using a Cloud-Native database like **MongoDB Atlas**, the steps for transferring your database may differ, and users should consult the documentation of their database host.
 {{< /note >}}
 
@@ -96,8 +94,8 @@ The packages installed using the `npm install` command will install all node mod
 
 Once these steps are completed, your node configuration should successfully be running.
 
-{{< note respectIndent=false >}}
-Some MERN applications are dependent on a specific version of Node in order to serve content. If you encounter errors related to your version of Node, you can additionally install tools like the [Node Version Manager(NVM)](/docs/guides/how-to-install-use-node-version-manager-nvm/) in order to easily switch to your needed version of Node.
+{{< note >}}
+Some MERN applications are dependent on a specific version of Node in order to serve content. If you encounter errors related to your version of Node, you can additionally install tools like the [Node Version Manager(NVM)](/cloud/guides/how-to-install-use-node-version-manager-nvm) in order to easily switch to your needed version of Node.
 
 {{< /note >}}
 

@@ -1,29 +1,26 @@
 ---
 slug: multiple-web-servers-with-proxypass-on-ubuntu-9-10-karmic
-deprecated: true
+title: 'Multiple Web Servers with ProxyPass on Ubuntu 9.10'
 description: 'This guide will show you how you can use separate web servers to host multiple websites or applications using ProxyPass with Apache on Ubuntu 9.10 "Karmic".'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2010-02-04
+modified: 2011-04-29
 keywords: ["apache", "proxypass", "apache on ubuntu", "multiple web servers"]
 tags: ["proxy","web server","apache","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/apache/multiple-web-servers-with-proxypass-on-ubuntu-9-10-karmic/','/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-ubuntu-9-10-karmic/','/web-servers/apache/multiple-web-servers-with-proxypass-on-ubuntu-9-10-karmic/']
-modified: 2011-04-29
-modified_by:
-  name: Linode
-published: 2010-02-04
-title: 'Multiple Web Servers with ProxyPass on Ubuntu 9.10'
+aliases: []
 relations:
     platform:
         key: multiple-servers-proxypass
         keywords:
             - distribution: Ubuntu 9.10
-authors: ["Linode"]
+deprecated: true
 ---
-
-
 
 In some cases, administrators find that while Apache meets most of their general-purpose web serving needs, other web or application servers are better suited for certain tasks. Fortunately, it's easy to configure Apache to pass certain requests to other web server processes. These secondary (or tertiary) web servers may be running on the same Linode or separate nodes (perhaps via private networking). Our examples use lighttpd as a secondary web server, but they apply to any web server or application you'd like to proxy HTTP requests to.
 
-We assume you already have Apache running on your Linode. If you don't, you may wish to review our [Apache on Ubuntu 9.10 (Karmic) guide](/docs/web-servers/apache/installation/ubuntu-9-10-karmic) before proceeding. These steps should be performed as root via a shell session.
+We assume you already have Apache running on your Linode. If you don't, you may wish to review our [Apache on Ubuntu 9.10 (Karmic) guide](/cloud/guides/apache-2-web-server-on-ubuntu-9-10-karmic) before proceeding. These steps should be performed as root via a shell session.
 
 ## Enabling the Proxy Module
 

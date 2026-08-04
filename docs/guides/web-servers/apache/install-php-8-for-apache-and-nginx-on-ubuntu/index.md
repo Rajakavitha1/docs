@@ -1,18 +1,17 @@
 ---
 slug: install-php-8-for-apache-and-nginx-on-ubuntu
+title: "Install PHP 8 for Apache and NGINX on Ubuntu"
+title_meta: "How to Install PHP 8 for Apache and NGINX on Ubuntu"
 description: 'This guide shows you how to install PHP 8 and PHP-FPM for use with Apache and NGINX on an Ubuntu system.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-08-27
 keywords: ['Nginx PHP-fpm','Apache php','Php 8','Php fpm','What is PHP?']
 tags: ['php', 'nginx', 'apache', 'ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-08-27
-modified_by:
-  name: Linode
-title: "Install PHP 8 for Apache and NGINX on Ubuntu"
-title_meta: "How to Install PHP 8 for Apache and NGINX on Ubuntu"
 external_resources:
 - '[Introductory PHP tutorial](https://www.php.net/)'
 - '[Complete PHP Documentation](https://www.php.net/manual/en/)'
-authors: ["Jeff Novotny"]
 ---
 
 [*PHP*](https://www.php.net/) is one of the building blocks of the modern internet. It is a free, open-source scripting language that typically runs on a web server and can be integrated into regular HTML code. PHP is fast, flexible, and can interact with databases, forms, and file systems. This guide provides a brief introduction to PHP and explains how to install, configure, upgrade, and test it.
@@ -63,14 +62,14 @@ PHP has only a few disadvantages. Some of these drawbacks include a lack of libr
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access. **Do not** follow the *Configure a Firewall section* yet as this guide includes firewall rules specifically for an OpenVPN server.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access. **Do not** follow the *Configure a Firewall section* yet as this guide includes firewall rules specifically for an OpenVPN server.
 
-1. PHP is usually used in conjunction with a web server. An Apache or NGINX web server should already be installed on the Linode. See the Linode guides for [Apache](/docs/guides/how-to-install-apache-web-server-ubuntu-18-04/) or [NGINX](/docs/guides/how-to-install-and-use-nginx-on-ubuntu-20-04/) for more information. Instructions for both servers are included in this guide. If `ufw` is enabled, ensure it allows web server access.
+1. PHP is usually used in conjunction with a web server. An Apache or NGINX web server should already be installed on the Linode. See the Linode guides for [Apache](/cloud/guides/how-to-install-apache-web-server-ubuntu-18-04) or [NGINX](/cloud/guides/how-to-install-and-use-nginx-on-ubuntu-20-04) for more information. Instructions for both servers are included in this guide. If `ufw` is enabled, ensure it allows web server access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Add the PHP Repository
@@ -161,7 +160,7 @@ php8.0-fpm.service - The PHP 8.0 FastCGI Process Manager
         sudo a2enmod actions fcgid alias proxy_fcgi
 1. If you have configured a virtual host for your domain, add an FPM handler to the site's `.conf` file. Otherwise, add the handler to the default `000-default.conf` file. The `.conf` files can be found in the `/etc/apache2/sites-available` directory. Add the line `SetHandler "proxy:unix:/var/run/php/php8.0-fpm.sock|fcgi://localhost"` to the `VirtualHost` block as shown here.
     {{< note respectIndent=false >}}
-For information on how to add a virtual host, see the Linode guide on [How to Install Apache Web Server on Ubuntu 18.04 LTS](/docs/guides/how-to-install-apache-web-server-ubuntu-18-04/).
+For information on how to add a virtual host, see the Linode guide on [How to Install Apache Web Server on Ubuntu 18.04 LTS](/cloud/guides/how-to-install-apache-web-server-ubuntu-18-04).
     {{< /note >}}
 
     {{< file "/etc/apache2/sites-available/000-default.conf" aconf >}}
@@ -179,7 +178,7 @@ For information on how to add a virtual host, see the Linode guide on [How to In
 
 ## How to Install PHP and PHP-FPM with NGINX
 
-The procedure to install PHP on NGINX is very similar to the procedure for [Apache](/docs/guides/install-php-8-for-apache-and-nginx-on-ubuntu/#how-to-install-php-and-php-fpm-with-apache). If Apache is installed on the system, the PHP installation process might try to activate it. If this happens, stop Apache with the command `sudo systemctl disable --now apache2`.
+The procedure to install PHP on NGINX is very similar to the procedure for [Apache](/cloud/guides/install-php-8-for-apache-and-nginx-on-ubuntu#how-to-install-php-and-php-fpm-with-apache). If Apache is installed on the system, the PHP installation process might try to activate it. If this happens, stop Apache with the command `sudo systemctl disable --now apache2`.
 
 1. Install the `php-fpm` module.
 
@@ -209,7 +208,7 @@ php8.0-fpm.service - The PHP 8.0 FastCGI Process Manager
     {{< /output >}}
 1. Add the following configuration to the virtual host `.conf` file for your domain. If a virtual host has not been configured, add it to the `default` NGINX file instead. These files are located in the `/etc/nginx/sites-available` directory.
     {{< note respectIndent=false >}}
-For more information on configuring a virtual host on NGINX, consult the Linode Guide on [How to Install and Use NGINX on Ubuntu 20.04](/docs/guides/how-to-install-and-use-nginx-on-ubuntu-20-04/).
+For more information on configuring a virtual host on NGINX, consult the Linode Guide on [How to Install and Use NGINX on Ubuntu 20.04](/cloud/guides/how-to-install-and-use-nginx-on-ubuntu-20-04).
     {{< /note >}}
 
     {{< file "/etc/nginx/sites-available/default" aconf >}}
@@ -258,7 +257,7 @@ To create and display the standard "PHP Info" page, follow the below steps:
 
 Earlier versions of PHP can easily be upgraded to version 8. All PHP-related packages should be upgraded at the same time. Otherwise, conflicts or crashes might occur. To determine whether the PHP 8.0 packages are present on the system or not, consult the [Add the PHP Repository](#add-the-php-repository) section of this guide. If the 8.0 package is not present, the `ondrej/php` repository must be installed first. The steps in this section explain how to upgrade PHP and PHP-FPM from version 7.4 to 8.0, using Apache as the webserver.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Because PHP version 8 has many changes, it is possible old code might not work after an upgrade. It is a good idea to test any websites and applications in a development environment before putting them into production. A list of non-backward-compatible changes is available on the [PHP GitHub repository](https://github.com/php/php-src/blob/PHP-8.0/UPGRADING#L20).
 {{< /note >}}
 

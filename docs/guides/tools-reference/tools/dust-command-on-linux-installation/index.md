@@ -1,17 +1,16 @@
 ---
 slug: dust-command-on-linux-installation
+title: "Check Disk Usage on Linux with the dust Command"
+title_meta: "Installing and Using dust on Linux"
 description: 'Dust is a replacement for the Linux du command. In this guide, you learn how to use dust to view your Linux system''s disk usage.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-11-12
 keywords: ['Dust linux', 'linux check disk space','Check disk usage Linux','Du replacement']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-12
-modified_by:
-  name: Linode
-title: "Check Disk Usage on Linux with the dust Command"
-title_meta: "Installing and Using dust on Linux"
 external_resources:
 - '[Dust page on GitHub](https://github.com/bootandy/dust)'
-authors: ["Jeff Novotny"]
 ---
 
 Hard drive space on a system can fill up quickly, especially when new software is installed. System administrators frequently have to review disk space utilization and see what files or directories are using up the most storage. This can be accomplished using the Linux `du` command, but many users find it cumbersome and awkward to use. The open-source [*dust*](https://github.com/bootandy/dust) program offers a new way of looking at disk space usage more intuitively and straightforwardly. This guide explains how to install and use the dust utility on Linux and how it functions as a du replacement.
@@ -61,12 +60,12 @@ A good strategy is to use dust to get a quick overview of the system's disk spac
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Dust
@@ -77,7 +76,7 @@ There are three main ways of installing Dust. Either use the Cargo or Homebrew p
 
 The easiest way to install Dust is by using the Cargo utility. Cargo is the package manager for [*Rust*](https://www.rust-lang.org/), a popular high-performance programming language. If Rust is already installed on the system, then Cargo is installed too. If not, Cargo can be installed as a stand-alone application by using `apt`.
 
-1. Ensure the system is fully updated using the instructions in the [Before You Begin](/docs/guides/dust-command-on-linux-installation/#before-you-begin) section. Install Cargo using `apt`.
+1. Ensure the system is fully updated using the instructions in the [Before You Begin](/cloud/guides/dust-command-on-linux-installation#before-you-begin) section. Install Cargo using `apt`.
 
         sudo apt install cargo
 

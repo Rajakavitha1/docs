@@ -1,19 +1,18 @@
 ---
 slug: python-variables
+title: "Getting Started with Python Variables"
 description: "Variables form the backbone of programming. So how do they work and how do you use them effectively with Python? Find out in this guide covering Python variables from assignment through scope and type."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-04-04
 keywords: ['python variables', 'python variables naming convention', 'python variables case sensitive']
 tags: ['python']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-04-04
-modified_by:
-  name: Nathaniel Stickman
-title: "Getting Started with Python Variables"
 external_resources:
 - '[W3 Schools: Python Variables](https://www.w3schools.com/python/python_variables.asp)'
 - '[Real Python: Variables in Python](https://realpython.com/python-variables/)'
 - '[GeeksforGeeks: Python Variables](https://www.geeksforgeeks.org/python-variables/)'
 - '[Tutorials Point: Python - Variable Types](https://www.tutorialspoint.com/python/python_variable_types.htm)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Variables are what make programs capable of meaningful action and complexity. Understandably, you want to know how they work for any language you are working with.
@@ -202,7 +201,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-There are many more data types than integers and strings, and much more to know about them. To keep learning more, take a look at our [The Basics of Python Data Types](/docs/guides/python-data-types/) guide.
+There are many more data types than integers and strings, and much more to know about them. To keep learning more, take a look at our [The Basics of Python Data Types](/cloud/guides/python-data-types) guide.
 
 ### Casting Variables
 
@@ -227,4 +226,4 @@ Hello, 5!
 
 This guide has covered the foundations you need to start working with variables in Python, including variable assignment, variable operations, types, and scopes.
 
-In addition to this guide, you may be interested in [The Basics of Python Data Types](/docs/guides/python-data-types/), or our other [guides on Python development](/docs/guides/development/python/). These can give you tools to elevate your Python skills and start making your Python code more effective.
+In addition to this guide, you may be interested in [The Basics of Python Data Types](/cloud/guides/python-data-types), or our other [guides on Python development](/cloud/guides/development/python). These can give you tools to elevate your Python skills and start making your Python code more effective.

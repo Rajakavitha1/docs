@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-3
-description: "In part three of our series on Kubernetes, you will learn about Managed clusters, as well as how to set them up using the Linode Kubernetes Engine (LKE)."
 title: "Building a CD Pipeline Using LKE (Part 3): Deploying the LKE Cluster"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: "In part three of our series on Kubernetes, you will learn about Managed clusters, as well as how to set them up using the Linode Kubernetes Engine (LKE)."
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2022-12-14
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-3/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Deploying our LKE Cluster](cd-presentation-header-03-deploying-lke-cluster.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Deploy the Cluster")
@@ -25,9 +24,9 @@ Managed Kubernetes clusters are much easier to setup and maintain than self-mana
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Previous section:** [Part 2: Sample Application](/docs/guides/build-a-cd-pipeline-with-lke-part-2/)
-- **Next section:** [Part 4: Kubernetes Review](/docs/guides/build-a-cd-pipeline-with-lke-part-4/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Previous section:** [Part 2: Sample Application](/cloud/guides/build-a-cd-pipeline-with-lke-part-2)
+- **Next section:** [Part 4: Kubernetes Review](/cloud/guides/build-a-cd-pipeline-with-lke-part-4)
 
 ## Presentation Text
 

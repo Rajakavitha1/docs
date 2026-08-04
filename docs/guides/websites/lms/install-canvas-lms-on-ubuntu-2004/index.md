@@ -1,14 +1,14 @@
 ---
 slug: install-canvas-lms-on-ubuntu-2004
+title: "Installing Canvas on Ubuntu 20.04"
+title_meta: "How to Install Canvas LMS on Ubuntu 20.04"
 description: 'This guide will show you how to install Canvas, a learning management system that enables you to create a website for education or training courses, on Ubuntu 20.04.'
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-05-28
 keywords: ['canvas','education','training','learning management system','lms','install on ubuntu 20.04']
 tags: ['canvas', 'ubuntu', 'ssl', 'apache', 'redis', 'education']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-05-28
-modified_by:
-  name: Nathaniel Stickman
-title: "Installing Canvas on Ubuntu 20.04"
-title_meta: "How to Install Canvas LMS on Ubuntu 20.04"
 external_resources:
 - '[Canvas](https://www.instructure.com/canvas)'
 - '[open source](https://github.com/instructure/canvas-lms)'
@@ -24,7 +24,8 @@ relations:
         key: how-to-install-canvas
         keywords:
             - distribution: Ubuntu 20.04
-authors: ["Nathaniel Stickman"]
+deprecated: true
+deprecated_link: '/docs/guides/install-canvas-lms-on-ubuntu-2204/'
 ---
 
 [Canvas](https://www.instructure.com/canvas) is a popular learning management system (LMS) noteworthy for its modern design and ease of use. Canvas provides a comprehensive website for education and training courses, whether those courses are in-person, online, or a mix of the two. Moreover, Canvas is [open source](https://github.com/instructure/canvas-lms). You can freely download and install an instance on your server, giving you a higher degree of control than with a hosted LMS.
@@ -33,22 +34,22 @@ This guide shows you how to get a Canvas website up and running on an Ubuntu 20.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 1. Prepare an SMTP server that Canvas can use to send email notifications to users. You can use a third-party SMTP service for this purpose. This guide's example configurations use [Mailgun](https://www.mailgun.com/) as the third-party SMTP provider.
 
-    You can, alternatively, create your SMTP server by following the [Email with Postfix, Dovecot, and MySQL](/docs/guides/email-with-postfix-dovecot-and-mysql/) guide. However, because of Canvas's resource demands, you may want to run the SMTP server on a separate machine than the one running Canvas.
+    You can, alternatively, create your SMTP server by following the [Email with Postfix, Dovecot, and MySQL](/cloud/guides/email-with-postfix-dovecot-and-mysql) guide. However, because of Canvas's resource demands, you may want to run the SMTP server on a separate machine than the one running Canvas.
 
 1. Canvas recommends a minimum of 8 GB of RAM. The website may operate with fewer, but doing so may result in installation and/or runtime issues. This is especially the case when all of the Canvas components are running on a single machine.
 
     You can run some of the components of your Canvas installation on separate machines to improve performance if needed. Refer to Canvas's [Production Start](https://github.com/instructure/canvas-lms/wiki/Production-Start) guide for more on what components can be installed independently. Be aware that this approach requires some additional configuration to enable communications between the components.
 
-1. Replace `example.com` in this guide with your server's domain name. You can complete the [Add DNS Records](/docs/guides/set-up-web-server-host-website/#add-dns-records) steps to register a domain name for your Linode server.
+1. Replace `example.com` in this guide with your server's domain name. You can complete the [Add DNS Records](/cloud/guides/set-up-web-server-host-website#add-dns-records) steps to register a domain name for your Linode server.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Apache
@@ -109,7 +110,7 @@ Canvas specifically requires version **2.7** of Ruby, which the default package 
 
 1. Install Ruby and its development components:
 
-        sudo apt-get install ruby2.6 ruby2.6-dev zlib1g-dev libxml2-dev libsqlite3-dev postgresql libpq-dev  libxmlsec1-dev curl make g++
+        sudo apt-get install ruby2.7 ruby2.7-dev zlib1g-dev libxml2-dev libsqlite3-dev postgresql libpq-dev  libxmlsec1-dev curl make g++
 
 1. Install Bundler, which Canvas uses for managing its Ruby libraries ("Gems"). Canvas specifically calls for version **2.1.4** of Bundler:
 

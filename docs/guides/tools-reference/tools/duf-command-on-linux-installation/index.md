@@ -1,36 +1,35 @@
 ---
 slug: duf-command-on-linux-installation
+title: "Install and Use the duf Command on Linux"
+title_meta: "How to Install and Use the duf Command on Linux"
 description: "Learn how to use the duf utility for checking disk usage and free space on your Linux system. With duf, you get a modern and more user-friendly alternative to both du and df."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-11-11
 keywords: ['duf linux','du linux','df linux', 'linux disk usage']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-11
-modified_by:
-  name: Nathaniel Stickman
-title: "Install and Use the duf Command on Linux"
-title_meta: "How to Install and Use the duf Command on Linux"
-authors: ["Nathaniel Stickman"]
 ---
 
 Duf is a command-line tool for viewing your system's disk usage and free space. It combines into one place the information you might otherwise get from the `du` and `df` commands and presents that information in a clean and modern interface. In this guide, you learn more about duf, how it compares to the `du` and `df` commands, and how to install it on your Linux system.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is duf?
 
 [duf](https://github.com/muesli/duf) gives you a single tool for checking disk usage and free space. By default, Linux systems provide the du and df tools for viewing disk usage and space, respectively, from the command line. Duf presents the same information as du and df and renders it in a modern and easy-to-read command-line display.
 
-Where `du` and `df` give you limited control over how information is shown, duf gives you options for sorting, filtering, and otherwise altering the display. You can learn more about `du` and `df` in our [How to Check and Clean a Linux System's Disk Space](/docs/guides/check-and-clean-linux-disk-space/) guide.
+Where `du` and `df` give you limited control over how information is shown, duf gives you options for sorting, filtering, and otherwise altering the display. You can learn more about `du` and `df` in our [How to Check and Clean a Linux System's Disk Space](/cloud/guides/check-and-clean-linux-disk-space) guide.
 
-In the following sections, you can see some examples of how duf compares to du and df. Specifically, take a look at the [How to Use duf](/docs/guides/duf-command-on-linux-installation/#how-to-use-duf) section below to see side-by-side comparisons.
+In the following sections, you can see some examples of how duf compares to du and df. Specifically, take a look at the [How to Use duf](/cloud/guides/duf-command-on-linux-installation#how-to-use-duf) section below to see side-by-side comparisons.
 
 ## How to Install duf
 

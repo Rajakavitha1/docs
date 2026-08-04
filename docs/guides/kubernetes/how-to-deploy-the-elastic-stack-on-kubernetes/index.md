@@ -1,6 +1,11 @@
 ---
 slug: how-to-deploy-the-elastic-stack-on-kubernetes
+title: "Deploy the Elastic Stack on Kubernetes"
+title_meta: "How to Deploy the Elastic Stack on Kubernetes"
 description: "Learn how to install components of the Elastic Stack like Elasticsearch and Kibana on Kubernetes."
+authors: ["Tyler Langlois"]
+contributors: ["Tyler Langlois"]
+published: 2020-07-07
 keywords:
   [
     "elastic",
@@ -15,15 +20,9 @@ keywords:
   ]
 tags: ["monitoring","container","kubernetes","docker"]
 license: "[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)"
-published: 2020-07-07
-modified_by:
-  name: Linode
-title: "Deploy the Elastic Stack on Kubernetes"
-title_meta: "How to Deploy the Elastic Stack on Kubernetes"
 external_resources:
   - "[Elastic Documentation](https://www.elastic.co/guide/index.html)"
-aliases: ['/kubernetes/how-to-deploy-the-elastic-stack-on-kubernetes/','/applications/containers/how-to-deploy-the-elastic-stack-on-kubernetes/']
-authors: ["Tyler Langlois"]
+aliases: []
 ---
 
 ## What is the Elastic Stack?
@@ -41,21 +40,21 @@ You can further use the Elastic Stack deployed and configured for application lo
 {{< note type="alert" >}}
 This guide's example instructions creates the following billable resources on the Linode account: four (4) Linodes and three (3) Block Storage volumes. If you do not want to keep using the example cluster that you create, be sure to delete the cluster Linodes and volumes after you have finished the guide.
 
-If you remove the resources afterward, you are billed only for the hour(s) that the resources were present on the account. For more information, see [Billing and Payments](/docs/products/platform/billing/) guide about how hourly billing works and for a table of plan pricing.
+If you remove the resources afterward, you are billed only for the hour(s) that the resources were present on the account. For more information, see [Billing and Payments](https://techdocs.akamai.com/cloud-computing/docs/understanding-how-billing-works) guide about how hourly billing works and for a table of plan pricing.
 {{< /note >}}
 
 ## Before You Begin
 
 {{< note >}}
-This guide uses Kubernetes services which are private by default. Local listeners are opened which allow you to access the services on the local browser, however, web servers and NodeBalancers are out scope for this guide. Due to this, you should complete the steps of this guide from the local computer or from a computer that gives you access to the web browser. If you want to access these services from a public domain, please see the [Getting Started with NodeBalancers](/docs/products/networking/nodebalancers/get-started/) guide.
+This guide uses Kubernetes services which are private by default. Local listeners are opened which allow you to access the services on the local browser, however, web servers and NodeBalancers are out scope for this guide. Due to this, you should complete the steps of this guide from the local computer or from a computer that gives you access to the web browser. If you want to access these services from a public domain, please see the [Getting Started with NodeBalancers](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-nodebalancers) guide.
 {{< /note >}}
 
 1.  [Install the Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (`kubectl`) on the local computer.
 
-1.  Follow the instructions in [Deploying and Managing a Cluster with Linode Kubernetes Engine Tutorial](/docs/products/compute/kubernetes/) to create and connect to an LKE cluster.
+1.  Follow the instructions in [Deploying and Managing a Cluster with Linode Kubernetes Engine Tutorial](https://techdocs.akamai.com/cloud-computing/docs/linode-kubernetes-engine) to create and connect to an LKE cluster.
 
     {{< note >}}
-    Ensure that the LKE cluster that you create has three nodes and one master node with  4GB Linode instances. Also ensure that the `KUBECONFIG` context is [persistent](/docs/products/compute/kubernetes/guides/kubectl/#persist-the-kubeconfig-context)
+    Ensure that the LKE cluster that you create has three nodes and one master node with  4GB Linode instances. Also ensure that the `KUBECONFIG` context is [persistent](https://techdocs.akamai.com/cloud-computing/docs/manage-a-cluster-with-kubectl#persist-the-kubeconfig-context)
     {{< /note >}}
 
 1.  You should also make sure that Kubernetes CLI is using the right cluster context. Run the `get-contexts` subcommand to check:
@@ -64,7 +63,7 @@ This guide uses Kubernetes services which are private by default. Local listener
     kubectl config get-contexts
     ```
 
-1.  Set up Helm in the Kubernetes cluster by following the [Install Helm](/docs/guides/how-to-install-apps-on-kubernetes-with-helm-3/#install-helm) section in the *How to Install Apps on Kubernetes with Helm 3* guide.
+1.  Set up Helm in the Kubernetes cluster by following the [Install Helm](/cloud/guides/how-to-install-apps-on-kubernetes-with-helm-3#install-helm) section in the *How to Install Apps on Kubernetes with Helm 3* guide.
 
 ## Configure Helm
 

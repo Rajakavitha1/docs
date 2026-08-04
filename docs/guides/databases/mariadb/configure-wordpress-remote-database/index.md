@@ -1,38 +1,37 @@
 ---
 slug: configure-wordpress-remote-database
+title: Configure WordPress to use a Remote Database
 description: 'This guide shows how to configure WordPress to access a database on a separate Linode.'
+authors: ["Edward Angert"]
+contributors: ["Edward Angert"]
+published: 2018-06-25
+modified: 2018-12-11
 keywords: ["mariadb", "database", "mysql", "remote database", "remote db", "remote client"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2018-12-11
-modified_by:
-  name: Linode
-published: 2018-06-25
-title: Configure WordPress to use a Remote Database
 external_resources:
  - '[MariaDB Knowledge Base](https://mariadb.com/kb/en)'
  - '[MariaDB FAQ](https://mariadb.com/kb/en/mariadb-mariadb-faq/)'
  - '[MariaDB SQL commands](https://mariadb.com/kb/en/sql-commands/)'
 tags: ["wordpress","mariadb","database"]
-aliases: ['/databases/mariadb/configure-wordpress-remote-database/']
-authors: ["Edward Angert"]
+aliases: []
 ---
 
 ![Configure WordPress to use a Remote Database](Configure_WordPress_to_use_a_Remote_Database_smg.jpg)
 
 ## Before You Begin
 
-- This guide uses two Linodes in the same data center to communicate via [private IP](/docs/products/compute/compute-instances/guides/manage-ip-addresses/#adding-an-ip-address) addresses. You will need to configure a [LEMP](/docs/web-servers/lemp/) or [LAMP](/docs/web-servers/lamp/) stack on one.
+- This guide uses two Linodes in the same data center to communicate via [private IP](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance#adding-an-ip-address) addresses. You will need to configure a [LEMP](/cloud/guides/web-servers/lemp) or [LAMP](/cloud/guides/web-servers/lamp) stack on one.
 
 - Ensure that all packages are up to date.
 
-- Follow the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) and [Secure your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides to create a non-root sudo user.
+- Follow the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) and [Secure your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides to create a non-root sudo user.
 
-- While the steps to configure an existing database may be similar, this guide is written for a fresh database and WordPress installation. Visit our guide on how to [backup an existing database](/docs/guides/mysqldump-backups/#creating-backups-of-a-single-database).
+- While the steps to configure an existing database may be similar, this guide is written for a fresh database and WordPress installation. Visit our guide on how to [backup an existing database](/cloud/guides/mysqldump-backups).
 
 ### Variables Used in This Guide
 
 * *Database server*: Linode on which the database is installed.
-* *Web server*: Linode on which [WordPress is downloaded](/docs/guides/install-wordpress-on-ubuntu-16-04/).
+* *Web server*: Linode on which [WordPress is downloaded](/cloud/guides/install-wordpress-on-ubuntu-16-04).
 * `example.com`: Your fully qualified domain name (FQDN) or IP address.
 * `wordpress`: Database name.
 * `wpuser`: The WordPress client database user.
@@ -56,7 +55,7 @@ Run these steps on the database server.
 
 ### Accept Remote Connections
 
-{{< content "cloud-firewall-shortguide" >}}
+{{% content "cloud-firewall-shortguide" %}}
 
 1.  Change the `bind-address` to the database server's private IP to configure the MariaDB to accept remote connections:
 
@@ -106,7 +105,7 @@ Run these steps on the web server.
 
 When first installed and configured through the web interface and a local database, WordPress creates a file called `wp-config.php`. Configure the initial remote database settings.
 
-1.  Navigate to the directory to which [WordPress was extracted](/docs/guides/install-wordpress-on-ubuntu-16-04/#install-wordpress), copy the sample configuration and set it to use the remote database:
+1.  Navigate to the directory to which [WordPress was extracted](/cloud/guides/install-wordpress-on-ubuntu-16-04#install-wordpress), copy the sample configuration and set it to use the remote database:
 
         cd /var/www/html/example.com/public_html
         sudo cp wp-config-sample.php wp-config.php
@@ -355,4 +354,4 @@ Access the WordPress installation interface through `wp-admin`. Use a browser to
 
 ## Next Steps
 
-Now that the database is configured to communicate over a secure connection, consider using SSL/TLS for the web server itself. Our guide covering [TLS on NGINX](/docs/guides/getting-started-with-nginx-part-3-enable-tls-for-https/) details some best practices for securing NGINX and web servers in general. Visit the [SSL Certificates](/docs/security/ssl/) section of Linode Docs for information on other servers and Linux distributions.
+Now that the database is configured to communicate over a secure connection, consider using SSL/TLS for the web server itself. Our guide covering [TLS on NGINX](/cloud/guides/getting-started-with-nginx-part-3-enable-tls-for-https) details some best practices for securing NGINX and web servers in general. Visit the [SSL Certificates](/cloud/guides/security/ssl) section of Linode Docs for information on other servers and Linux distributions.

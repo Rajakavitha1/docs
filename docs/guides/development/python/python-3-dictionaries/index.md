@@ -1,15 +1,14 @@
 ---
 slug: python-3-dictionaries
+title: "Use Dictionaries in Python 3"
+title_meta: "How to Use Dictionaries in Python 3"
 description: 'Dictionaries in Python 3 contain key-value pairs and support various built-in methods for common tasks. This guide shows you how to create, delete, and update a Python dictionary.'
+authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2022-04-01
 keywords: ['get value from dictionary python','python define dictionary','python dictionary methods']
 tags: ['Python']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-04-01
-modified_by:
-  name: Linode
-title: "Use Dictionaries in Python 3"
-title_meta: "How to Use Dictionaries in Python 3"
-authors: ["John Mueller"]
 ---
 
 A dictionary in Python is much like the dictionary you find online or the paper version you find on a shelf. It consists of a series of key-value pairs. A Python dictionary's keys are used to retrieve a dictionary entry along with its value. The act of assigning a key to a value is called *mapping*, so a Python dictionary is a *mapped data type*. This guide introduces you to the Python 3 dictionary data type and shows you how to use dictionaries in your Python code.
@@ -86,7 +85,7 @@ A tuple is a built-in Python data structure that stores multiple comma-separated
 
     map_coordinates = {(0,1): 100, (2,1): 200}
 
-To learn more about the syntax of Python tuples and other topics, like built-in tuple methods, and tuple unpacking, see our guide [An Introduction to Python Tuples](/docs/guides/python-tuples/).
+To learn more about the syntax of Python tuples and other topics, like built-in tuple methods, and tuple unpacking, see our guide [An Introduction to Python Tuples](/cloud/guides/python-tuples).
 
 ### Dictionary Comprehension
 
@@ -130,7 +129,7 @@ Dictionary comprehensions require less typing due to its concise syntax. It also
 
 After creating a dictionary, you can access its values in several different ways. The two common methods for performing this task are to access the value directly or to access it as part of a loop. A dictionary often contains unwanted values, so using Python comprehensions can cut the dictionary down to size before you access its values. These techniques appear in the following sections.
 
-If you are newer to for and while loops in Python, you can view several examples in our guide [For and While Loops in Python 3](/docs/guides/python-for-and-while-loops/).
+If you are newer to for and while loops in Python, you can view several examples in our guide [For and While Loops in Python 3](/cloud/guides/python-for-and-while-loops).
 
 ### Access a Dictionary's Values
 

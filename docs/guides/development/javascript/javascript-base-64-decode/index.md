@@ -1,19 +1,18 @@
 ---
 slug: javascript-base-64-decode
-description: 'Wondering how to encode and decode with base64 in JavaScript? Follow these steps to learn how plus find the benefits and limitations of the base64 code.'
-keywords: ['javascript base 64 decode','encode string javascript','base64 js']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-29
-modified_by:
-  name: Linode
 title: "JavaScript Decode Base64 String - A Developer’s Guide"
 title_meta: "How to Use JavaScript Base 64 to Decode and Encode"
+description: 'Wondering how to encode and decode with base64 in JavaScript? Follow these steps to learn how plus find the benefits and limitations of the base64 code.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2023-03-29
+keywords: ['javascript base 64 decode','encode string javascript','base64 js']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Wikipedia Base64 page](https://en.wikipedia.org/wiki/Base64)'
 - '[RFC 4648 for Base64](https://datatracker.ietf.org/doc/html/rfc4648)'
 - '[Mozilla btoa documentation](https://developer.mozilla.org/en-US/docs/Web/API/btoa)'
 - '[Mozilla atob documentation](https://developer.mozilla.org/en-US/docs/Web/API/atob)'
-authors: ["Jeff Novotny"]
 ---
 
 It is often necessary to embed a binary or other non-ASCII file inside an email or a web page. However, for a variety of reasons, it is not always safe to include the file in its original state. One possible solution is to first convert the binary data to Base64 text before including it. This guide provides an introduction to Base64 encoding and explains how to use the JavaScript Base64 functions to encode and decode data.
@@ -85,12 +84,12 @@ Unfortunately, there are also some drawbacks to Base64 encoding, mainly involvin
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Encode and Decode with Base64 in JavaScript?

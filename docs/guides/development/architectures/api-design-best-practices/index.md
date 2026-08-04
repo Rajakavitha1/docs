@@ -1,19 +1,18 @@
 ---
 slug: api-design-best-practices
-description: "Searching for API design best practices to elevate your development process? We identify some of the best practices you need to follow right now. ✓ Learn more!"
-keywords: ['api design best practices','api architecture','rest api design']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-11
-modified_by:
-  name: Nathaniel Stickman
 title: "API Design Best Practices: Elevate Your Development Process"
 title_meta: "REST API Best Practices for Design"
+description: "Searching for API design best practices to elevate your development process? We identify some of the best practices you need to follow right now. ✓ Learn more!"
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-03-11
+keywords: ['api design best practices','api architecture','rest api design']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Microsoft Docs: RESTful Web API Design](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)'
 - '[freeCodeCamp: REST API Best Practices – REST Endpoint Design Examples](https://www.freecodecamp.org/news/rest-api-best-practices-rest-endpoint-design-examples/ )'
 - '[Swagger: Best Practices in API Design](https://swagger.io/resources/articles/best-practices-in-api-design/ )'
 - '[Stack Overflow Blog: Best Practices for REST API Design](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Looking for flexibility, many modern web applications are turning to microservices and effective APIs to connect those services consistently and effectively. REST APIs in particular stand out as perhaps the most pervasive architecture for connecting microservices today.
@@ -141,11 +140,11 @@ Numerous tools exist to help with documenting REST APIs. Often, these can automa
 
 Secure your RESTful API using SSL and authentication tokens. Using SSL protects API connections from attacks, while authentication allows you to ensure that only authorized users have access.
 
-To learn more about SSL certification, check out our guides [Understanding TLS Certificates and Connections](/docs/guides/what-is-a-tls-certificate/) and [Securing Web Traffic Using Certbot](/docs/guides/enabling-https-using-certbot/).
+To learn more about SSL certification, check out our guides [Understanding TLS Certificates and Connections](/cloud/guides/what-is-a-tls-certificate) and [Securing Web Traffic Using Certbot](/cloud/guides/enabling-https-using-certbot).
 
 Recall that REST APIs are stateless. Thus, the preferred path for authentication on REST APIs is through the use of authentication tokens. In this scenario, a client may post credentials to a given endpoint. The API validates the credentials and assigns the user a random token in response. The client must then include that token in its requests to other endpoints.
 
-You can find information on the implementation of JSON Web Tokens, for example, in our guide [User Authentication with JSON Web Tokens (JWTs) and Express](/docs/guides/how-to-authenticate-using-jwt/).
+You can find information on the implementation of JSON Web Tokens, for example, in our guide [User Authentication with JSON Web Tokens (JWTs) and Express](/cloud/guides/how-to-authenticate-using-jwt).
 
 ### Respond with Statuses
 

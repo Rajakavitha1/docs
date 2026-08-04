@@ -1,21 +1,20 @@
 ---
 slug: visualize-server-security-on-centos-7-with-an-elastic-stack-and-wazuh
+title: "Visualize Server Security on CentOS 7 with an Elastic Stack and Wazuh"
+title_meta: "How to Visualize Server Security on CentOS 7"
 description: "Learn how to use the Elastic Stack to collect, log, and visualize security data and threat alerts through Wazuh, part of OSSEC Intrusion Detection."
+authors: ["Andrew Lescher"]
+contributors: ["Andrew Lescher"]
+published: 2017-10-17
+modified: 2019-01-31
 keywords: ["ossec", "elk stack", "elk,ossec-hids"]
 tags: ["monitoring","security","lemp","centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-10-17
-modified: 2019-01-31
-modified_by:
-  name: Linode
-title: "Visualize Server Security on CentOS 7 with an Elastic Stack and Wazuh"
-title_meta: "How to Visualize Server Security on CentOS 7"
 external_resources:
   - '[Wazuh Official Documentation](https://documentation.wazuh.com/current/index.html)'
   - '[OSSEC Official Documentation](http://ossec-docs.readthedocs.io/en/latest/index.html)'
 dedicated_cpu_link: true
-aliases: ['/security/monitoring/visualize-server-security-on-centos-7-with-an-elastic-stack-and-wazuh/','/security/visualize-server-security-on-centos-7-with-an-elastic-stack-and-wazuh/']
-authors: ["Andrew Lescher"]
+aliases: []
 ---
 
 ![Visualize Server Security on CentOS 7 with an Elastic Stack and Wazuh](elastic-stack-security-title.jpg "Visualize Server Security on CentOS 7 with an Elastic Stack and Wazuh")
@@ -42,28 +41,28 @@ Wazuh is an open source branch of the original [OSSEC HIDS](https://ossec.github
 
 ## Before You Begin
 
-1.  Many of the steps in this guide require root privileges. Complete the sections of our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services. Use `sudo` wherever necessary.
+1.  Many of the steps in this guide require root privileges. Complete the sections of our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services. Use `sudo` wherever necessary.
 
 2. Your Linode should have at least [8GB of RAM](https://www.linode.com/pricing). While an Elastic Stack will run on less RAM, the Wazuh Manager will crash if RAM is depleted at any time during use.
 
-3. Add a domain zone, NS record, and A/AAA record for the domain you will use to access your Kibana installation. See the [DNS Manager](/docs/products/networking/dns-manager/) guide for details. If you will access your Kibana instance via your Linode's IP address, you can skip this step.
+3. Add a domain zone, NS record, and A/AAA record for the domain you will use to access your Kibana installation. See the [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide for details. If you will access your Kibana instance via your Linode's IP address, you can skip this step.
 
-4. [Create an SSL Certificate](/docs/guides/install-lets-encrypt-to-create-ssl-certificates/), if you will be using SSL encryption for your domain.
+4. [Create an SSL Certificate](/cloud/guides/install-lets-encrypt-to-create-ssl-certificates), if you will be using SSL encryption for your domain.
 
 5. Install NGINX or Apache. Visit our guides on how to install a LEMP or LAMP stack for CentOS for help:
 
-      - [Install a LEMP Stack on CentOS 7 with FastCGI](/docs/guides/lemp-stack-on-centos-7-with-fastcgi/)
-      - [LAMP stack on CentOS 7](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/)
+      - [Install a LEMP Stack on CentOS 7 with FastCGI](/cloud/guides/lemp-stack-on-centos-7-with-fastcgi)
+      - [LAMP stack on CentOS 7](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7)
 
 6. Configure your webserver for virtual domain hosting:
 
       **NGINX**
 
-      - [How to Configure NGINX](/docs/guides/how-to-configure-nginx/)
+      - [How to Configure NGINX](/cloud/guides/how-to-configure-nginx)
 
       **Apache**
 
-      - [Apache Configuration Basics](/docs/guides/apache-configuration-basics/)
+      - [Apache Configuration Basics](/cloud/guides/apache-configuration-basics)
 
 ## Update System and Install Prerequisites
 
@@ -430,10 +429,10 @@ server {
 
         httpd -M
 
-    - proxy_module
-    - lbmethod_byrequests_module
-    - proxy_balancer_module
-    - proxy_http_module
+    - `proxy_module`
+    - `lbmethod_byrequests_module`
+    - `proxy_balancer_module`
+    - `proxy_http_module`
 
 1. Enable the necessary mods in Apache. Open `00-proxy.conf` and verify that the lines below are included:
 
@@ -549,8 +548,7 @@ Kibana's default access port, `5601`, must be opened for TCP traffic. Instructio
 **iptables**
 
     iptables -A INPUT -p tcp --dport 5601 -m comment --comment "Kibana port" -j ACCEPT
-
-{{< note respectIndent=false >}}
+{{< note >}}
 To avoid losing iptables rules after a server reboot, save your rules to a file using `iptables-save`.
 {{< /note >}}
 
@@ -558,7 +556,7 @@ To avoid losing iptables rules after a server reboot, save your rules to a file 
 
     ufw allow 5601/tcp comment "Kibana port"
 
-{{< content "cloud-firewall-shortguide" >}}
+{{% content "cloud-firewall-shortguide" %}}
 
 ## Connect the Elastic Stack with the Wazuh API
 

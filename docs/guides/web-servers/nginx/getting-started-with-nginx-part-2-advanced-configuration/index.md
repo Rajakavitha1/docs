@@ -1,25 +1,24 @@
 ---
 slug: getting-started-with-nginx-part-2-advanced-configuration
-description: "Configure and optimize NGINX to best suit your web server needs. Host multiple sites, configure caching, disable content sniffing, and more."
-keywords: ["nginx", "web server", "nginx configuration", "multiple sites", "configure caching"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-servers/nginx/configure-nginx-for-optimized-performance/','/web-servers/nginx/slightly-more-advanced-configurations-for-nginx/','/websites/nginx/configure-nginx-for-optimized-performance/', '/guides/slightly-more-advanced-configurations-for-nginx/']
-modified: 2021-12-29
-modified_by:
-  name: Linode
-published: 2018-02-09
 title: "Getting Started with NGINX (Part 2): Advanced Configuration"
 title_meta: "Getting Started with NGINX: Advanced Configuration"
+description: "Configure and optimize NGINX to best suit your web server needs. Host multiple sites, configure caching, disable content sniffing, and more."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-02-09
+modified: 2021-12-29
+keywords: ["nginx", "web server", "nginx configuration", "multiple sites", "configure caching"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+aliases: []
 tags: ["web server","nginx"]
 image: Getting-Started-with-NGINX-Part-2-smg.jpg
-authors: ["Linode"]
 ---
 
 ![Getting Started with NGINX - Part 2](Getting-Started-with-NGINX-Part-2-smg.jpg)
 
 ## Before You Begin
 
--   This guide is Part 2 of our *Getting Started with NGINX* series, and you will need a working NGINX setup with a website accessible via HTTP. If you do not already have that, complete [Part 1: Basic Installation and Setup](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/).
+-   This guide is Part 2 of our *Getting Started with NGINX* series, and you will need a working NGINX setup with a website accessible via HTTP. If you do not already have that, complete [Part 1: Basic Installation and Setup](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup).
 
 -   You will need root access to the system, or a user account with `sudo` privilege.
 
@@ -102,11 +101,11 @@ proxy_cache one;
 
         find /var/www/example.com/cache/ -type f -delete
 
-    If you want more than just a basic cache clear, you can use the [proxy_cache_purge](https://www.nginx.com/products/nginx/caching/#purging) directive.
+    If you want more than just a basic cache clear, you can use the [`proxy_cache_purge`](https://www.nginx.com/products/nginx/caching/#purging) directive.
 
 ## HTTP Response Header Fields
 
-Use [*add_header*](https://nginx.org/en/docs/http/ngx_http_headers_module.html) directives in your configuration carefully. Unlike other directives, an `add_header` directive is not inherited from parent configuration blocks. If you have the directive in both, an `add_header` directive in a `server` block will override any in your `http` area.
+Use [`add_header`](https://nginx.org/en/docs/http/ngx_http_headers_module.html) directives in your configuration carefully. Unlike other directives, an `add_header` directive is not inherited from parent configuration blocks. If you have the directive in both, an `add_header` directive in a `server` block will override any in your `http` area.
 
 For this reason, you should include them in one of two different ways:
 
@@ -170,7 +169,7 @@ You can allow or deny browser features with this header, depending on whether yo
 
 To summarize where we are so far:
 
-* We're continuing with the configuration from [Part 1](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/#configuration-recap), so we have a single site being served over HTTP.
+* We're continuing with the configuration from [Part 1](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup#configuration-recap), so we have a single site being served over HTTP.
 
 * We've added the caching and HTTP header changes mentioned above.
 
@@ -244,4 +243,4 @@ http {
 
 ## Part 3: Enable TLS for HTTPS Connections
 
-If a well-running HTTP site is all you're looking for, the configurations in this guide will meet that requirement. If you plan to serve your site over HTTPS, then continue to Part 3 of this series: [Enable TLS for HTTPS Connections](/docs/guides/getting-started-with-nginx-part-3-enable-tls-for-https/).
+If a well-running HTTP site is all you're looking for, the configurations in this guide will meet that requirement. If you plan to serve your site over HTTPS, then continue to Part 3 of this series: [Enable TLS for HTTPS Connections](/cloud/guides/getting-started-with-nginx-part-3-enable-tls-for-https).

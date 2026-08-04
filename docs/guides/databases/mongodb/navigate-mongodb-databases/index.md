@@ -1,31 +1,29 @@
 ---
 slug: navigate-mongodb-databases
+title: "Navigate MongoDB and Query Your Data"
 description: "Learn how to navigate your MongoDB database. From examples of the various query operators through text searches and indexing, this tutorial has you covered."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-02-28
 keywords: ['mongodb query examples','mongodb filter query','mongodb text search']
 tags: ['database', 'nosql']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-02-28
-modified_by:
-  name: Nathaniel Stickman
-title: "Navigate MongoDB and Query Your Data"
 external_resources:
 - '[MongoDB Manual: Query Documents](https://www.mongodb.com/docs/manual/tutorial/query-documents/)'
 - '[MongoDB Guides: Read Data from MongoDB With Queries](https://www.mongodb.com/docs/guides/server/read_queries/)'
-authors: ["Nathaniel Stickman"]
-tags: ["saas"]
 ---
 
 [MongoDB](https://www.mongodb.com/) is a flexible, NoSQL database solution which stores data as JSON-like documents. Compared to other database systems, MongoDB has much more to offer for effectively working with data. For those familiar with SQL, it may take some time and experience before feeling confident using MongoDB. This MongoDB tutorial shows you how to make more advanced queries. From querying arrays and nested objects to using comparative and logical operations, learn it all in this guide with practical examples.
 
 {{< note >}}
-Learn all about what MongoDB is and how it works in our [Introduction to MongoDB and its Use Cases](/docs/guides/mongodb-introduction/) guide. Then, find out about the basics of using MongoDB in our [Getting Started with MongoDB](/docs/guides/getting-started-with-mongodb/) guide.
+Learn all about what MongoDB is and how it works in our [Introduction to MongoDB and its Use Cases](/cloud/guides/mongodb-introduction) guide. Then, find out about the basics of using MongoDB in our [Getting Started with MongoDB](/cloud/guides/getting-started-with-mongodb) guide.
 {{< /note >}}
 
 ## Before You Begin
 
-{{< content "mongodb-deployment-methods-shortguide" >}}
+{{% content "mongodb-deployment-methods-shortguide" %}}
 
-{{< content "mongodb-shell-shortguide" >}}
+{{% content "mongodb-shell-shortguide" %}}
 
 ## Query Documents
 
@@ -1030,4 +1028,4 @@ However, keep in mind that regex queries tend to take more processing power and 
 
 This guide gives you everything you need to start making more of your MongoDB database and its querying capabilities. You can use it as a sort of cheat sheet for you when it comes to navigating MongoDB databases.
 
-Looking to dive deeper into MongoDB? Be sure to peruse our other [MongoDB guides](/docs/guides/databases/mongodb/) for more on setting up and getting the most out of MongoDB.
+Looking to dive deeper into MongoDB? Be sure to peruse our other [MongoDB guides](/cloud/guides/databases/mongodb) for more on setting up and getting the most out of MongoDB.

@@ -1,15 +1,14 @@
 ---
 slug: install-java-on-ubuntu-16-04
+title: 'Install Java on Ubuntu 16.04'
 description: 'This guide shows how to install the OpenJDK 8 runtime environment to support Java app execution and development on a Linode running Ubuntu version 16.04.'
+authors: ["Phil Zona"]
+contributors: ["Phil Zona"]
+published: 2017-05-30
 keywords: ["oracle", "java", "JDK", "install java", "ubuntu"]
 tags: ["java","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/development/install-java-on-ubuntu-16-04/','/applications/development/install-java-on-ubuntu-16-04/','/development/java/install-java-on-ubuntu-16-04/']
-modified: 2017-05-30
-modified_by:
-  name: Phil Zona
-published: 2017-05-30
-title: 'Install Java on Ubuntu 16.04'
+aliases: []
 external_resources:
  - '[Oracle Java](https://www.oracle.com/java/index.html)'
  - '[Read the FAQ](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html)'
@@ -22,7 +21,7 @@ relations:
         key: install-java
         keywords:
             - distribution: Ubuntu 16.04
-authors: ["Phil Zona"]
+deprecated: true
 ---
 
 ![Java](Install_Oracle_Java.jpg)
@@ -33,9 +32,9 @@ In this guide, we'll install the Oracle Java development kit for building Java a
 
 ## Before You Begin
 
-1.  Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1.  Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services.
+2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services.
 
 3.  Update your system:
 
@@ -45,7 +44,7 @@ In this guide, we'll install the Oracle Java development kit for building Java a
 
 The OpenJDK, includes an open-source runtime environment and compiler. This allows you to develop your own Java applications and run them on your Linode.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 This "Main" repository is maintained by Canonical, the company that maintains Ubuntu.
 {{< /note >}}
 
@@ -97,8 +96,7 @@ Many applications include code or configuration that references the `JAVA_HOME` 
     This should return the path to the Java binary.
 
 ## Oracle JDK
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 In April 2019, Oracle Java downloads now require logging into an Oracle account to download and update Java 8 due to a change in the Oracle JDK licensing terms. [Read the FAQ](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html) for more details.
 {{< /note >}}
 

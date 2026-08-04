@@ -1,34 +1,33 @@
 ---
 slug: configuring-wordpress
+title: "Best Practices for Configuring WordPress"
 description: "This guide shows you how to configure your WordPress site with additional utilities, such as installing PHP GD extensions and prettifying your permalinks."
 og_description:  "This guide shows you how to configure your WordPress site with additional utilities, such as installing PHP GD extensions and prettifying your permalinks."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-07-16
 keywords: ['wordpress configurations']
 tags: ["wordpress", "cms", "digital agencies"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-16
 image: HowtoConfigureWordpress.jpg
-modified_by:
-  name: Nathaniel Stickman
-title: "Best Practices for Configuring WordPress"
 external_resources:
 - '[WordPress Support: First Steps with WordPress](https://wordpress.org/support/article/first-steps-with-wordpress/)'
-authors: ["Nathaniel Stickman"]
 ---
 
 WordPress is one of the most popular Content Management Systems (CMSs) around. It is open source and is an outstanding tool for creating your own blog or any content-centered website. This guide walks you through several ways that you can fine-tune your WordPress configuration beyond the basic installation. The steps in this guide should work for most Linux distributions.
 
 If you have not already installed WordPress on your server, you can follow one of our guides below to do so:
 
-- [How to Install WordPress on Debian 10](/docs/guides/how-to-install-wordpress-debian-10/)
-- [How to Install WordPress on Ubuntu 20.04](/docs/guides/how-to-install-wordpress-ubuntu-2004/)
-- [How to Install WordPress Using WP-CLI on CentOS 8](/docs/guides/how-to-install-wordpress-using-wp-cli-on-centos-8/)
-- [How to Install WordPress on AlmaLinux 8](/docs/guides/how-to-install-wordpress-almalinux-8/)
+- [How to Install WordPress on Debian 10](/cloud/guides/how-to-install-wordpress-debian-10)
+- [How to Install WordPress on Ubuntu 20.04](/cloud/guides/how-to-install-wordpress-ubuntu-2004)
+- [How to Install WordPress Using WP-CLI on CentOS 8](/cloud/guides/how-to-install-wordpress-using-wp-cli-on-centos-8)
+- [How to Install WordPress on AlmaLinux 8](/cloud/guides/how-to-install-wordpress-almalinux-8)
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
             sudo yum update
 
 1. Replace all instances of `example.com` in this guide with your domain name.
@@ -37,8 +36,8 @@ If you have not already installed WordPress on your server, you can follow one o
 
    If you are on CentOS and did not use the Remi repository to install PHP, you may have to replace `php74-php` with `php` throughout this guide.
 
-{{< note respectIndent=false >}}
-This guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Optional PHP Extensions

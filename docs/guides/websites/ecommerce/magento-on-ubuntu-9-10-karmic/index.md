@@ -1,26 +1,25 @@
 ---
 slug: magento-on-ubuntu-9-10-karmic
-deprecated: true
+title: 'Magento on Ubuntu 9.10 (Karmic)'
 description: 'This guide shows you how to install Magento, the free and open source self-hosted e-commerce solution you can use to sell products, on a Ubuntu 9.10 LAMP Stack.'
+authors: ["Stan Schwertly"]
+contributors: ["Stan Schwertly"]
+published: 2010-02-05
+modified: 2011-05-17
 keywords: ["magento", "ecommerce", "store", "cart", "shop", "shopping"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/ecommerce/magento-on-ubuntu-9-10-karmic/','/web-applications/e-commerce/magento/ubuntu-9-10-karmic/']
-modified: 2011-05-17
-modified_by:
-  name: Linode
-published: 2010-02-05
-title: 'Magento on Ubuntu 9.10 (Karmic)'
+aliases: []
 relations:
     platform:
         key: how-to-install-magento
         keywords:
            - distribution: Ubuntu 9.10
-authors: ["Stan Schwertly"]
+deprecated: true
 ---
 
-Magento is a self hosted e-commerce solution used by many people to sell products online. It runs on a [LAMP stack](/docs/guides/lamp-server-on-ubuntu-9-10-karmic/) and offers the user a wide variety of options.
+Magento is a self hosted e-commerce solution used by many people to sell products online. It runs on a [LAMP stack](/cloud/guides/lamp-server-on-ubuntu-9-10-karmic) and offers the user a wide variety of options.
 
-Before installing Magento, we assume that you have followed our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) as well as our [LAMP guide](/docs/guides/lamp-server-on-ubuntu-9-10-karmic/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/guides/introduction-to-linux-concepts/), [beginner's guide](/docs/products/compute/compute-instances/faqs/) and [administration basics guide](/docs/guides/linux-system-administration-basics/).
+Before installing Magento, we assume that you have followed our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) as well as our [LAMP guide](/cloud/guides/lamp-server-on-ubuntu-9-10-karmic). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/cloud/guides/introduction-to-linux-concepts), [beginner's guide](https://techdocs.akamai.com/cloud-computing/docs/faqs-for-compute-instances) and [administration basics guide](/cloud/guides/linux-system-administration-basics).
 
 ## Installing Prerequisites
 
@@ -65,7 +64,7 @@ You'll also need to create a database for Magento, and a user with permission to
     GRANT ALL ON magento.* TO 'mage' IDENTIFIED BY 'password';
     exit
 
-Please see our [MySQL](/docs/guides/use-mysql-relational-databases-on-ubuntu-9-10-karmic/) document for additional information regarding MySQL.
+Please see our [MySQL](/cloud/guides/use-mysql-relational-databases-on-ubuntu-9-10-karmic) document for additional information regarding MySQL.
 
 Additionally you will want to increase PHP's `memory_limit` setting, by editing the `/etc/php5/cli/php.ini` and `/etc/php5/apache2/php.ini` file as follows:
 
@@ -100,7 +99,7 @@ From here you can point your browser to the URL you installed Magento to. All of
 
 ### SSL Certificates
 
-You may want to install a commercial SSL certificate on your Magento website in order to encrypt the data passed between your customer's computer and your server. After following our [obtaining a commercial SSL certificate](/docs/guides/obtain-a-commercially-signed-tls-certificate/) document, you can set up your SSL certificate in the Administrative Area. After logging in to Magento, scroll over the "System" tab and select "Configuration". Click the "Web" tab on the left-hand side and drop down the "Secure" listing. From here you can alter your Base URL to include the `https` protocol.
+You may want to install a commercial SSL certificate on your Magento website in order to encrypt the data passed between your customer's computer and your server. After following our [obtaining a commercial SSL certificate](/cloud/guides/obtain-a-commercially-signed-tls-certificate) document, you can set up your SSL certificate in the Administrative Area. After logging in to Magento, scroll over the "System" tab and select "Configuration". Click the "Web" tab on the left-hand side and drop down the "Secure" listing. From here you can alter your Base URL to include the `https` protocol.
 
 ## More Information
 

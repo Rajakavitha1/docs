@@ -1,15 +1,14 @@
 ---
 slug: cloud-containers
+title: "How Cloud Containers Work And Their Benefits"
+title_meta: "Introduction to Containers in Cloud Computing"
 description: 'What is a cloud container? This guide introduces you to cloud containers, the benefits of container cloud computing and various use cases.'
+authors: ["Andy Patrizio"]
+contributors: ["Andy Patrizio"]
+published: 2021-12-10
 keywords: ['cloud containers','containers in cloud computing ','what is a container in cloud']
 tags: ['container', 'kubernetes']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-12-10
-modified_by:
-  name: Linode
-title: "How Cloud Containers Work And Their Benefits"
-title_meta: "Introduction to Containers in Cloud Computing"
-authors: ["Andy Patrizio"]
 ---
 
 Tech trends come and go but cloud containers are one tech that’s here to stay. Their origins can be traced back to 1982 Unix, but containers didn't gain wide acceptance until the last decade as the next logical step from virtualization. Today they are a popular means of application modernization and deployment.
@@ -26,11 +25,11 @@ They are small, fast, and portable because unlike a virtual machine, containers 
 
 Containers are created from container images, which are templates that contain the system, applications, and environment of the container. With container images, much of the work of creating a container is already done for you. All you have to do is add the compute logic. There are many different templates for creating use-specific containers, just as there are libraries and templates for developing code.
 
-There are multiple container template sites but the market leader is Docker, which kicked off the container trend in 2013. Docker is a set of tools that allows users to create container images, push or pull images from external registries, and run and manage containers in many different environments. It also runs the largest distribution hub of container templates. To learn how to install Docker on your Linux system, see our [Installing and Using Docker](/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/) guide.
+There are multiple container template sites but the market leader is Docker, which kicked off the container trend in 2013. Docker is a set of tools that allows users to create container images, push or pull images from external registries, and run and manage containers in many different environments. It also runs the largest distribution hub of container templates. To learn how to install Docker on your Linux system, see our [Installing and Using Docker](/cloud/guides/installing-and-using-docker-on-ubuntu-and-debian) guide.
 
 Containers are significantly reduced in size and complexity, and often perform only a single function. Just because they are small doesn't mean they don’t have to be managed. Containers are maintained through a process known as orchestration, which automates much of the operational tasks needed to run containerized workloads and services.
 
-Orchestration covers managing a container's lifecycle, provisioning, deployment, scaling up or down, networking, load balancing, and more. There are several orchestration apps, but far and away the most popular is [Kubernetes](/docs/guides/beginners-guide-to-kubernetes/) originally designed by Google and now maintained by the Cloud Native Computing Foundation.
+Orchestration covers managing a container's lifecycle, provisioning, deployment, scaling up or down, networking, load balancing, and more. There are several orchestration apps, but far and away the most popular is [Kubernetes](/cloud/guides/beginners-guide-to-kubernetes) originally designed by Google and now maintained by the Cloud Native Computing Foundation.
 
 ## Containers vs. Virtual Machines
 

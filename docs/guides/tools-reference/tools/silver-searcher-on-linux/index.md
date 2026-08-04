@@ -1,27 +1,26 @@
 ---
 slug: silver-searcher-on-linux
+title: "Install and Use Silver Searcher on Linux"
+title_meta: "How to Install and Use Silver Searcher on Linux"
 description: "This guide shows you how to install and use the code-searching tool Silver Searcher. The Silver Searcher is a tool like ack that emphasizes speed and efficiency."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-11-05
 keywords: ['silver searcher ag','ag command linux','ack alternative']
 tags: ['ubuntu', 'debian', 'linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-05
-modified_by:
-  name: Nathaniel Stickman
-title: "Install and Use Silver Searcher on Linux"
-title_meta: "How to Install and Use Silver Searcher on Linux"
-authors: ["Nathaniel Stickman"]
 ---
 
 The Silver Searcher is a command-line tool for searching code. It is similar to the well-known `ack` command, but improves on performance and adds support for `.*ignore` files. In this guide, you learn more about Silver Searcher and how to install and get started using it on your Linux system.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is the Silver Searcher?
@@ -38,7 +37,7 @@ ripgrep is a tool similar to The Silver Searcher, likewise boasting vast perform
 
 ripgrep uses regular expression (regex) search patterns almost exclusively; the Silver Searcher, though fully capable of regex searches, uses command patterns primarily resembling ack commands. (You can learn more about using regex searches in the Silver Searcher via the [Advanced Searches](#advanced-searches) section below). The Silver Searcher may be easier to pick up if you are already familiar with ack.
 
-The Silver Searcher is fast, but ripgrep claims to be even faster in most scenarios. However, the Silver Searcher's still-remarkable performance should be sufficient for most use cases. If you find yourself still facing slowdowns while using he Silver Searcher, you should look into ripgrep. You can learn more about ripgrep through our guide on [how to install and start using ripgrep](/docs/guides/ripgrep-linux-installation/).
+The Silver Searcher is fast, but ripgrep claims to be even faster in most scenarios. However, the Silver Searcher's still-remarkable performance should be sufficient for most use cases. If you find yourself still facing slowdowns while using he Silver Searcher, you should look into ripgrep. You can learn more about ripgrep through our guide on [how to install and start using ripgrep](/cloud/guides/ripgrep-linux-installation).
 
 ## How to Install the Silver Searcher
 
@@ -87,7 +86,7 @@ For instance, the first example command from the [How to Use The Silver Searcher
 
 ## How to Use the Silver Searcher
 
-This section walks you through some of the most useful features of the Silver Searcher using the [Express JS](https://github.com/expressjs/express) project for its examples. You can clone the project's GitHub repository to your current user's home directory using the commands below. You need [Git installed](/docs/guides/how-to-install-git-on-linux-mac-and-windows/) on your system to use the examples in this section.
+This section walks you through some of the most useful features of the Silver Searcher using the [Express JS](https://github.com/expressjs/express) project for its examples. You can clone the project's GitHub repository to your current user's home directory using the commands below. You need [Git installed](/cloud/guides/how-to-install-git-on-linux-mac-and-windows) on your system to use the examples in this section.
 
     cd ~/
     git clone https://github.com/expressjs/express.git

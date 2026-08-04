@@ -1,19 +1,17 @@
 ---
 slug: redis-client-side-caching
+title: "Use Redis for Client-Side Caching"
+title_meta: "How to Use Redis for Client-Side Caching"
 description: "Modern web applications rely on client-side caching to enhance its performance. This guide shows you how to use Redis for server-assisted client-side caching."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-04-08
 keywords: ['redis caching tutorial','redis server assisted client-side caching','how redis caching works']
 tags: ['redis']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-04-08
-modified_by:
-  name: Linode
-title: "Use Redis for Client-Side Caching"
-title_meta: "How to Use Redis for Client-Side Caching"
 external_resources:
 - '[Redis: Redis server-assisted client side caching](https://redis.io/topics/client-side-caching)'
 - '[MDN Web Docs: Client-side Storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)'
-authors: ["Nathaniel Stickman"]
-tags: ["saas"]
 ---
 
 Redis is an open-source in-memory database with a reputation for working exceptionally well for caching web application data. Redis's fast transactions and low latency help to increase application performance while its server-assisted caching feature makes client-side caching more efficient.
@@ -22,9 +20,9 @@ This tutorial explains the concepts behind Redis's server-assisted client-side c
 
 ## Before You Begin
 
-1. Familiarize yourself with our [Getting Started with Linode](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1. Familiarize yourself with our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-1. This guide uses `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
+1. This guide uses `sudo` wherever possible. Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1. Update your system.
 
@@ -36,10 +34,10 @@ This tutorial explains the concepts behind Redis's server-assisted client-side c
 
             sudo dnf upgrade
 
-1. Follow the instructions in our [How to Install and Configure Redis](/docs/guides/install-redis-ubuntu/) guide to installing a Redis server and command-line interface (CLI). Be sure to use the drop-down menu at the top of that page to select your Linux distribution and get the appropriate steps.
+1. Follow the instructions in our [How to Install and Configure Redis](/cloud/guides/install-redis-ubuntu) guide to installing a Redis server and command-line interface (CLI). Be sure to use the drop-down menu at the top of that page to select your Linux distribution and get the appropriate steps.
 
-{{< note respectIndent=false >}}
-The steps in this guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What Is Client-Side Caching?
@@ -103,7 +101,7 @@ Below, you can see the steps used for setting up your clients with each of these
 
 #### Dedicated Client for Monitoring Notifications
 
-1.  Create a Redis client by making an authenticated connection to the Redis server. See our guide on [How to Connect to Redis and Use The Redis Database](/docs/guides/redis-getting-started/) for instructions on doing so.
+1.  Create a Redis client by making an authenticated connection to the Redis server. See our guide on [How to Connect to Redis and Use The Redis Database](/cloud/guides/redis-getting-started) for instructions on doing so.
 
 1.  Determine the client's ID using the following command. This ID is used in setting up client tracking in one of the subsequent steps, so keep note of it. This and subsequent examples use `15` for the notification client's ID.
 
@@ -163,7 +161,7 @@ RESP3 makes it possible for a client to be simultaneously open for issuing comma
 
 By default, Redis clients start in the RESP2 protocol. Below, you can see steps for enabling RESP3 and using it for receiving invalidation messages on a Redis client.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Redis clients must be version 6 or later to use RESP3. Check your Redis version before proceeding:
 
     redis-cli --version
@@ -171,7 +169,7 @@ Redis clients must be version 6 or later to use RESP3. Check your Redis version 
 For Redis versions less than 6, see the previous section for [creating a dedicated client for invalidation messages](#dedicated-client-for-monitoring-notifications).
 {{< /note >}}
 
-1.  Create a Redis client by making an authenticated connection to the Redis server. See our guide on [How to Connect to Redis and Use The Redis Database](/docs/guides/redis-getting-started/) for instructions on doing so.
+1.  Create a Redis client by making an authenticated connection to the Redis server. See our guide on [How to Connect to Redis and Use The Redis Database](/cloud/guides/redis-getting-started) for instructions on doing so.
 
 1.  Switch the client to RESP3 using the following command:
 
@@ -296,4 +294,4 @@ However, the client would receive an invalidation notice if another client execu
 
 This tutorial has covered what you need to know to get started using Redis for server-assisted client-side caching. You learned everything from setting up client tracking to customizing it to behave the way your web application needs.
 
-You can continue to learn about Redis and how to get the most out of your Redis databases through our other guides in this series. These guides cover everything from [connecting to a remote Redis server](/docs/guides/redis-getting-started/) to working with the [hash data type in Redis](/docs/guides/hashes-in-redis-databases/).
+You can continue to learn about Redis and how to get the most out of your Redis databases through our other guides in this series. These guides cover everything from [connecting to a remote Redis server](/cloud/guides/redis-getting-started) to working with the [hash data type in Redis](/cloud/guides/hashes-in-redis-databases).

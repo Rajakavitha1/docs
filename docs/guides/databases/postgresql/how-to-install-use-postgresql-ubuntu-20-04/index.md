@@ -1,14 +1,14 @@
 ---
 slug: how-to-install-use-postgresql-ubuntu-20-04
-description: 'This guide provides an introduction to PostgreSQL, an open source object-relational database management system (ORDBMS).'
-keywords: ['PostgreSQL','RDBMS','database','guide and tutorial']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-19
-image: InstallUse_PostgreSQL_Ubuntu2004.png
-modified_by:
-  name: Linode
 title: "Installing and Using PostgreSQL on Ubuntu 20.04"
 title_meta: "How to Install and Use PostgreSQL on Ubuntu 20.04."
+description: 'This guide provides an introduction to PostgreSQL, an open source object-relational database management system (ORDBMS).'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-02-19
+keywords: ['PostgreSQL','RDBMS','database','guide and tutorial']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+image: InstallUse_PostgreSQL_Ubuntu2004.png
 external_resources:
 - '[PostgreSQL](https://www.postgresql.org/)'
 relations:
@@ -17,19 +17,18 @@ relations:
         keywords:
            - distribution: Ubuntu 20.04
 tags: ["ubuntu", "postgresql"]
-authors: ["Jeff Novotny"]
 ---
 
 This guide provides an introduction to [*PostgreSQL*](https://www.postgresql.org/), an open source *object-relational database management system* (ORDBMS). PostgreSQL builds upon the original *Structured Query Language* (SQL) specification with many new features, emphasizing compliance. PostgreSQL transactions are atomic, consistent, isolated, and durable (ACID)compliant. PostgreSQL is one of the most popular database systems, and is available for most operating systems, including Ubuntu 20.04.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Advantages and Disadvantages of PostgreSQL
@@ -455,8 +454,8 @@ testuser  | Create DB                                                  | {testgr
 
 Linode does not recommend opening up PostgreSQL to listen for connections on public IP addresses because this poses a security risk. If you want to access PostgreSQL remotely, you can use a graphical user interface called pgAdmin. See one of the following Linode guides to pgAdmin for more information:
 
-*   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Windows](/docs/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows/)
-*   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/docs/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x/)
+*   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Windows](/cloud/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows)
+*   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/cloud/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x)
 
 ## Learning More About PostgreSQL
 

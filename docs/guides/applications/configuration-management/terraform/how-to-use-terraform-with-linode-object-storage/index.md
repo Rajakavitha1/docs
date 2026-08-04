@@ -1,14 +1,14 @@
 ---
 slug: how-to-use-terraform-with-linode-object-storage
-description: 'This guide provides a brief introduction to Terraform, and explains how to use it to configure Linode Object Storage.'
-keywords: ['Linode Terraform','Terraform Linode Object Storage','Install Terraform']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-10-25
-modified: 2022-11-28
-modified_by:
-  name: Linode
 title: "Use Terraform With Linode Object Storage"
 title_meta: "How to Use Terraform With Linode Object Storage"
+description: 'This guide provides a brief introduction to Terraform, and explains how to use it to configure Linode Object Storage.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-10-25
+modified: 2025-06-18
+keywords: ['Linode Terraform','Terraform Linode Object Storage','Install Terraform']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Terraform](https://www.terraform.io/)'
 - '[Terraform Downloads Portal](https://www.terraform.io/downloads)'
@@ -22,11 +22,9 @@ external_resources:
 - '[Linode Object Storage Cluster data source](https://registry.terraform.io/providers/linode/linode/latest/docs/data-sources/object_storage_cluster)'
 - '[Linode Object Storage Bucket documentation](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_bucket)'
 - '[Linode Object Storage Objects documentation](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_object)'
-authors: ["Jeff Novotny"]
-tags: ["saas"]
 ---
 
-[Terraform](https://www.terraform.io/) is a powerful *Infrastructure as Code* (IaC) application for deploying and managing infrastructure. It can be used to add, modify, and delete resources including servers, networking elements, and storage objects. Linode has partnered with Terraform to provide an API to configure common Linode infrastructure items. This guide provides a brief introduction to Terraform and explains how to use it to create [Linode Object Storage](/docs/products/storage/object-storage/) solutions.
+[Terraform](https://www.terraform.io/) is a powerful *Infrastructure as Code* (IaC) application for deploying and managing infrastructure. It can be used to add, modify, and delete resources including servers, networking elements, and storage objects. Linode has partnered with Terraform to provide an API to configure common Linode infrastructure items. This guide provides a brief introduction to Terraform and explains how to use it to create [Linode Object Storage](https://techdocs.akamai.com/cloud-computing/docs/object-storage) solutions.
 
 ## What is Terraform?
 
@@ -34,7 +32,7 @@ Terraform is an open source product that is available in free and commercial edi
 
 Terraform uses providers to manage resources. A provider, which is very similar to an API, is typically created in conjunction with the infrastructure vendor. Terraform's provider-based system allows users to create, modify, and destroy network infrastructure from different vendors. Developers can import these providers into their configuration files to help declare and configure their infrastructure components. Providers are available for most major vendors, including [Linode](https://registry.terraform.io/providers/linode/linode/latest). Terraform users can browse through a complete listing of the various providers in the [*Terraform Registry*](https://registry.terraform.io/browse/providers).
 
-Linode offers a useful [Beginner's Guide to Terraform](/docs/guides/beginners-guide-to-terraform/) as an introduction to the main Terraform concepts. Additionally, Terraform documentation includes a number of [Tutorials](https://developer.hashicorp.com/terraform/tutorials), including guides to the more popular providers.
+Linode offers a useful [Beginner's Guide to Terraform](/cloud/guides/beginners-guide-to-terraform) as an introduction to the main Terraform concepts. Additionally, Terraform documentation includes a number of [Tutorials](https://developer.hashicorp.com/terraform/tutorials), including guides to the more popular providers.
 
 ## How to Use Terraform
 
@@ -49,14 +47,14 @@ When the Terraform plan is ready to implement, the `terraform apply` command is 
 Terraform can be used in a multi-developer environment in conjunction with a versioning control system. Developers can also build their own provider infrastructure for use instead of, or alongside, third-party providers. Terraform provides more details about how the product works and how to use it in their [Introduction to Terraform summary](https://developer.hashicorp.com/terraform/intro).
 
 {{< note >}}
-Terraform is very powerful, but it can be a difficult tool to use. Syntax errors can be hard to debug. Before attempting to create any infrastructure, it is a good idea to read the [Linode Introduction to the HashiCorp Configuration Language](/docs/guides/introduction-to-hcl/). The documentation about the [Linode Provider](https://registry.terraform.io/providers/linode/linode/latest/docs) in the Terraform Registry is also essential. Consult Linode's extensive collection of [Terraform guides](/docs/guides/applications/configuration-management/terraform/) for more examples and explanations.
+Terraform is very powerful, but it can be a difficult tool to use. Syntax errors can be hard to debug. Before attempting to create any infrastructure, it is a good idea to read the [Linode Introduction to the HashiCorp Configuration Language](/cloud/guides/introduction-to-hcl). The documentation about the [Linode Provider](https://registry.terraform.io/providers/linode/linode/latest/docs) in the Terraform Registry is also essential. Consult Linode's extensive collection of [Terraform guides](/cloud/guides/applications/configuration-management/terraform) for more examples and explanations.
 {{< /note >}}
 
 ## Before You Begin
 
-1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1. Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1. Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 1. Ensure all Linode servers are updated. The following commands can be used to update Ubuntu systems.
 
@@ -65,7 +63,7 @@ Terraform is very powerful, but it can be a difficult tool to use. Syntax errors
     ```
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Download and Install Terraform
@@ -90,20 +88,20 @@ These instructions are geared towards Ubuntu 22.04 users, but are generally appl
     sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
     ```
 
-1. Download the updates for Terraform and install the application. This installs Terraform release 1.3.4, the most recent release.
+1. Download the updates for Terraform and install the most recent version of the application. The version downloaded may vary based on release date. See Terraform's [Releases](https://github.com/hashicorp/terraform/releases) page for version information.
 
     ```command
     sudo apt update && sudo apt install terraform
     ```
 
     ```output
-    Get:1 https://apt.releases.hashicorp.com jammy/main amd64 terraform amd64 1.3.4 [19.5 MB]
-    Fetched 19.5 MB in 0s (210 MB/s)
+    Get:1 https://apt.releases.hashicorp.com noble/main amd64 terraform amd64 1.12.2-1 [28.4 MB]
+    Fetched 28.4 MB in 0s (187 MB/s)
     Selecting previously unselected package terraform.
-    (Reading database ... 109186 files and directories currently installed.)
-    Preparing to unpack .../terraform_1.3.4_amd64.deb ...
-    Unpacking terraform (1.3.4) ...
-    Setting up terraform (1.3.4) ...
+    (Reading database ... 124941 files and directories currently installed.)
+    Preparing to unpack .../terraform_1.12.2-1_amd64.deb ...
+    Unpacking terraform (1.12.2-1) ...
+    Setting up terraform (1.12.2-1) ...
     ```
 
 1. Confirm the application has been installed correctly. Use the `terraform` command without any parameters and ensure the Terraform help information is displayed.
@@ -125,14 +123,14 @@ These instructions are geared towards Ubuntu 22.04 users, but are generally appl
     -version      An alias for the "version" subcommand.
     ```
 
-1. To determine the current release of Terraform, use the `terraform -v` command.
+1. To see the version of Terraform installed, use the `terraform -v` command.
 
     ```command
     terraform -v
     ```
 
     ```output
-    Terraform v1.3.4
+    Terraform v1.12.2
     on linux_amd64
     ```
 
@@ -156,13 +154,19 @@ To deploy the necessary infrastructure for a Linode Object Storage solution, cre
 
 To construct the Terraform file, execute the following instructions. For more information on how to create a Terraform file, see the [Terraform documentation](https://developer.hashicorp.com/terraform/docs).
 
-1. Create the file `linode-terraform-storage.tf` inside the `terraform` directory.
+1. Using a text editor such as `nano`, create a Terraform configuration file named `linode-terraform-storage.tf` inside the `terraform` directory.
 
     ```command
     nano linode-terraform-storage.tf
     ```
 
-1. At the top of the file, add a `terraform` section, including all `required_providers` for the infrastructure. In this case, the only required provider is `linode`. Set the source to `linode/linode`. Use the current `version` of the `linode` provider. At publication time, the version is `1.29.4`. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
+1. At the top of the file, add a `terraform` section, including all `required_providers` for the infrastructure. In this case, the only required provider is `linode`. Set the source to `linode/linode`. Use the current `version` of the `linode` provider.
+
+    As of June, 2025, the Linode Terraform Provider version is 3.0.0. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
+
+    {{< note title ="Linode Provider Version 3.0.0" >}}
+    The Linode Terraform Provider version 3.0.0 requires `terraform` version 1.0 or greater. See [Terraform's developer documentation](https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/1-0) for guidance on upgrading to version 1.0.
+    {{< /note >}}
 
     ```file {title="/terraform/linode-terraform-storage.tf" lang="aconf"}
 
@@ -170,16 +174,16 @@ To construct the Terraform file, execute the following instructions. For more in
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.29.4"
+          version = "3.0.0"
         }
       }
     }
     ```
 
-1. Define the `linode` provider. Include the [Linode v4 API](/docs/api/) `token` for the account. See the [Getting Started with the Linode API guide](/docs/products/tools/api/get-started/#get-an-access-token) for more information about tokens.
+1. Define the `linode` provider. Include the [Linode v4 API](https://techdocs.akamai.com/linode-api/reference/api) `token` for the account. See the [Getting Started with the Linode API guide](https://techdocs.akamai.com/linode-api/reference/get-started#get-an-access-token) for more information about tokens.
 
     {{< note respectIndent=false >}}
-To hide sensitive information, such as API tokens, declare a `variables.tf` file and store the information there. Retrieve the variables using the `var` keyword. See the [Linode introduction to HCL](/docs/guides/introduction-to-hcl/#input-variables) for guidance on how to use variables.
+To hide sensitive information, such as API tokens, declare a `variables.tf` file and store the information there. Retrieve the variables using the `var` keyword. See the [Linode introduction to HCL](/cloud/guides/introduction-to-hcl#input-variables) for guidance on how to use variables.
     {{< /note >}}
 
     ```file {title="/terraform/linode-terraform-storage.tf" lang="aconf" hl_lines="2" linenostart="10"}
@@ -191,7 +195,7 @@ To hide sensitive information, such as API tokens, declare a `variables.tf` file
 1. Create a `linode_object_storage_cluster` data source. In the following code sample, the new cluster object is named `primary`. Designate a region for the cluster using the `id` attribute. In the following example, the region is `eu-central-1`. The cluster object provides access to the domain, status, and region of the cluster. See the Terraform registry documentation for the [Linode Object Storage Cluster data source](https://registry.terraform.io/providers/linode/linode/latest/docs/data-sources/object_storage_cluster) for more information.
 
     {{< note respectIndent=false >}}
-Not all regions support storage clusters. For a full list of all data centers where a storage cluster can be configured, see the Linode [Object Storage Product Information](/docs/products/storage/object-storage/).
+Not all regions support storage clusters. For a full list of all data centers where a storage cluster can be configured, see the Linode [Object Storage Product Information](https://techdocs.akamai.com/cloud-computing/docs/object-storage).
     {{< /note >}}
 
     ```file {title="/terraform/linode-terraform-storage.tf" lang="aconf" linenostart="14"}
@@ -266,7 +270,7 @@ The Linode Object Storage Bucket resource contains many other configurable attri
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.29.4"
+          version = "3.0.0"
         }
       }
     }
@@ -331,9 +335,9 @@ Terraform commands act upon the `linode-terraform-storage.tf` file to analyze th
     Initializing the backend...
 
     Initializing provider plugins...
-    - Finding linode/linode versions matching "1.29.4"...
-    - Installing linode/linode v1.29.4...
-    - Installed linode/linode v1.29.4 (signed by a HashiCorp partner, key ID F4E6BBD0EA4FE463)
+    - Finding linode/linode versions matching "3.0.0"...
+    - Installing linode/linode v3.0.0...
+    - Installed linode/linode v3.0.0 (signed by a HashiCorp partner, key ID F4E6BBD0EA4FE463)
     ...
     Terraform has been successfully initialized!
     ...
@@ -466,8 +470,14 @@ terraform plan
 terraform apply
 ```
 
+## Configure Terraform to Store State on Linode Object Storage
+
+Terraform uses [state](https://developer.hashicorp.com/terraform/language/state) on a [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to log and track resource information. By default, state is stored locally in a file named `terraform.tfstate`.
+
+For steps on how to use Linode Object Storage as a remote backend to store state, see our guide [Use Terraform to Provision Infrastructure on Linode](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#use-linode-object-storage-to-store-state).
+
 ## Conclusion
 
 Terraform is a powerful and efficient *Infrastructure as Code* (IaC) application. It automates the process of deploying infrastructure. To use Terraform, use the HCL or JSON formats to describe the final state of the network. Use the `terraform plan` command from the Terraform client to preview the changes and `terraform apply` to deploy the configuration.
 
-The [Linode Provider](https://registry.terraform.io/providers/linode/linode/latest) includes an API for configuring [Linode Object Storage infrastructure](/docs/products/storage/object-storage/). First declare the Linode provider and the [Linode Object Storage Cluster](https://registry.terraform.io/providers/linode/linode/latest/docs/data-sources/object_storage_cluster) data source. Define the object storage infrastructure using [Linode object storage buckets](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_bucket), [object storage keys](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_key), and [object storage objects](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_object). The object storage objects are the files or strings of text to be stored. For more information on using Terraform, consult the [Terraform documentation](https://developer.hashicorp.com/terraform/docs).
+The [Linode Provider](https://registry.terraform.io/providers/linode/linode/latest) includes an API for configuring [Linode Object Storage infrastructure](https://techdocs.akamai.com/cloud-computing/docs/object-storage). First declare the Linode provider and the [Linode Object Storage Cluster](https://registry.terraform.io/providers/linode/linode/latest/docs/data-sources/object_storage_cluster) data source. Define the object storage infrastructure using [Linode object storage buckets](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_bucket), [object storage keys](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_key), and [object storage objects](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/object_storage_object). The object storage objects are the files or strings of text to be stored. For more information on using Terraform, consult the [Terraform documentation](https://developer.hashicorp.com/terraform/docs).

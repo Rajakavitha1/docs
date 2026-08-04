@@ -1,23 +1,21 @@
 ---
 slug: indexing-mongodb
+title: "How to Use Indexes in MongoDB"
+title_meta: "MongoDB Indexing Explained"
 description: "Learn what MongoDB indexes are, how to create and modify them to improve your database query performance."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-02-28
 keywords: ['mongodb indexing best practices', 'mongodb indexing tutorial', 'mongodb indexing explained']
 tags: ['database']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-02-28
-modified_by:
-  name: Nathaniel Stickman
-title: "How to Use Indexes in MongoDB"
-title_meta: "MongoDB Indexing Explained"
 external_resources:
 - '[MongoDB: Indexes](https://www.mongodb.com/docs/manual/indexes/)'
 - '[MongoDB: Create Indexes to Support Your Queries](https://www.mongodb.com/docs/manual/tutorial/create-indexes-to-support-queries/)'
 - '[MongoDB: Performance Best Practices — Indexing](https://www.mongodb.com/blog/post/performance-best-practices-indexing)'
-authors: ["Nathaniel Stickman"]
-tags: ["saas"]
 ---
 
-[MongoDB](https://www.mongodb.com/) is a NoSQL database, an alternative to relational SQL databases that uses JSON-like documents to store data. To learn about what MongoDB is and how it works, review our [Introduction to MongoDB and its Use Cases](/docs/guides/mongodb-introduction/) guide. Know more about the basics of using MongoDB in our [Getting Started with MongoDB](/docs/guides/getting-started-with-mongodb/) guide.
+[MongoDB](https://www.mongodb.com/) is a NoSQL database, an alternative to relational SQL databases that uses JSON-like documents to store data. To learn about what MongoDB is and how it works, review our [Introduction to MongoDB and its Use Cases](/cloud/guides/mongodb-introduction) guide. Know more about the basics of using MongoDB in our [Getting Started with MongoDB](/cloud/guides/getting-started-with-mongodb) guide.
 
 To have efficient performance on queries, your MongoDB database should make use of indices. An index prevents a query from having to scan every document in a collection, instead letting the query focus on just the relevant documents.
 
@@ -25,9 +23,9 @@ In this guide, you learn what MongoDB indices are and how to use them to improve
 
 ## Before You Begin
 
-{{< content "mongodb-deployment-methods-shortguide" >}}
+{{% content "mongodb-deployment-methods-shortguide" %}}
 
-{{< content "mongodb-shell-shortguide" >}}
+{{% content "mongodb-shell-shortguide" %}}
 
 ## How Does MongoDB Indexing Work?
 
@@ -285,4 +283,4 @@ The list that follows is not comprehensive, but it includes key principles for m
 
 ## Conclusion
 
-In this guide, you have learned major MongoDB indexing strategies and options for getting the most out of indices. With performance best practices and concrete examples, this guide can be a useful reference when working on making your MongoDB databases more efficient. Looking to dive deeper into MongoDB? Be sure to peruse our other [MongoDB guides](/docs/guides/databases/mongodb/) for more on setting up and getting the most out of MongoDB.
+In this guide, you have learned major MongoDB indexing strategies and options for getting the most out of indices. With performance best practices and concrete examples, this guide can be a useful reference when working on making your MongoDB databases more efficient. Looking to dive deeper into MongoDB? Be sure to peruse our other [MongoDB guides](/cloud/guides/databases/mongodb) for more on setting up and getting the most out of MongoDB.

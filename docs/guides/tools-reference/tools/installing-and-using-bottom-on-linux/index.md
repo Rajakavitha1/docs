@@ -1,18 +1,17 @@
 ---
 slug: installing-and-using-bottom-on-linux
+title: "Install and Use bottom on Linux"
+title_meta: "How to Install and Use bottom on Linux"
 description: "Learn how to use bottom, a graphical system monitoring and process visualization tool for your Linux terminal."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-10-01
 keywords: ['bottom command in linux','bottom linux install','system monitor linux terminal']
 tags: ['linux', 'debian', 'ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-10-01
-modified_by:
-  name: Linode
-title: "Install and Use bottom on Linux"
-title_meta: "How to Install and Use bottom on Linux"
 external_resources:
 - '[bottom](https://clementtsang.github.io/bottom/0.6.3/)'
 - '[GitHub: ClementTsang/bottom](https://github.com/ClementTsang/bottom)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Bottom is a terminal-based graphical dashboard for system monitoring. It comes with a range of customization options and display features that set it apart from other system monitoring dashboards.
@@ -21,12 +20,12 @@ This guide provides more information about bottom, including a comparison betwee
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is bottom?
@@ -41,7 +40,7 @@ Bottom, like gtop, emphasizes the graphical display if system monitoring informa
 
 In short, bottom is a good choice if you want a graphical system monitoring dashboard that gives you control over every detail of the display. Gtop is a good option if you want uncomplicated system monitoring and find the default display useful.
 
-You can learn more about gtop, and how it compares to top and htop, in our [How to Install and Use gtop](/docs/guides/installing-and-using-gtop-on-linux) guide.
+You can learn more about gtop, and how it compares to top and htop, in our [How to Install and Use gtop](/cloud/guides/installing-and-using-gtop-on-linux) guide.
 
 ## How to Install bottom
 

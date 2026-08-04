@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-12
-description: "In part 12 of our series on Kubernetes, you will learn how to install and configure cert-manager, and obtain a TLS/SSL certificate for your Kubernetes cluster."
 title: "Building a CD Pipeline Using LKE (Part 12): cert-manager"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: "In part 12 of our series on Kubernetes, you will learn how to install and configure cert-manager, and obtain a TLS/SSL certificate for your Kubernetes cluster."
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2022-12-14
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-12/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: cert-manager](cd-presentation-header-12-cert-manager.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: cert-manager")
@@ -25,9 +24,9 @@ The cert-manager tool can be used to manage SSL/TLS certificates for application
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Previous section:** [Part 11: Prometheus and Grafana](/docs/guides/build-a-cd-pipeline-with-lke-part-11/)
-- **Next section:** [Part 13: CI/CD with GitLab](/docs/guides/build-a-cd-pipeline-with-lke-part-13/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Previous section:** [Part 11: Prometheus and Grafana](/cloud/guides/build-a-cd-pipeline-with-lke-part-11)
+- **Next section:** [Part 13: CI/CD with GitLab](/cloud/guides/build-a-cd-pipeline-with-lke-part-13)
 
 ## Presentation Text
 

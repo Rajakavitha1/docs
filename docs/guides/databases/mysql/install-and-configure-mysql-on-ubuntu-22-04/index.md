@@ -1,19 +1,18 @@
 ---
 slug: install-and-configure-mysql-on-ubuntu-22-04
+title: "Install and Configure MySQL on Ubuntu 22.04"
+title_meta: "How to Install and Configure MySQL on Ubuntu 22.04"
 description: 'This guide shows you how to install and configure MySQL server on Ubuntu 20.04 Linux.'
+authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2023-03-29
 keywords: ['Install MySQL ubuntu 22.04', 'Install MySQL server ubuntu', 'Install MySQL Linux', 'Configure MySQL']
 tags: ['mysql', 'database']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-29
-modified_by:
-  name: Linode
-title: "Install and Configure MySQL on Ubuntu 22.04"
-title_meta: "How to Install and Configure MySQL on Ubuntu 22.04"
 external_resources:
 - '[MySQL vs MariaDB](https://blog.devart.com/mysql-vs-mariadb.html)'
 - '[MariaDB vs MySQL compatibility](https://mariadb.com/kb/en/mariadb-vs-mysql-compatibility/)'
 - '[Introduction to Uncomplicated Firewall](https://www.linux.com/training-tutorials/introduction-uncomplicated-firewall-ufw/)'
-authors: ["John Mueller"]
 ---
 
 ## How to Install and Configure MySQL on Ubuntu 22.04
@@ -277,4 +276,4 @@ Normally, MySQL doesn’t allow remote connections. By default, MySql can only b
 
 ## Conclusion
 
-One of the biggest takeaways, from this guide, is that both MySQL, and MariaDB provide enterprise-level database functionality. Each has its specialization. Installing either product is relatively easy using the Package Manager. When installing MySQL, take additional steps when working with the [MySQL Installation Script](/docs/guides/install-and-configure-mysql-on-ubuntu-22-04/#configure-mysql-using-mysql-installation-script) script. If the script fails recursively, then you are required to end your terminal session and log back in. Making the required alterations to the MySQL setup (as shown in this guide) gets the script working again and you can complete it. Remote access to MySQL setup requires that you configure MySQL to allow remote login and then set up UFW as well.
+One of the biggest takeaways, from this guide, is that both MySQL, and MariaDB provide enterprise-level database functionality. Each has its specialization. Installing either product is relatively easy using the Package Manager. When installing MySQL, take additional steps when working with the [MySQL Installation Script](/cloud/guides/install-and-configure-mysql-on-ubuntu-22-04#configure-mysql-using-mysql-installation-script) script. If the script fails recursively, then you are required to end your terminal session and log back in. Making the required alterations to the MySQL setup (as shown in this guide) gets the script working again and you can complete it. Remote access to MySQL setup requires that you configure MySQL to allow remote login and then set up UFW as well.

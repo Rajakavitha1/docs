@@ -1,23 +1,21 @@
 ---
 slug: use-puppet-modules-to-create-a-lamp-stack
+title: Use Puppet Modules to Create a LAMP Stack
 description: 'This guide will show you how to efficiently use Puppet modules to manage files and services, create templates, and store data in Hiera on Ubuntu 14.04 LTS.'
+authors: ["Elle Krout"]
+contributors: ["Elle Krout"]
+published: 2015-11-12
 keywords: ["puppet", "automation", "puppet master", "puppet agent", "modules", "server automation", "configuration management"]
 tags: ["lamp","automation"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/applications/configuration-management/use-puppet-modules-to-create-a-lamp-stack/','/applications/configuration-management/puppet/use-puppet-modules-to-create-a-lamp-stack/']
-deprecated: true
-deprecated_link: 'applications/configuration-management/use-puppet-modules-to-create-a-lamp-stack-ubuntu-18-04-master/'
-modified: 2015-11-12
-modified_by:
-    name: Elle Krout
-published: 2015-11-12
-title: Use Puppet Modules to Create a LAMP Stack
+aliases: []
 relations:
     platform:
         key: install-puppet-lamp-master
         keywords:
             - distribution: Ubuntu 14.04
-authors: ["Elle Krout"]
+deprecated: true
+deprecated_link: 'applications/configuration-management/use-puppet-modules-to-create-a-lamp-stack-ubuntu-18-04-master/'
 ---
 
 ![Use Puppet Modules to Create a LAMP Stack](Use_Puppet_Modules_to_Create_a_LAMP_Stack_smg.jpg)
@@ -26,8 +24,8 @@ Within Puppet, modules are the building blocks of your servers' configurations. 
 
 In this guide, Apache and PHP modules will be created from scratch, and a MySQL module will be adapted from the Puppet Lab's MySQL module found on the [Puppet Forge](https://forge.puppet.com/). These steps will create a full LAMP stack on your server and provide an overview of the various ways modules can be utilized.
 
-{{< note respectIndent=false >}}
-This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master and CentOS 7 and Ubuntu 14.04 nodes, configured in the [Puppet Setup](/docs/guides/install-and-configure-puppet/) guide. If using a different setup, please adapt the guide accordingly.
+{{< note >}}
+This guide assumes that you are working from an Ubuntu 14.04 LTS Puppet master and CentOS 7 and Ubuntu 14.04 nodes, configured in the [Puppet Setup](/cloud/guides/install-and-configure-puppet) guide. If using a different setup, please adapt the guide accordingly.
 {{< /note >}}
 
 ## Create the Apache Module
@@ -130,7 +128,7 @@ class apache::params {
 
 
     {{< note respectIndent=false >}}
-For the duration of this guide, when something needs to be added to the parameter list the variables needed for Red Hat and Debian will be provided, but the expanding code will not be shown. A complete copy of `params.pp` can be viewed [here](/docs/assets/params.pp).
+For the duration of this guide, when something needs to be added to the parameter list the variables needed for Red Hat and Debian will be provided, but the expanding code will not be shown. A complete copy of `params.pp` can be viewed [here](params.pp).
 {{< /note >}}
 
 4.  With the parameters finally defined, we need to call the `params.pp` file and the parameters into `init.pp`. To do this, the parameters need to be added after the class name, but before the opening curly bracket (`{`):
@@ -148,7 +146,7 @@ class apache (
 
 ### Manage Configuration Files
 
-Apache has two different configuration files, depending on whether you are working on a Red Hat- or Debian-based system. These can be pulled off a server, or viewed here: [httpd.conf (Red Hat)](/docs/assets/httpd.conf), [apache2.conf (Debian)](/docs/assets/apache2.conf).
+Apache has two different configuration files, depending on whether you are working on a Red Hat- or Debian-based system. These can be pulled off a server, or viewed here: [httpd.conf (Red Hat)](httpd.conf), [apache2.conf (Debian)](apache2.conf).
 
 1.  Copy the `httpd.conf` and `apache2.conf` files to the `files` directory located at `/etc/puppet/modules/apache/files/`.
 
@@ -196,7 +194,7 @@ if $::osfamily == 'RedHat' {
 {{< /file >}}
 
 
-    These parameters will also need to be added to the `init.pp` file, following the example of the additional parameters. A complete copy of the `init.pp` file can be seen [here](/docs/assets/puppet_apacheinit.pp).
+    These parameters will also need to be added to the `init.pp` file, following the example of the additional parameters. A complete copy of the `init.pp` file can be seen [here](puppet_apacheinit.pp).
 
 5.  When the configuration file is changed, Apache needs to restart. To automate this, the `service` resource can be used in combination with the `notify` attribute, which will call the resource to run whenever the configuration file is changed:
 
@@ -380,9 +378,9 @@ include apache::vhosts
 
     It should return no errors, and output that it will trigger refreshes from events. To install and configure apache on the Puppet master, this can be run again without `--noop` , if so desired.
 
-4.  Navigate back to the main Puppet directory and then to the `manifests` folder (**not** the one located in the Apache module). If you are continuing this guide from the [Puppet Setup](/docs/guides/install-and-configure-puppet/) guide, you should have a `site.pp` file already created. If not, create one now.
+4.  Navigate back to the main Puppet directory and then to the `manifests` folder (**not** the one located in the Apache module). If you are continuing this guide from the [Puppet Setup](/cloud/guides/install-and-configure-puppet) guide, you should have a `site.pp` file already created. If not, create one now.
 
-5.  Open `site.pp` and include the Apache module for each agent node. Also input the variables for the `adminemail` and `servername` parameters. If you followed the [Puppet Setup](/docs/guides/install-and-configure-puppet/) guide, a single node configuration within `site.pp` will resemble the following:
+5.  Open `site.pp` and include the Apache module for each agent node. Also input the variables for the `adminemail` and `servername` parameters. If you followed the [Puppet Setup](/cloud/guides/install-and-configure-puppet) guide, a single node configuration within `site.pp` will resemble the following:
 
     {{< file "/etc/puppet/manifests/site.pp" puppet >}}
 node 'ubuntuhost.example.com' {

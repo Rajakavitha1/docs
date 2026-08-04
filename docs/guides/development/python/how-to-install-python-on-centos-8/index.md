@@ -1,21 +1,20 @@
 ---
 slug: how-to-install-python-on-centos-8
+title: "Installing Python 3 on CentOS 8"
+title_meta: "How to Install Python 3 on CentOS 8"
 description: 'CentOS 8 does not come with Python installed. This guide shows how to install Python 3.9 from source, or Python 3.6 from the CentOS package repository.'
+authors: ["Angel Guarisma"]
+contributors: ["Angel Guarisma"]
+published: 2021-02-12
 keywords: ['How to Install Python on CentOS 8','Python','Python 3','Python 2 end of life']
 tags: ['python', 'centos']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-12
 image: InstallPython3_CentOS8.png
-modified_by:
-  name: Linode
-title: "Installing Python 3 on CentOS 8"
-title_meta: "How to Install Python 3 on CentOS 8"
 relations:
     platform:
         key: how-to-install-python
         keywords:
             - distribution: CentOS 8
-authors: ["Angel Guarisma"]
 ---
 
 Python is a popular programming language created in 2000, by Guido van Rossum. It's useful for writing everything from small scripts to full-scale software. Python is also a commonly adopted programming language by people entering into the field of software development. A lot of its popularity is based on Python's high level of abstraction. This abstraction makes writing and reading the code easier than other languages.
@@ -30,9 +29,9 @@ Unlike other Linux distributions, CentOS 8 does not come with a version of Pytho
 
 ## Before You Begin
 
-1.  This guide assumes that you have access to a server or workstation running CentOS 8. To provision a Linode running CentOS 8, follow our [Getting Started](/docs/products/platform/get-started/) guide.
+1.  This guide assumes that you have access to a server or workstation running CentOS 8. To provision a Linode running CentOS 8, follow our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide.
 
-1.  This guide uses `sudo` wherever possible. Complete the sections of our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access, and remove unnecessary network services.
+1.  This guide uses `sudo` wherever possible. Complete the sections of our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1.  Update your system:
 

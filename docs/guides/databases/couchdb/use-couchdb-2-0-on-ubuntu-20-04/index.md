@@ -1,19 +1,18 @@
 ---
 slug: use-couchdb-2-0-on-ubuntu-20-04
+title: "Using CouchDB 2.0 on Ubuntu 20.04"
+title_meta: "How to Use CouchDB 2.0 on Ubuntu 20.04"
 description: "Learn the basic concepts of CouchDB 2.0, along with how to use it on Ubuntu."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-05-21
 keywords: ['couchdb','nosql','fauxton','database','ubuntu 20.04']
 tags: ['couchdb','fauxton', 'ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-05-21
-modified_by:
-  name: Nathaniel Stickman
-title: "Using CouchDB 2.0 on Ubuntu 20.04"
-title_meta: "How to Use CouchDB 2.0 on Ubuntu 20.04"
 external_resources:
 - '[API guide](https://docs.couchdb.org/en/latest/api/index.html)'
 - '[documentation for the _find API](https://docs.couchdb.org/en/latest/api/database/find.html)'
 - '[Apache CouchDB Documentation](https://docs.couchdb.org/en/stable/)'
-authors: ["Nathaniel Stickman"]
 ---
 
 *CouchDB*, a non-relational or "NoSQL" database, uses HTTP APIs and JSON documents, making its concepts more intuitive to those familiar with web technologies. These also make CouchDB simple to integrate with web and mobile applications.
@@ -22,14 +21,14 @@ This guide shows you how to get started with CouchDB using its web interface—*
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1. Install CouchDB. Follow the instructions in the guide on [How to Install CouchDB on Ubuntu 20.04](/docs/guides/install-couchdb-20-on-ubuntu/).
+1. Install CouchDB. Follow the instructions in the guide on [How to Install CouchDB on Ubuntu 20.04](/cloud/guides/install-couchdb-20-on-ubuntu).
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Access the Fauxton Web Interface
@@ -38,7 +37,7 @@ The easiest way to configure and maintain your CouchDB installation is through i
 
 However, if you are accessing the machine remotely, the simplest and most secure way to access Fauxton is by using SSH tunneling. The following steps show you how to create and use an SSH tunnel for this purpose.
 
-1. Follow the [Access Futon Over SSH to Administer CouchDB](/docs/guides/access-futon-over-ssh-using-putty-on-windows/) guide to creating an SSH tunnel between your CouchDB server and the machine you are wanting to access it from.
+1. Follow the [Access Futon Over SSH to Administer CouchDB](/cloud/guides/access-futon-over-ssh-using-putty-on-windows) guide to creating an SSH tunnel between your CouchDB server and the machine you are wanting to access it from.
 
 1. In a web browser, navigate to `127.0.0.1:5984/_utils`.
 

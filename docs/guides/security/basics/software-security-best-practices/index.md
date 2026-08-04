@@ -1,14 +1,13 @@
 ---
 slug: software-security-best-practices
-description: 'This guide to software security best practices teaches you about types of application security and how to secure a web application.'
-keywords: ['web application security best practices','application security best practices','software development security best practices']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-12-17
-modified_by:
-  name: Linode
 title: "The 14 Top Software Security Best Practices you Need to Implement Today"
 title_meta: "Software Security Best Practices"
+description: 'This guide to software security best practices teaches you about types of application security and how to secure a web application.'
 authors: ["David Strom"]
+contributors: ["David Strom"]
+published: 2021-12-17
+keywords: ['web application security best practices','application security best practices','software development security best practices']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 The days where software developers wrote their application code in isolation of any security implications are over. Applications are exploited every minute of the day, thanks to the internet that connects them to any hacker around the planet. Application security doesn't have to be overwhelming: there are dozens if not hundreds of tools to help you improve your security posture, prevent exploits, and reduce configuration errors that let bad actors gain unauthorized access to your network.
@@ -55,7 +54,7 @@ There are a number of best practices you can employ to access the highest applic
 
 - **Catalog your software assets** and how they are protected. This exercise isn’t trivial, because it can help you quickly locate a compromised computer and have you block any future unauthorized access.
 
-- **Use encryption often**. Use hashes to store private data, [use HTTPS to encrypt your web traffic](/docs/guides/enabling-https-using-certbot/) everywhere, and choose the strongest possible encryption algorithms whenever possible.
+- **Use encryption often**. Use hashes to store private data, [use HTTPS to encrypt your web traffic](/cloud/guides/enabling-https-using-certbot) everywhere, and choose the strongest possible encryption algorithms whenever possible.
 
 - On a related note, **secure your secrets**. Ensure that your tokens for third-party encryption services are secured properly and managed by the right trusted staffers.
 
@@ -85,6 +84,6 @@ A more complete catalog of these tools can be found in these sources:
 
 ## Conclusion
 
-To learn more about application security, [check out this guide which discusses two of the more common application exploits](/docs/guides/security-weaknesses-in-web-apps/) that can be prevented by using some of the above tools. You can also refer to this author's [more in depth discussion about the need for application security](/docs/guides/security-weaknesses-in-web-apps/). For more details about best practices in container security, read the [How to Improve Container Security](https://www.csoonline.com/article/3388025/how-to-improve-container-security.html) article.
+To learn more about application security, [check out this guide which discusses two of the more common application exploits](/cloud/guides/security-weaknesses-in-web-apps) that can be prevented by using some of the above tools. You can also refer to this author's [more in depth discussion about the need for application security](/cloud/guides/security-weaknesses-in-web-apps). For more details about best practices in container security, read the [How to Improve Container Security](https://www.csoonline.com/article/3388025/how-to-improve-container-security.html) article.
 
-You can also checkout our [documentation library's security section](/docs/guides/security/) to find guides on installing and using popular open source security tools.
+You can also checkout our [documentation library's security section](/cloud/guides/security) to find guides on installing and using popular open source security tools.

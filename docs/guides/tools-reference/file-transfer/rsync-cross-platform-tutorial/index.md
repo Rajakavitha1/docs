@@ -1,17 +1,16 @@
 ---
 slug: rsync-cross-platform-tutorial
+title: "Rsync Cross Platform Tutorial"
+title_meta: "Using the Rsync Cross Platform Command-Line Utility"
 description: 'Learn the different usages of rsync and some of the common mistakes that you avoid while using rsync.'
+authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2023-03-20
 keywords: ['remote sync', 'archive', 'recursion', 'synchronize directory structures', 'remote host']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-20
-modified_by:
-  name: Linode
-title: "Rsync Cross Platform Tutorial"
-title_meta: "Using the Rsync Cross Platform Command-Line Utility"
 external_resources:
 - '[Rsync options from Linux Man page](https://linux.die.net/man/1/rsync)'
-authors: ["Tom Henderson"]
 ---
 
 This guide covers the remote sync `rsync` tool on Linux and other *nix* platforms. The `rsync` tool is a highly flexible command-line utility that manages file movement, in and among hosts. It is implemented on most supported systems with predictable results and very few inter-version problems between hosts.
@@ -24,7 +23,7 @@ A wide variety of filters can be added to the `rsync` command line. File managem
 
 On Linux and Unix-derivative operating systems, file movement is accomplished with FTP/SFTP, `scp`, `cp`, `mv`, and other tools, but these lack `rsync` file filters and options. Rsync jobs permit strong filtration and tailoring for backup, data file set synchronization and archiving using these filters. Importantly, `rsync` does not require root or sudo permission(s) although they are confined by the user permissions of the account invoking `rsync`.
 
-To learn more about `rsync`, see our [Introduction to Rsync guide](/docs/guides/introduction-to-rsync).
+To learn more about `rsync`, see our [Introduction to Rsync guide](/cloud/guides/introduction-to-rsync).
 
 ## Basic Command Syntax and Implications
 

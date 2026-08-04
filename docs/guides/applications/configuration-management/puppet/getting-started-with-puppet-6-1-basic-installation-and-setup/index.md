@@ -1,20 +1,18 @@
 ---
 slug: getting-started-with-puppet-6-1-basic-installation-and-setup
+title: Getting Started with Puppet - Installation and Setup
 description: 'Basic instructions to set up and configure a Puppet master and agents using Ubuntu and CentOS servers.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-01-15
 keywords: ["puppet installation", "configuration change management", "server automation"]
 tags: ["ubuntu","automation","centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2019-01-15
-modified_by:
-    name: Linode
-published: 2019-01-15
-title: Getting Started with Puppet - Installation and Setup
 external_resources:
     - '[Puppet Labs](https://puppet.com/)'
     - '[Puppet Open Source Documentation](https://docs.puppet.com/puppet/)'
     - '[Configuring Java Arguments](https://puppet.com/docs/pe/2019.0/config_java_args.html)'
-aliases: ['/applications/configuration-management/puppet/getting-started-with-puppet-6-1-basic-installation-and-setup/','/applications/configuration-management/getting-started-with-puppet-6-1-basic-installation-and-setup/']
-authors: ["Linode"]
+aliases: []
 ---
 
 [Puppet](https://puppet.com/) is a configuration management tool that simplifies system administration. Puppet uses a client/server model in which your managed nodes, running a process called the Puppet *agent*, talk to and pull down configuration profiles from a Puppet *master*.
@@ -34,7 +32,7 @@ Puppet deployments can range from small groups of servers up to enterprise-level
 After installation, the next section will show you how to secure these servers via Puppet. This section will demonstrate core features of the Puppet language.
 
 {{< note >}}
-Most guides will instruct you to follow the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide before proceeding. Because Puppet will be used to perform this task, you should begin this guide as the `root` user. A limited user with administrative privileges will be configured via Puppet in later steps.
+Most guides will instruct you to follow the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide before proceeding. Because Puppet will be used to perform this task, you should begin this guide as the `root` user. A limited user with administrative privileges will be configured via Puppet in later steps.
 {{< /note >}}
 
 ## Before You Begin
@@ -55,11 +53,11 @@ Throughout this guide, commands and code snippets will reference the values disp
 
 1.  Create three Linodes corresponding to the servers listed in the table above. Your Puppet master Linode should have at least four CPU cores; the [Linode 8GB](https://www.linode.com/pricing) plan is recommended. The two other nodes can be of any plan size, depending on how you intend to use them after Puppet is installed and configured.
 
-1.  [Configure your timezone](/docs/products/compute/compute-instances/guides/set-up-and-secure/#set-the-timezone) on your master and agent nodes so that they all have the same time data.
+1.  [Configure your timezone](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#set-the-timezone) on your master and agent nodes so that they all have the same time data.
 
-1.  [Set the hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname) for each server.
+1.  [Set the hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname) for each server.
 
-1.  [Set the FQDN](/docs/guides/using-your-systems-hosts-file/) for each Linode by editing the servers' `/etc/hosts` files.
+1.  [Set the FQDN](/cloud/guides/using-your-systems-hosts-file) for each Linode by editing the servers' `/etc/hosts` files.
 
     {{< note type="secondary" title="Example content for the hosts file" isCollapsible=true >}}
     You can model the contents of your `/etc/hosts` files on these snippets:
@@ -91,11 +89,11 @@ Throughout this guide, commands and code snippets will reference the values disp
     ```
     {{< /note >}}
 
-1.  [Set up DNS records](/docs/products/networking/dns-manager/guides/manage-dns-records/) for your Linodes' FQDNs. For each Linode, create a new *A record* with the name specified by its FQDN and assign it to that Linode's IP address.
+1.  [Set up DNS records](https://techdocs.akamai.com/cloud-computing/docs/manage-dns-records) for your Linodes' FQDNs. For each Linode, create a new *A record* with the name specified by its FQDN and assign it to that Linode's IP address.
 
     If you don't use Linode's name servers for your domain, consult your name server authority's website for instructions on how to edit your DNS records.
 
-    {{< content "update-dns-at-common-name-server-authorities" >}}
+    {{% content "update-dns-at-common-name-server-authorities" %}}
 
 ## Puppet Master
 
@@ -281,7 +279,7 @@ Notice: Applied catalog in 0.02 seconds
 
 ## Add Modules to Configure Agent Nodes
 
-The Puppet master and agent nodes are now functional, but they are not secure. Based on concepts from the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, a limited user and a firewall should be configured. This can be done on all nodes through the creation of basic Puppet modules, shown below.
+The Puppet master and agent nodes are now functional, but they are not secure. Based on concepts from the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, a limited user and a firewall should be configured. This can be done on all nodes through the creation of basic Puppet modules, shown below.
 
 {{< note >}}
 This is not meant to provide a basis for a fully-hardened server, and is intended only as a starting point. Alter and add firewall rules and other configuration options, depending on your specific needs.
@@ -492,7 +490,7 @@ Notice: Finished catalog run in 0.02 seconds
 
 ### Edit SSH Settings
 
-Although a new limited user has successfully been added to the Puppet master, it is still possible to login to the system as root. To properly secure your system, root access should be disabled.
+Although a new limited user has successfully been added to the Puppet master, it is still possible to log in to the system as root. To properly secure your system, root access should be disabled.
 
 {{< note >}}
 Because you are now logged in to the Puppet master as a limited user, you will need to execute commands and edit files with the user's sudo privileges.

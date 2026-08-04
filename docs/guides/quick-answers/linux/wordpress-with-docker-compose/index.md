@@ -1,20 +1,18 @@
 ---
 slug: wordpress-with-docker-compose
+title: Install WordPress with Docker Compose
+description: 'This guide shows how to use Docker and Docker Compose to host a WordPress website using a LAMP stack configured in Docker and linked with Compose.'
+authors: ["Nathan Melehan"]
+contributors: ["Nathan Melehan"]
+published: 2018-05-29
 keywords: ["Docker", "Docker Compose", "WordPress"]
 tags: ["wordpress","docker","linux"]
-description: 'This guide shows how to use Docker and Docker Compose to host a WordPress website using a LAMP stack configured in Docker and linked with Compose.'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-05-29
-modified: 2018-05-29
-modified_by:
-  name: Linode
-title: Install WordPress with Docker Compose
 external_resources:
   - '[Official WordPress Image on Docker Hub](https://hub.docker.com/_/wordpress/)'
   - '[Overview of Docker Compose | Docker Documentation](https://docs.docker.com/compose/overview/)'
   - '[Quickstart: Compose and Wordpress | Docker Documentation](https://docs.docker.com/compose/wordpress/)'
-aliases: ['/quick-answers/linux/wordpress-with-docker-compose/']
-authors: ["Nathan Melehan"]
+aliases: []
 ---
 
 ![Install WordPress with Docker Compose](install-wordpress-with-docker-compose.png "Install WordPress with Docker Compose")
@@ -39,11 +37,11 @@ The WordPress and MySQL images are maintained on Docker Hub by their respective 
 
 ### Install Docker
 
-{{< content "installing-docker-shortguide" >}}
+{{% content "installing-docker-shortguide" %}}
 
 ### Install Docker Compose
 
-{{< content "install-docker-compose" >}}
+{{% content "install-docker-compose" %}}
 
 ## Set Up WordPress
 
@@ -97,7 +95,7 @@ volumes:
 
     ![WordPress setup screen in the web browser](docker-compose-wordpress-wizard.png "WordPress setup screen in the web browser")
 
-5.  You can optionally set up a domain for your WordPress site. Our [DNS Manager Overview](/docs/products/networking/dns-manager/) guide includes instructions for associating your domain with your Linode's IP address.
+5.  You can optionally set up a domain for your WordPress site. Our [DNS Manager Overview](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide includes instructions for associating your domain with your Linode's IP address.
 
     Once you set up your DNS records, you should also replace your IP address with your domain in the WordPress Settings screen:
 
@@ -127,4 +125,4 @@ The `docker-compose.yml` specifies the `latest` version of the WordPress image, 
 
 ## Next Steps
 
-More extensive documentation on Docker is available in the [Containers](/docs/guides/applications/containers/) section of the Linode Guides & Tutorials site.
+More extensive documentation on Docker is available in the [Containers](/cloud/guides/applications/containers) section of the Linode Guides & Tutorials site.

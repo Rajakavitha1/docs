@@ -1,15 +1,15 @@
 ---
 slug: how-to-install-wordpress-debian-10
+title: "Install WordPress on Debian 10"
+title_meta: "How to Install WordPress on Debian 10"
 description: 'This guide will show you how to install WordPress, a free and open-source content management system commonly used for blogs, on Debian 10.'
 og_description: "This guide will show you how to install WordPress, a free and open-source content management system commonly used for blogs, on Debian 10."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-05-29
 keywords: ['wordpress blog','wordpress download','what is wordpress','wordpress hosting','content management system','cms','install wordpress on debian 10']
 tags: ['wordpress', 'cms', 'debian']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-05-29
-modified_by:
-  name: Nathaniel Stickman
-title: "Install WordPress on Debian 10"
-title_meta: "How to Install WordPress on Debian 10"
 relations:
     platform:
         key: how-to-install-wordpress
@@ -19,7 +19,6 @@ external_resources:
 - '[First Steps with WordPress](https://wordpress.org/support/article/first-steps-with-wordpress/)'
 - '[WordPress Support: WordPress Widgets](https://wordpress.org/support/article/wordpress-widgets/)'
 
-authors: ["Nathaniel Stickman"]
 ---
 
 WordPress is an open-source content management system (CMS), one of the most popular around. WordPress was originally designed for blogging, and it is still one of the most commonly used platforms for that. But its effectiveness as a CMS has also made it useful for an array of websites where strong content management is crucial. WordPress also boasts an extensive library of themes, plug-ins, and widgets to meet your website's needs and make it your own.
@@ -28,14 +27,14 @@ In this guide, learn how to install WordPress on your Debian 10 server.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 1. Replace all instances of `example.com` in this guide with your domain name.
 
-{{< note respectIndent=false >}}
-This guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Set Up the Prerequisites
@@ -73,7 +72,7 @@ To satisfy these requirements, you can set up a LAMP (Linux, Apache, MySQL, and 
 
 1. Complete the installation of a LAMP or LEMP stack by following the appropriate guide linked below. Ignore the sections on installing PHP, and otherwise replace any mention of the PHP version number with **7.4**.
 
-    - To create a LAMP stack, follow the [Install a LAMP Stack on Debian 10 ](/docs/guides/how-to-install-a-lamp-stack-on-debian-10/) guide. Additionally, you need to ensure that the `rewrite` Apache module is enabled, which you can do with the following steps:
+    - To create a LAMP stack, follow the [Install a LAMP Stack on Debian 10 ](/cloud/guides/how-to-install-a-lamp-stack-on-debian-10) guide. Additionally, you need to ensure that the `rewrite` Apache module is enabled, which you can do with the following steps:
 
         - See what modules are enabled using the below command:
 
@@ -84,7 +83,7 @@ To satisfy these requirements, you can set up a LAMP (Linux, Apache, MySQL, and 
                 sudo a2enmod rewrite
                 sudo systemctl restart apache2
 
-    - To create a LEMP stack, follow the [How to Install the LEMP Stack on Debian 10](/docs/guides/how-to-install-the-lemp-stack-on-debian-10/) guide. Additionally, take the following steps to prepare your NGINX configuration for WordPress.
+    - To create a LEMP stack, follow the [How to Install the LEMP Stack on Debian 10](/cloud/guides/how-to-install-the-lemp-stack-on-debian-10) guide. Additionally, take the following steps to prepare your NGINX configuration for WordPress.
 
         - Add `index.php` to the `location /` block of your site's configuration file.
 
@@ -176,4 +175,4 @@ Congratulations! Your WordPress site is up and running. You can reach the site's
 
 To start learning more about getting the most out of your WordPress site, check out WordPress's [First Steps with WordPress](https://wordpress.org/support/article/first-steps-with-wordpress/). It helps you figure out how to start using and making your WordPress site your own.
 
-To go beyond the basic configuration on your WordPress site, take a look at our [Configuring WordPress](/docs/guides/configuring-wordpress/) guide. It walks you through more advanced configuration options that open up new features for your WordPress installation.
+To go beyond the basic configuration on your WordPress site, take a look at our [Configuring WordPress](/cloud/guides/configuring-wordpress) guide. It walks you through more advanced configuration options that open up new features for your WordPress installation.

@@ -1,15 +1,14 @@
 ---
 slug: introducing-http-2
+title: "An Introduction to HTTP/2"
+title_meta: "HTTP/2 vs. HTTP/1.1: Why You Should Use HTTP/2"
 description: 'This guide provides a brief introduction to HTTP/2, compares it with the original HTTP specification, and explains why you should use it.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-07-16
 keywords: ['http2 vs http1']
 tags: ['web server']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-16
-modified_by:
-  name: Linode
-title: "An Introduction to HTTP/2"
-title_meta: "HTTP/2 vs. HTTP/1.1: Why You Should Use HTTP/2"
-authors: ["Jeff Novotny"]
 ---
 
 [*HTTP/2*](https://en.wikipedia.org/wiki/HTTP/2) (also known as HTTP 2) updates and expands the original Hypertext Transfer Protocol (HTTP) implementation. HTTP/2 is designed to improve throughput and latency while maintaining backward compatibility with earlier versions. Because HTTP/2 offers many advantages and no real disadvantages when compared to HTTP/1.1, web servers and clients should use the new version. This guide provides an introduction to HTTP/2, compares it with the original HTTP specification, and explains why you should use it.
@@ -64,6 +63,6 @@ While HTTP/2 is widely seen as a big improvement over HTTP/1.1, the new version 
 
 ## Implement HTTP/2 on Apache or NGINX
 
-More in-depth resources on HTTP/2 are available for those who want to learn more about the protocol. You can refer to our [How to Configure HTTP/2 on Apache](/docs/guides/how-to-configure-http-2-on-apache) and [NGINX](/docs/guides/how-to-configure-http-2-on-nginx) to use the protocol for your websites.
+More in-depth resources on HTTP/2 are available for those who want to learn more about the protocol. You can refer to our [How to Configure HTTP/2 on Apache](/cloud/guides/how-to-configure-http-2-on-apache) and [NGINX](/cloud/guides/how-to-configure-http-2-on-nginx) to use the protocol for your websites.
 
 

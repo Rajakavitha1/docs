@@ -1,13 +1,13 @@
 'use strict';
 
-import { getIntParamFromLocation, setDocumentMeta, updatePaginationParamInLocation } from '../../helpers/index';
+import { getIntParamFromLocation, setDocumentMeta, updatePaginationParamInLocation } from '../../helpers/helpers';
 import { newCreateHref } from '../../navigation/index';
 import {
 	newRequestCallback,
 	newRequestCallbackFactoryTarget,
 	SearchGroupIdentifier,
 	RequestCallBackStatus,
-} from 'js/main/search/request';
+} from '../../search/request';
 
 var debug = 0 ? console.log.bind(console, '[list]') : function () {};
 

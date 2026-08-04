@@ -1,20 +1,19 @@
 ---
 slug: how-to-increase-swap-space-in-ubuntu
-description: 'Need to know how to increase swap space in Ubuntu? Guard yourself against out-of-memory errors and add swap space to your server today. ✓ Read more here!'
-keywords: ['how to increase swap space in ubuntu','ubuntu swap file','linux swap space size','create swap partition ubuntu']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-12-06
-modified: 2023-03-29
-modified_by:
-  name: Linode
 title: "Step-by-Step Guide: How to Increase Swap Space in Ubuntu"
 title_meta: "Learn How to Create a Swap File in Ubuntu"
+description: 'Need to know how to increase swap space in Ubuntu? Guard yourself against out-of-memory errors and add swap space to your server today. ✓ Read more here!'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-12-06
+modified: 2023-03-29
+keywords: ['how to increase swap space in ubuntu','ubuntu swap file','linux swap space size','create swap partition ubuntu']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Ubuntu SwapFAQ](https://help.ubuntu.com/community/SwapFaq)'
 - '[Linux man page for the dd command](https://pubs.opengroup.org/onlinepubs/7908799/xcu/dd.html)'
 - '[Ubuntu man page for the swapon command](https://manpages.ubuntu.com/manpages/focal/man8/swapon.8.html)'
 - '[Ubuntu man page for the mkswap command](http://manpages.ubuntu.com/manpages/focal/man8/mkswap.8.html)'
-authors: ["Jeff Novotny"]
 ---
 
 Systems trying to run large, memory-intensive applications with limited RAM can run into serious issues. Operations might become very slow, and the application can sometimes freeze completely or crash with out-of-memory errors. One workaround for this issue is to create extra swap space on the hard drive. The application can use this extra memory supply when RAM is running low. This guide explains the concept of swap space, and demonstrates how to increase swap space on Ubuntu.
@@ -52,12 +51,12 @@ Overall, it is usually better to treat swap space as a safety mechanism to avoid
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Increase Swap Space in Ubuntu

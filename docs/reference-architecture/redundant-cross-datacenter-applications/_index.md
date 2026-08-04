@@ -1,13 +1,13 @@
 ---
 title: "Redundant Cross-Data Center Applications"
-linkTitle: "Redundant Cross-Data Center Applications"
 description: "Guidance on how to create a segmented software-defined network using Linode VLANs and Wireguard to host inter-data center SaaS applications."
+published: 2022-09-28
+linkTitle: "Redundant Cross-Data Center Applications"
 license: "[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/)"
 tab_group_main:
     is_root: true
     title: Overview
     weight: 10
-published: 2022-09-28
 tags: ["gaming"]
 ---
 
@@ -30,7 +30,7 @@ As the application is primarily a SaaS, most of the state is maintained in the d
 - [MongoDB](https://www.mongodb.com/)
 - [Terraform](https://www.terraform.io/)
 - Linode:
-    - [Cloud Firewalls](/docs/products/networking/cloud-firewall/) are used on the Wireguard&#174;/NGINX gateways
+    - [Cloud Firewalls](https://techdocs.akamai.com/cloud-computing/docs/cloud-firewall) are used on the Wireguard&#174;/NGINX gateways
 
 ## Business Benefits
 
@@ -45,6 +45,6 @@ Routing traffic through a single aggregation point creates a choke point where t
 
 ## Diagrams
 
-[![Thumbnail of redundant cross-datacenter application reference architecture diagram](redundant-cross-datacenter-application-diagram-thumbnail.png)](/docs/reference-architecture/redundant-cross-datacenter-applications/diagrams/)
+[![Thumbnail of redundant cross-datacenter application reference architecture diagram](redundant-cross-datacenter-application-diagram-thumbnail.png)](/cloud/reference-architecture/redundant-cross-datacenter-applications/diagrams)
 
 “WireGuard” is a registered trademark of Jason A. Donenfeld.

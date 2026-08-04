@@ -1,14 +1,14 @@
 ---
 slug: ssl-apache2-centos
+title: 'SSL Certificates with Apache on CentOS 7'
 description: 'This guide provides you with step-by-step instructions on how to enable SSL to secure websites served through the Apache web server on Fedora or CentOS.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2014-11-19
+modified: 2016-08-17
 keywords: ["apache SSL", "ssl on centos", "ssl on fedora", "ssl", "contos", "fedora", "apache", "httpd"]
 tags: ["fedora","lamp","centos","apache","security","ssl"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2016-08-17
-modified_by:
-  name: Nick Brewer
-published: 2014-11-19
-title: 'SSL Certificates with Apache on CentOS 7'
 external_resources:
  - '[Apache HTTP Server Version 2.0 Documentation](http://httpd.apache.org/docs/2.0/)'
  - '[Setting up an SSL Secured Webserver with CentOS](http://wiki.centos.org/HowTos/Https)'
@@ -17,8 +17,7 @@ relations:
         key: ssl-certificate-apache
         keywords:
             - distribution: CentOS 7
-aliases: ['/security/ssl/ssl-apache2-centos/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![SSL Certificates with Apache on CentOS](SSL_Certificates_with_Apache_on_CentOS_7_smg.jpg)
@@ -29,11 +28,11 @@ This guide will show you how to enable SSL to secure websites served through Apa
 
 This guide assumes that you are running Apache2 on CentOS or Fedora. Prior to starting this guide, ensure that the following steps have been taken on your Linode:
 
--  Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+-  Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
--  Complete our [LAMP on CentOS 7](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/) guide, and create a site that you wish to secure with SSL.
+-  Complete our [LAMP on CentOS 7](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7) guide, and create a site that you wish to secure with SSL.
 
--  Follow our guide for obtaining either a [self-signed](/docs/guides/create-a-self-signed-tls-certificate/) or [commercial](/docs/guides/obtain-a-commercially-signed-tls-certificate/) SSL certificate.
+-  Follow our guide for obtaining either a [self-signed](/cloud/guides/create-a-self-signed-tls-certificate) or [commercial](/cloud/guides/obtain-a-commercially-signed-tls-certificate) SSL certificate.
 
 -  In order to configure your Linode to function with SSL, you will need to ensure that the Apache `mod_ssl` module is installed on your system.  You can do so by running the following command:
 

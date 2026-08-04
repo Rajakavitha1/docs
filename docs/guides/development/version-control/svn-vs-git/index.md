@@ -1,15 +1,14 @@
 ---
 slug: svn-vs-git
+title: "SVN vs Git: Which Version Control System Should You Use?"
+title_meta: "Git vs SVN: Pros and Cons of Each Version Control System"
 description: "Comparing Git vs SVN? Our guide defines each system, highlights its pros and cons, and provides tips regarding which you should use."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-05-13
 keywords: ['svn vs git','git vs svn','subversion vs git']
 tags: ['version control system']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-05-13
-modified_by:
-  name: Linode
-title: "SVN vs Git: Which Version Control System Should You Use?"
-title_meta: "Git vs SVN: Pros and Cons of Each Version Control System"
-authors: ["Nathaniel Stickman"]
 ---
 Version Control Systems (VCS), like Git and SVN, track and manage code changes and provide an efficient way to collaborate on software development projects. A VCS is especially useful as a software development project grows in size and complexity, but even the simplest projects can benefit from tracking code changes with a VCS.
 
@@ -55,7 +54,7 @@ Git's cons are the following:
 
 SVN's pros are the following:
 
-- **Takes an easier approach**. The path between [creating a new feature branch](/docs/guides/subversion-svn-tutorial/#creating-a-subversion-branch) and merging it into the trunk is relatively short and intuitive to grasp. This makes SVN a tool that requires less training when getting started and can be effectively taken up by non-technical contributors.
+- **Takes an easier approach**. The path between [creating a new feature branch](/cloud/guides/subversion-svn-tutorial#creating-a-subversion-branch) and merging it into the trunk is relatively short and intuitive to grasp. This makes SVN a tool that requires less training when getting started and can be effectively taken up by non-technical contributors.
 
 - **Facilitates a top-down approach**. Since everything is centralized in an SVN repository, there is a single instance of the entire repository. This allows for granular repository access control. Each contributor's access can be limited to particular directories and files. SVN is a good choice when you need to manage security hierarchies within a repository.
 
@@ -89,11 +88,11 @@ Each of the version control systems covered here — SVN and Git — has its par
 
 - Use SVN when you need a VCS that favors top-down management, easy contributions, and does not require you to work entirely offline. SVN often comes out on top for enterprise usage specifically for its granular access control, and it is the clear choice if you need to set up security hierarchies.
 
-    To get started with SVN, be sure to read through our guide [How to Install and Use the Subversion CLI Client](/docs/guides/subversion-svn-tutorial/).
+    To get started with SVN, be sure to read through our guide [How to Install and Use the Subversion CLI Client](/cloud/guides/subversion-svn-tutorial).
 
 - Use Git when you need numerous contributors to work in parallel, where you expect lots of potential merge conflicts, and when you need contributors to be able to work locally offline. Because it handles merge conflicts, Git makes sense for most open-source projects, where contributors often work without external coordination. Git shines in a wide range of environments with complex codebases and distributed teams.
 
-    To learn more and start working with Git, check out our guide [Getting Started with Git](/docs/guides/how-to-configure-git/).
+    To learn more and start working with Git, check out our guide [Getting Started with Git](/cloud/guides/how-to-configure-git).
 
 ## Conclusion
 

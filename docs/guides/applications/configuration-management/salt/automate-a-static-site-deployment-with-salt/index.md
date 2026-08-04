@@ -1,23 +1,22 @@
 ---
 slug: automate-a-static-site-deployment-with-salt
+title: "Automate Static Site Deployments with Salt, Git, and Webhooks"
+title_meta: "Automate Static Site Deployments with Salt and Git"
 description: "Learn how to use Salt to configure a static site webserver and use webhooks to automatically deploy new site content."
+authors: ["Nathan Melehan"]
+contributors: ["Nathan Melehan"]
+published: 2018-10-15
+modified: 2019-01-02
 keywords: ['salt','saltstack','github','webhooks','hugo','static site','deployment']
 tags: ["web server","automation","salt"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-10-15
-modified: 2019-01-02
-modified_by:
-  name: Linode
 image: Automate-Static-Site-DeploymentswithSaltGitandWebhooks.png
-title: "Automate Static Site Deployments with Salt, Git, and Webhooks"
-title_meta: "Automate Static Site Deployments with Salt and Git"
 external_resources:
 - '[Hugo Documentation](https://gohugo.io/documentation/)'
 - '[SaltStack Git Fileserver Documentation](https://docs.saltproject.io/en/latest/topics/tutorials/gitfs.html#tutorial-gitfs)'
 - '[SaltStack Salt Formulas Documentation](https://docs.saltproject.io/en/latest/topics/development/conventions/formulas.html)'
 - '[GitHub Developer - Webhooks](https://developer.github.com/webhooks/)'
-aliases: ['/applications/configuration-management/salt/automate-a-static-site-deployment-with-salt/','/applications/configuration-management/automate-a-static-site-deployment-with-salt/']
-authors: ["Nathan Melehan"]
+aliases: []
 ---
 
 This guide will walk through the deployment of a static site using [SaltStack](https://github.com/saltstack/salt), which is a flexible configuration management system. The configuration files created for Salt will be version controlled using Git. Updates to your static site's code will be automatically communicated to the production system using webhooks, an event notification system for the web.
@@ -40,7 +39,7 @@ Two Linodes will be created: one will act as the Salt master, and the other as t
 
 It is possible to run Salt in a [masterless mode](https://docs.saltproject.io/en/latest/topics/tutorials/quickstart.html), but using a Salt master will make it easier to expand on your deployment in the future.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The workflow described in this guide is similar to how Linode's own [Guides & Tutorials](https://github.com/linode/docs) website is developed and deployed.
 {{< /note >}}
 
@@ -50,7 +49,7 @@ The workflow described in this guide is similar to how Linode's own [Guides & Tu
 
 Development of your Hugo site and your Salt formula will take place on your personal computer. Some software will need to be installed on your computer first:
 
-1.   Install Git using one of the methods in [Linode's guide](/docs/guides/how-to-install-git-on-linux-mac-and-windows/). If you have a Mac, use the Homebrew method, as it will also be used to install Hugo.
+1.   Install Git using one of the methods in [Linode's guide](/cloud/guides/how-to-install-git-on-linux-mac-and-windows). If you have a Mac, use the Homebrew method, as it will also be used to install Hugo.
 
 1.   Install Hugo. The [Hugo documentation](https://gohugo.io/getting-started/installing/) has a full list of installation methods, and instructions for some popular platforms are as follows:
 
@@ -72,15 +71,15 @@ Development of your Hugo site and your Salt formula will take place on your pers
 
 ### Deploy the Linodes
 
-1.  Follow the [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guide and deploy two Linodes running Debian 9.
+1.  Follow the [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guide and deploy two Linodes running Debian 9.
 
 1.  In the settings tab of your Linodes' dashboards, label one of the Linodes as `salt-master` and the other as `salt-minion`. This is not required, but it will help keep track of which Linode serves which purpose.
 
-1.  Complete the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide on each Linode to create a limited Linux user account with `sudo` privileges, harden SSH access, and remove unnecessary network services.
+1.  Complete the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide on each Linode to create a limited Linux user account with `sudo` privileges, harden SSH access, and remove unnecessary network services.
 
-    {{< content "limited-user-note-shortguide" >}}
+    {{% content "limited-user-note-shortguide" %}}
 
-1.  Configure DNS for your site by adding a [domain zone](/docs/products/networking/dns-manager/guides/create-domain/) and setting up [reverse DNS](/docs/products/compute/compute-instances/guides/configure-rdns/) on your Salt minion's IP address.
+1.  Configure DNS for your site by adding a [domain zone](https://techdocs.akamai.com/cloud-computing/docs/create-a-domain) and setting up [reverse DNS](https://techdocs.akamai.com/cloud-computing/docs/configure-rdns-reverse-dns-on-a-compute-instance) on your Salt minion's IP address.
 
 ## Set Up the Salt Master and Salt Minion
 
@@ -95,7 +94,7 @@ Before you can start setting up the Salt formulas for the minion, you first need
 The `-M` option tells the script to install the Salt master software, and the `-N` option tells the script to not install the minion software.
 {{< /note >}}
 
-1.  Log into the Salt **minion** Linode via SSH and [set the hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname). This guide uses `hugo-webserver` as the example hostname:
+1.  Log into the Salt **minion** Linode via SSH and [set the hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname). This guide uses `hugo-webserver` as the example hostname:
 
         sudo hostnamectl set-hostname hugo-webserver
 
@@ -247,7 +246,7 @@ nginx_service:
       - pkg: nginx_pkg
 {{< /file >}}
 
-    This state says that the `nginx` service should be immediately run and be enabled to run at boot. For a Debian 9 system, Salt will set the appropriate [systemd](/docs/guides/what-is-systemd/) configurations to enable the service. Salt also supports other init systems.
+    This state says that the `nginx` service should be immediately run and be enabled to run at boot. For a Debian 9 system, Salt will set the appropriate [systemd](/cloud/guides/what-is-systemd) configurations to enable the service. Salt also supports other init systems.
 
     The `require` lines specify that this state component should not be applied until after the `nginx_pkg` component has been applied.
 
@@ -486,7 +485,7 @@ The Salt minion's formula needs to be updated in order to serve the Hugo site. S
 
 Some of the new state components will refer to data stored in [*Salt Pillar*](https://docs.saltproject.io/en/latest/topics/pillar/). Pillar is a Salt system that stores private data and other parameters that you don't want to list in your formulas. The Pillar data will be kept as a file on the Salt master and not checked into version control.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 There are methods for securely checking this data into version control or using other backends to host the data, but those strategies are outside the scope of this guide.
 {{< /note >}}
 
@@ -545,7 +544,7 @@ hugo_site_repo:
 
 The final `hugo_site_repo` component in this snippet is responsible for cloning the example Hugo site repository from GitHub. This cloned repo is placed in the home directory of a system user that Salt creates in the preceding components. The clone command also recursively downloads the Cactus theme submodule.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The `- creates` declaration tells Salt that running the `cmd` command module will result in the creation of the file that's specified. If the state is applied again later, Salt will check if that file already exists. If it exists, Salt will *not* run the module again.
 
 {{< /note >}}
@@ -768,8 +767,7 @@ base:
 On the Salt master, apply the new states to all minions:
 
     sudo salt '*' state.apply
-
-{{< note respectIndent=false >}}
+{{< note >}}
 In this guide there is only one minion, but Salt can use shell-style globbing and regular expressions to [match against minion IDs](https://docs.saltproject.io/en/latest/topics/targeting/globbing.html) when you have more than one. For example, this command would run a highstate on all minions whose IDs begin with `hugo`:
 
     sudo salt 'hugo*' state.apply
@@ -838,7 +836,7 @@ webhook_config:
       - group: hugo_group
 {{< /file >}}
 
-    The first state creates a [systemd unit file](/docs/guides/introduction-to-systemctl/) for the webhook service. The second state creates a webhook configuration. The webhook server reads the configuration and generates a webhook URL from it.
+    The first state creates a [systemd unit file](/cloud/guides/introduction-to-systemctl) for the webhook service. The second state creates a webhook configuration. The webhook server reads the configuration and generates a webhook URL from it.
 
 1.  Create a `webhook.service` file in your repository's `files/` directory:
 

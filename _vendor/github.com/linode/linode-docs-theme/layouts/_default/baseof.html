@@ -8,11 +8,11 @@
     {{ $showToc = or $showToc (eq .Section "api") }}
   {{ end }}
 {{ end }}
-<!DOCTYPE html>
+<!doctype html>
 {{/* Note that the TailwindCSS config is "scoped" by the ln-docs ID, so don't change it for no good reason. */}}
-<html id="ln-docs" lang="{{ site.Language.Lang }}">
+<html id="ln-docs" lang="{{ site.Language.Lang }}" class="is-not-turbo-loaded">
   <head>
-    {{ if or site.IsServer (eq hugo.Environment "testing") }}
+    {{ if or hugo.IsServer (eq hugo.Environment "testing") }}
       <script>
         window.__timerStart = Date.now();
         window.__stopWatch = function (what) {
@@ -34,7 +34,7 @@
       </title>
 
       {{/* See https://turbo.hotwired.dev/handbook/drive#setting-a-root-location */}}
-      <meta name="turbo-root" content="/docs" />
+      <meta name="turbo-root" content="{{  (partial `get-basepath.html` .) }}" />
 
       {{/* SEO */}}
       {{ partial "sections/head-seo.html" . }}
@@ -53,9 +53,6 @@
     <style>
       [x-cloak] {
         display: none !important;
-      }
-      .is-translating {
-        opacity: 0 !important;
       }
     </style>
   </head>
@@ -97,7 +94,6 @@
       <header
         id="linode-menus"
         class="z-20"
-        x-ignore
         data-turbo-permanent
         data-turbo="false">
         {{ partial "linode-header.html" }}
@@ -112,7 +108,8 @@
             x-data="lncNav"
             x-effect="onEffect()"
             @scroll.window.debounce.100ms="onScroll()"
-            @turbo:before-render.window="onTurboBeforeRender(event)"
+            @turbo:before-render.window="onTurboBeforeRender($event)"
+            @onetrust:groups-updated.window="onOptanonGroupsUpdated($event.detail)"
             @turbo:render.window="onTurboRender()"
             @popstate.window="onPopState($event)"
             id="nav-controller"
@@ -143,12 +140,13 @@
       {{/* Left side explorer menu. */}}
       <nav
         id="explorer"
-        class="sticky overflow-y-scroll z-0 top--navbar-row border-r-gray">
-        {{ partialCached "sections/navigation/explorer.html" . }}
+        class="sticky overflow-y-auto h-full z-0 top--navbar-row border-r-gray"
+        {{ if not (eq .Type "sections") }}data-preserve-scroll{{ end }}>
+        {{ partial "sections/navigation/explorer.html" . }}
       </nav>
 
       {{/* Main content area. */}}
-      <main class="main bg-white h-full min-h-screen hide-on-lang-nav">
+      <main class="main bg-white h-full min-h-screen">
         <div class="main__inner">
           {{ if site.Params.enable_leak_checker }}
             {{ partial "helpers/leak-checker.html" }}
@@ -160,7 +158,7 @@
           {{ if eq $mainLayout "content_toc" }}
             <section
               id="main__content"
-              class="main__content mb-20 container mx-auto max-w-content xl:max-w-6xl">
+              class="main__content relative mb-20 container mx-auto max-w-content xl:max-w-6xl">
               <div class="mt-4 md:mt-6 main__breadcrumbs">
                 {{ partial "sections/navigation/breadcrumbs.html"  (dict "page" . "wrap" true) }}
               </div>
@@ -170,17 +168,21 @@
                     {{ block "content_header" . }}{{ end }}
                   </div>
                   <div class="flex w-full">
-                    <div x-ignore class="content max-w-content w-full xl:w-3/4">
+                    <div class="content max-w-content w-full xl:w-3/4">
                       {{ block "content_main" . }}{{ .Content }}{{ end }}
                     </div>
                     <div
                       class="hidden overflow-y-auto xl:block sticky top-20 hide-if-no-js flex-none xl:w-60 pl-8 pr-4 mt-6"
-                      style="height: 80vh;">
+                      style="height: 90vh;">
                       {{ partial "sections/navigation/toc-main.html" . }}
+                      {{ partial "sections/navigation/recommendations-box.html" . }}
                     </div>
                   </div>
                 </div>
               </div>
+              {{ if site.Params.file_issue_button.enable }}
+                {{ partial "sections/navigation/file-issue-button.html" . }}
+              {{ end }}
             </section>
           {{ else }}
             {{ block "main-section" . }}
@@ -210,7 +212,4 @@
       {{ partial "sections/before-body-end.html" . }}
     </div>
   </body>
-  <template id="language-switcher-template">
-    {{ partial "sections/navigation/language-switcher.html" . }}
-  </template>
 </html>

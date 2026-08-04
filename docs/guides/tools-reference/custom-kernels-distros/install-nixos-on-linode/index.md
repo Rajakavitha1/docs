@@ -1,14 +1,14 @@
 ---
 slug: install-nixos-on-linode
-published: 2017-06-16
+title: Install and Configure NixOS on a Linode
 description: 'Install NixOS, which is known for its declarative approach to configuration management, configuration rollback, reliability, and for being DevOps-friendly.'
+authors: ["Andrew Miller"]
+contributors: ["Andrew Miller"]
+published: 2017-06-16
+modified: 2024-07-05
 keywords: ["custom distro", "NixOS", "advanced Linux", "kvm"]
 tags: ["cloud manager"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified_by:
-  name: Andrew Miller
-modified: 2023-07-11
-title: Install and Configure NixOS on a Linode
 external_resources:
  - '[NixOS](https://nixos.org/nixos/manual/)'
  - '[Nixpkgs](https://nixos.org/nixpkgs/manual/)'
@@ -17,8 +17,7 @@ relations:
         key: how-to-install-linux
         keywords:
             - distribution: NixOS
-aliases: ['/tools-reference/custom-kernels-distros/install-nixos-on-linode/']
-authors: ["Andrew Miller"]
+aliases: []
 ---
 
 ![How to Install NixOS on Linode](nixos-title.png "How to Install NixOS on Linode")
@@ -33,7 +32,7 @@ NixOS is not officially supported by Linode at the time of publishing this guide
 
 ## Before You Begin
 
-Familiarize yourself with [LISH](/docs/products/compute/compute-instances/guides/lish/) and [GLISH](/docs/products/compute/compute-instances/guides/glish/) to connect to your Linode. You will use them throughout this guide.
+Familiarize yourself with [LISH](https://techdocs.akamai.com/cloud-computing/docs/access-your-system-console-using-lish) and [GLISH](https://techdocs.akamai.com/cloud-computing/docs/access-your-desktop-environment-using-glish) to connect to your Linode. You will use them throughout this guide.
 
 The [NixOS manual](https://nixos.org/nixos/manual/) is the main reference for NixOS. It explores the concepts at a high level and serves as a reference for some system configuration concepts. This should have everything you need to know to get started, but there may be some deeper concepts that are not thoroughly addressed. For more in-depth information, visit the [NixOS](https://nixos.org/nixos/manual/) and [Nixpkgs](https://nixos.org/nixpkgs/manual/) manuals.
 
@@ -47,15 +46,15 @@ To create a new Linode, go to the [Create Linode page](https://cloud.linode.com/
 
 ### Create Disks for Nix
 
-[Create three disk images](/docs/products/compute/compute-instances/guides/disks-and-storage/#creating-a-disk): One for the installer, one for a swap partition, and one for the root partition. Label them:
+[Create three disk images](https://techdocs.akamai.com/cloud-computing/docs/manage-disks-on-a-compute-instance#create-a-disk): One for the installer, one for a swap partition, and one for the root partition. Label them:
 
-- **Installer**: A type `ext4` disk, 1024 MB in size.
+- **Installer**: A type `ext4` disk, 1280 MB in size.
 - **Swap**: A `swap` disk no larger than 512 MB.
 - **NixOS**: A type `ext4` disk which takes up all remaining space.
 
 ### Create Configuration Profiles
 
-[Create two configuration profiles](/docs/products/compute/compute-instances/guides/configuration-profiles/#creating-a-configuration-profile), one for the installer and one to boot NixOS. For each profile, disable all of the options under **Filesystem/Boot Helpers** and set the **Configuration Profile** to match the following:
+[Create two configuration profiles](https://techdocs.akamai.com/cloud-computing/docs/manage-configuration-profiles-on-a-compute-instance#create-a-configuration-profile), one for the installer and one to boot NixOS. For each profile, disable all of the options under **Filesystem/Boot Helpers** and set the **Configuration Profile** to match the following:
 
 -   **Installer profile**
 
@@ -78,7 +77,7 @@ To create a new Linode, go to the [Create Linode page](https://cloud.linode.com/
 
 1.  In your browser, navigate to the [NixOS download page](https://nixos.org/nixos/download.html) and copy the URL from the **Minimal installation CD, 64-bit Intel/AMD** link.
 
-1.  [Boot your Linode into rescue mode](/docs/products/compute/compute-instances/guides/rescue-and-rebuild/#booting-into-rescue-mode) with the **Installer** disk mounted as `/dev/sda`.
+1.  [Boot your Linode into rescue mode](https://techdocs.akamai.com/cloud-computing/docs/rescue-and-rebuild#boot-into-rescue-mode) with the **Installer** disk mounted as `/dev/sda`.
 
 1.  Once in rescue mode, click the **Launch Console** link to launch the Finnix rescue console and run the following commands, replacing the URL with the latest 64-bit minimal installation image copied from the [NixOS download page](https://nixos.org/nixos/download.html):
 
@@ -101,7 +100,7 @@ Now that you have created the installer disk, you need to boot with the installe
 
 ### Boot the Installer
 
-In your Linode's dashboard, boot into your **Installer** configuration profile. Since the installer image isn't configured to support SSH or the LISH console, connect to your Linode using [GLISH](/docs/products/compute/compute-instances/guides/glish/).
+In your Linode's dashboard, boot into your **Installer** configuration profile. Since the installer image isn't configured to support SSH or the LISH console, connect to your Linode using [GLISH](https://techdocs.akamai.com/cloud-computing/docs/access-your-desktop-environment-using-glish).
 
 ### Set up the Install Environment
 
@@ -220,7 +219,7 @@ To secure your system, change this setting to `"no"` after creating a limited us
 
 ### Disable Predictable Interface Names
 
-1.  Most of Linode's default images have had systemd's predictable interface names disabled. Because of this, most of [Linode's networking guides](/docs/networking/) assume an interface of `eth0`. Since your Linode runs in a virtual environment and will have a single interface, it won't encounter the issues that predictable interface names were designed to solve. This change is optional, but may help troubleshooting later; add the following line:
+1.  Most of Linode's default images have had systemd's predictable interface names disabled. Because of this, most of [Linode's networking guides](/cloud/networking) assume an interface of `eth0`. Since your Linode runs in a virtual environment and will have a single interface, it won't encounter the issues that predictable interface names were designed to solve. This change is optional, but may help troubleshooting later; add the following line:
 
     ```file {title="/mnt/etc/nixos/configuration.nix"}
     networking.usePredictableInterfaceNames = false;
@@ -292,7 +291,7 @@ NixOS is now installed and can be booted from the **Boot** profile created in [C
 
 In this optional section, you'll create a deployable disk image of NixOS.
 
-1.  [*Linode Images*](/docs/products/tools/images/) allows you to take snapshots of your system. These snapshots are limited to 2GB in size. The NixOS installation includes packages that were essential for the installation process, but aren't needed for the running system. These can be removed after installation:
+1.  [*Linode Images*](https://techdocs.akamai.com/cloud-computing/docs/images) allows you to take snapshots of your system. These snapshots are limited to 2GB in size. The NixOS installation includes packages that were essential for the installation process, but aren't needed for the running system. These can be removed after installation:
 
     ```command
     nix-collect-garbage -d
@@ -306,19 +305,19 @@ In this optional section, you'll create a deployable disk image of NixOS.
     cd /var/log
     ```
 
-1.  Create an image of the **NixOS** disk using the [Linode Images](/docs/products/tools/images/#capturing-your-image) guide. Label the image according to the release of NixOS you installed. Now that you have created an image, you can select it in the distribution menu whenever you deploy a Linode.
+1.  Create an image of the **NixOS** disk using the [Linode Images](https://techdocs.akamai.com/cloud-computing/docs/capture-an-image) guide. Label the image according to the release of NixOS you installed. Now that you have created an image, you can select it in the distribution menu whenever you deploy a Linode.
 
 ## Delete the Installer Disk and Profile
 
 If you're not confident with your install configuration, you can keep the installer and boot from it to reinstall adjusted configuration repeatedly.
 
-Otherwise, you can now delete the installer disk and profile from your Linode using the [Deleting a Configuration Profile](/docs/products/compute/compute-instances/guides/configuration-profiles/#deleting-a-configuration-profile) and [Deleting a Disk](/docs/products/compute/compute-instances/guides/disks-and-storage/#deleting-a-disk) guides.
+Otherwise, you can now delete the installer disk and profile from your Linode using the [Deleting a Configuration Profile](https://techdocs.akamai.com/cloud-computing/docs/manage-configuration-profiles-on-a-compute-instance#delete-a-configuration-profile) and [Deleting a Disk](https://techdocs.akamai.com/cloud-computing/docs/manage-disks-on-a-compute-instance#delete-a-disk) guides.
 
 Remove the **Installer** disk and reclaim the storage that the NixOS installation was using:
 
   1. Go to your Linode's dashboard and shutdown your Linode.
-  2. [Remove the *Installer* disk](/docs/products/compute/compute-instances/guides/disks-and-storage/#deleting-a-disk).
-  3. [Resize the *NixOS* disk](/docs/products/compute/compute-instances/guides/disks-and-storage/#resizing-a-disk) to the maximum possible size.
+  2. [Remove the *Installer* disk](https://techdocs.akamai.com/cloud-computing/docs/manage-disks-on-a-compute-instance#delete-a-disk).
+  3. [Resize the *NixOS* disk](https://techdocs.akamai.com/cloud-computing/docs/manage-disks-on-a-compute-instance#resize-a-disk) to the maximum possible size.
 
 ## Enable Longview Agent (optional)
 

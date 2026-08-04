@@ -1,14 +1,13 @@
 ---
 slug: typescript-modules-getting-started
-description: 'In this guide, you learn about Typescript modules, how to use the import and export keywords in your code, and the differences between Typescript modules and namespaces.'
+title: "Get Started with TypeScript Modules"
+description: 'In this guide, you learn about TypeScript modules, how to use the import and export keywords in your code, and the differences between TypeScript modules and namespaces.'
+authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2021-10-08
 keywords: ['typescript module', 'typescript import', 'typescript module exports', 'typescript module vs namespace']
 tags: ['web applications']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-10-08
-modified_by:
-  name: Linode
-title: "Get Started with TypeScript Modules"
-authors: ["John Mueller"]
 ---
 
 TypeScript supports modules and namespaces that can be used to organize your codebase. Modules are currently the favored method for organizing your code when working with TypeScript. This guide shows you how to create TypeScript modules and provides a comparison between modules and namespaces.
@@ -27,7 +26,7 @@ The list below provides an overview of TypeScript module features:
 
 - The use of a module loader places the burden of locating and executing all dependencies of a module on the loader, rather than the developer.
 
-In TypeScript, any file that contains a top-level `import` or `export` statement is considered a module. Files that lack an `import` or `export` statement are automatically viewed as scripts. If you don’t already have your system setup to use TypeScript, you can find step-by-step instructions for doing so in the [How to Use Node.js, TypeScript, and Express to Build a Web Server](/docs/guides/using-nodejs-typescript-and-express-to-build-a-web-server/) guide.
+In TypeScript, any file that contains a top-level `import` or `export` statement is considered a module. Files that lack an `import` or `export` statement are automatically viewed as scripts. If you don’t already have your system setup to use TypeScript, you can find step-by-step instructions for doing so in the [How to Use Node.js, TypeScript, and Express to Build a Web Server](/cloud/guides/using-nodejs-typescript-and-express-to-build-a-web-server) guide.
 
 ## Create a TypeScript Module
 

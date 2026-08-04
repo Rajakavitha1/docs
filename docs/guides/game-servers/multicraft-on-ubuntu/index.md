@@ -1,32 +1,31 @@
 ---
 slug: multicraft-on-ubuntu
+title: "Installing Multicraft on Ubuntu"
 description: "This guide shows how to install and configure MultiCraft, a control panel for single or multiple Minecraft servers, on a Linode running Ubuntu 20.04 LTS."
+authors: ["Alex Fornuto"]
+contributors: ["Alex Fornuto"]
+published: 2015-02-04
+modified: 2021-12-30
 keywords: ["minecraft", "ubuntu", "multicraft"]
 tags: ["ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[Multicraft Documentation](http://www.multicraft.org/site/userguide?view=index)'
  - '[Minecraft.net](https://minecraft.net/)'
-modified: 2021-12-30
-modified_by:
-  name: Alex Fornuto
-published: 2015-02-04
-title: "Installing Multicraft on Ubuntu"
 image: Installing_Multicraft_on_Ubuntu_smg.jpg
-aliases: ['/game-servers/multicraft-on-ubuntu/','/applications/game-servers/multicraft-on-ubuntu/']
+aliases: []
 dedicated_cpu_link: true
 relations:
     platform:
         key: how-to-install-multicraft
         keywords:
             - distribution: Ubuntu
-authors: ["Alex Fornuto"]
 ---
 
 [Multicraft](http://www.multicraft.org/) is a control panel for single or multiple Minecraft servers, with free and paid versions available. This guide provides information to install Multicraft on a Linode running Ubuntu 20.04 LTS.
 
-{{< note respectIndent=false >}}
-The steps required in this guide require root privileges. Be sure to run the steps as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps required in this guide require root privileges. Be sure to run the steps as `root` or with the **sudo** prefix. For more information on privileges see our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Prerequisites
@@ -175,4 +174,4 @@ Version 1.17 (minecraft_server.1.17.jar) is downloaded.
 
     ![Multicraft Server Settings.](multicraft-server-settings-1804.png)
 
-    You can now successfully start and manage your Minecraft server through Multicraft! For more information, see the [Connect to your Minecraft Server](/docs/guides/how-to-set-up-minecraft-server-on-ubuntu-or-debian/#connect-to-your-minecraft-server) section on the [How to Set Up a Minecraft Server on Ubuntu or Debian](/docs/guides/how-to-set-up-minecraft-server-on-ubuntu-or-debian) guide.
+    You can now successfully start and manage your Minecraft server through Multicraft! For more information, see the [Connect to your Minecraft Server](/cloud/guides/how-to-set-up-minecraft-server-on-ubuntu-or-debian#connect-to-your-minecraft-server) section on the [How to Set Up a Minecraft Server on Ubuntu or Debian](/cloud/guides/how-to-set-up-minecraft-server-on-ubuntu-or-debian) guide.

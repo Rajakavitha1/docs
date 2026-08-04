@@ -1,16 +1,16 @@
 ---
 slug: use-buildbot-for-software-testing-on-ubuntu
+title: "Using Buildbot to Test Software on Ubuntu 18.04"
+title_meta: "Use Buildbot for Software Testing on Ubuntu 18.04"
 description: "This shows how to install, configure, and use Buildbot as a continuous integration platform, as well as how to write configuration for custom testing builds."
 og_description: "Deploy self-hosted continuous integration using Buildbot."
+authors: ["Tyler Langlois"]
+contributors: ["Tyler Langlois"]
+published: 2018-09-06
+modified: 2021-10-18
 keywords: ["buildbot", "testing", "python", "continuous integration", "ci", "build", "qa"]
 tags: ["automation","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2021-10-18
-modified_by:
-  name: Linode
-published: 2018-09-06
-title: "Using Buildbot to Test Software on Ubuntu 18.04"
-title_meta: "Use Buildbot for Software Testing on Ubuntu 18.04"
 external_resources:
 - '[Official Buildbot Tutorial](http://docs.buildbot.net/current/tutorial/)'
 - '[Buildbot Documentation](http://docs.buildbot.net/current/index.html)'
@@ -21,25 +21,24 @@ relations:
         key:  buildbot-software-testing
         keywords:
             - distribution: Ubuntu 18.04
-aliases: ['/development/ci/use-buildbot-for-software-testing-on-ubuntu/']
-authors: ["Tyler Langlois"]
+aliases: []
 ---
 
 [Buildbot](https://buildbot.net/) is an open source system for testing software projects. In this guide, you will set up a Linode as a Buildbot server to use as a continuous integration platform to test code. Similarly to hosted solutions like Travis CI, Buildbot is an automated testing platform that can watch for code changes, test a project's code, and send notifications regarding build failures.
 
 ## Before you Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-3.  Complete the [Add DNS Records](/docs/guides/set-up-web-server-host-website/#add-dns-records) steps to register a domain name that will point to your Linode instance hosting Buildbot.
+3.  Complete the [Add DNS Records](/cloud/guides/set-up-web-server-host-website#add-dns-records) steps to register a domain name that will point to your Linode instance hosting Buildbot.
 
     {{< note respectIndent=false >}}
 Replace each instance of `example.com` in this guide with your Buildbot site's domain name.
 {{< /note >}}
 
-1.  Your Buildbot site will serve its content over HTTPS, so you will need to obtain an SSL/TLS certificate. Use [Certbot](/docs/guides/secure-http-traffic-certbot/#use-certbot-on-ubuntu) to request and download a free certificate from [Let's Encrypt](https://letsencrypt.org/).
+1.  Your Buildbot site will serve its content over HTTPS, so you will need to obtain an SSL/TLS certificate. Use [Certbot](/cloud/guides/secure-http-traffic-certbot#use-certbot-on-ubuntu) to request and download a free certificate from [Let's Encrypt](https://letsencrypt.org/).
 
         sudo apt install software-properties-common
         sudo add-apt-repository ppa:certbot/certbot
@@ -50,7 +49,7 @@ Replace each instance of `example.com` in this guide with your Buildbot site's d
     These commands will download a certificate to `/etc/letsencrypt/live/example.com/` on your Linode.
 
     {{< note respectIndent=false >}}
-  The steps to install NGINX will be covered in the [Set up the Buildbot Master Web Interface](/docs/guides/use-buildbot-for-software-testing-on-ubuntu/#configure-buildbot-master#setup-buildbot-master-web-interface) section of the guide.
+  The steps to install NGINX will be covered in the [Set up the Buildbot Master Web Interface](/cloud/guides/use-buildbot-for-software-testing-on-ubuntu#set-up-the-buildbot-master-web-interface) section of the guide.
     {{< /note >}}
 
 ## Install Buildbot
@@ -121,7 +120,7 @@ c['buildbotURL'] = "https://example.com/"
 ...
     {{</ file >}}
 
-    These options assume that you will use a custom domain secured with Let's Encrypt certificates from `certbot` as outlined in the [Before You Begin](/docs/guides/use-buildbot-for-software-testing-on-ubuntu/#before-you-begin) section of this guide.
+    These options assume that you will use a custom domain secured with Let's Encrypt certificates from `certbot` as outlined in the [Before You Begin](/cloud/guides/use-buildbot-for-software-testing-on-ubuntu#before-you-begin) section of this guide.
 
 1.  Uncomment the web interface configuration lines and keep the default options:
 
@@ -177,7 +176,7 @@ c['www']['change_hook_dialects'] = {
 
 Buildbot is now running and listening on HTTP without encryption. To secure the connection, install NGINX to terminate SSL and reverse proxy traffic to the Buildbot master process.
 
-{{< content "install-nginx-ubuntu-ppa" >}}
+{{% content "install-nginx-ubuntu-ppa" %}}
 
 Now that NGINX is installed, configure NGINX to talk to the local Buildbot port. NGINX will listen for SSL traffic using the Let's Encrypt certificate for your domain.
 
@@ -248,7 +247,7 @@ server {
 
     Your continuous integration test server is now up and running.
 
-1. Ensure that you can log into your Buildbot instance with the admin credentials you created in the [Configure Buildbot Master](/docs/guides/use-buildbot-for-software-testing-on-ubuntu/#configure-buildbot-master) section. Click on the top right hand dropdown menu entitled **Anonymous** and then, click on **Login**. A *Sign In* modal will appear. Enter your credentials to log in to Buildbot as the admin user.
+1. Ensure that you can log into your Buildbot instance with the admin credentials you created in the [Configure Buildbot Master](/cloud/guides/use-buildbot-for-software-testing-on-ubuntu#set-up-the-buildbot-master-web-interface) section. Click on the top right hand dropdown menu entitled **Anonymous** and then, click on **Login**. A *Sign In* modal will appear. Enter your credentials to log in to Buildbot as the admin user.
 
 ### Install the Buildbot Worker
 
@@ -282,7 +281,7 @@ Now that Buildbot is installed, you can configure it to run builds. In this tuto
 
 Before creating the build configuration, fork the `linode/docs` repository into your GitHub account. This is the repository that will be used to run tests against. The repository will also require webhooks to be configured to send push or PR events to Buildbot.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The actions you take to fork, add webhook, and push changes to your fork of `linode/docs` will not affect the parent (or upstream), so you can safely experiment with it. Any changes you make to branches of your fork will remain separate until you submit a pull request to the original `linode/docs` repository.
 {{< /note >}}
 

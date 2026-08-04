@@ -1,19 +1,18 @@
 ---
 slug: deploy-a-flask-application-with-dokku
+title: "Deploy a Flask Application with Dokku"
 description: "In this guide, we'll show you how to use Dokku to quickly deploy a Flask application with SSL and NGINX."
+authors: ["Sam Foo"]
+contributors: ["Sam Foo"]
+published: 2018-03-07
+modified: 2018-12-14
 keywords: ['docker','containers','nginx', 'heroku', 'PaaS', 'git', 'Platform-as-a-service', 'Platform As a Service']
 tags: ["container","docker","ssl","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-03-07
-modified: 2018-12-14
-modified_by:
-  name: Linode
-title: "Deploy a Flask Application with Dokku"
 external_resources:
 - '[Dokku PaaS](http://dokku.viewdocs.io/dokku/)'
 - '[Flask](http://flask.pocoo.org/)'
-aliases: ['/applications/containers/deploy-a-flask-application-with-dokku/']
-authors: ["Sam Foo"]
+aliases: []
 ---
 
 Dokku is a self-hosted Platform-as-a-Service (PaaS) that makes deploying applications simple using Git. Although Dokku's implementation is similar to Heroku, it lacks certain key features such as auto-scaling. Dokku is an extremely powerful tool that automatically runs your application inside Docker and requires minimal configuration of web servers.
@@ -33,7 +32,7 @@ This guide demonstrates how to:
 Dokku v0.12.5 is compatible with Ubuntu 16.04 x64, Ubuntu 14.04 x64, and Debian 8.2 x64. CentOS 7 x64 is only supported experimentally, and as such some steps like configuring SSH keys and virtual hosts must be done manually using the dokku command line interface. See [the official documentation](http://dokku.viewdocs.io/dokku~v0.12.5/getting-started/installation/) for more information.
 {{< /note >}}
 
-A [public key](/docs/guides/use-public-key-authentication-with-ssh/) is assumed to be available. Typically this is located in `~/home/username/.ssh/id_rsa.pub`.
+A [public key](/cloud/guides/use-public-key-authentication-with-ssh) is assumed to be available. Typically this is located in `~/home/username/.ssh/id_rsa.pub`.
 
 Install Git if needed:
 

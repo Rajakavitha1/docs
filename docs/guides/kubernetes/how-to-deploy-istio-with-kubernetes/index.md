@@ -1,20 +1,19 @@
 ---
 slug: how-to-deploy-istio-with-kubernetes
+title: "Deploying Istio with Kubernetes"
+title_meta: "How to Deploy Istio with Kubernetes"
 description: 'This guide will show you how to deploy Istio, a powerful service mesh, or network of microservices, with it''s own API, within a Kubernetes environment.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-11-07
 keywords: ['kubernetes','istio','container','helm', 'k8s']
 tags: ["monitoring","networking","kubernetes","container", "gaming"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-11-07
-modified_by:
-  name: Linode
-title: "Deploying Istio with Kubernetes"
-title_meta: "How to Deploy Istio with Kubernetes"
 external_resources:
 - '[Istio](https://istio.io)'
 - '[Istio Mesh Security](https://istio.io/docs/ops/configuration/security/)'
 - '[Istio Troubleshooting](https://istio.io/docs/ops/diagnostic-tools/)'
-aliases: ['/kubernetes/how-to-deploy-istio-with-kubernetes/','/applications/containers/kubernetes/how-to-deploy-istio-with-kubernetes/']
-authors: ["Linode"]
+aliases: []
 ---
 
 [Istio](https://istio.io) is a service mesh, or a network of microservices, that can handle tasks such as load balancing, service-to-service authentication, monitoring, and more. It does this by deploying sidecar proxies to intercept network data, which causes minimal disruption to your current application.
@@ -32,21 +31,21 @@ In this guide you will complete the following tasks:
 {{< note type="alert" >}}
 This guide’s example instructions will create several billable resources on your Linode account. If you do not want to keep using the example cluster that you create, be sure to delete it when you have finished the guide.
 
-If you remove the resources afterward, you will only be billed for the hour(s) that the resources were present on your account. Consult the [Billing and Payments](/docs/products/platform/billing/)  guide for detailed information about how hourly billing works and for a table of plan pricing.
+If you remove the resources afterward, you will only be billed for the hour(s) that the resources were present on your account. Consult the [Billing and Payments](https://techdocs.akamai.com/cloud-computing/docs/understanding-how-billing-works)  guide for detailed information about how hourly billing works and for a table of plan pricing.
 {{< /note >}}
 
 ## Before You Begin
 
-Familiarize yourself with Kubernetes using our series [A Beginner's Guide to Kubernetes](/docs/guides/beginners-guide-to-kubernetes/) and [Advantages of Using Kubernetes](/docs/guides/kubernetes-use-cases/).
+Familiarize yourself with Kubernetes using our series [A Beginner's Guide to Kubernetes](/cloud/guides/beginners-guide-to-kubernetes) and [Advantages of Using Kubernetes](/cloud/guides/kubernetes-use-cases).
 
 ## Create Your Kubernetes Cluster
 
-{{< content "k8s-alpha-deprecation-shortguide" >}}
+{{% content "k8s-alpha-deprecation-shortguide" %}}
 
 There are many ways to create a Kubernetes cluster. This guide will use the Linode k8s-alpha CLI.
 
 1. To set it up the Linode k8s-alpha CLI, see the
-[How to Deploy Kubernetes on Linode with the k8s-alpha CLI](/docs/guides/how-to-deploy-kubernetes-on-linode-with-k8s-alpha-cli/) guide and stop before the "Create a Cluster" section.
+[How to Deploy Kubernetes on Linode with the k8s-alpha CLI](/cloud/guides/how-to-deploy-kubernetes-on-linode-with-k8s-alpha-cli) guide and stop before the "Create a Cluster" section.
 
 1. Now that your Linode K8s-alpha CLI is set up, You are ready to create your Kubernetes cluster. You will need **3 worker nodes** and **one master** for this guide. Create your cluster using the following command:
 
@@ -71,7 +70,7 @@ There are many ways to create a Kubernetes cluster. This guide will use the Lino
 
 ### Install Helm
 
-Follow the instructions in the [How to Install Apps on Kubernetes with Helm](/docs/guides/how-to-install-apps-on-kubernetes-with-helm-3/) guide to install Helm on your cluster. Stop before the section on "Using Helm Charts to Install Apps".
+Follow the instructions in the [How to Install Apps on Kubernetes with Helm](/cloud/guides/how-to-install-apps-on-kubernetes-with-helm-3) guide to install Helm on your cluster. Stop before the section on "Using Helm Charts to Install Apps".
 
 ## Install Istio
 

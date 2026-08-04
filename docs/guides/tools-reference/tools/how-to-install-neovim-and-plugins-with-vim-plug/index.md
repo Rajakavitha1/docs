@@ -1,22 +1,21 @@
 ---
 slug: how-to-install-neovim-and-plugins-with-vim-plug
+title: How to Install NeoVim and Plugins with vim-plug
 description: 'This guide shows you how to install NeoVim, a plugin manager, and plugins that help it replace the vim text editor.'
 og_description: 'With refactored code and better, asynchronous plugin management, NeoVim is literally the future of vim. This guide shows you how to install NeoVim, a plugin manager, and plugins that help it replace vim to become your new favorite text editor.'
-keywords: ["neovim", "text", "editor", "vim", "nvim", "plugins"]
-aliases: ['/tools-reference/how-to-install-neovim-and-plugins-with-vim-plug/','/tools-reference/tools/how-to-install-neovim-and-plugins-with-vim-plug/']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+authors: ["Gabriel Cánepa"]
+contributors: ["Gabriel Cánepa"]
 published: 2017-10-02
 modified: 2022-12-27
-modified_by:
-  name: Linode
-title: How to Install NeoVim and Plugins with vim-plug
+keywords: ["neovim", "text", "editor", "vim", "nvim", "plugins"]
+aliases: []
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[NeoVim official website](https://neovim.io)'
  - '[Neovim-completion-manager](https://github.com/roxma/nvim-completion-manager)'
  - '[Far.vim](https://github.com/brooth/far.vim)'
 tags: ["linux"]
 image: neovim-basics-title.jpg
-authors: ["Gabriel Cánepa"]
 ---
 
 ## What is NeoVim?
@@ -39,9 +38,9 @@ This guide details the installation and configuration of NeoVim, along with two 
 
 ## Before You Begin
 
-1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1. Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1. Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 1. Install the necessary tools:
 

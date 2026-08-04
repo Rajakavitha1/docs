@@ -1,39 +1,36 @@
 ---
 slug: how-to-configure-automated-security-updates-debian
+title: "Configuring Automated Security Updates on Debian"
+title_meta: "How to Configure Automated Security Updates on Debian"
 description: "In this tutorial, you will learn how to automate updates in Debian using the dnf-automatic tool or the Cockpit web applications."
+authors: ["Hackersploit"]
+contributors: ["Hackersploit"]
+published: 2020-10-22
 keywords: ["debian unattended-upgrades", "configuring unattended-upgrades"]
 tags: ["debian", "security"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2020-10-22
-modified_by:
-  name: Linode
-published: 2020-10-22
-title: "Configuring Automated Security Updates on Debian"
-title_meta: "How to Configure Automated Security Updates on Debian"
-aliases: ['/security/basics/how-to-configure-automated-security-updates-debian/']
+aliases: []
 relations:
     platform:
         key: automated-security-upgrades
         keywords:
             - distribution: Debian
 image: Configuring_automated_security_updates_debian.png
-authors: ["Hackersploit"]
 ---
 
 Keeping your system up-to-date with the latest packages and security updates can be a tedious task. Most users forget to do it, leaving them vulnerable to countless threats. Automate security (and other package) updates with the utility [Unattended Upgrades](https://wiki.debian.org/UnattendedUpgrades) on Debian.
 
 ## Before You Begin
 
-1.  Complete the [Getting Started](/docs/products/platform/get-started/) guide.
+1.  Complete the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide.
 
-1.  Follow the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, and harden SSH access.
+1.  Follow the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, and harden SSH access.
 
 1.  Log into your Linode via SSH and update and upgrade.
 
         sudo apt update && sudo apt upgrade
-
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/docs/guides/linux-users-and-groups) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Unattended Upgrades
@@ -54,7 +51,7 @@ You can set up automated security updates on Debian by installing a helpful util
 
 1.  You now need to make changes to the configuration file. The default configuration file can be found here at `/etc/apt/apt.conf.d/50unattended-upgrades`. Open it with the text editor of your choice.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The unattended-upgrades package ignores lines that start with `//`, as that line is considered to be a comment. Therefore, if you want a repository to update automatically, you need to remove `//` from that line.
 {{< /note >}}
 

@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-10
-description: 'In part ten on our series on Kubernetes, you will learn how to collect metrics on the resources used in your Kubernetes cluster by installing metrics-server.'
 title: "Building a CD Pipeline Using LKE (Part 10): Installing metrics-server"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: 'In part ten on our series on Kubernetes, you will learn how to collect metrics on the resources used in your Kubernetes cluster by installing metrics-server.'
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2023-08-18
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-10/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Installing metrics-server](cd-presentation-header-10-installing-metrics-server.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Installing metrics-server")
@@ -29,9 +28,9 @@ Now that there is an application running on our Kubernetes cluster, the next ste
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Previous section:** [Part 9: Installing Traefik](/docs/guides/build-a-cd-pipeline-with-lke-part-9/)
-- **Next section:** [Part 11: Prometheus and Grafana](/docs/guides/build-a-cd-pipeline-with-lke-part-11/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Previous section:** [Part 9: Installing Traefik](/cloud/guides/build-a-cd-pipeline-with-lke-part-9)
+- **Next section:** [Part 11: Prometheus and Grafana](/cloud/guides/build-a-cd-pipeline-with-lke-part-11)
 
 ## Presentation Text
 

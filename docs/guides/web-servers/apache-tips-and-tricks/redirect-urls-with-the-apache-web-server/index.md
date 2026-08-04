@@ -1,21 +1,20 @@
 ---
 slug: redirect-urls-with-the-apache-web-server
+title: Redirect URLs with the Apache Web Server
 description: 'An introduction to redirecting existing URLs to new resources with the Apache HTTP server.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2009-10-13
+modified: 2017-02-21
 keywords: ["apache", "redirect", "mod_alias", "URLs", "REST"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-servers/apache-tips-and-tricks/redirect-urls-with-the-apache-web-server/','/web-servers/apache/configuration/redirecting-urls/','/websites/apache-tips-and-tricks/redirect-urls-with-the-apache-web-server/']
-modified: 2017-02-21
-modified_by:
-  name: Phil Zona
-published: 2009-10-13
-title: Redirect URLs with the Apache Web Server
+aliases: []
 external_resources:
- - '[Installing Apache](/docs/web-servers/apache/)'
- - '[LAMP stack guides](/docs/web-servers/lamp/)'
+ - '[Installing Apache](/cloud/guides/web-servers/apache)'
+ - '[LAMP stack guides](/cloud/guides/web-servers/lamp)'
  - '[Apache Redirect Guide](https://httpd.apache.org/docs/current/mod/mod_alias.html#redirect)'
- - '[Rewrite URLs with mod_rewrite and Apache](/docs/guides/rewrite-urls-with-modrewrite-and-apache/)'
+ - '[Rewrite URLs with mod_rewrite and Apache](/cloud/guides/rewrite-urls-with-modrewrite-and-apache)'
 tags: ["web server","apache"]
-authors: ["Linode"]
 image: redirect-urls-with-the-apache-web-server.png
 ---
 
@@ -23,7 +22,7 @@ In this guide, you'll learn how to redirect URLs with Apache. Redirecting a URL 
 
 ## Before You Begin
 
-1.  This guide assumes you have followed our [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) and [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, and that you have already configured your Apache installation. If you haven't, refer to our [Apache guides](/docs/web-servers/apache/) or [LAMP stack guides](/docs/web-servers/lamp/).
+1.  This guide assumes you have followed our [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) and [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, and that you have already configured your Apache installation. If you haven't, refer to our [Apache guides](/cloud/guides/web-servers/apache) or [LAMP stack guides](/cloud/guides/web-servers/lamp).
 
 2.  In this guide, you will modify the Apache configuration files, so be sure you have the proper permissions to do so.
 
@@ -102,7 +101,7 @@ This matches any request for a file with a `.jpg` extension and replaces it with
 
 ## Beyond URL Redirection
 
-In addition to redirecting users, Apache also allows you to [rewrite URLs](/docs/guides/rewrite-urls-with-modrewrite-and-apache/) with `mod_rewrite`. While the features are similar, the main difference is that rewriting a URL involves the server returning a different request than the one provided by the client, whereas a redirect simply returns a status code, and the "correct" result is then requested by the client.
+In addition to redirecting users, Apache also allows you to [rewrite URLs](/cloud/guides/rewrite-urls-with-modrewrite-and-apache) with `mod_rewrite`. While the features are similar, the main difference is that rewriting a URL involves the server returning a different request than the one provided by the client, whereas a redirect simply returns a status code, and the "correct" result is then requested by the client.
 
 On a more practical level, rewriting a request does not change the contents of the browser's address bar, and can be useful in hiding URLs with sensitive or vulnerable data.
 

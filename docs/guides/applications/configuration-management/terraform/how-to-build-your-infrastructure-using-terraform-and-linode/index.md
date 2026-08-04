@@ -2,14 +2,13 @@
 slug: how-to-build-your-infrastructure-using-terraform-and-linode
 title: 'Use Terraform to Provision Infrastructure on Linode'
 description: 'This article gives you step-by-step instructions on how to use Terraform to provision, modify, and destroy infrastructure using only code and simple commands.'
+authors: ["Damaso Sanoja"]
+contributors: ["Damaso Sanoja"]
 published: 2017-11-06
-modified: 2023-07-26
-modified_by:
-  name: Linode
+modified: 2025-06-18
 keywords: ["terraform", "infrastructure", "IaC"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/applications/configuration-management/terraform/how-to-build-your-infrastructure-using-terraform-and-linode/','/applications/configuration-management/how-to-build-your-infrastructure-using-terraform-and-linode/','/platform/how-to-build-your-infrastructure-using-terraform-and-linode/']
-authors: ["Damaso Sanoja"]
+aliases: []
 tags: ["saas", "digital agencies"]
 image: use-terraform-to-provision-linode-environments.png
 ---
@@ -26,17 +25,19 @@ The configurations and commands used in this guide results in multiple Linodes b
 
 ## Before You Begin
 
+{{< note title ="Linode Provider Version 3.0.0" >}}
+As of June, 2025, the [Linode Terraform Provider](https://github.com/linode/terraform-provider-linode/) version is 3.0.0. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
+
+The Linode Terraform Provider version 3.0.0 requires `terraform` version 1.0 or greater. See [Terraform's developer documentation](https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/1-0) for guidance on upgrading to version 1.0.
+
+The examples in this guide were originally written to be compatible with [Terraform version 0.11](https://www.terraform.io/docs/configuration-0-11/terraform.html).
+{{< /note >}}
+
 -   This guide shows you how to install and use the Terraform client software from a Linux system. Terraform can be installed on other operating systems, and the instructions for those platforms are analogous to the commands presented in this guide.
 
-    {{< note >}}
-    When following this guide, your Linux user may need sudo privileges in order to install supplementary software packages.
-    {{< /note >}}
+-   When following this guide, your Linux user may need sudo privileges in order to install supplementary software packages.
 
--   You need a personal access token for Linode's [v4 API](/docs/api/) to use with Terraform. Follow the [Getting Started with the Linode API](/docs/products/tools/api/get-started/#get-an-access-token) to get a token.
-
-    {{< note >}}
-    Any Personal Access Tokens generated from the previous Linode Manager are API v3 tokens and do not work with Terraform's Linode provider.
-    {{< /note >}}
+-   You need a personal access token for Linode's [v4 API](https://techdocs.akamai.com/linode-api/reference/api) to use with Terraform. Follow the [Getting Started with the Linode API](https://techdocs.akamai.com/linode-api/reference/get-started#get-an-access-token) to get a token.
 
 ## Install Terraform
 
@@ -123,7 +124,7 @@ Terraform uses a declarative approach in which configuration files specify the d
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "2.5.2"
+          version = "3.0.0"
         }
       }
     }
@@ -133,7 +134,7 @@ Terraform uses a declarative approach in which configuration files specify the d
     }
 
     resource "linode_instance" "terraform-web" {
-            image = "linode/ubuntu18.04"
+            image = "linode/ubuntu24.04"
             label = "Terraform-Web-Example"
             group = "Terraform"
             region = "us-east"
@@ -158,19 +159,19 @@ Terraform uses a declarative approach in which configuration files specify the d
     Terraform confirms successful initialization:
 
     ```output
+    Initializing the backend...
     Initializing provider plugins...
-    - Checking for available provider plugins on https://releases.hashicorp.com...
-    - Downloading plugin for provider "linode" (1.0.0)...
+    - Finding linode/linode versions matching "3.0.0"...
+    - Installing linode/linode v3.0.0...
+    - Installed linode/linode v3.0.0 (signed by a HashiCorp partner, key ID F4E6BBD0EA4FE463)
+    Partner and community providers are signed by their developers.
+    If you'd like to know more about provider signing, you can read about it here:
+    https://developer.hashicorp.com/terraform/cli/plugins/signing
+    Terraform has created a lock file .terraform.lock.hcl to record the provider
+    selections it made above. Include this file in your version control repository
+    so that Terraform can guarantee to make the same selections by default when
+    you run "terraform init" in the future.
 
-    The following providers do not have any version constraints in configuration,
-    so the latest version was installed.
-
-    To prevent automatic upgrades to new major versions that may contain breaking
-    changes, it is recommended to add version = "..." constraints to the
-    corresponding provider blocks in configuration, with the constraint strings
-    suggested below.
-
-    * provider.linode: version = "~> 1.0"
     Terraform has been successfully initialized!
     ```
 
@@ -211,7 +212,7 @@ Terraform uses a declarative approach in which configuration files specify the d
           backups_enabled:    <computed>
           boot_config_label:  <computed>
           group:              "Terraform"
-          image:              "linode/ubuntu18.04"
+          image:              "linode/ubuntu24.04"
           ip_address:         <computed>
           ipv4.#:             <computed>
           ipv6:               <computed>
@@ -268,7 +269,7 @@ Terraform uses a declarative approach in which configuration files specify the d
       backups_enabled:    "" => "<computed>"
       boot_config_label:  "" => "<computed>"
       group:              "" => "Terraform"
-      image:              "" => "linode/ubuntu18.04"
+      image:              "" => "linode/ubuntu24.04"
       ip_address:         "" => "<computed>"
       ipv4.#:             "" => "<computed>"
       ipv6:               "" => "<computed>"
@@ -433,7 +434,7 @@ To solve these issues, Terraform allows you to declare variables and insert thos
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "2.5.2"
+          version = "3.0.0"
         }
       }
     }
@@ -456,7 +457,7 @@ To solve these issues, Terraform allows you to declare variables and insert thos
 
     # Example Database Server
     resource "linode_instance" "terraform-db" {
-            image = "linode/ubuntu18.04"
+            image = "linode/ubuntu24.04"
             label = "Terraform-Db-Example"
             group = "Terraform"
             region = var.region
@@ -486,7 +487,7 @@ To solve these issues, Terraform allows you to declare variables and insert thos
 Terraform allows you to change a server's name, size, or other attributes without needing to destroy and rebuild it. Terraform handles this through changes to the configuration files.
 
 {{< note type="alert" >}}
-Changing the size of your Linode forces your server to be powered off and migrated to a different host in the same data center. The associated disk migration takes approximately 1 minute for every 3-5 gigabytes of data. See our [Resizing a Linode](/docs/products/compute/compute-instances/guides/resize/) guide for more information.
+Changing the size of your Linode forces your server to be powered off and migrated to a different host in the same data center. The associated disk migration takes approximately 1 minute for every 3-5 gigabytes of data. See our [Resizing a Linode](https://techdocs.akamai.com/cloud-computing/docs/resize-a-compute-instance) guide for more information.
 {{< /note >}}
 
 1.  Modify `linode-terraform-template.tf` and update the `type` value to `g6-standard-4` for the `terraform-db` resource.
@@ -558,7 +559,7 @@ The module structure is flexible, so you can use as many Terraform files as need
     ```file {title="~/terraform/modules/app-deployment/main.tf"}
     # Web Server
     resource "linode_instance" "terraform-web" {
-            image = "linode/ubuntu18.04"
+            image = "linode/ubuntu24.04"
             label = var.webserver_label
             group = "Terraform"
             region = var.region
@@ -636,7 +637,7 @@ Create a deployment for an imaginary client:
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "2.5.2"
+          version = "3.0.0"
         }
       }
     }
@@ -678,3 +679,29 @@ Create a deployment for an imaginary client:
     terraform plan
     terraform apply
     ```
+
+### Use Linode Object Storage to Store State
+
+[State](https://developer.hashicorp.com/terraform/language/state) data files are stored on a [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) by Terraform to log and track metadata, map resources to a configuration, and improve performance. By default, state is stored locally in the `terraform.tfstate` file.
+
+Using the configuration below with the `backend` block, you can set up Terraform to use Linode Object Storage to store state remotely. The `backend` block should be nested within the `terraform` block as noted in [Hashicorp's official backend documentation](https://developer.hashicorp.com/terraform/language/settings/backends/s3). In this guide, the `terraform` block is located in the `main.tf` configuration file.
+
+Note that this module assumes an object storage bucket already exists on your account. Replace values with your bucket and key information:
+
+```file {title="obj-backend.tf"}
+# Backend Configuration
+backend "s3" {
+    bucket = "{{< placeholder "YOUR-BUCKET-NAME" >}}"   # The bucket name created on your account to which your access_key and secret_key can read and write
+    key = "{{< placeholder "tf/tfstate" >}}"  # The folder ({{< placeholder "tf" >}}) and object ({{< placeholder "tfstate" >}}) in your bucket where you want to write state to
+    region = "{{< placeholder "us-southeast-1" >}}"  # The region where your object storage bucket is at which is the same as the ClusterID Here https://techdocs.akamai.com/cloud-computing/docs/access-buckets-and-files-through-urls#cluster-url-s3-endpoint
+    access_key = "{{< placeholder "OBJ-ACCESS-KEY" >}}"  # You can put your value here inline or add it as an environment variable AWS_ACCESS_KEY_ID  see more here https://developer.hashicorp.com/terraform/language/settings/backends/s3#credentials-and-shared-configuration
+    secret_key = "{{< placeholder "OBJ-SECRET-KEY" >}}"  # You can put your value here inline or add it as an environment variable AWS_SECRET_ACCESS_KEY see more here https://developer.hashicorp.com/terraform/language/settings/backends/s3#credentials-and-shared-configuration
+    skip_region_validation = true  # All of these skip_* arguements are used since our object storage doesn't implement these additional endpoints
+    skip_credentials_validation = true
+    skip_requesting_account_id = true
+    skip_s3_checksum = true
+    endpoints = {
+      s3 = "{{< placeholder "https://us-southeast-1.linodeobjects.com" >}}"  # The endpoint for the s3 API based on the region your bucket is located https://techdocs.akamai.com/cloud-computing/docs/access-buckets-and-files-through-urls#cluster-url-s3-endpoint
+    }
+  }
+```

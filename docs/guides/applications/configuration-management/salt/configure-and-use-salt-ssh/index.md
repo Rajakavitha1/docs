@@ -1,17 +1,16 @@
 ---
 slug: configure-and-use-salt-ssh
+title: 'Configure and Use Salt SSH to Manage Your Linodes'
 description: 'This guide provides you with step-by-step instructions for installing and configuring your Linux system to use Salt SSH without installing a salt-minion package.'
+authors: ["Sergey Bulavintsev"]
+contributors: ["Sergey Bulavintsev"]
+published: 2017-07-25
+modified: 2019-01-02
 keywords: ["Saltstack", " salt", " salt-ssh"]
 tags: ["automation","salt","ssh"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-07-25
-modified: 2019-01-02
-modified_by:
-  name: Linode
 image: ConfigureandUseSaltSSHtoManageyourLinodes.png
-title: 'Configure and Use Salt SSH to Manage Your Linodes'
-aliases: ['/applications/configuration-management/configure-and-use-salt-ssh/','/applications/configuration-management/salt/configure-and-use-salt-ssh/']
-authors: ["Sergey Bulavintsev"]
+aliases: []
 ---
 
 ## Introduction to Salt SSH
@@ -33,7 +32,7 @@ Please note: Because it uses SSH, Salt SSH is slower than standard Salt with Zer
         $rpm -q salt-ssh
 
     {{< note respectIndent=false >}}
-For detailed instruction on how to set up SaltStack repo, please refer to the [Salt Stack Installation Guide](/docs/guides/getting-started-with-salt-basic-installation-and-setup/)
+For detailed instruction on how to set up SaltStack repo, please refer to the [Salt Stack Installation Guide](/cloud/guides/getting-started-with-salt-basic-installation-and-setup)
 {{< /note >}}
 
 3.  Your minions must have Python installed. Without Python installed on minions, you will only be able to run Salt SSH in raw mode. In raw mode, a raw shell command cannot use execution modules or apply Salt states. If you're running a modern version of CentOS/RedHat, you already have Python installed on your systems

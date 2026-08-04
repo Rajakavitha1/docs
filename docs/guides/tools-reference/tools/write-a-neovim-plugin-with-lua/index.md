@@ -1,20 +1,19 @@
 ---
 slug: write-a-neovim-plugin-with-lua
+title: "Write a Neovim Plugin with Lua"
+title_meta: "How to Write a Neovim Plugin with Lua"
 description: "Learn how to develop a plugin for Neovim. Neovim introduces first-class support for Lua, and this guide shows you how to create a plugin using the Lua programming language."
 og_description: "Learn how to develop a plugin for Neovim. Neovim introduces first-class support for Lua, and this guide shows you how to make a plugin to start taking advantage of that."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-03-18
 keywords: ['write neovim plugin','neovim plugin development','neovim lua plugin']
 tags: ['neovim']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-18
-modified_by:
-  name: Nathaniel Stickman
-title: "Write a Neovim Plugin with Lua"
-title_meta: "How to Write a Neovim Plugin with Lua"
 external_resources:
 - '[Nvim Documentation: Lua](https://neovim.io/doc/user/lua.html)'
 - '[GitHub: jacobsimpson/nvim-example-lua-plugin](https://github.com/jacobsimpson/nvim-example-lua-plugin)'
-aliases: ['/guides/writing-a-neovim-plugin-with-lua/']
-authors: ["Nathaniel Stickman"]
+aliases: []
 ---
 
 Neovim is an open source fork of the ubiquitous Vim text editor. It supports the [Lua programming language](https://www.lua.org/) which opens up vast possibilities for configuration, scripting, and plugin development. The Neovim community has created numerous plugins pushing the boundaries of the text editor's capabilities.
@@ -23,9 +22,9 @@ In this tutorial you learn how to write a Neovim plugin using the Lua programmin
 
 ## Before You Begin
 
-1. Familiarize yourself with our [Getting Started with Linode](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1. Familiarize yourself with our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
+1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1. Update your system.
 
@@ -36,14 +35,13 @@ In this tutorial you learn how to write a Neovim plugin using the Lua programmin
     - On **AlmaLinux**, **CentOS** (8 or later), and **Fedora**, use the following command:
 
             sudo dnf upgrade
-
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How Neovim Plugins Work
 
-Neovim expands on the highly-customizable text editor Vim, carrying over many of the same options for controlling the editor's behavior, look, and feel. You can learn more about Neovim in our guide [How to Install Neovim Plugins with vim-plug](/docs/guides/how-to-install-neovim-and-plugins-with-vim-plug/).
+Neovim expands on the highly-customizable text editor Vim, carrying over many of the same options for controlling the editor's behavior, look, and feel. You can learn more about Neovim in our guide [How to Install Neovim Plugins with vim-plug](/cloud/guides/how-to-install-neovim-and-plugins-with-vim-plug).
 
 Just as with Vim, Neovim can be extended through plugins created and maintained by the vast Vim and Neovim communities. Neovim maintains full compatibility with standard Vim plugins. Neovim also adds many advanced features that have allowed a community of Neovim plugin creators to expand the editor's horizons.
 
@@ -60,7 +58,7 @@ This section walks you through creating a Neovim plugin. It features an example 
 
 To help keep plugins organized and more maintainable, this guide uses the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager. Several other plugin managers exist including some specifically built for Neovim.
 
-Refer to our guide [How to Install Neovim Plugins with vim-plug](/docs/guides/how-to-install-neovim-and-plugins-with-vim-plug/#install-neovim-plugins) for detailed information on vim-plug. However, if you already have cURL installed, you can install vim-plug with the following command:
+Refer to our guide [How to Install Neovim Plugins with vim-plug](/cloud/guides/how-to-install-neovim-and-plugins-with-vim-plug#install-neovim-plugins) for detailed information on vim-plug. However, if you already have cURL installed, you can install vim-plug with the following command:
 
      curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

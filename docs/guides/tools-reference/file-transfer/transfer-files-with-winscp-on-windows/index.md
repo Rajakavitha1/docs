@@ -1,21 +1,20 @@
 ---
 slug: transfer-files-with-winscp-on-windows
-deprecated: true
+title: Transfer Files with WinSCP on Windows
 description: 'Securely copying files to and from your Linode with WinSCP, a free and open source file transfer client for Microsoft Windows systems.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2009-10-19
+modified: 2011-08-22
 keywords: ["winscp", "ftp", "windows scp", "sftp", "windows sftp program"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/networking/file-transfer/transfer-files-winscp/','/tools-reference/file-transfer/transfer-files-with-winscp-on-windows/']
-modified: 2011-08-22
-modified_by:
-  name: Linode
-published: 2009-10-19
-title: Transfer Files with WinSCP on Windows
-authors: ["Linode"]
+aliases: []
+deprecated: true
 ---
 
 WinSCP is a free, open source file transfer program written for Microsoft Windows. It implements several file transfer protocols, most notably SFTP via SSH. This tool allows you to securely transfer files to and from your Linode using an encrypted channel, avoiding the security problems and usability issues inherent in traditional FTP client/server systems. WinSCP sends both your login credentials and file transfers over the network securely encrypted, while standard FTP clients send this information as plaintext.
 
-You'll need to make sure your Linode is running an SSH daemon (all Linodes run an OpenSSH server by default), and that you have a user account on the server before following these instructions. You may wish to verify that you can log into your Linode via SSH using a tool like the [PuTTY SSH client](/docs/guides/connect-to-server-over-ssh-using-putty/) before continuing.
+You'll need to make sure your Linode is running an SSH daemon (all Linodes run an OpenSSH server by default), and that you have a user account on the server before following these instructions. You may wish to verify that you can log into your Linode via SSH using a tool like the [PuTTY SSH client](/cloud/guides/connect-to-server-over-ssh-using-putty) before continuing.
 
 ![Transfer Files with WinSCP on Windows](transfer_files_with_winscp_on_windows_smg.png)
 
@@ -47,7 +46,7 @@ Once launched, you'll be presented with a screen similar to the following:
 
 Enter your Linode's fully qualified hostname or IP address in the "Host name" field. Unless you've modified your system to run your SSH server on a non-standard port, leave "Port number" as the default (port 22). Enter your Linux username and password in the next two fields. Click "Login" to begin your session.
 
-You'll need to specify account credentials that have access to the filesystem location you'd like to transfer files to and/or from on your Linode; in this case, we've specified the "root" user, which has administrative access to the system. It's advisable to create separate user accounts on your system in lieu of using "root" for common tasks; you can learn more about Linux/UNIX users and groups in our [users and groups tutorial](/docs/guides/linux-users-and-groups/).
+You'll need to specify account credentials that have access to the filesystem location you'd like to transfer files to and/or from on your Linode; in this case, we've specified the "root" user, which has administrative access to the system. It's advisable to create separate user accounts on your system in lieu of using "root" for common tasks; you can learn more about Linux/UNIX users and groups in our [users and groups tutorial](/cloud/guides/linux-users-and-groups).
 
 If you haven't previously logged into your Linode from this workstation with WinSCP, you'll be presented with a warning dialog similar to the following:
 
@@ -70,7 +69,7 @@ You can navigate your local filesystem in the left view pane, while your Linode'
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
 - [WinSCP Documentation](http://winscp.net/eng/docs/start)
-- [Tools & Resources](/docs/tools-reference/)
+- [Tools & Resources](/cloud/guides/tools-reference)
 
 
 

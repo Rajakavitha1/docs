@@ -1,18 +1,17 @@
 ---
 slug: how-to-install-mysql-on-centos8
-description: 'Learn how to install MySQL on CentOS 8 Linux on a cloud server with cloud apps.'
-keywords: ['Install MySQL on CentOS 8', 'Install MySQL on CentOS Stream 8', 'Install MySQL', 'CentOS 8', 'Connect MySQL to CentOS 8', 'Install MySQL server in Linux']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-10-11
-modified_by:
-  name: Linode
 title: "How to Install MySQL on CentOS 8"
 title_meta: "Installing MySQL on CentOS 8"
+description: 'Learn how to install MySQL on CentOS 8 Linux on a cloud server with cloud apps.'
+authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2022-10-11
+keywords: ['Install MySQL on CentOS 8', 'Install MySQL on CentOS Stream 8', 'Install MySQL', 'CentOS 8', 'Connect MySQL to CentOS 8', 'Install MySQL server in Linux']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[MySQL vs MariaDB](https://blog.devart.com/mysql-vs-mariadb.html)'
 - '[MariaDB vs MySQL compatibility](https://mariadb.com/kb/en/mariadb-vs-mysql-compatibility/)'
 - '[Introduction to Uncomplicated Firewall](https://www.linux.com/training-tutorials/introduction-uncomplicated-firewall-ufw/)'
-authors: ["John Mueller"]
 ---
 
 ## How to Install MySQL on CentOS Stream 8
@@ -237,4 +236,4 @@ Don’t forget the semicolon at the end of the command.
 
 ## Conclusion
 
-One of the biggest takeaways is that both MySQL and MariaDB provide enterprise-level database functionality. Each has its specialization. Installing either product is relatively easy using the Package Manager. When installing MySQL, take additional steps when working with the [MySQL installation script](/docs/guides/how-to-install-mysql-on-centos8/#configure-mysql-using-mysql-installation-script). Remote access to MySQL setup requires that you configure MySQL to allow remote login and then set up UFW as well.
+One of the biggest takeaways is that both MySQL and MariaDB provide enterprise-level database functionality. Each has its specialization. Installing either product is relatively easy using the Package Manager. When installing MySQL, take additional steps when working with the [MySQL installation script](/cloud/guides/how-to-install-mysql-on-centos8#configure-mysql-using-mysql-installation-script). Remote access to MySQL setup requires that you configure MySQL to allow remote login and then set up UFW as well.

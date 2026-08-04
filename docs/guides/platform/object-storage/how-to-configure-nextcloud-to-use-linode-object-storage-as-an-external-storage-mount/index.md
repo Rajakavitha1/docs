@@ -1,18 +1,17 @@
 ---
 slug: how-to-configure-nextcloud-to-use-linode-object-storage-as-an-external-storage-mount
+title: "Configuring Nextcloud to use Linode Object Storage as an External Storage Mount"
+title_meta: "How to Configure Nextcloud to use Object Storage"
 description: "Learn how to enable Nextcloud's External Storage app and then configure it to use Linode Object Storage as a secondary storage location."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-06-16
 keywords: ['file hosting','nextcloud','object storage','s3']
 tags: ["linode platform","marketplace"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-06-16
-modified_by:
-  name: Linode
-title: "Configuring Nextcloud to use Linode Object Storage as an External Storage Mount"
-title_meta: "How to Configure Nextcloud to use Object Storage"
 external_resources:
 - '[Nextcloud Configuring External Storage Documentation](https://docs.nextcloud.com/server/15/admin_manual/configuration_files/external_storage_configuration_gui.html#)'
-aliases: ['/platform/object-storage/how-to-configure-nextcloud-to-use-linode-object-storage-as-an-external-storage-mount/']
-authors: ["Linode"]
+aliases: []
 ---
 {{< youtube QWaCg4q4a0A >}}
 
@@ -22,11 +21,11 @@ You can configure Nextcloud to enable external storage devices and services, lik
 
 ## Before You Begin
 
-1. Deploy a Nextcloud server instance. You can use the [Linode Nextcloud Marketplace App](/docs/products/tools/marketplace/guides/nextcloud/) for an easy and quick deployment.
+1. Deploy a Nextcloud server instance. You can use the [Linode Nextcloud Quick Deploy App](/cloud/marketplace-docs/guides/nextcloud) for an easy and quick deployment.
 
-1. [Generate Object Storage access keys](/docs/products/storage/object-storage/guides/access-keys/.
+1. [Generate Object Storage access keys](https://techdocs.akamai.com/cloud-computing/docs/manage-access-keys).
 
-1. If you are not familiar with Linode Object Storage, review the [Get Started with Object Storage](/docs/products/storage/object-storage/get-started/) guide or take a look through the available [Object Storage guides](/docs/products/storage/object-storage/guides/).
+1. If you are not familiar with Linode Object Storage, review the [Get Started with Object Storage](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-object-storage) guide or take a look through the available [Object Storage guides](https://techdocs.akamai.com/cloud-computing/docs/object-storage).
 
 ### In This Guide
 
@@ -39,7 +38,7 @@ You can configure Nextcloud to enable external storage devices and services, lik
 
 In this section you enable the *External Storage Support* Nextcloud app in order to use external storage sources.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 You must belong to the `admin` user group in order to install the External storage support app.
 {{< /note >}}
 
@@ -63,8 +62,8 @@ You must belong to the `admin` user group in order to install the External stora
 
 After enabling the External Storage Support app, you are now ready to add a new external storage mount. You configure the new external storage mount to use the Linode Object Storage service.
 
-{{< note respectIndent=false >}}
-If you have not yet [created an Object Storage access key](/docs/products/storage/object-storage/guides/access-keys/), you should do so now before proceeding with this section.
+{{< note >}}
+If you have not yet [created an Object Storage access key](https://techdocs.akamai.com/cloud-computing/docs/manage-access-keys), you should do so now before proceeding with this section.
 {{< /note >}}
 
 1. Click the user icon (or cog wheel) in the top navigation menu and select **Settings**.
@@ -80,7 +79,7 @@ If you have not yet [created an Object Storage access key](/docs/products/storag
 1. From the **External Storage** dropdown menu, select the **Amazon S3** option.
 
     {{< note respectIndent=false >}}
-Linode Object Storage is *S3-compatible*. Nextcloud connects to Amazon's Object Storage service by default, however, in the next step you override the default behavior to use Linode Object Storage hosts instead.
+Linode Object Storage is *Amazon S3-compatible*. Nextcloud connects to Amazon's Object Storage service by default, however, in the next step you override the default behavior to use Linode Object Storage hosts instead.
     {{< /note >}}
 
 1. Select **Access Key** from the **Authentication** dropdown menu.
@@ -100,7 +99,7 @@ Linode Object Storage is *S3-compatible*. Nextcloud connects to Amazon's Object 
     | Secret Key | The value of the Secret Key you created using the Linode Cloud Manager. |
 
     {{< note >}}
-    To view Object Storage region IDs and hostname values, review the [Access Buckets and Files through URLs](https://www.linode.com/docs/products/storage/object-storage/guides/urls/#cluster-url-s3-endpoint) guide.
+    To view Object Storage region IDs and hostname values, review the [Access Buckets and Files through URLs](https://techdocs.akamai.com/cloud-computing/docs/access-buckets-and-files-through-urls#cluster-url-s3-endpoint) guide.
     {{< /note >}}
 
     {{< note >}}
@@ -128,5 +127,5 @@ Linode Object Storage is *S3-compatible*. Nextcloud connects to Amazon's Object 
       ![Your should see your uploaded file appear in the folder.](uploaded-image.png)
 
     {{< note respectIndent=false >}}
-The file you uploaded is also be available through the [Linode Cloud Manager](https://cloud.linode.com/). You can verify this by following the steps in the [View Bucket Objects](/docs/products/storage/object-storage/guides/manage-buckets/) guide. You should not use the Linode Cloud Manager to remove or add files from your Nextcloud external storage Object Storage bucket.
+The file you uploaded is also be available through the [Linode Cloud Manager](https://cloud.linode.com/). You can verify this by following the steps in the [View Bucket Objects](https://techdocs.akamai.com/cloud-computing/docs/create-and-manage-buckets) guide. You should not use the Linode Cloud Manager to remove or add files from your Nextcloud external storage Object Storage bucket.
     {{< /note >}}

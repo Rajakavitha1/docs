@@ -1,13 +1,13 @@
 ---
 slug: how-to-install-wordpress-ubuntu-22-04
-description: 'This guide explains how to install and configure WordPress on Ubuntu 22.04.'
-keywords: ['wordpress ubuntu','wordpress download','what is wordpress','how to install wordpress', 'ubuntu wordpress install']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-05-19
-modified_by:
-  name: Linode
 title: "Install WordPress on Ubuntu 22.04"
 title_meta: "How to Install WordPress on Ubuntu 22.04"
+description: 'This guide explains how to install and configure WordPress on Ubuntu 22.04.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-05-19
+keywords: ['wordpress ubuntu','wordpress download','what is wordpress','how to install wordpress', 'ubuntu wordpress install']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[WordPress](https://wordpress.org/)'
 - '[WordPress documentation](https://wordpress.org/support/)'
@@ -25,7 +25,6 @@ relations:
         key: how-to-install-wordpress
         keywords:
            - distribution: Ubuntu 22.04 LTS
-authors: ["Jeff Novotny"]
 ---
 
 [WordPress](https://wordpress.org/) is one of the most common *content management systems* (CMS) in use today. WordPress allows [Ubuntu](https://ubuntu.com/server) and other Linux users to design a website and add content using its intuitive GUI. WordPress also allows site owners to install a diverse selection of themes and plug-ins to further customize their site. This guide explains how to install WordPress on Ubuntu 22.04 LTS. It also describes how to configure and start using WordPress after installation.
@@ -38,31 +37,31 @@ WordPress can be downloaded to an Ubuntu server using `wget`. It only requires m
 
 ## WordPress Prerequisites
 
-A Ubuntu LAMP or LEMP stack satisfies all these prerequisites. A LAMP stack includes the Linux operating system, the [Apache web server](https://httpd.apache.org/docs/2.4/), the [MySQL RDBMS](https://dev.mysql.com/), and the PHP programming language. A LEMP stack substitutes [NGINX](https://www.nginx.com/) (pronounced "engine-x") in place of Apache and sometimes uses the MariaDB database instead of MySQL. Either stack can be installed using the standard Ubuntu library. For information on [installing a LAMP stack on Ubuntu 22.04](/docs/guides/how-to-install-a-lamp-stack-on-ubuntu-22-04/), see the Linode guide. There is also a Linode guide to [installing a LEMP stack on Ubuntu 22.04](/docs/guides/how-to-install-a-lemp-stack-on-ubuntu-22-04/).
+A Ubuntu LAMP or LEMP stack satisfies all these prerequisites. A LAMP stack includes the Linux operating system, the [Apache web server](https://httpd.apache.org/docs/2.4/), the [MySQL RDBMS](https://dev.mysql.com/), and the PHP programming language. A LEMP stack substitutes [NGINX](https://www.nginx.com/) (pronounced "engine-x") in place of Apache and sometimes uses the MariaDB database instead of MySQL. Either stack can be installed using the standard Ubuntu library. For information on [installing a LAMP stack on Ubuntu 22.04](/cloud/guides/how-to-install-a-lamp-stack-on-ubuntu-22-04), see the Linode guide. There is also a Linode guide to [installing a LEMP stack on Ubuntu 22.04](/cloud/guides/how-to-install-a-lemp-stack-on-ubuntu-22-04).
 
-For greater security, WordPress highly recommends HTTPS. However, these instructions work whether HTTPS is configured on the server or not. For information about enabling HTTPS on Ubuntu, see the [Linode guide on enabling HTTPS on Apache](/docs/guides/enabling-https-using-certbot-with-apache-on-ubuntu/). An alternate guide for [NGINX](/docs/guides/enabling-https-using-certbot-with-nginx-on-ubuntu/) is also available.
+For greater security, WordPress highly recommends HTTPS. However, these instructions work whether HTTPS is configured on the server or not. For information about enabling HTTPS on Ubuntu, see the [Linode guide on enabling HTTPS on Apache](/cloud/guides/enabling-https-using-certbot-with-apache-on-ubuntu). An alternate guide for [NGINX](/cloud/guides/enabling-https-using-certbot-with-nginx-on-ubuntu) is also available.
 
-{{< note respectIndent=false >}}
-WordPress sites are almost always accessed using a domain name. For more information on domains and how to create a DNS record, see the [Linode DNS Manager guide](/docs/products/networking/dns-manager/).
+{{< note >}}
+WordPress sites are almost always accessed using a domain name. For more information on domains and how to create a DNS record, see the [Linode DNS Manager guide](https://techdocs.akamai.com/cloud-computing/docs/dns-manager).
 {{< /note >}}
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 1.  Fully configure a LAMP or LEMP stack on the Linode and confirm it is working properly.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Prepare the LAMP or LEMP Stack for WordPress
 
 To properly configure and use WordPress on Ubuntu, a LAMP or LEMP stack must already be installed and working. However, WordPress requires a few additional modifications to the various LAMP/LEMP Stack components. In the following examples, replace `example.com` with the actual domain name wherever it appears.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 These instructions are designed for Ubuntu 22.04 LTS, but are generally valid for all recent Ubuntu releases.
 {{< /note >}}
 
@@ -292,7 +291,7 @@ The Ubuntu LAMP or LEMP stack is now fully configured and ready for WordPress. F
 
 The WordPress Dashboard is fairly self-explanatory. From the left-menu of the Dashboard, users can access pages allowing them to change settings, select themes, and install new plug-ins. Users can select the **Posts** option to add new pages or modify existing content.
 
-Before proceeding, it is worthwhile to spend more time learning about WordPress. The [First Steps with WordPress guide](https://wordpress.org/support/article/first-steps-with-wordpress/) is very useful. It walks users through the WordPress interface and explains how to perform basic tasks. In addition, [How to Configure WordPress](/docs/guides/configuring-wordpress/) summarizes how to configure some of the more common WordPress settings.
+Before proceeding, it is worthwhile to spend more time learning about WordPress. The [First Steps with WordPress guide](https://wordpress.org/support/article/first-steps-with-wordpress/) is very useful. It walks users through the WordPress interface and explains how to perform basic tasks. In addition, [How to Configure WordPress](/cloud/guides/configuring-wordpress) summarizes how to configure some of the more common WordPress settings.
 
 For complete information about WordPress, including all advanced settings, see the [WordPress documentation site](https://wordpress.org/support/).
 

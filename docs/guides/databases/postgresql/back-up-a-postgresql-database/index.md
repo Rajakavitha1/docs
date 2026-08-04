@@ -1,30 +1,29 @@
 ---
 slug: back-up-a-postgresql-database
+title: "Back up a PostgreSQL Database with pg_dump"
 description: "Learn how to back up your PostgreSQL database with this guide for single database, multiple databases, and automated backups. ✓ Click & read!"
 og_description: "This guide shows how to create backups of your PostgreSQL databases using pg_dump and use them to restore a lost or broken database."
-keywords: ['postgres', 'postgresql', 'backup', 'sql dump', 'pg_dump', 'psql']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+authors: ["Jared Kobos"]
+contributors: ["Jared Kobos"]
 published: 2017-12-18
 modified: 2022-01-14
-modified_by:
-  name: Jared Kobos
-title: "Back up a PostgreSQL Database with pg_dump"
+keywords: ['postgres', 'postgresql', 'backup', 'sql dump', 'pg_dump', 'psql']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[PostgreSQL Documentation](https://www.postgresql.org/docs/9.1/static/)'
 tags: ["database","postgresql"]
-aliases: ['/databases/postgresql/how-to-back-up-your-postgresql-database/','/guides/how-to-back-up-your-postgresql-database/']
+aliases: []
 image: back-up-postgresql-database-title.jpg
-authors: ["Jared Kobos"]
 ---
 
 If you are using PostgreSQL in a production environment, it is important to take precautions to ensure that your users' data is not lost. By frequently backing up your database, automating backups with a cron task, you can restore your system when your database is lost or corrupted. Fortunately, PostgreSQL includes tools to make this task simple and easy to manage. Learn how to backup your PostgreSQL database in Linux, in this guide.
 
 ## Before You Begin
 
-You should have a working installation of PostgreSQL on your system before beginning this guide. Go through our [How to Install PostgreSQL on Ubuntu guide](/docs/guides/how-to-install-postgresql-on-ubuntu-16-04/) to install PostgreSQL and create a sample database.
+You should have a working installation of PostgreSQL on your system before beginning this guide. Go through our [How to Install PostgreSQL on Ubuntu guide](/cloud/guides/how-to-install-postgresql-on-ubuntu-16-04) to install PostgreSQL and create a sample database.
 
 {{< note >}}
-The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide require root privileges. Be sure to run the steps below as `root` or with the `sudo` prefix. For more information on privileges, see our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## One-Time SQL Dump
@@ -102,7 +101,7 @@ In this section, learn how to import a database in PostgreSQL and automate the p
 0 0 * * 0 pg_dump -U postgres dbname > ~/postgres/backups/dbname.bak
 {{< /file >}}
 
-1.  Save and exit from the editor. Your database is set to back up at midnight every Sunday. To change the time or frequency of the updates, see our [Schedule Tasks with Cron](/docs/guides/schedule-tasks-with-cron/) guide.
+1.  Save and exit from the editor. Your database is set to back up at midnight every Sunday. To change the time or frequency of the updates, see our [Schedule Tasks with Cron](/cloud/guides/schedule-tasks-with-cron) guide.
 
 It is always a good idea to export a Postgres database before any major changes in structure or the installation of a new application. This applies to a Postgres import dump from a remote server.
 

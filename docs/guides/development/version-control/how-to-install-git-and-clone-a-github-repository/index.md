@@ -1,20 +1,18 @@
 ---
 slug: how-to-install-git-and-clone-a-github-repository
+title: How to Install Git and Clone a GitHub Repository
 description: 'This tutorial is an introduction to developing with Git and GitHub with instructions on installing Git and creating your first GitHub test repository.'
+authors: ["Joe D."]
+contributors: ["Joe D."]
+published: 2015-02-06
 keywords: ["git", "dvcs", "vcs", "scm", "gitweb", "github"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/applications/development/developing-git-github/','/development/version-control/how-to-install-git-and-clone-a-github-repository/','/development/version-control/developing-git-github/']
-modified: 2015-02-06
+aliases: []
 external_resources:
- - '[Working with the Git Repository](/docs/guides/how-to-configure-git/)'
+ - '[Working with the Git Repository](/cloud/guides/how-to-configure-git)'
  - '[GitHub Help Pages](https://help.github.com/)'
-modified_by:
-  name: Linode
-published: 2015-02-06
-title: How to Install Git and Clone a GitHub Repository
 audiences: ["beginner"]
 tags: ["version control system"]
-authors: ["Joe D."]
 ---
 
 ![How to Install Git and Clone a GitHub Repository](install-clone-github-repo-title.jpg "How to Install Git and Clone a GitHub Repository title graphic")
@@ -22,7 +20,7 @@ authors: ["Joe D."]
 GitHub is a website that allows collaboration between developers using the Git version control system. With Git and GitHub, programmers from across the world can share ideas and code in an organized and up-to-date process.
 
 ## Install and Configure Git
-The directions below are for Debian or Ubuntu. For installation on Mac, Windows, or other Linux distributions, find instructions in the  [Git Source Control Management](/docs/guides/how-to-install-git-on-linux-mac-and-windows/) guide. While that guide focuses on Git, this guide focuses more on Git with GitHub.
+The directions below are for Debian or Ubuntu. For installation on Mac, Windows, or other Linux distributions, find instructions in the  [Git Source Control Management](/cloud/guides/how-to-install-git-on-linux-mac-and-windows) guide. While that guide focuses on Git, this guide focuses more on Git with GitHub.
 
 1.  Install:
 

@@ -1,15 +1,15 @@
 ---
 slug: install-a-half-life-2-deathmatch-dedicated-server-on-debian-or-ubuntu
+title: "Running a Half-Life 2 Deathmatch Server on Debian or Ubuntu"
+title_meta: "How to Run Half-Life 2 Deathmatch on Debian or Ubuntu"
 description: "This guide explains how to host a Half-Life 2: Deathmatch server on a Linode running Debian or Ubuntu."
+authors: ["Davide Beatrici"]
+contributors: ["Davide Beatrici"]
+published: 2017-08-17
+modified: 2019-02-01
 keywords: ["half-life 2", "deathmatch", "steamcmd", "host", "hl2", "multiplayer first-person shooter video game"]
 tags: ["ubuntu", "debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-08-17
-modified: 2019-02-01
-modified_by:
-  name: Linode
-title: "Running a Half-Life 2 Deathmatch Server on Debian or Ubuntu"
-title_meta: "How to Run Half-Life 2 Deathmatch on Debian or Ubuntu"
 external_resources:
 - '[Steam Community](https://steamcommunity.com/app/320)'
 - '[Valve Developer Community](https://developer.valvesoftware.com)'
@@ -17,8 +17,7 @@ external_resources:
 - '[AlliedModders Wiki](https://wiki.alliedmods.net)'
 - '[Botrix](http://www.famaf.unc.edu.ar/~godin/botrix)'
 dedicated_cpu_link: true
-aliases: ['/game-servers/install-a-half-life-2-deathmatch-dedicated-server-on-debian-or-ubuntu/']
-authors: ["Davide Beatrici"]
+aliases: []
 ---
 
 ![Install a Half-Life 2: Deathmatch Dedicated Server on Debian or Ubuntu](HL2DM.jpg "Install a Half-Life 2: Deathmatch Dedicated Server on Debian or Ubuntu")
@@ -27,9 +26,9 @@ This guide will show you how to set up your own [Half-Life 2 Deathmatch](http://
 
 ## Before You Begin
 
-1.  Complete our [Install SteamCMD for a Steam Game Server](/docs/guides/install-steamcmd-for-a-steam-game-server/) guide.
+1.  Complete our [Install SteamCMD for a Steam Game Server](/cloud/guides/install-steamcmd-for-a-steam-game-server) guide.
 
-2.  This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+2.  This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 
 3.  Add two firewall rules to extend the port range available to the server. This command assumes that you have **only** the iptables rules in place from the SteamCMD guide. If not, find the corresponding lines and replace the numbers in `INPUT 5` and `INPUT 7` below:
 
@@ -94,7 +93,7 @@ To exit the screen:
 
     exit
 
-For more information on Screen sockets, visit our guide on [Screen](/docs/guides/using-gnu-screen-to-manage-persistent-terminal-sessions/).
+For more information on Screen sockets, visit our guide on [Screen](/cloud/guides/using-gnu-screen-to-manage-persistent-terminal-sessions).
 
 ### Autostart with a Screen Script
 
@@ -204,14 +203,14 @@ sv_password "MyLinode"
 
 There are eight (8) official maps in Half-Life 2: Deathmatch. A preview of each map is available on [Combine OverWiki's official page](http://combineoverwiki.net/wiki/Half-Life_2:_Deathmatch#Maps):
 
-*   dm_lockdown
-*   dm_overwatch
-*   dm_powerhouse
-*   dm_resistance
-*   dm_runoff
-*   dm_steamlab
-*   dm_underpass
-*   halls3
+*  `dm_lockdown`
+*   `dm_overwatch`
+*   `dm_powerhouse`
+*   `dm_resistance`
+*   `dm_runoff`
+*   `dm_steamlab`
+*   `dm_underpass`
+*   `halls3`
 
 Half-Life 2 Deathmatch requires that custom maps be in specific locations based on their type:
 

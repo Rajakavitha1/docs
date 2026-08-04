@@ -1,38 +1,39 @@
 ---
 slug: mysql-command-line-client
+title: "Connect to a MySQL Database Using the mysql Command"
 description: "This guide shows you how to install and use the MySQL command-Line client to connect to a database and run SQL commands."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2022-07-01
+modified: 2024-11-14
 keywords: ['mysql connect','remote database','mysql database']
 tags: ['mysql']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-07-01
-modified: 2022-07-01
-modified_by:
-  name: Linode
-title: "Connect to a MySQL Database Using the mysql Command"
-aliases: ['/guides/connect-to-a-mysql-or-mariadb-database/']
+aliases: []
 external_resources:
 - '[MySQL Command-Line Client documentation](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)'
-authors: ["Linode"]
 ---
 
-This guide shows you how to connect to a MySQL database using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), the MySQL command-line client. This opens up a simple SQL shell environment, allowing you to perform [SQL queries and commands](/docs/guides/sql-commands/) on your database. If you require more advanced capabilities, consider using the [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/).
+This guide shows you how to connect to a MySQL database using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), the MySQL command-line client. This opens up a simple SQL shell environment, allowing you to perform [SQL queries and commands](/cloud/guides/sql-commands) on your database. If you require more advanced capabilities, consider using the [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/).
 
 {{< note >}}
-If you wish to connect to a Linode MySQL Managed Database, review the [Connect to a MySQL Managed Database](/docs/products/databases/managed-databases/guides/mysql-connect/) guide instead.
+If you wish to connect to a MySQL Managed Database, review the [Connect to a MySQL Managed Database](https://techdocs.akamai.com/cloud-computing/docs/connect-to-a-mysql-managed-database) guide instead.
 {{< /note >}}
 
 ## Before You Begin
 
-- **Obtain the connection details for the MySQL instance you wish to use.** If you do not have a MySQL instance yet, you can [create a Managed Database](https://www.linode.com/products/mysql/), [deploy the MySQL Marketplace App](https://www.linode.com/marketplace/apps/linode/mysql-mariadb/), or [install MySQL server (or MariaDB) on a Compute Instance](/docs/guides/install-mysql/). **This instance must allow remote connections or you must run the mysql command from within same system.**
+- **Obtain the connection details for the MySQL instance you wish to use.** If you do not have a MySQL instance yet, you can [create a Managed Database](https://techdocs.akamai.com/cloud-computing/docs/managed-databases), [deploy the MySQL Quick Deploy App](https://www.linode.com/marketplace/apps/linode/mysql-mariadb/), or [install MySQL server (or MariaDB) on a Compute Instance](/cloud/guides/install-mysql). **This instance must allow remote connections or you must run the mysql command from within same system.**
+
+    {{% content "dbass-eos" %}}
 
 -   **Ensure mysql is installed and is compatible with the MySQL version on your database server.** Run the following command on the system you intend on using to verify that mysql is installed.
 
         mysql --version
 
-    This should inform you which version you are using. If the command is not found or you are not on a compatible version, see the [Installing MySQL](/docs/guides/install-mysql/) guide.
+    This should inform you which version you are using. If the command is not found or you are not on a compatible version, see the [Installing MySQL](/cloud/guides/install-mysql) guide.
 
 {{< note >}}
-The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## General mysql Syntax
@@ -46,10 +47,6 @@ The main purpose of the mysql utility is to connect to a MySQL database server a
 -   **Remote database server**: In many cases, the database server is not on the same system you are using. In these cases, you can SSH in to the remote system (if permitted) and run the command above to connect to a local MySQL instance. Alternatively, you can use the mysql command to remotely connect to the database. If your MySQL server does not allow remote connections or your user cannot connect remotely, see [Configure the Database Server to Allow Remote Connections](#configure-the-database-server-to-allow-remote-connections).
 
         mysql -h [host] -p [port] -u [username] -p
-
-    {{< note respectIndent=false >}}
-If you wish to connect to a Linode MySQL Managed Database, review the [Connect to a MySQL Managed Database](/docs/products/databases/managed-databases/guides/mysql-connect/) guide instead.
-{{< /note >}}
 
 ## Common Command Options
 
@@ -65,13 +62,13 @@ The following list is a collection of common options used with the mysqldump com
 
 - **SSL Settings** (`--ssl-mode`): This controls if the connection should be encrypted. This can be set to `DISABLED` (unencrypted - not recommended), `PREFERRED` (tries an encrypted connection first before falling back to unencrypted), or `REQUIRED` (fails if an encrypted connection can't be established. If omitted, this option is automatically set to `PREFERRED`. You can also set this to `VERIFY_CA` or `VERIFY_IDENTITY` to require an encrypted connection and either verify the CA certificate or both verify the CA certificate and the host name identity.
 
-If you are frequently connecting to the same database, you can securely store many of these options (including the password). See the [Securely Storing Credentials](/docs/guides/securely-store-mysql-credentials/) guide. Other options can be stored in an [option file](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
+If you are frequently connecting to the same database, you can securely store many of these options (including the password). See the [Securely Storing Credentials](/cloud/guides/securely-store-mysql-credentials) guide. Other options can be stored in an [option file](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
 
 ## Configure the Database Server to Allow Remote Connections
 
 If you have installed the MySQL server yourself (not through a managed service) and wish to connect to a database remotely without first logging in to the database server through SSH, you may need to modify a few settings. This can be useful if you want to limit SSH access but still permit database access.
 
-Refer to our [Create an SSH Tunnel for MySQL Remote Access](/docs/guides/create-an-ssh-tunnel-for-mysql-remote-access/) to learn how to connect to your database using an SSH tunnel.
+Refer to our [Create an SSH Tunnel for MySQL Remote Access](/cloud/guides/create-an-ssh-tunnel-for-mysql-remote-access) to learn how to connect to your database using an SSH tunnel.
 
 1.  Make sure your database has a user set up to allow connections from your local machine's IP address.
 
@@ -116,10 +113,10 @@ bind-address = 0.0.0.0
 
 ## How to Connect to a Database Remotely Using the MySQL Workbench Tool
 
-Follow our [Install MySQL Workbench for Database Administration](/docs/guides/deploy-mysql-workbench-for-database-administration/) guide for steps to install the MySQL Workbench tool on your local machine. This guide also shows you how to connect to a remote database via MySQL Workbench. These steps work whether your target database server is MySQL or MariaDB.
+Follow our [Install MySQL Workbench for Database Administration](/cloud/guides/deploy-mysql-workbench-for-database-administration) guide for steps to install the MySQL Workbench tool on your local machine. This guide also shows you how to connect to a remote database via MySQL Workbench. These steps work whether your target database server is MySQL or MariaDB.
 
 For more information, take a look at the [official MySQL Workbench manual](https://dev.mysql.com/doc/workbench/en/). You may also refer to MariaDB's documentation on [using the MySQL Workbench with MariaDB](https://mariadb.com/products/skysql/docs/clients/third-party/mysql-workbench/).
 
 ## Conclusion
 
-Now that you have your remote database connection, you may want to learn more about using MySQL/MariaDB and working with more advanced database operations. You can refer to our extensive [list of MySQL guides](/docs/guides/databases/mysql/) and specific [MariaDB guides](/docs/guides/databases/mariadb/) to build your database management skills.
+Now that you have your remote database connection, you may want to learn more about using MySQL/MariaDB and working with more advanced database operations. You can refer to our extensive [list of MySQL guides](/cloud/guides/databases/mysql) and specific [MariaDB guides](/cloud/guides/databases/mariadb) to build your database management skills.

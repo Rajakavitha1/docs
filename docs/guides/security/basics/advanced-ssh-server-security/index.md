@@ -1,26 +1,24 @@
 ---
 slug: advanced-ssh-server-security
+title: "Harden SSH Access with Advanced OpenSSH Features"
 description: "This guide will give you some of Linode's best tips and tricks for best practices when it comes to improving the security of your SSH server."
+authors: ["Damaso Sanoja"]
+contributors: ["Damaso Sanoja"]
+published: 2017-04-07
 keywords: ["SSH", "secure shell", "Ubuntu", "CentOS", "security", "2FA", "server", "Linux"]
 tags: ["ssh","security","linux"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-04-07
-modified: 2017-04-07
-modified_by:
-  name: Linode
-title: "Harden SSH Access with Advanced OpenSSH Features"
 external_resources:
  - '[OpenSSH](http://www.openssh.com/)'
  - '[Diffie-Hellman](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)'
-aliases: ['/security/advanced-ssh-server-security/','/security/basics/advanced-ssh-server-security/']
-authors: ["Damaso Sanoja"]
+aliases: []
 ---
 
 There's a good chance you've been using SSH (Secure Shell) to access your Linode from your computer. Although SSH is a secure protocol, most system compromises are a result of human error or failure to take advantage of the security features offered. In this guide, we'll cover a few key features provided by OpenSSH.
 
 ![Use Advanced OpenSSH Features to Harden Access to Your Linode](advanced-ssh-server-security.png "Use Advanced OpenSSH Features to Harden Access to Your Linode")
 
-[OpenSSH](http://www.openssh.com/) is a suite of connectivity tools that sysadmins use daily to access remote servers. From a security point of view, it's the 'front door' for remote logins so it is extremely important to harden SSH as much as possible. The aim of this guide is to build upon our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide with easy steps that can be implemented in just a few minutes.
+[OpenSSH](http://www.openssh.com/) is a suite of connectivity tools that sysadmins use daily to access remote servers. From a security point of view, it's the 'front door' for remote logins so it is extremely important to harden SSH as much as possible. The aim of this guide is to build upon our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide with easy steps that can be implemented in just a few minutes.
 
 **Assumptions:**
 
@@ -29,9 +27,9 @@ There's a good chance you've been using SSH (Secure Shell) to access your Linode
 
 ## Before You Begin
 
-1.  Complete the [Getting Started](/docs/products/platform/get-started/) guide.
+1.  Complete the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide.
 
-2.  Follow the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, create a basic firewall rule set and remove unnecessary network services.
+2.  Follow the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, create a basic firewall rule set and remove unnecessary network services.
 
 3.  Log in to your Linode via SSH and check for updates using the corresponding package manager: `apt` (Ubuntu/Debian) or `yum` (RHEL/CentOS) .
 
@@ -41,9 +39,8 @@ There's a good chance you've been using SSH (Secure Shell) to access your Linode
 4.  Make a backup of your server's `sshd_config` file.
 
         sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.BACKUP
-
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Use a Stronger Diffie-Hellman Algorithm
@@ -61,8 +58,7 @@ The `/etc/ssh/moduli` file ships with OpenSSH, so assuming two servers have the 
     ssh-keygen -G "${HOME}/moduli" -b 2048
     sudo ssh-keygen -T /etc/ssh/moduli -f "${HOME}/moduli"
     rm "${HOME}/moduli"
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 Before running these commands on a production server, be aware that depending on the size of the keys you're generating, this will use significant CPU power and may take anywhere from a minute to several hours.
 {{< /note >}}
 
@@ -115,7 +111,7 @@ Remember to restart your SSH service after changes have been made:
 
 ## Use a Strong Password for your Key-pair
 
-In the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, you're encouraged to use SSH Key Pair Authentication. This is not optional if you are serious about security. But what about remote users that connect to the server with their laptops, which are susceptible to be stolen or lost? Here is where protecting your private key with a strong password or passphrase comes in, at least to gain time before changing the server keys. A strong password shouldn't be dictionary based. If security is your main concern, the convenience of an easy to remember password isn't adequate. [OpenSSL](https://www.openssl.org/) offers an easy way to generate pseudo-random passwords:
+In the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, you're encouraged to use SSH Key Pair Authentication. This is not optional if you are serious about security. But what about remote users that connect to the server with their laptops, which are susceptible to be stolen or lost? Here is where protecting your private key with a strong password or passphrase comes in, at least to gain time before changing the server keys. A strong password shouldn't be dictionary based. If security is your main concern, the convenience of an easy to remember password isn't adequate. [OpenSSL](https://www.openssl.org/) offers an easy way to generate pseudo-random passwords:
 
     openssl rand -base64 32
 
@@ -131,7 +127,7 @@ To add the generated password to your existing private key:
 
 This assumes you keep your client's private SSH key in its default location, `~/.ssh/id_rsa`. You can modify the file location as needed and use the same command to change your password in the future.
 
-An alternative to this method is the use of a [GPG smartcard](https://en.wikipedia.org/wiki/OpenPGP_card) or [YubiKey](https://www.yubico.com/products/yubikey-hardware/) which should be stored in a different place from your laptop. You can find more information about this implementation in the guide [How to use a GPG key for SSH authentication](/docs/guides/gpg-key-for-ssh-authentication/)
+An alternative to this method is the use of a [GPG smartcard](https://en.wikipedia.org/wiki/OpenPGP_card) or [YubiKey](https://www.yubico.com/products/yubikey-hardware/) which should be stored in a different place from your laptop. You can find more information about this implementation in the guide [How to use a GPG key for SSH authentication](/cloud/guides/gpg-key-for-ssh-authentication)
 
 ## Chroot Users
 

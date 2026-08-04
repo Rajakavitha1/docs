@@ -1,14 +1,13 @@
 ---
 slug: types-of-cyber-attacks
-description: 'What are the most common types of cyber attacks? This guide explains what they are, how they happen, and how to prevent them.'
-keywords: ['network attacks','types of cyber security attacks','system attack','cyber attack types']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-12-17
-modified_by:
-  name: Linode
 title: "Eight Common Types of Cyber Attacks and How to Prevent Them"
 title_meta: "What are the Most Common Cyber Attacks?"
+description: 'What are the most common types of cyber attacks? This guide explains what they are, how they happen, and how to prevent them.'
 authors: ["Andy Patrizio"]
+contributors: ["Andy Patrizio"]
+published: 2021-12-17
+keywords: ['network attacks','types of cyber security attacks','system attack','cyber attack types']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 As long as there have been personal computers, there have been cyber attacks, even in the pre-Internet days of the 1980s. Malware started out simple; they damaged your data, apps, or floppy disks. Malware authors did it for no other reason than to be mean.
@@ -60,7 +59,7 @@ Keyloggers and spyware both fall into the same category. They lurk in your compu
 
 #### Keyloggers and Spyware Mitigation
 
-Common sense is key in not opening emails from unknown sources. Regular antivirus scans pick up spyware. Network monitoring tools watch for suspicious outbound traffic. You can also check for unusual activity using a [system monitoring tool like gtop](/docs/guides/installing-and-using-gtop-on-linux/).
+Common sense is key in not opening emails from unknown sources. Regular antivirus scans pick up spyware. Network monitoring tools watch for suspicious outbound traffic. You can also check for unusual activity using a [system monitoring tool like gtop](/cloud/guides/installing-and-using-gtop-on-linux).
 
 ### Rootkits
 

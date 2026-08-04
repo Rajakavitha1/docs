@@ -1,15 +1,14 @@
 ---
 slug: differences-between-grep-sed-awk
+title: "Learn to Process Text in Linux using Grep, sed, and AWK"
+title_meta: "Text Processing in Linux: Understanding Grep, sed, and AWK"
 description: 'This guide introduces you to Grep, sed, and AWK, which are Linux tools used for text processing. It explains the differences between grep, sed, and AWK and provides beginner examples for each.'
+authors: ["Andy Lester"]
+contributors: ["Andy Lester"]
+published: 2021-08-27
 keywords: ['difference between sed awk grep']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-08-27
-modified_by:
-  name: Linode
-title: "Learn to Process Text in Linux using Grep, sed, and AWK"
-title_meta: "Text Processing in Linux: Understanding Grep, sed, and AWK"
-authors: ["Andy Lester"]
 ---
 
 ## The Differences Between Grep, sed, and AWK
@@ -70,8 +69,7 @@ The output returns the 4 lines before the search term match:
 192.0.2.0 - - [17/May/2015:10:05:34 +0000] "GET /presentations/logstash-monitorama-2013/images/sad-medic.png HTTP/1.1" 200 430406 "http://semicomplete.com/presentations/logstash-monitorama-2013/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/198.51.100.0 Safari/537.36"
 192.0.2.0 - - [17/May/2015:10:05:57 +0000] "GET /presentations/logstash-monitorama-2013/css/fonts/Roboto-Bold.ttf HTTP/1.1" 200 38720 "http://semicomplete.com/presentations/logstash-monitorama-2013/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/198.51.100.0 Safari/537.36"
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 To highlight your search term, add the `--color` option to your grep command.
 {{< /note >}}
 
@@ -106,7 +104,7 @@ Then, search for "cats" in the existing list of files containing the word "dogs"
 
 The output displays a list of files that contain both.
 
-To learn more about grep and its command-line options, see our [How to Grep for Text in Files](/docs/guides/how-to-use-grep-command/) guide. The guide also shows you other useful operations, like [piping command outputs to grep](/docs/guides/how-to-use-grep-command/#piping-command-outputs-to-grep) and how to [recursively search through a directory tree](/docs/guides/how-to-use-grep-command/#the-grep-command).
+To learn more about grep and its command-line options, see our [How to Grep for Text in Files](/cloud/guides/how-to-use-grep-command) guide. The guide also shows you other useful operations, like [piping command outputs to grep](/cloud/guides/how-to-use-grep-command#piping-command-outputs-to-grep) and how to [recursively search through a directory tree](/cloud/guides/how-to-use-grep-command#the-grep-command).
 
 ## Sed Command
 
@@ -161,7 +159,7 @@ To insert the line before every line where a pattern match is found, use the fol
 
     sed '/8/ i #This line is inserted using sed' sedtest.txt
 
-To learn more about sed, see our [Manipulate Text from the Command Line with sed](/docs/guides/manipulate-text-from-the-command-line-with-sed/#finding-and-replacing-strings-within-files-using-sed) guide. The guide shows you [how to change file extensions with sed](/docs/guides/manipulate-text-from-the-command-line-with-sed/#finding-and-replacing-strings-within-files-using-sed), [delete lines from files using sed](/docs/guides/manipulate-text-from-the-command-line-with-sed/#deleting-lines-from-files-using-sed), and more.
+To learn more about sed, see our [Manipulate Text from the Command Line with sed](/cloud/guides/manipulate-text-from-the-command-line-with-sed#finding-and-replacing-strings-within-files-using-sed) guide. The guide shows you [how to change file extensions with sed](/cloud/guides/manipulate-text-from-the-command-line-with-sed#finding-and-replacing-strings-within-files-using-sed), [delete lines from files using sed](/cloud/guides/manipulate-text-from-the-command-line-with-sed#deleting-lines-from-files-using-sed), and more.
 
 
 ## AWK Command
@@ -224,7 +222,7 @@ The output returns the following average:
 
 On each line, AWK adds the value of the fifth column to the variable `total`. At the end of the file, it prints `total` divided by `NR`, a special variable where AWK keeps the number of records it has read.
 
-To take a deep dive into the AWK programming language, refer to our [Learn the AWK Programming Language](/docs/guides/introduction-to-awk/) guide.
+To take a deep dive into the AWK programming language, refer to our [Learn the AWK Programming Language](/cloud/guides/introduction-to-awk) guide.
 
 ## Conclusion
 

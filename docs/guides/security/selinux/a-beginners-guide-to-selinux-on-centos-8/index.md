@@ -1,15 +1,15 @@
 ---
 slug: a-beginners-guide-to-selinux-on-centos-8
+title: "Getting Started with SELinux on CentOS 8"
+title_meta: "A Beginner's Guide to SELinux on CentOS 8"
 description: 'This guide provides a brief and basic introduction to commonly used commands and practices for SELinux system administration on CentOS 8.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-03-18
 keywords: ["Security-enhanced Linux", "secure open source", " SELinux", "CentOS8"]
 bundles: ['centos-security']
 tags: ["centos","security"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-03-18
-modified_by:
-  name: Linode
-title: "Getting Started with SELinux on CentOS 8"
-title_meta: "A Beginner's Guide to SELinux on CentOS 8"
 external_resources:
  - '[Graphical Guide to Policies](https://opensource.com/business/13/11/selinux-policy-guide)'
  - '[SELinux User Resources](https://selinuxproject.org/page/User_Resources)'
@@ -20,8 +20,7 @@ relations:
         key: get-started-selinux
         keywords:
             - distribution: CentOS 8
-aliases: ['/security/selinux/a-beginners-guide-to-selinux-on-centos-8/']
-authors: ["Linode"]
+aliases: []
 ---
 
 SELinux is a Mandatory Access Control (MAC) system, developed by the NSA. SELinux was developed as a replacement for Discretionary Access Control (DAC) that ships with most Linux distributions.
@@ -34,9 +33,9 @@ SELinux defaults to denying anything that is not explicitly allowed. SELinux has
 
 ## Before You Begin
 
-1.  Ensure that you have followed the [Getting Started](/docs/products/platform/get-started/) and [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides.
+1.  Ensure that you have followed the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides.
     {{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
     {{< /note >}}
 1.  Update your system:
 
@@ -45,7 +44,7 @@ This guide is written for a non-root user. Commands that require elevated privil
     {{< note respectIndent=false >}}
 The Linode kernel does not support SELinux by default. However, all new Linodes running CentOS 8 use the distribution provided kernel, which has **SELinux enabled by default**.
 
-If your system is running a Linode kernel, you will need to change to an upstream kernel in order to use SELinux. See the [How to Change Your Linode's Kernel](/docs/products/compute/compute-instances/guides/manage-the-kernel/) for more steps. Once you're kernel is set to the upstream kernel, continue on with the steps in this guide.
+If your system is running a Linode kernel, you will need to change to an upstream kernel in order to use SELinux. See the [How to Change Your Linode's Kernel](https://techdocs.akamai.com/cloud-computing/docs/manage-the-kernel-on-a-compute-instance) for more steps. Once you're kernel is set to the upstream kernel, continue on with the steps in this guide.
     {{< /note >}}
 
 ## Install Supporting SELinux Packages
@@ -106,7 +105,7 @@ You can update the `SELINUX` directive with any of the available SELinux [states
 
         sudo reboot
 
-- Connect to your Linode via SSH (replace `192.0.2.0` with your own [Linode's IP address](/docs/guides/find-your-linodes-ip-address/)) and verify your SELinux installation's status:
+- Connect to your Linode via SSH (replace `192.0.2.0` with your own [Linode's IP address](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance)) and verify your SELinux installation's status:
 
         ssh example_user@192.0.2.0
         sudo sestatus
@@ -121,7 +120,7 @@ SELinux status:                 disabled
 
 When SELinux is enabled, it can run in either *enforcing* or *permissive* modes.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If SELinux is currently disabled, update your SELinux configuration file with the `SELINUX` directive set to `enabled`, then reboot your system, and SSH back into your Linode. These steps are outlined in the [SELinux States](#selinux-states) section of the guide.
 {{< /note >}}
 
@@ -145,7 +144,7 @@ If SELinux is currently disabled, update your SELinux configuration file with th
 
         sudo sealert -a /var/log/audit/audit.log
 
-    The output will resemble the example, however, it varies depending on the programs and configurations on your system. The example was generated using a [Linode running the Apache webserver](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/#apache) with a virtual hosts configuration.
+    The output will resemble the example, however, it varies depending on the programs and configurations on your system. The example was generated using a [Linode running the Apache webserver](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7#apache) with a virtual hosts configuration.
 
     {{< output >}}
 SELinux is preventing /usr/sbin/httpd from write access on the directory logs.

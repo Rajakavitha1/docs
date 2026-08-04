@@ -3,13 +3,12 @@ slug: install-dotnet-on-ubuntu
 title: "Install the .NET Runtime (or SDK) on Ubuntu 22.04"
 title_meta: "How to Install the .NET Runtime (or SDK) on Ubuntu 22.04"
 description: 'Learn how to install the .NET 6 SDK or runtime on Ubuntu and understand its limitations, requirements, and security implications.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2023-06-13
 keywords: ['dotnet on Ubuntu 22.04', 'dotnet runtime', 'install dotnet', 'enable dotnet ubuntu 22.04', 'install dotnet server ubuntu']
 tags: ['ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["Linode"]
-published: 2023-06-13
-modified_by:
-  name: Linode
 ---
 
 Microsoft [.NET](https://dotnet.microsoft.com/en-us/) (pronounced *dot net* and sometimes written as *dotnet*) is a free and open-source platform for building, distributing, and running software applications. Developers can write code for their applications in multiple languages (including C# and Visual Basic) and target any operating system that supports .NET (including Windows, Linux, and macOS). Using the .NET platform (and it's many available libraries and app models), developers can create command-line apps, web applications (with [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)), cross-platform mobile and desktop applications (with [.NET MAUI](https://dotnet.microsoft.com/en-us/apps/maui)), and much more.
@@ -138,7 +137,7 @@ This queries the snap repository and displays a list of available .NET SDK and r
 
 ## Server Applications
 
-While many .NET applications are standalone, others connect directly to external systems. If your application connects to other services, you may need to adjust your firewall settings so these connections are not blocked. For instructions on using UFW (the default firewall front-end interface for Ubuntu 22.04), see the guide [How to Configure a Firewall with UFW](/docs/guides/configure-firewall-with-ufw/). Web services typically use ports `443`, `80`, and `8080`, though ports are application-specific. If these ports are blocked, you can adjust the firewall to allow access.
+While many .NET applications are standalone, others connect directly to external systems. If your application connects to other services, you may need to adjust your firewall settings so these connections are not blocked. For instructions on using UFW (the default firewall front-end interface for Ubuntu 22.04), see the guide [How to Configure a Firewall with UFW](/cloud/guides/configure-firewall-with-ufw). Web services typically use ports `443`, `80`, and `8080`, though ports are application-specific. If these ports are blocked, you can adjust the firewall to allow access.
 
 Scripts installing .NET applications may require sudo rights to effectively change the firewall, files, or environmental settings for the user(s) of the runtime application. In addition, you may need to modify user rights and file accessibility so that your .NET-based application can properly run.
 

@@ -1,17 +1,15 @@
 ---
 slug: use-linode-name-servers
+title: "Use Linode's Nameservers"
 description: "Shortguide for setting Linode's nameservers as the authoritative nameservers for a domain"
+authors: ["Nathan Melehan"]
+contributors: ["Nathan Melehan"]
+published: 2018-07-19
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 keywords: ["nameserver", "authoritative nameserver", "DNS", "DNS Manager"]
 tags: ["dns","networking","linux platform"]
-modified: 2018-07-19
-modified_by:
-  name: Nathan Melehan
-title: "Use Linode's Nameservers"
-published: 2018-07-19
 headless: true
-aliases: ['/networking/dns/use-linode-name-servers/']
-authors: ["Nathan Melehan"]
+aliases: []
 ---
 
 ### (Optional) Prepare Your Domain Name to Move
@@ -50,7 +48,7 @@ When changing servers, however, make the TTL shorter to make sure that when you 
 
 ### Use Linode's Nameservers
 
-1.  Follow Linode's instructions on [adding a domain zone](/docs/products/networking/dns-manager/guides/create-domain/) to create DNS records at Linode for your domain. Recreate the DNS records listed in your current nameserver authority's website, but change the IP addresses to reflect your Linode IPs where appropriate.
+1.  Follow Linode's instructions on [adding a domain zone](https://techdocs.akamai.com/cloud-computing/docs/create-a-domain) to create DNS records at Linode for your domain. Recreate the DNS records listed in your current nameserver authority's website, but change the IP addresses to reflect your Linode IPs where appropriate.
 
 1.  Locate your domain's registrar, which is the company you purchased your domain from. If you're not sure who your registrar is, you can find out with a [Whois Search tool](https://whois.icann.org/).
 
@@ -84,7 +82,7 @@ When changing servers, however, make the TTL shorter to make sure that when you 
 
 1.  Navigate to your domain in a web browser. It should now show the website from Linode, rather than your old host. If you can't tell the difference, use the [DIG utility](http://www.kloth.net/services/dig.php). It should show the IP address for your Linode.
 
-1.  [Set reverse DNS](/docs/products/compute/compute-instances/guides/configure-rdns/) for your domain. This is especially important if you are running a mail server.
+1.  [Set reverse DNS](https://techdocs.akamai.com/cloud-computing/docs/configure-rdns-reverse-dns-on-a-compute-instance) for your domain. This is especially important if you are running a mail server.
 
     {{< note respectIndent=false >}}
 If you're having trouble seeing your site at the new IP address, try visiting it in a different browser or in a private browsing session. Sometimes your browser will cache old DNS data, even if it has updated everywhere else.

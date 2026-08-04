@@ -1,13 +1,13 @@
 ---
 slug: pros-and-cons-of-python
-description: 'As with any programming language, there are pros and cons of Python. Read our guide to find out whether you can benefit from learning Python. Click here!'
-keywords: ['benefits of python','pros and cons of python','python advantages','disadvantages of python']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-23
-modified_by:
-  name: Linode
 title: "The Pros and Cons of Python Programming"
 title_meta: "A Programmers’ Guide to Python: Advantages & Disadvantages"
+description: 'As with any programming language, there are pros and cons of Python. Read our guide to find out whether you can benefit from learning Python. Click here!'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-03-23
+keywords: ['benefits of python','pros and cons of python','python advantages','disadvantages of python']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Python.org web site](https://www.python.org/)'
 - '[Python documentation](https://docs.python.org/3/contents.html)'
@@ -21,7 +21,6 @@ external_resources:
 - '[NumPy](https://numpy.org/)'
 - '[SciPy](https://scipy.org/)'
 - '[Python licensing site](https://docs.python.org/3/license.html)'
-authors: ["Jeff Novotny"]
 ---
 
 [Python](https://www.python.org/) is currently one of the world's most popular programming languages. It achieved this position due to its powerful features, flexibility, and ease of use. This guide explains the pros and cons of Python and compares it to other languages. It also discusses the situations where Python is one of the best alternatives.
@@ -96,7 +95,7 @@ Nonetheless, there are some situations where Python is the right choice. There a
 
 It is easy to start using Python. A good place to begin is the [Python Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide). The Python Wiki also has a list of tutorials and resources for [New](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers) or [Experienced Programmers](https://wiki.python.org/moin/BeginnersGuide/Programmers).
 
-To run Python on Ubuntu or another Linux distribution, use the command `python3`. Python is usually already installed on most Linux systems. To download Python for other platforms, see the [Python downloads page](https://www.python.org/downloads/). For more information about how to use Python on a Linode system, see the [Linode guide to Python](/docs/guides/how-to-install-python-on-ubuntu-20-04/).
+To run Python on Ubuntu or another Linux distribution, use the command `python3`. Python is usually already installed on most Linux systems. To download Python for other platforms, see the [Python downloads page](https://www.python.org/downloads/). For more information about how to use Python on a Linode system, see the [Linode guide to Python](/cloud/guides/how-to-install-python-on-ubuntu-20-04).
 
 ### Alternatives to Python
 

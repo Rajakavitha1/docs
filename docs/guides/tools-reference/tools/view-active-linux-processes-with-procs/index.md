@@ -1,21 +1,20 @@
 ---
 slug: view-active-linux-processes-with-procs
-description: 'Learn how to view active processes on Linux via the command line with procs, a human-friendly command line utility.'
-keywords: ['ps command in linux','procs command in linux','ps command alternative linux','Linux view process']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-19
-modified_by:
-  name: Linode
 title: "View Active Linux Processes Using procs"
 title_meta: "View Active Processes in Linux with the procs Command"
+description: 'Learn how to view active processes on Linux via the command line with procs, a human-friendly command line utility.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-11-19
+keywords: ['ps command in linux','procs command in linux','ps command alternative linux','Linux view process']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Procs GitHub page](https://github.com/dalance/procs)'
 - '[Procs releases](https://github.com/dalance/procs/releases/tag/v0.11.10)'
 - '[Sample procs config files](https://github.com/dalance/procs/tree/master/config)'
-authors: ["Jeff Novotny"]
 ---
 
-The [*procs*](https://github.com/dalance/procs) utility is a useful and informative alternative to the original Linux [*`ps` (process status) command*](/docs/guides/use-the-ps-aux-command-in-linux/). Like ps, procs displays information about the active processes running on the system, including their CPU and memory usage. However, procs enhances its output with additional columns, an intuitive color scheme, and other helpful features. This guide provides some background on procs, and explains how to install and use it.
+The [*procs*](https://github.com/dalance/procs) utility is a useful and informative alternative to the original Linux [*`ps` (process status) command*](/cloud/guides/use-the-ps-aux-command-in-linux). Like ps, procs displays information about the active processes running on the system, including their CPU and memory usage. However, procs enhances its output with additional columns, an intuitive color scheme, and other helpful features. This guide provides some background on procs, and explains how to install and use it.
 
 ## An Introduction to procs
 
@@ -36,16 +35,16 @@ The [*procs GitHub page*](https://github.com/dalance/procs#kind-list) has a comp
 
 The procs utility is very similar to the `ps` command which it seeks to replace. Procs can do everything ps does, but it can also display additional fields and has more options. For this reason it is the better choice in most cases. However, both commands have the most significant information available. The `ps` command is often supplemented with the `top` command. top displays a real-time view of the most resource-intensive processes. In procs, the `--watch` and `--watch-interval` options provide the same information. Procs supports tree format and customization, while ps does not.
 
-Because the `ps` command's output is relatively sparse, users often append the `-ef` option for more meaningful results. `ps` is often used in conjunction with other commands, such as `grep`, to extract and summarize information. For more information about the `ps` command, see the [*Linode ps guide*](/docs/guides/use-the-ps-aux-command-in-linux/).
+Because the `ps` command's output is relatively sparse, users often append the `-ef` option for more meaningful results. `ps` is often used in conjunction with other commands, such as `grep`, to extract and summarize information. For more information about the `ps` command, see the [*Linode ps guide*](/cloud/guides/use-the-ps-aux-command-in-linux).
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Install procs
@@ -94,8 +93,7 @@ Use the following command to install procs using snap.
 {{< output >}}
 procs v0.11.8 from dalance installed
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 On certain Linux distributions, the default system package manager can be used to install procs:
 
 - For Fedora systems, use the command `sudo dnf install procs`.
@@ -287,8 +285,7 @@ align = "Right"
 1. Launch the procs application again. The new column should now appear as part of the display.
 
     ![procs with a new custom field](procs-custom-config.png)
-
-{{< note respectIndent=false >}}
+{{< note >}}
 It can be somewhat difficult to change the configuration using the method outlined in this section. New columns must be added in a certain order and in the proper format. Procs silently ignores non-compliant or improperly formatted configuration. For a ready-made configuration file that displays most of the useful columns, use the standardized [*large.toml template file*](https://github.com/dalance/procs/blob/master/config/large.toml). It might be easier and less error-prone to start with this file and remove any unwanted columns or configuration.
 {{< /note >}}
 

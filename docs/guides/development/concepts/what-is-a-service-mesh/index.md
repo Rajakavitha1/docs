@@ -1,17 +1,16 @@
 ---
 slug: what-is-a-service-mesh
+title: "The Benefits of a Service Mesh"
+title_meta: "What is a Service Mesh?"
 description: 'In this guide you learn when to use a service mesh and how it can help optimize your web application''s operational overhead and centralize your service management.'
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-07-22
 keywords: ['service mesh', 'what is a service mesh', 'microservices', 'service architecture']
 tags: ['web applications', 'networking']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-22
-modified_by:
-  name: Linode
-title: "The Benefits of a Service Mesh"
-title_meta: "What is a Service Mesh?"
 external_resources:
 - "[The Service Mesh: What Every Software Engineer Needs to Know about the World's Most Over-Hyped Technology](https://buoyant.io/service-mesh-manifesto/)"
-authors: ["Nathaniel Stickman"]
 ---
 
 A service mesh can make managing a service-oriented application on the cloud much easier. It adds an infrastructure layer, keeping operational concerns out of service development, and centralizes service management. This guide covers how a service mesh works and when to use one.
@@ -81,5 +80,5 @@ There are currently three major contenders in the field of service mesh provider
 
 In addition to the resources linked below, you can also continue to learn about service meshes and how to use them in the guides listed below. Each guide shows you how to get started with a specific service mesh provider.
 
-- [How to Install HashiCorp's Consul Service Mesh](/docs/guides/how-to-install-hashicorp-consul-service-mesh/)
-- [How to Deploy Linkerd 2 with Linode Kubernetes Engine](/docs/guides/how-to-deploy-linkerd-with-linode-kubernetes-engine/)
+- [How to Install HashiCorp's Consul Service Mesh](/cloud/guides/how-to-install-hashicorp-consul-service-mesh)
+- [How to Deploy Linkerd 2 with Linode Kubernetes Engine](/cloud/guides/how-to-deploy-linkerd-with-linode-kubernetes-engine)

@@ -1,29 +1,28 @@
 ---
 slug: confluence-on-ubuntu-10-04-lucid
-deprecated: true
+title: 'Confluence on Ubuntu 10.04 (Lucid)'
 description: 'Use Confluence on Ubuntu 10.04 (Lucid) to power a full-featured wiki system.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2010-09-05
+modified: 2011-06-07
 keywords: ["confluence ubuntu 10.04", "confluence", "confluence wiki", "confluence linux"]
 tags: ["wiki","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-applications/wikis/confluence/ubuntu-10-04-lucid/','/websites/wikis/confluence-on-ubuntu-10-04-lucid/']
-modified: 2011-06-07
-modified_by:
-  name: Linode
-published: 2010-09-05
-title: 'Confluence on Ubuntu 10.04 (Lucid)'
+aliases: []
 relations:
     platform:
         key: using-confluence
         keywords:
            - distribution: Ubuntu 10.04
-authors: ["Linode"]
+deprecated: true
 ---
 
 [Confluence](http://www.atlassian.com/software/confluence/) is a popular wiki system that features easy editing and publishing, Microsoft Office and SharePoint integration, the ability to add custom features via plugins, and more. It is [free for use](http://www.atlassian.com/software/jira/licensing.jsp#nonprofit) by official non-profit organizations, charities, educational institutions, and established open source projects. These guides will help you get started with Confluence on your Ubuntu 10.04 (Lucid) Linode. It is assumed that you're starting with a freshly deployed system. If you've already deployed applications to your Linode, you may need to make some adjustments to these instructions to accommodate your existing setup. It is also assumed that you've already obtained a license key for Confluence; if not, please do so before proceeding. These steps should be performed as the "root" user via an SSH session.
 
 ## Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
@@ -93,7 +92,7 @@ Issue the following command to return to a root shell.
 Issue the following commands to create an init script to control the Confluence application, mark this file executable, and configure Confluence to start automatically when the system boots:
 
     cd /opt/
-    wget -O init-deb.sh http://www.linode.com/docs/assets/616-init-deb.sh
+    wget -O init-deb.sh 616-init-deb.sh
     mv init-deb.sh /etc/init.d/confluence
     chmod +x /etc/init.d/confluence
     update-rc.d confluence defaults

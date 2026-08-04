@@ -1,19 +1,18 @@
 ---
 slug: what-is-sqlite
-description: 'This guide discusses the advantages and disadvantages of SQLite, one of the most popular of the serverless SQL databases, and also common use cases for SQLite.'
-keywords: ['what is sqlite']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-04-09
-image: SQLiteOverview.png
-modified_by:
-  name: Linode
 title: "What is SQLite?"
 title_meta: "A SQLite Overview"
-tags: ["database"]
+description: 'This guide discusses the advantages and disadvantages of SQLite, one of the most popular of the serverless SQL databases, and also common use cases for SQLite.'
 authors: ["James Turner"]
+contributors: ["James Turner"]
+published: 2021-04-09
+keywords: ['what is sqlite']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+image: SQLiteOverview.png
+tags: ["database"]
 ---
 
-There are two major types of databases: client/server relational databases (such as [MySQL](/docs/guides/databases/mysql/) or [PostgreSQL](/docs/guides/databases/postgresql/)), and NoSQL databases (like [MongoDB](/docs/guides/databases/mongodb/) or [CouchDB](/docs/guides/databases/couchdb/)). There is, however, a third option that straddles the gap, *serverless SQL databases*. This type of database offers relational SQL capabilities without the need to set up and maintain a database server.
+There are two major types of databases: client/server relational databases (such as [MySQL](/cloud/guides/databases/mysql) or [PostgreSQL](/cloud/guides/databases/postgresql)), and NoSQL databases (like [MongoDB](/cloud/guides/databases/mongodb) or [CouchDB](/cloud/guides/databases/couchdb)). There is, however, a third option that straddles the gap, *serverless SQL databases*. This type of database offers relational SQL capabilities without the need to set up and maintain a database server.
 
 [SQLite](https://www.sqlite.org/index.html) is the most popular of the serverless SQL databases. Part of its success lies in the large number of operating systems and languages with which it is compatible.
 

@@ -1,22 +1,21 @@
 ---
 slug: how-to-deploy-rshiny-server-on-ubuntu-and-debian
+title: 'How to Deploy Interactive R Apps with Shiny Server'
 description: 'Shiny is an R library that enables the creation of interactive data visualizations. This guide will show how to deploy an R Shiny app using Shiny Server.'
+authors: ["Jared Kobos"]
+contributors: ["Jared Kobos"]
+published: 2018-02-07
+modified: 2023-11-29
 keywords: ["r", "data visualization", "shiny", "web app"]
 tags: ["web applications"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-02-07
-modified: 2023-11-29
-modified_by:
-  name: Linode
-title: 'How to Deploy Interactive R Apps with Shiny Server'
 external_resources:
   - '[Shiny Server – Introduction](https://shiny.rstudio.com/articles/shiny-server.html)'
   - '[Gallery of Shiny Apps](https://shiny.rstudio.com/gallery/)'
 audiences: ["beginner"]
 concentrations: ["Scientific Computing and Big Data"]
 languages: ["r"]
-aliases: ['/development/r/how-to-deploy-rshiny-server-on-ubuntu-and-debian/']
-authors: ["Jared Kobos"]
+aliases: []
 ---
 
 ![How to Deploy Interactive R Apps with Shiny Server](shiny-server.jpg)
@@ -27,7 +26,7 @@ authors: ["Jared Kobos"]
 
 ## Before You Begin
 
-If you do not have RStudio installed on your local computer, follow our [How to Deploy RStudio Using an NGINX Reverse Proxy](/docs/guides/how-to-deploy-rstudio-server-using-an-nginx-reverse-proxy/) guide to set up a remote workstation on a Linode.
+If you do not have RStudio installed on your local computer, follow our [How to Deploy RStudio Using an NGINX Reverse Proxy](/cloud/guides/how-to-deploy-rstudio-server-using-an-nginx-reverse-proxy) guide to set up a remote workstation on a Linode.
 
 ## Build a Shiny Test App
 

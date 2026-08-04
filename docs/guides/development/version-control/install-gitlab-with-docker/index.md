@@ -1,20 +1,18 @@
 ---
 slug: install-gitlab-with-docker
+title: "Install GitLab with Docker"
 description: 'This guide shows how to install GitLab, the free git repository management app based on Ruby on Rails, on a Linode using the container application Docker.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-01-11
 keywords: ['gitlab', 'git', 'docker']
 tags: ["version control system","docker"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-01-11
-modified: 2019-01-11
-modified_by:
-  name: Linode
-title: "Install GitLab with Docker"
 external_resources:
 - '[GitLab EE Docker Image](https://hub.docker.com/r/gitlab/gitlab-ee)'
 - '[GitLab Docker Documentation](https://docs.gitlab.com/omnibus/docker/)'
 - '[GitLab SSL Configuration](https://docs.gitlab.com/omnibus/settings/ssl.html#lets-encrypt-integration)'
-aliases: ['/development/version-control/install-gitlab-with-docker/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Install GitLab with Docker](install-gitlab-with-docker.png "Install GitLab with Docker")
@@ -29,13 +27,13 @@ The GitLab application has a number of services it depends on, including Postgre
 
 GitLab is a resource-intensive application. To get the most out of GitLab, we recommend a Linode with at least 8GB of memory and at least 2 CPU cores. For more information on system requirements, visit the [GitLab Hardware Requirements page](https://docs.gitlab.com/ce/install/requirements.html#hardware-requirements).
 
-{{< note respectIndent=false >}}
+{{< note >}}
 This guide was written for and tested with Ubuntu 18.04. You may be able to adapt this guide to other operating systems supported by Docker. When following this guide under another OS, use the Docker [installation instructions](https://docs.docker.com/install/) for that OS.
 {{< /note >}}
 
 ### Secure your Server
 
-Review and implement the measures in the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, including creating a [limited user account](/docs/products/compute/compute-instances/guides/set-up-and-secure/#add-a-limited-user-account).
+Review and implement the measures in the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, including creating a [limited user account](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#add-a-limited-user-account).
 
 ### Change your Linode's Default SSH Port
 
@@ -63,13 +61,13 @@ Assign a domain or subdomain to your GitLab server. This step is optional, as yo
 
 It takes some time for DNS changes to propagate through the internet, so it's suggested that you do this before you set up GitLab. There are several options for updating your DNS records:
 
--   If you already use Linode's name servers, or if you would like to use them for your domain, review the [DNS Manager](/docs/products/networking/dns-manager/) guide. You will need to set up an *A record* which is assigned your Linode's IP address.
+-   If you already use Linode's name servers, or if you would like to use them for your domain, review the [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide. You will need to set up an *A record* which is assigned your Linode's IP address.
 
 -   If you use a different DNS provider, review that provider's documentation for setting up a new A record.
 
-    {{< content "update-dns-at-common-name-server-authorities" >}}
+    {{% content "update-dns-at-common-name-server-authorities" %}}
 
-You can test to see if your DNS changes have propagated with the [`dig` command](/docs/guides/use-dig-to-perform-manual-dns-queries/):
+You can test to see if your DNS changes have propagated with the [`dig` command](/cloud/guides/use-dig-to-perform-manual-dns-queries):
 
     dig +short gitlab.example.com
 
@@ -82,7 +80,7 @@ Once your changes have propagated, you can move forward with the installation.
 ### Install Docker
 You must have Docker installed on your Linode to continue.
 
-{{< content "installing-docker-shortguide" >}}
+{{% content "installing-docker-shortguide" %}}
 
 ## Install the GitLab EE Image
 
@@ -210,8 +208,7 @@ To start a stopped container, issue the `start` command by supplying the contain
 Once the container has stopped, you can remove the container using the `rm` command, again supplying the container ID or container name:
 
     sudo docker container rm gitlab-linode
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Removing the container will not delete your projects and repositories.
 {{< /note >}}
 
@@ -248,6 +245,6 @@ GitLab offers many features that are worth taking the time to understand and uti
 
 -   Review Linode's Git documentation:
 
-    -   [Getting Start with Git](/docs/guides/how-to-configure-git/)
+    -   [Getting Start with Git](/cloud/guides/how-to-configure-git)
 
-    -   [How to Install Git on Linux, Mac or Windows](/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
+    -   [How to Install Git on Linux, Mac or Windows](/cloud/guides/how-to-install-git-on-linux-mac-and-windows)

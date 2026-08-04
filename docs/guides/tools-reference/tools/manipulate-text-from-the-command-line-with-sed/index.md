@@ -1,25 +1,24 @@
 ---
 slug: manipulate-text-from-the-command-line-with-sed
+title: Manipulate Text from the Command Line with sed
 description: 'This guide contains practical examples for using the sed command to transform text files and streams of text from the command line without using a text editor.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2010-07-01
+modified: 2017-03-23
 keywords: ["sed", "find and replace", "regular expression", "unix"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/linux-tools/common-commands/sed/','/tools-reference/tools/manipulate-text-from-the-command-line-with-sed/']
-modified: 2017-03-23
-modified_by:
-  name: Linode
-published: 2010-07-01
-title: Manipulate Text from the Command Line with sed
+aliases: []
 external_resources:
- - '[Administration Basics](/docs/guides/linux-system-administration-basics/)'
+ - '[Administration Basics](/cloud/guides/linux-system-administration-basics)'
 tags: ["linux"]
-authors: ["Linode"]
 ---
 
 The traditional Unix utility `sed` makes it possible to manipulate strings and streams of text from the command line without using a text editing application. `sed` is useful in a number of different contexts, including finding and replacing strings of text in a large number of files, manipulating text for [Stack Scripts](http://linode.com/stackscripts/) and other kinds of scripts, as well as a component in basic shell scripting.
 
 ![Manipulate Text from the Command Line with sed](manipulate_text_from_the_command_line_with_sed.png "Manipulate Text from the Command Line with sed")
 
-This document provides a gentle overview of `sed` usage, accompanied by a number of practical applications of `sed`. If you find this guide helpful, please consider our guide to [basic administration practices](/docs/guides/linux-system-administration-basics/) or the rest of the [Tools & Reference section](/docs/tools-reference/).
+This document provides a gentle overview of `sed` usage, accompanied by a number of practical applications of `sed`. If you find this guide helpful, please consider our guide to [basic administration practices](/cloud/guides/linux-system-administration-basics) or the rest of the [Tools & Reference section](/cloud/guides/tools-reference).
 
 ## Using Sed
 

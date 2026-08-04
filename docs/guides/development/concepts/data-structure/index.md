@@ -1,19 +1,18 @@
 ---
 slug: data-structure
-description: 'What is a data structure? Read our guide to learn about why data structures are important and how to choose the correct data structure for your projects.'
-keywords: ['data structure','data structures definition','what are data structures','computer data structures']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-10
-modified_by:
-  name: Linode
 title: "Data Structures in Computer Programming"
 title_meta: "Understanding Data Structures: Definition, Uses & Benefits"
+description: 'What is a data structure? Read our guide to learn about why data structures are important and how to choose the correct data structure for your projects.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-06-10
+keywords: ['data structure','data structures definition','what are data structures','computer data structures']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Python core data structures](https://docs.python.org/3/tutorial/datastructures.html)'
 - '[Wikipedia page on data structures](https://en.wikipedia.org/wiki/Data_structure)'
 - '[Big O notation](https://en.wikipedia.org/wiki/Big_O_notation)'
 
-authors: ["Jeff Novotny"]
 ---
 
 Data structures are used to create efficient, clear, and organized programs. Among the best known [data structures](https://en.wikipedia.org/wiki/Data_structure) are lists and arrays. This guide introduces and defines data structures and explains why they are important. It also highlights the most important data structures and clarifies when and how each one can be used.
@@ -109,4 +108,4 @@ However, if the relationships between these items are of great significance, the
 
 The definition of a data structure is "a data format that helps developers organize, manage, and store information". Computer data structures are described by the relationships between the items, the operations supported by the structure, and the actual values of the items. Developers often create new data structures and algorithms for an application, but many structures are built into the main programming languages.
 
-Some data structures are linear. This means the items are arranged in sequential order. Others are non-linear and should be used when the relationships between items is important. The most widely-used data structures include arrays, stacks, queues, records, trees, graphs, linked lists, and hash tables. There are many factors involved in choosing a data structure to use. However, memory use, performance, and ease of use are the most important. If you'd like to try out some of the data structures discussed in this guide, visit our documentation library's [Python section](/docs/guides/development/python/). This section includes guides on various primary data types and linear data types in Python.
+Some data structures are linear. This means the items are arranged in sequential order. Others are non-linear and should be used when the relationships between items is important. The most widely-used data structures include arrays, stacks, queues, records, trees, graphs, linked lists, and hash tables. There are many factors involved in choosing a data structure to use. However, memory use, performance, and ease of use are the most important. If you'd like to try out some of the data structures discussed in this guide, visit our documentation library's [Python section](/cloud/guides/development/python). This section includes guides on various primary data types and linear data types in Python.

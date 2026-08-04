@@ -1,21 +1,20 @@
 ---
 slug: set-up-a-cassandra-node-cluster-on-ubuntu-and-centos
-description: "This guide instructs you through the steps that deploy a production-ready Apache Cassandra node cluster"
-keywords: ["cassandra", " apache-cassandra", " centos 7", " ubuntu 16.04", " database", " nosql"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-06-24
-modified: 2022-05-16
-modified_by:
-  name: Linode
 title: "Setting Up a Cassandra Node Cluster "
 title_meta: "Set Up a Cassandra Node Cluster"
-aliases: ['/databases/cassandra/set-up-a-cassandra-node-cluster-on-ubuntu-and-centos/','/databases/cassandra/deploy-a-production-ready-cassandra-node-cluster-on-ubuntu-and-centos/']
+description: "This guide instructs you through the steps that deploy a production-ready Apache Cassandra node cluster"
+authors: ["Andrew Lescher"]
+contributors: ["Andrew Lescher"]
+published: 2017-06-24
+modified: 2022-05-16
+keywords: ["cassandra", " apache-cassandra", " centos 7", " ubuntu 16.04", " database", " nosql"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+aliases: []
 external_resources:
  - '[How data is distributed across a cluster](https://docs.datastax.com/en/cassandra/2.1/cassandra/architecture/architectureDataDistributeDistribute_c.html)'
  - '[Client-to-node encryption](http://docs.datastax.com/en/cassandra/3.0/cassandra/configuration/secureSSLClientToNode.html)'
 tags: ["ubuntu","centos","database","nosql"]
 image: cass.png
-authors: ["Andrew Lescher"]
 ---
 
 ## What is Apache Cassandra
@@ -30,9 +29,9 @@ You will also learn how to secure communication between your nodes, as well as r
 
 ## Before You Begin
 
-1.  You must have at least two Cassandra nodes set up and configured. These nodes should have equal or similar hardware specs; otherwise, bottlenecks can occur. To install Apache Cassandra, see the [Installing Apache Cassandra](/docs/guides/how-to-install-apache-cassandra-on-ubuntu-18-04/) guide and select your distribution.
+1.  You must have at least two Cassandra nodes set up and configured. These nodes should have equal or similar hardware specs; otherwise, bottlenecks can occur. To install Apache Cassandra, see the [Installing Apache Cassandra](/cloud/guides/how-to-install-apache-cassandra-on-ubuntu-18-04) guide and select your distribution.
 
-2.  A working firewall is a necessary security measure. Firewall-specific instructions will be presented for UFW, FirewallD, and IPtables. Steps for setting up UFW can be found at [How to Configure a Firewall with UFW](/docs/guides/configure-firewall-with-ufw/). FirewallD instructions are located at [Introduction to FirewallD on CentOS](/docs/guides/introduction-to-firewalld-on-centos/).
+2.  A working firewall is a necessary security measure. Firewall-specific instructions will be presented for UFW, FirewallD, and IPtables. Steps for setting up UFW can be found at [How to Configure a Firewall with UFW](/cloud/guides/configure-firewall-with-ufw). FirewallD instructions are located at [Introduction to FirewallD on CentOS](/cloud/guides/introduction-to-firewalld-on-centos).
 
 3.  Most of the commands in this guide require root privileges in order to execute. You may work through the guide as-is if you can run the commands under the root account in your system. Alternatively, an elevated user account with sudo privileges can be used as long as each command is prefixed with `sudo`.
 

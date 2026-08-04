@@ -1,31 +1,30 @@
 ---
 slug: set-up-mongodb-on-docker
+title: "Set Up MongoDB on Docker"
+title_meta: "How to Set Up MongoDB on Docker"
 description: 'A guide with examples explaining how to install MongoDB on a Docker container utilizing the MongoDB Docker Hub image.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2021-08-27
 keywords: ["docker", "mongodb", "mongodb container", "docker mongodb container", "install mongodb docker", "configure mongodb docker"]
 tags: ["container","docker","mongodb"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-08-27
-modified_by:
-  name: Linode
-title: "Set Up MongoDB on Docker"
-title_meta: "How to Set Up MongoDB on Docker"
 external_resources:
 - '[MongoDB on Docker Hub](https://hub.docker.com/_/mongo/)'
-authors: ["Linode"]
 ---
 MongoDB is an open-source NoSQL database utilizing JSON-like documents and schemata that support rapid iterative development. Its scale-out architecture is popular with application developers who use agile methodologies to move quickly. As it's popular within the agile community, using MongoDB with Docker is an excellent approach for a *continuous integration and development* (CI/CD) workflow.
 
 ## Before You Begin
 
-To complete the examples in this guide, first set up and secure a Linode with Docker installed. You can accomplish this by utilizing the Docker Marketplace App, or through manual installation. Instructions for both approaches are provided below.
+To complete the examples in this guide, first set up and secure a Linode with Docker installed. You can accomplish this by utilizing the Docker Quick Deploy App, or through manual installation. Instructions for both approaches are provided below.
 
 This guide assumes you are comfortable with the *command-line interface* (CLI) on a Unix-like system and using it to work with programs.
 
 ### Set up a Linode with Docker
 
-#### Docker Marketplace App
+#### Docker Quick Deploy App
 
-You can quickly set up a secure, updated Linode with the Docker Marketplace App. For instructions, see our guide on [How to Deploy Docker with Marketplace Apps](/docs/products/tools/marketplace/guides/docker/). For the purposes of this guide, we recommend deploying the Docker Marketplace App with the [Docker Options](/docs/products/tools/marketplace/guides/docker/#docker-options):
+You can quickly set up a secure, updated Linode with the Docker Quick Deploy App. For instructions, see our guide on [How to Deploy Docker with Quick Deploy Apps](/cloud/marketplace-docs/guides/docker). For the purposes of this guide, we recommend deploying the Docker Quick Deploy App with the [Docker Options](/cloud/marketplace-docs/guides/docker#docker-options):
 
 - The limited sudo user to be created for the Linode
 - The password for the limited sudo user
@@ -34,11 +33,11 @@ You can quickly set up a secure, updated Linode with the Docker Marketplace App.
 
 #### Manual Installation
 
-1.  Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for updating your Linode.
+1.  Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for updating your Linode.
 
-1.  Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services.
+1.  Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services.
 
-1.  Install Docker on your Linode by following the steps in our guide on [How to Install and Use Docker on Ubuntu and Debian](/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/).
+1.  Install Docker on your Linode by following the steps in our guide on [How to Install and Use Docker on Ubuntu and Debian](/cloud/guides/installing-and-using-docker-on-ubuntu-and-debian).
 
 ### Verify Docker Installation
 
@@ -52,7 +51,7 @@ You can expect an output similar to the following:
 Docker version 20.10.8, build 3967b7d
 {{< /output >}}
 
-{{< content "limited-user-note-shortguide" >}}
+{{% content "limited-user-note-shortguide" %}}
 
 ## How to Install a MongoDB Docker Container
 

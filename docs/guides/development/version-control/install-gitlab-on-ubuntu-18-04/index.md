@@ -1,14 +1,13 @@
 ---
 slug: install-gitlab-on-ubuntu-18-04
+title:  'Install GitLab on Ubuntu 18.04'
 description: 'This guide shows how to install GitLab, the free git repository management app based on Ruby on Rails, on a Linode running Ubuntu 18.04, along with SSL.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-01-04
 keywords: ['git', 'gitlab', 'version control', 'ubuntu']
 tags: ["ssl","version control system","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-01-04
-modified: 2019-01-04
-modified_by:
-  name: Linode
-title:  'Install GitLab on Ubuntu 18.04'
 external_resources:
 - '[GitLab''s Official Documentation](https://docs.gitlab.com/ee/README.html)'
 - '[GitLab''s NGINX Configurations](https://docs.gitlab.com/omnibus/settings/nginx.html)'
@@ -18,8 +17,7 @@ relations:
         key: install-gitlab
         keywords:
             - distribution: Ubuntu 18.04
-aliases: ['/development/version-control/install-gitlab-on-ubuntu-18-04/']
-authors: ["Linode"]
+aliases: []
 ---
 
 GitLab is a complete solution for all aspects of your software development life-cycle. At its core, GitLab serves as your centralized Git repository. It also features built-in tools that represent every task in your development workflow, from planning to testing to releasing. You can host your own GitLab instance on a Linode, instead of using third-party hosting. Self-hosting your software development with GitLab offers total control of your codebase while providing an easy to use interface for team members. GitLab is the most popular self-hosted Git repository, so you'll benefit from a robust set of integrated tools and an active community.
@@ -36,13 +34,13 @@ Before installing GitLab you should consider how many users will collaborate on 
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Add a domain zone, NS record, and A/AAA record for the domain you will use to access your GitLab installation. See the [DNS Manager > Get Started](/docs/products/networking/dns-manager/get-started/) guide for details. If you will access your GitLab instance via your Linode’s IP address, you can skip this step.
+1.  Add a domain zone, NS record, and A/AAA record for the domain you will use to access your GitLab installation. See the [DNS Manager > Get Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-dns-manager) guide for details. If you will access your GitLab instance via your Linode’s IP address, you can skip this step.
 
-1.  [Create an SSL Certificate](/docs/guides/secure-http-traffic-certbot/), if you will be using SSL encryption for your domain (this is recommended). Be sure to note the location that Certbot uses to store all generated keys and issued certificates.
+1.  [Create an SSL Certificate](/cloud/guides/secure-http-traffic-certbot), if you will be using SSL encryption for your domain (this is recommended). Be sure to note the location that Certbot uses to store all generated keys and issued certificates.
 
 ## Install GitLab
 
@@ -56,7 +54,7 @@ Before installing GitLab you should consider how many users will collaborate on 
 
     When prompted, select *Internet Site* and press **Enter**. Use your server's external DNS for *mail name* and press **Enter**.
 
-    {{< content "email-warning-shortguide" >}}
+    {{% content "email-warning-shortguide" %}}
 
 1. Add the GitLab package repository:
 
@@ -75,8 +73,7 @@ Before installing GitLab you should consider how many users will collaborate on 
       ![GitLab welcome screen](gitlab-welcome.png)
 
 ## Configure SSL Encryption
-
-{{< note respectIndent=false >}}
+{{< note >}}
 If you did not generate an SSL certificate using Certbot prior to the installation of GitLab, you may need to first stop GitLab and then generate the SSL certificate to bypass any errors related to Certbot's certificate challenge. To stop GitLab run the following command:
 
       sudo gitlab-ctl stop

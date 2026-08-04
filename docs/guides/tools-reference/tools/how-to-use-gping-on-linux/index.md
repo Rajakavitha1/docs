@@ -1,27 +1,26 @@
 ---
 slug: how-to-use-gping-on-linux
+title: "Install and Use gping on Linux"
+title_meta: "How to Install and Use gping on Linux"
 description: "Learn how to use gping, a Linux tool with the functionality of ping and a modern graphical command-line display."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-10-22
 keywords: ['gping linux','ping linux','ping linux alternatives']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-10-22
-modified_by:
-  name: Nathaniel Stickman
-title: "Install and Use gping on Linux"
-title_meta: "How to Install and Use gping on Linux"
-authors: ["Nathaniel Stickman"]
 ---
 
 The gping tool takes the functionality of the ping tool and displays its data on a graph. With gping you can track the response time for hosts, and compare the data side by side. This guide shows you how to install gping and get started using it on your Linux system.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is gping?
@@ -137,7 +136,7 @@ As with hosts, you can pass gping multiple commands when using this option to se
 
 Since graphing command execution times is a bonus gping feature, it may not perform reliably for all kinds of commands. This is especially the case for commands that are more complicated.
 
-If you are looking to measure a command's performances, consider using the hyperfine tool. Hyperfine is a tool for benchmarking command-line commands, with an emphasis on clearly rendering side-by-side comparisons. If you are interested, check out our guide on [getting started with hyperfine](/docs/guides/installing-and-using-hyperfine-on-linux/).
+If you are looking to measure a command's performances, consider using the hyperfine tool. Hyperfine is a tool for benchmarking command-line commands, with an emphasis on clearly rendering side-by-side comparisons. If you are interested, check out our guide on [getting started with hyperfine](/cloud/guides/installing-and-using-hyperfine-on-linux).
 
 ## Conclusion
 

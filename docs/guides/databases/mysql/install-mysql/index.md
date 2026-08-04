@@ -1,21 +1,19 @@
 ---
 slug: install-mysql
+title: "Installing MySQL: A Definitive Guide"
 description: "Learn how to install MySQL on Linux (through your distribution's native repositories or by using MySQL's own), Windows, and macOS."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2022-07-01
+modified: 2024-11-14
 keywords: ['mysql','repository','database']
 tags: ['mysql']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-07-01
-modified: 2023-05-30
-modified_by:
-  name: Linode
-title: "Installing MySQL: A Definitive Guide"
 external_resources:
 - '[Installing and Upgrading MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html)'
-authors: ["Linode"]
-tags: ["saas"]
 ---
 
-[MySQL](/docs/guides/an-overview-of-mysql/) is one of the most popular SQL-based relational databases. The Community Edition is available at no charge and is widely used across the industry. This guide walks you through installing and updating MySQL Community on Windows, macOS, and Linux (either through the native repositories or MySQL's own repositories).
+[MySQL](/cloud/guides/an-overview-of-mysql) is one of the most popular SQL-based relational databases. The Community Edition is available at no charge and is widely used across the industry. This guide walks you through installing and updating MySQL Community on Windows, macOS, and Linux (either through the native repositories or MySQL's own repositories).
 
 - [Windows](#installing-mysql-on-windows)
 - [macOS](#installing-mysql-on-macos)
@@ -34,11 +32,11 @@ For additional instructions on installing MySQL on any supported operating syste
 
 -   **Consider other deployment options, such as fully managed solutions or automated installations.**
 
-    - [Linode MySQL Managed Databases](https://www.linode.com/products/mysql/): Fully managed database clusters, complete with automatic updates and backups, hosted on Linode's reliable platform.
+    - [Managed Databases](https://techdocs.akamai.com/cloud-computing/docs/managed-databases): Fully managed database clusters hosted on Akamai's reliable platform.
 
-    {{< content "dbass-eos" >}}
+    {{% content "dbass-eos" %}}
 
-    - [MySQL/MariaDB Marketplace App](https://www.linode.com/marketplace/apps/linode/mysql-mariadb/): Deploy a new Compute Instance with either MySQL or MariaDB preinstalled.
+    - [MySQL/MariaDB Quick Deploy App](https://www.linode.com/marketplace/apps/linode/mysql-mariadb/): Deploy a new Compute Instance with either MySQL or MariaDB preinstalled.
 
 -   **Check to see if MySQL is already installed on your system.** To determine if MySQL is already installed, run the following command:
 
@@ -47,7 +45,7 @@ For additional instructions on installing MySQL on any supported operating syste
     The above command should inform you which version you are using. If this command is not found, continue with the installation steps below. If the installed version differs from the release you want to use, consider first uninstalling it and then continuing with the instructions below.
 
 {{< note >}}
-The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Installing MySQL on Windows

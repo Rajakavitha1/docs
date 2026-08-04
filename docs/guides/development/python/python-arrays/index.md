@@ -1,15 +1,14 @@
 ---
 slug: python-arrays
+title: "Python Arrays: What They Are and How to Use Them"
 description: "Python arrays store collections of data. In this tutorial, learn what a Python array is, how it differs from a list, and how to add and remove elements from an array."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-06-17
 keywords: ['python arrays','python arrays tutorial','python arrays vs lists']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-17
-modified_by:
-  name: Linode
-title: "Python Arrays: What They Are and How to Use Them"
 external_resources:
 - '[Python Docs: array — Efficient arrays of numeric values](https://docs.python.org/3/library/array.html)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Python arrays provide an effective way to store multiple values of the same type in a single variable. In this tutorial, you learn what Python arrays are and how to use them, and the difference between Python lists and arrays. You also learn how to loop through an array, add and remove elements from an array, and how to combine the values stored in different arrays.
@@ -22,27 +21,27 @@ When creating an array in Python, you must indicate the type of data to be store
 
 | Type Code | C Type             | Python Type       | Min. Bytes |
 | --------- | ------------------ | ----------------- | ---------- |
-| 'b'       | signed char        | int               | 1          |
-| 'B'       | unsigned char      | int               | 1          |
-| 'u'       | wchar_t            | Unicode character | 2          |
-| 'h'       | signed short       | int               | 2          |
-| 'H'       | unsigned short     | int               | 2          |
-| 'i'       | signed int         | int               | 2          |
-| 'I'       | unsigned int       | int               | 2          |
-| 'l'       | signed long        | int               | 4          |
-| 'L'       | unsigned long      | int               | 4          |
-| 'q'       | signed long long   | int               | 8          |
-| 'Q'       | unsigned long long | int               | 8          |
-| 'f'       | float              | float             | 4          |
-| 'd'       | double             | float             | 8          |
+| 'b'       | `signed char`        | int               | 1          |
+| 'B'       | `unsigned char`      | int               | 1          |
+| 'u'       |` wchar_t`            | Unicode character | 2          |
+| 'h'       | `signed short`       | int               | 2          |
+| 'H'       | `unsigned short`     | int               | 2          |
+| 'i'       | `signed int`         | int               | 2          |
+| 'I'       | `unsigned int`       | int               | 2          |
+| 'l'       | `signed long`        | int               | 4          |
+| 'L'       | `unsigned long`      | int               | 4          |
+| 'q'       | `signed long long`   | int               | 8          |
+| 'Q'       | `unsigned long long` | int               | 8          |
+| 'f'       | `float`              | float             | 4          |
+| 'd'       | `double`             | float             | 8          |
 
 Generally, though, for arrays containing numbers, you can focus on using just two of the available codes. Use the `i` code for arrays containing integers. Use the `d` code for arrays containing floating point numbers.
 
-You can see an example showing how to use a code to initiate an array at the beginning of the [How to Use Arrays in Python](/docs/guides/python-arrays/#how-to-use-arrays-in-python) section of this guide.
+You can see an example showing how to use a code to initiate an array at the beginning of the [How to Use Arrays in Python](/cloud/guides/python-arrays#how-to-use-arrays-in-python) section of this guide.
 
 ### Python Arrays vs. Lists
 
-Often, people talking about arrays in Python are actually referring to [Python *lists*](/docs/guides/python-lists-and-how-to-use-them/). While lists and arrays share some similarities in Python, they are two distinct types of collections.
+Often, people talking about arrays in Python are actually referring to [Python *lists*](/cloud/guides/python-lists-and-how-to-use-them). While lists and arrays share some similarities in Python, they are two distinct types of collections.
 
 The main difference between lists and arrays is that arrays constrain the object type it can store. Lists do not give you a way to limit the types of objects they contain. When using an array, you can be sure that it only contains the type that was specified upon creation.
 
@@ -59,8 +58,7 @@ All of the examples to follow work off of a simple integer array created using t
     from array import *
     example_array = array("i", [2, 4, 6, 8])
 
-
-{{< note respectIndent=false >}}
+{{< note >}}
 The [array module](https://docs.python.org/3/library/array.html) is not loaded by default in Python. Instead, you need to import the module to start working with arrays.
 {{< /note >}}
 
@@ -116,7 +114,7 @@ The next example slices the range from index `0` through index `3`. It progresse
 array('i', [2, 6])
 {{< /output >}}
 
-Python's slice notation is a powerful tool that can be used to perform many more complicated operations than demonstrated in this guide. To see more examples with in-depth explanations, check out our guides [How to Slice and Index Strings in Python](/docs/guides/how-to-slice-and-index-strings-in-python/) and [Python Lists and How to Use Them](/docs/guides/python-lists-and-how-to-use-them/). While these guides do not deal directly with Python arrays, the concepts apply equally well.
+Python's slice notation is a powerful tool that can be used to perform many more complicated operations than demonstrated in this guide. To see more examples with in-depth explanations, check out our guides [How to Slice and Index Strings in Python](/cloud/guides/how-to-slice-and-index-strings-in-python) and [Python Lists and How to Use Them](/cloud/guides/python-lists-and-how-to-use-them). While these guides do not deal directly with Python arrays, the concepts apply equally well.
 
 #### Looping Over Array Elements
 

@@ -1,21 +1,20 @@
 ---
 slug: ripgrep-linux-installation
+title: "Install and Use ripgrep"
+title_meta: "How to Install and Use ripgrep"
 description: 'This guide provides background information on ripgrep, including installation instructions, comparisons to other regex tools, and examples.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-11-05
 keywords: ['ripgrep','Ripgrep ubuntu','Ripgrep examples']
 tags: ['ubuntu', 'linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-05
-modified_by:
-  name: Linode
-title: "Install and Use ripgrep"
-title_meta: "How to Install and Use ripgrep"
 external_resources:
 - '[Ripgrep GitHub site](https://github.com/BurntSushi/ripgrep)'
 - '[ripgrep blog](https://blog.burntsushi.net/ripgrep/)'
-authors: ["Jeff Novotny"]
 ---
 
-The [*ripgrep* utility](https://github.com/BurntSushi/ripgrep) is a useful alternative to the traditional [`grep` command](/docs/guides/differences-between-grep-sed-awk/) on Linux. Both ripgrep and grep are used to search files for specific patterns of text. However, ripgrep is much faster and uses intelligent defaults which are optimal for most users. This guide provides some background on ripgrep, including a comparison with other search tools. It also explains how to install and use ripgrep, and provides some examples of typical searches.
+The [*ripgrep* utility](https://github.com/BurntSushi/ripgrep) is a useful alternative to the traditional [`grep` command](/cloud/guides/differences-between-grep-sed-awk) on Linux. Both ripgrep and grep are used to search files for specific patterns of text. However, ripgrep is much faster and uses intelligent defaults which are optimal for most users. This guide provides some background on ripgrep, including a comparison with other search tools. It also explains how to install and use ripgrep, and provides some examples of typical searches.
 
 ## An Introduction to ripgrep
 
@@ -46,7 +45,7 @@ ripgrep is generally competitive with the other tools in terms of feature parity
 - **ripgrep vs ack:** ack release 3 uses Perl and is designed for developers searching repositories of source code. It has the advantage of being highly portable because it can run on any platform that supports Perl. It is relatively similar to ripgrep in the number of features it supports, but it is not as fast.
 - **ripgrep vs Silver Searcher/ag:** The Silver Searcher program is probably the best comparison for ripgrep. Both programs provide a similar set of optimization and user-friendly features. Silver Searcher is considered quite fast, although ripgrep performs better on most benchmarks, and significantly better on Unicode searches. Silver Searcher uses some different search techniques than ripgrep does, including look around.
 
-Both ripgrep and Silver Searcher are considered major improvements over the standard `grep` command. ack should be considered if maximum portability is absolutely necessary. A useful chart-based comparison of the different tools can be found at the [Beyond Grep site](https://beyondgrep.com/feature-comparison/). You can learn more about Silver Searcher in our [How to Install and Use Silver Searcher on Linux](/docs/guides/silver-searcher-on-linux/) guide.
+Both ripgrep and Silver Searcher are considered major improvements over the standard `grep` command. ack should be considered if maximum portability is absolutely necessary. A useful chart-based comparison of the different tools can be found at the [Beyond Grep site](https://beyondgrep.com/feature-comparison/). You can learn more about Silver Searcher in our [How to Install and Use Silver Searcher on Linux](/cloud/guides/silver-searcher-on-linux) guide.
 
 ## How to Install ripgrep
 
@@ -57,8 +56,7 @@ ripgrep is usually available as part of the standard package for most Linux dist
 Ripgrep is available through APT for Ubuntu release 18.10 or higher as well as the newest release of Debian. To install ripgrep, use the following command.
 
     sudo apt-get install ripgrep
-
-{{< note respectIndent=false >}}
+{{< note >}}
 To install ripgrep on earlier releases, see the [ripgrep installation instructions](https://github.com/BurntSushi/ripgrep#installation) for information on how to add the binary `.deb` file.
 {{< /note >}}
 
@@ -92,7 +90,7 @@ Ripgrep can also be installed using the popular [Homebrew](https://brew.sh/) pac
 
 Because ripgrep is written in Rust, it can be installed using Cargo, Rust's package manager. If Rust is already installed on the system, then Cargo is already available. Otherwise, Cargo can be installed as a stand-alone utility using the command `sudo apt install cargo`. To install ripgrep using Cargo, run the following command.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 To be able to run Cargo executables, add the line `export PATH=$PATH:$HOME/.cargo/bin` to the `.bashrc` file. Source the `.bashrc` file to apply the changes.
 {{< /note >}}
 
@@ -109,8 +107,7 @@ The ripgrep executable is known as `rg`. Most commands take the form of `rg <sea
 To see usage notes for `rg` and a list of all the options, use the `-help` option.
 
     rg -help
-
-{{< note respectIndent=false >}}
+{{< note >}}
 The examples in the following section search the codebase of the open-source [PHP Composer](https://getcomposer.org/) application.
 {{< /note >}}
 

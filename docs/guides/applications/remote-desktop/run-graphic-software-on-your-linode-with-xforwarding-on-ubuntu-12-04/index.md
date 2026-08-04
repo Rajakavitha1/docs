@@ -1,16 +1,15 @@
 ---
 slug: run-graphic-software-on-your-linode-with-xforwarding-on-ubuntu-12-04
-deprecated: true
+title: 'Run Graphic Software on your Linode with X-Forwarding on Ubuntu 12.04'
 description: 'This guide shows how to forward the X11 Server through a SSH connection so you can run applications like games and more by using X-Forwarding on Ubuntu 12.04.'
+authors: ["Alex Fornuto"]
+contributors: ["Alex Fornuto"]
+published: 2014-04-10
+modified: 2014-04-25
 keywords: ["x11", "x-forwarding", "ssh", "x over ssh", "ubuntu", " ubuntu 12.04"]
 tags: ["ubuntu", "ssh"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/applications/remote-desktop/run-graphic-software-on-your-linode-with-xforwarding-on-ubuntu-12-04/','/applications/remote-desktop/running-graphic-software-on-your-linode-with-xforwarding-on-ubuntu-12-04/','/remote-desktops/x-forwarding-ubuntu-12-04/']
-modified: 2014-04-25
-modified_by:
-  name: Alex Fornuto
-published: 2014-04-10
-title: 'Run Graphic Software on your Linode with X-Forwarding on Ubuntu 12.04'
+aliases: []
 external_resources:
  - '[Xming](http://www.straightrunning.com/XmingNotes/)'
  - '[Cygwin/X](http://x.cygwin.com/)'
@@ -21,13 +20,13 @@ relations:
         key: forward-x11-gui
         keywords:
             - distribution: Ubuntu 12.04
-authors: ["Alex Fornuto"]
+deprecated: true
 ---
 
 On occasion you may want to run an application that requires a graphic interface from your Linode. By using X forwarding, this is easy to accomplish.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install X11 on your Linode

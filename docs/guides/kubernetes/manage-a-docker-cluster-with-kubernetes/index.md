@@ -1,19 +1,18 @@
 ---
 slug: manage-a-docker-cluster-with-kubernetes
+title: 'Manage a Docker Cluster with Kubernetes'
 description: 'Kubernetes makes it easy to manage containers across multiple servers. This guide shows how to manage Dockerized applications using Kubernetes.'
+authors: ["Damaso Sanoja"]
+contributors: ["Damaso Sanoja"]
+published: 2018-02-28
 keywords: ["Kubernetes", "cluster", "docker"]
 tags: ["docker","nginx","kubernetes","container"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-02-28
-modified_by:
-  name: Linode
-title: 'Manage a Docker Cluster with Kubernetes'
-aliases: ['/applications/containers/manage-a-docker-cluster-with-kubernetes/','/applications/containers/kubernetes/manage-a-docker-cluster-with-kubernetes/','/kubernetes/manage-a-docker-cluster-with-kubernetes/']
+aliases: []
 concentrations: ["Kubernetes"]
 external_resources:
   - '[Kubernetes Documentation](https://kubernetes.io/docs/home)'
   - '[Calico Documentation](https://docs.projectcalico.org/v2.0/getting-started/kubernetes/)'
-authors: ["Damaso Sanoja"]
 ---
 
 ![Manage a Docker Cluster with Kubernetes](docker-cluster-kubernetes.jpg)
@@ -30,11 +29,11 @@ You can now create a Kubernetes cluster with one command using the Linode CLI. T
 
 ## System Requirements
 
-To complete this guide you will need three Linodes running Ubuntu 16.04 LTS, each with at least 4GB of RAM. Before beginning this guide, you should also use the Cloud Manager to generate a [private IP address](/docs/products/compute/compute-instances/guides/manage-ip-addresses/#adding-an-ip-address) for each Linode.
+To complete this guide you will need three Linodes running Ubuntu 16.04 LTS, each with at least 4GB of RAM. Before beginning this guide, you should also use the Cloud Manager to generate a [private IP address](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance#adding-an-ip-address) for each Linode.
 
 ## Before You Begin
 
-This article requires that you first complete our [How to Install, Configure, and Deploy NGINX on a Kubernetes Cluster](/docs/guides/how-to-deploy-nginx-on-a-kubernetes-cluster/) guide and follow the procedures described there to configure one master node and two worker nodes.
+This article requires that you first complete our [How to Install, Configure, and Deploy NGINX on a Kubernetes Cluster](/cloud/guides/how-to-deploy-nginx-on-a-kubernetes-cluster) guide and follow the procedures described there to configure one master node and two worker nodes.
 
 Set the hostnames of the three Linodes as follows:
 

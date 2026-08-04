@@ -1,13 +1,13 @@
 ---
 slug: how-to-create-and-use-single-file-components-vuejs
-description: "As a project grows, VueJS components can become hard to follow. Learn how to add more structure so your components easier to read and manage."
-keywords: ["vue js","javascript","vuejs","vuejs single file components","vuejs eventbus", "vuejs event bus"]
-license: "[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)"
-published: 2020-05-20
-modified_by:
-  name: Linode
 title: "A Tutorial for Creating Single File Components in VueJS"
 title_meta: "How to Create Single File Components in VueJS (A Tutorial)"
+description: "As a project grows, VueJS components can become hard to follow. Learn how to add more structure so your components easier to read and manage."
+authors: ["Pavel Petrov"]
+contributors: ["Pavel Petrov"]
+published: 2020-05-20
+keywords: ["vue js","javascript","vuejs","vuejs single file components","vuejs eventbus", "vuejs event bus"]
+license: "[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)"
 external_resources:
   - "[VueJS](https://vuejs.org/)"
   - "[Vue CLI](https://cli.vuejs.org/)"
@@ -15,11 +15,10 @@ external_resources:
 audiences: ["beginner"]
 languages: ["javascript"]
 tags: ["web applications"]
-aliases: ['/development/javascript/how-to-create-and-use-single-file-components-vuejs/']
-authors: ["Pavel Petrov"]
+aliases: []
 ---
 
-When first learning VueJS, and when using it for smaller projects, you will likely use [regular, globally-defined components](/docs/guides/how-to-build-and-use-vuejs-components/). Once your project grows and you start needing more structure and flexibility, *single file components* can be a better option.
+When first learning VueJS, and when using it for smaller projects, you will likely use [regular, globally-defined components](/cloud/guides/how-to-build-and-use-vuejs-components). Once your project grows and you start needing more structure and flexibility, *single file components* can be a better option.
 
 Below you can see an example of a barebones single file component, which we will examine part-by-part later in the guide:
 
@@ -59,16 +58,15 @@ In this guide, you will learn:
 -   [How to prepare a development environment](#prepare-your-development-environment) for writing single file components with Vue CLI
 -   [How to build your first single file components](#building-your-first-single-file-components), and then [how to add interaction to the components](#adding-methods-to-the-components)
 -   [How to communicate between components via an event bus](#communication-between-components-via-an-event-bus)
-
-{{< note respectIndent=false >}}
+{{< note >}}
 You can [download all of the example files for this guide here](vuejs-single-file-components.tar.gz).
 {{< /note >}}
 
 ## Before You Begin
 
-If you haven’t read our [Building and Using VueJS Components](/docs/guides/how-to-build-and-use-vuejs-components/) already, go take a look.
+If you haven’t read our [Building and Using VueJS Components](/cloud/guides/how-to-build-and-use-vuejs-components) already, go take a look.
 
-Make sure you have Node.js installed. If you don’t, our [How to Install Node.js](/docs/guides/how-to-install-nodejs/) guide outlines different installation options.
+Make sure you have Node.js installed. If you don’t, our [How to Install Node.js](/cloud/guides/how-to-install-nodejs) guide outlines different installation options.
 
 ## What are Single File Components
 
@@ -137,7 +135,7 @@ We'll use this tool throughout this guide; to install it, run:
 
 The Vue CLI will now be available globally on your workstation (because the `-g` flag was used).
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If you're using [NVM](https://github.com/nvm-sh/nvm), you can install Vue CLI without `sudo`:
 
     npm install -g @vue/cli
@@ -155,8 +153,7 @@ Vue CLI v4.3.1
 ❯ default (babel, eslint)
 Manually select features
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 You can specify `--packageManager=yarn` if you prefer yarn to npm.
 {{< /note >}}
 
@@ -205,8 +202,7 @@ Let's look at the directory structure of the default application and go through 
     │   └── HelloWorld.vue
     └── main.js
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 The `-I node_modules` option will tell `tree` to ignore your `node_modules/` directory, which is where all of the node dependencies reside.
 {{< /note >}}
 
@@ -333,7 +329,7 @@ export default {
 This is a simple single file component relatively similar to the example we discussed above, but this example shows how to import and use components:
 
 -   On line 9, the `HelloWorld` component is imported.
--   On lines 12-14, the `HelloWorld` component is [*locally registered*](https://vuejs.org/v2/guide/components-registration.html#Local-Registration) for use within the `App` component. The registered component can only be used in the template of the parent component that registered it. Contrast this with the components in [Building and Using VueJS Components](/docs/guides/how-to-build-and-use-vuejs-components/), which were [*globally registered*](https://vuejs.org/v2/guide/components-registration.html#Global-Registration).
+-   On lines 12-14, the `HelloWorld` component is [*locally registered*](https://vuejs.org/v2/guide/components-registration.html#Local-Registration) for use within the `App` component. The registered component can only be used in the template of the parent component that registered it. Contrast this with the components in [Building and Using VueJS Components](/cloud/guides/how-to-build-and-use-vuejs-components), which were [*globally registered*](https://vuejs.org/v2/guide/components-registration.html#Global-Registration).
 
     {{< note respectIndent=false >}}
 Local registration is a valuable architectural feature for reusable components within big projects.
@@ -343,7 +339,7 @@ Local registration is a valuable architectural feature for reusable components w
 
 ## Building your First Single File Components
 
-Now that we’ve covered the basic structure of the project created by Vue CLI, let's build our own components on top of that. As in [Building and Using VueJS Components](/docs/guides/how-to-build-and-use-vuejs-components/), we will again be building a rating application, but this time it will be a little more sophisticated.
+Now that we’ve covered the basic structure of the project created by Vue CLI, let's build our own components on top of that. As in [Building and Using VueJS Components](/cloud/guides/how-to-build-and-use-vuejs-components), we will again be building a rating application, but this time it will be a little more sophisticated.
 
 This is what your rating app will look like:
 
@@ -497,7 +493,7 @@ The `v-for` syntax is similar to the following for loop: `for(let index=1;index<
 
         -   `enabled`: This will be used to disable the rating application once the user has cast a vote.
 
-        -   `ratings`: This is a structure for the votes that have been cast. We set the default value in the `data` function, and if there are any votes saved in the browser's localStorage, then we overwrite the defaults, which imitates a persistence layer. In the `created` hook (lines 58-62) you can see how we fetch the saved cast votes.
+        -   `ratings`: This is a structure for the votes that have been cast. We set the default value in the `data` function, and if there are any votes saved in the browser's local storage, then we overwrite the defaults, which imitates a persistence layer. In the `created` hook (lines 58-62) you can see how we fetch the saved cast votes.
 
 ### Star.vue and Summary.vue
 
@@ -565,7 +561,7 @@ After creating `Star.vue` and `Summary.vue`, the application can be viewed in th
 
 Because there are no methods set on the components yet, it will not be interactive.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If you're not still running `npm run serve` in your terminal, you'll need to re-run it from inside your project.
 {{< /note >}}
 

@@ -1,14 +1,13 @@
 ---
 slug: linux-vs-windows
-description: 'This guide discusses Linux vs. Windows, the difference between Linux and Windows operating systems, and which is best for your needs.'
-keywords: ['windows vs linux ','linux or windows','is linux better than windows']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-04-01
-modified_by:
-  name: Linode
 title: "Linux vs. Windows: What’s the Difference?"
 title_meta: "What is the Difference Between Linux and Windows?"
+description: 'This guide discusses Linux vs. Windows, the difference between Linux and Windows operating systems, and which is best for your needs.'
 authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2022-04-01
+keywords: ['windows vs linux ','linux or windows','is linux better than windows']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 Users, system administrators, developers, and system architects debate the question of whether Windows or Linux is better for any given purpose. The answers are well-reasoned, full of prejudice, and usually arrive from practical experience. This guide covers the differences between Linux and Windows operating systems and servers. It primarily focuses on the areas of differences between desktops, licensing models, web service technology, developer support, and more.
@@ -47,7 +46,7 @@ Microsoft Windows does not publish the source to the operating system kernel, or
 
 ## Evolving GUIs: Linux vs. Microsoft
 
-Most GUIs find their origin in the [Smalltalk programming language](https://en.wikipedia.org/wiki/Smalltalk), along with Windows GUI, macOS, and XWindows roots. In the race between Windows and Linux, Windows continues to improve its GUI software, and developers are familiar with Windows GUI programming. Microsoft makes up for scripting and macro execution by adapting its PowerShell language and APIs to match the rich scripting infrastructure in Unix variants, in this case, Linux.
+Most GUIs find their origin in the [Smalltalk programming language](https://en.wikipedia.org/wiki/Smalltalk), along with Windows GUI, macOS, and X Windows roots. In the race between Windows and Linux, Windows continues to improve its GUI software, and developers are familiar with Windows GUI programming. Microsoft makes up for scripting and macro execution by adapting its PowerShell language and APIs to match the rich scripting infrastructure in Unix variants, in this case, Linux.
 
 Linux functions on 32-64 bit platforms and is less captive to different hardware platforms, providing consistency in GUI and compatibility across a wide variety of desktop hardware, including Intel, AMD, ARM, RISC-V, and other families. Older Linux versions lack many of the applications that made Windows popular. This is a problem now largely solved. Graphics, video editing, CAD, and other applications can be found on Linux using various GUIs.
 
@@ -61,11 +60,11 @@ Although Linux users have been waiting for the “Year of the Linux Desktop”, 
 
 ## Web Server Technologies: Windows vs. Linux
 
-Linux dominates Windows when it comes to web services, thanks to the success of the [Apache web server](/docs/guides/how-to-install-apache-web-server-ubuntu-18-04/), the [Docker container runtime](/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/), the [Kubernetes container orchestration system](/docs/guides/beginners-guide-to-kubernetes/), and [WordPress publishing platform](/docs/guides/how-to-install-wordpress-ubuntu-2004/).
+Linux dominates Windows when it comes to web services, thanks to the success of the [Apache web server](/cloud/guides/how-to-install-apache-web-server-ubuntu-18-04), the [Docker container runtime](/cloud/guides/installing-and-using-docker-on-ubuntu-and-debian), the [Kubernetes container orchestration system](/cloud/guides/beginners-guide-to-kubernetes), and [WordPress publishing platform](/cloud/guides/how-to-install-wordpress-ubuntu-2004).
 
 Web hosting and other internet services are changing. Microsoft server editions, which can be expensive, host both non-Microsoft web server products as well as its own products. Microsoft attempts to make its offerings including client-side browsers, browser support, web services programming, and hosting models, highly proprietary.
 
-Linux dominates web services partially because of the [LAMP stack (Linux, Apache, MySQL, and Perl/PHP)](/docs/guides/how-to-install-a-lamp-stack-on-ubuntu-20-04/). Today, the LAMP stack and variants are a systematic, highly-deployed, go-to development stack. Many of the word's web applications use variants of the LAMP stack to server their content to the Internet.
+Linux dominates web services partially because of the [LAMP stack (Linux, Apache, MySQL, and Perl/PHP)](/cloud/guides/how-to-install-a-lamp-stack-on-ubuntu-20-04). Today, the LAMP stack and variants are a systematic, highly-deployed, go-to development stack. Many of the word's web applications use variants of the LAMP stack to server their content to the Internet.
 
 Both Apache and [NGINX web servers] dominate the world-wide web, far eclipsing Microsoft’s Internet Information Server/IIS. Both Apache and NGINX FOSS web servers run freely on Windows Server platform, and do so at a highly-scalable and license-cost-free model.
 

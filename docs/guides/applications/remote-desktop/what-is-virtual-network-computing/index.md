@@ -1,15 +1,14 @@
 ---
 slug: what-is-virtual-network-computing
+title: "An Overview of VNC (Virtual Network Computing)"
 description: "This guide discusses how a VNC system works to share screen graphics, how they're configured, and how you can secure yours."
+authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2021-05-11
 keywords: ['vnc', 'virtual network computing']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-05-11
 image: VNC.jpg
-modified_by:
-  name: Linode
-title: "An Overview of VNC (Virtual Network Computing)"
 tags: ['linux']
-authors: ["Tom Henderson"]
 ---
 
 ## Cross-Platform Remote Graphical Access: the VNC Viewer and VNC Server
@@ -69,4 +68,4 @@ Generally, VNC is considered as not being encrypted, and therefore is insecure u
 
 - Keyboard languages must generally match between hosts. UTF-8 character sets may require adaptation between hosts so that data entry matches between VNC client and server character sets
 
-VNC has been around since 2000, and has its roots in free open source software. VNC is well-known, and its interoperability can be high. It’s biggest weaknesses are a lack of security (some versions do provide transport layer, authentication, and content encryption). Nonetheless, VNC is popular for cross-platform screen sharing that works from Linux servers to Raspberry Pis, Android, and iOS. See the [Remote Desktop](/docs/guides/applications/remote-desktop/) section of our documentation library to learn how to install a VNC client and server.
+VNC has been around since 2000, and has its roots in free open source software. VNC is well-known, and its interoperability can be high. It’s biggest weaknesses are a lack of security (some versions do provide transport layer, authentication, and content encryption). Nonetheless, VNC is popular for cross-platform screen sharing that works from Linux servers to Raspberry Pis, Android, and iOS. See the [Remote Desktop](/cloud/guides/applications/remote-desktop) section of our documentation library to learn how to install a VNC client and server.

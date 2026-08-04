@@ -1,31 +1,28 @@
 ---
 slug: web-apps-with-cherokee-and-phpfastcgi-on-ubuntu-10-04-lts-lucid
-deprecated: true
+title: 'Web Apps with Cherokee and PHP-FastCGI on Ubuntu 10.04 LTS (Lucid)'
 description: 'Using PHP-FastCGI for dynamic sites under Cherokee on Ubuntu 10.04 LTS (Lucid)'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2010-06-11
+modified: 2013-10-07
 keywords: ["cherokee php-fastcgi", "cherokee fastcgi", "web sever", "cherokee ubuntu 10.04", "cherokee ubuntu lucid", "ubuntu lucid"]
 tags: ["web server","ubuntu","php"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/cherokee/web-apps-with-cherokee-and-phpfastcgi-on-ubuntu-10-04-lts-lucid/','/web-servers/cherokee/web-apps-with-cherokee-and-phpfastcgi-on-ubuntu-10-04-lts-lucid/','/web-servers/cherokee/php-fastcgi-ubuntu-10-04-lucid/']
-modified: 2013-10-07
-modified_by:
-  name: Linode
-published: 2010-06-11
-title: 'Web Apps with Cherokee and PHP-FastCGI on Ubuntu 10.04 LTS (Lucid)'
+aliases: []
 relations:
     platform:
         key: cherokee-php-fastcgi
         keywords:
             - distribution: Ubuntu 10.04
-authors: ["Linode"]
+deprecated: true
 ---
-
-
 
 Cherokee is a fast, flexible web server for POSIX compliant operating systems such as Linux. It's designed to be easy to administer, and includes support for a wide range of common web server functions.
 
 This tutorial explains how to configure Cherokee to serve dynamic content with PHP via FastCGI on Ubuntu 10.04 LTS (Lucid). Please make sure you are logged into your Linode as root via SSH.
 
-This document assumes that you already have a working and up to date Ubuntu 10.04 system. If you have not followed our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, it is recommended that you do so prior to following these instructions.
+This document assumes that you already have a working and up to date Ubuntu 10.04 system. If you have not followed our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, it is recommended that you do so prior to following these instructions.
 
 ## Prerequisites
 
@@ -34,7 +31,7 @@ Make sure your repositories and packages are up to date by issuing the following
     apt-get update
     apt-get upgrade
 
-If you haven't already installed Cherokee, please follow our [Ubuntu 10.04 Cherokee installation](/docs/guides/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid/) guide before continuing with these instructions.
+If you haven't already installed Cherokee, please follow our [Ubuntu 10.04 Cherokee installation](/cloud/guides/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid) guide before continuing with these instructions.
 
 ## Install Required Packages
 
@@ -45,8 +42,8 @@ Issue the following commands to install support for PHP and FastCGI:
 Issue the following sequence of commands to create scripts to control `spawn-fcgi` and the PHP-FastCGI process, set the permissions for these scripts, ensure that PHP-FastCGI starts as part of the boot process, and start PHP-FastCGI For the first time:
 
     cd /opt/
-    wget -O php-fastcgi-deb.sh http://www.linode.com/docs/assets/579-pp-php-fastcgi-deb.sh
-    wget -O php-fastcgi-init-deb.sh http://www.linode.com/docs/assets/580-php-fastcgi-init-deb.sh
+    wget -O php-fastcgi-deb.sh 579-pp-php-fastcgi-deb.sh
+    wget -O php-fastcgi-init-deb.sh 580-php-fastcgi-init-deb.sh
     mv /opt/php-fastcgi-deb.sh /usr/bin/php-fastcgi
     mv /opt/php-fastcgi-init-deb.sh /etc/init.d/php-fastcgi
     chmod 755 /usr/bin/php-fastcgi
@@ -62,7 +59,7 @@ Create directories for your site by issuing the following commands. Substitute y
     mkdir /srv/www/mydomain.com/www/logs
     chown -R www-data:www-data /srv/www/mydomain.com
 
-If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/docs/guides/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid/#secure-admin-panel-access).
+If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/cloud/guides/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid#secure-admin-panel-access).
 
     cherokee-admin -b &
 
@@ -122,7 +119,7 @@ Restart Cherokee by clicking the "Save" button under the left page navigation li
 {{< /file >}}
 
 
-Visit "/test.php" on your site to verify PHP-FastCGI is operating correctly. You should see the standard PHPInfo page. Congratulations, you've successfully configured PHP-FastCGI for dynamic content using the Cherokee web server!
+Visit "/test.php" on your site to verify PHP-FastCGI is operating correctly. You should see the standard `phpinfo()` page. Congratulations, you've successfully configured PHP-FastCGI for dynamic content using the Cherokee web server!
 
 ## More Information
 

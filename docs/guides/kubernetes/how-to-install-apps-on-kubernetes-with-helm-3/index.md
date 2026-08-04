@@ -1,20 +1,19 @@
 ---
 slug: how-to-install-apps-on-kubernetes-with-helm-3
+title: 'Installing Apps on Kubernetes with Helm 3'
+title_meta: 'How to Install Apps on Kubernetes with Helm 3'
 description: 'Learn how to install apps on your K8s cluster with Helm 3, a popular package management system for Kubernetes.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-12-06
 keywords: ["helm", "kubernetes", "container", "k8s"]
 tags: ["kubernetes","cms"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-12-06
-modified_by:
-  name: Linode
-title: 'Installing Apps on Kubernetes with Helm 3'
-title_meta: 'How to Install Apps on Kubernetes with Helm 3'
-aliases: ['/kubernetes/how-to-install-apps-on-kubernetes-with-helm/','/applications/containers/how-to-install-apps-on-kubernetes-with-helm/','/applications/containers/kubernetes/how-to-install-apps-on-kubernetes-with-helm/','/kubernetes/how-to-install-apps-on-kubernetes-with-helm-3/']
+aliases: []
 concentrations: ["Kubernetes"]
 external_resources:
   - '[Helm Documentation](https://helm.sh/docs/)'
   - '[Helm Security on Bitnami Engineering](https://engineering.bitnami.com/articles/helm-security.html)'
-authors: ["Linode"]
 ---
 
 ![How to Install Apps on Kubernetes with Helm](how-to-install-apps-on-kubernetes-with-helm.png)
@@ -101,9 +100,9 @@ The Helm client software issues commands to your cluster. You run the client sof
 
 1. [Install the Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (`kubectl`) on your computer, if it is not already.
 
-1. You should have a Kubernetes cluster running prior to starting this guide. One quick way to get a cluster up is with [Linode's Kubernetes Engine](/docs/products/compute/kubernetes/). This guide's examples only require a cluster with one worker node. We recommend that you create cluster nodes that are at the Linode 4GB tier (g6-standard-2) or higher. This guide also assumes that your cluster has [role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) enabled. This feature became available in Kubernetes 1.6 and later.
+1. You should have a Kubernetes cluster running prior to starting this guide. One quick way to get a cluster up is with [Linode's Kubernetes Engine](https://techdocs.akamai.com/cloud-computing/docs/linode-kubernetes-engine). This guide's examples only require a cluster with one worker node. We recommend that you create cluster nodes that are at the Linode 4GB tier (g6-standard-2) or higher. This guide also assumes that your cluster has [role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) enabled. This feature became available in Kubernetes 1.6 and later.
 
-    {{< content "k8s-alpha-deprecation-shortguide" >}}
+    {{% content "k8s-alpha-deprecation-shortguide" %}}
 
     {{< note >}}
     This guide's example instructions will also result in the creation of a Block Storage Volume and a NodeBalancer, which are also billable resources. If you do not want to keep using the example application after you finish reviewing your guide, make sure to [delete](#delete-a-release) these resources afterward.
@@ -121,7 +120,7 @@ The Helm client software issues commands to your cluster. You run the client sof
     kubectl config use-context your-cluster-name
     ```
 
-1.  It is beneficial to have a registered [domain name](/docs/guides/dns-overview/) for this guide's example app, but it is not required.
+1.  It is beneficial to have a registered [domain name](/cloud/guides/dns-overview) for this guide's example app, but it is not required.
 
 ## Install Helm
 
@@ -284,7 +283,7 @@ The [`helm install` command](https://helm.sh/docs/intro/using_helm/#helm-install
 
 1. If you haven't set up DNS for your site yet, you can instead access the admin interface by visiting the `ghost` URL on your LoadBalancer IP address (e.g. `http://104.237.148.66/ghost`). Visit this page in your browser and then follow the steps to complete admin account creation. You should be granted access to the administrative interface.
 
-1. To set up DNS for your app, create an *A record* for your domain which is assigned to the external IP for your app's LoadBalancer. Review Linode's [DNS Manager](/docs/products/networking/dns-manager/) guide for instructions.
+1. To set up DNS for your app, create an *A record* for your domain which is assigned to the external IP for your app's LoadBalancer. Review Linode's [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide for instructions.
 
 ## Upgrade your App
 

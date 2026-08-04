@@ -1,21 +1,20 @@
 ---
 slug: install-apache-subversion-ubuntu
+title: "Install Apache Subversion on Ubuntu 20.04"
+title_meta: "How to Install Apache Subversion on Ubuntu 20.04"
 description: 'In this guide, you learn how to install Apache Subversion 20.04 LTS on an Ubuntu 20.04 Linode server from Ubuntu repository.'
+authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2022-01-07
 keywords: ['apache subversion', 'git', 'apache subversion vs git', 'apache subversion web interface']
 tags: ['apache', 'ubuntu', 'web server']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-01-07
-modified_by:
-  name: Linode
-title: "Install Apache Subversion on Ubuntu 20.04"
-title_meta: "How to Install Apache Subversion on Ubuntu 20.04"
-authors: ["Tom Henderson"]
 ---
 Apache Subversion is an open source version control system released in 2000 and available under the [Apache2 License](https://www.gnu.org/licenses/license-list.html#apache2). Designed as a feature enhancement of the *Concurrent Versions System(CVS)*, Apache Subversion was authored and maintained by Collabnet. In 2009, Subversion became an Apache Incubator Project, finally becoming a top-level project in 2010. In this guide you learn how to install Apache’s Subversion on an Ubuntu 20.04 server.
 
 ## What is Apache Subversion?
 
-Apache Subversion is a [version control system](/docs/guides/introduction-to-version-control/)(VCS) that manages, documents, and organizes the changes made to a project's files and directories. Subversion can work across networks to manage the same files and directories. This enables collaboration between developers who are working on the same codebase. Although Subversion is commonly used to version control software development projects, you can use it to version control any group of files and directories. Apache Subversion is invoked on the command line using the `svn` command. For this reason it is sometimes also referred to as *SVN*.
+Apache Subversion is a [version control system](/cloud/guides/introduction-to-version-control)(VCS) that manages, documents, and organizes the changes made to a project's files and directories. Subversion can work across networks to manage the same files and directories. This enables collaboration between developers who are working on the same codebase. Although Subversion is commonly used to version control software development projects, you can use it to version control any group of files and directories. Apache Subversion is invoked on the command line using the `svn` command. For this reason it is sometimes also referred to as *SVN*.
 
 Apache Subversion is made up of two primary components:
 
@@ -36,7 +35,7 @@ There can be more than one client that accesses the server at the same time. The
 
 This tutorial covers the steps for installing Subversion on **Ubuntu Server 20.04 LTS**. However, you can install Apache Subversion on Linux, macOS, and Windows systems.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Installing Apache Subversion on Ubuntu Server 20.04 LTS requires the installation of libraries used by Apache Subversion that are not found in the standard distribution of Ubuntu 20.04.
 {{< /note >}}
 
@@ -59,15 +58,15 @@ Apache Subversion provides a different workflow and version control methodology 
 
 The steps in this tutorial demonstrate how to use the APT package manager to install Apache Subversion. There are [pre-compiled binaries of SVN](https://subversion.apache.org/packages.html) available too.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Root or sudo permissions must be available to install Apache Subversion.
 {{< /note >}}
 
 - If you are connecting to an existing Subversion server, then an Apache Subversion Client is the minimum installation required.
 - If you need a full installation of Apache Subversion for local use, then it requires both the client and server components.
-- Deploy a new Linode and follow the steps below. You can also follow the steps in the [How to Install a LAMP Stack on Ubuntu 20.04](/docs/guides/how-to-install-a-lamp-stack-on-ubuntu-20-04/) guide.
+- Deploy a new Linode and follow the steps below. You can also follow the steps in the [How to Install a LAMP Stack on Ubuntu 20.04](/cloud/guides/how-to-install-a-lamp-stack-on-ubuntu-20-04) guide.
 
-- If you choose to follow the steps in the *LAMP stack* guide or already have a server with a LAMP stack installed, skip the [Install the Apache Web Server](/docs/guides/install-apache-subversion-ubuntu/#install-the-apache-web-server) section below, and move on to the [Install Apache Subversion](/docs/guides/install-apache-subversion-ubuntu/#install-apache-subversion) section after updating your Ubuntu 20.04 system.
+- If you choose to follow the steps in the *LAMP stack* guide or already have a server with a LAMP stack installed, skip the [Install the Apache Web Server](/cloud/guides/install-apache-subversion-ubuntu#install-the-apache-web-server) section below, and move on to the [Install Apache Subversion](/cloud/guides/install-apache-subversion-ubuntu#install-apache-subversion) section after updating your Ubuntu 20.04 system.
 
 - Update your Ubuntu 20.04 system:
 
@@ -86,7 +85,7 @@ Root or sudo permissions must be available to install Apache Subversion.
 
         systemctl start apache2
 
-1. To verify that the installation was successful, open a browser window and enter the [Linode instance’s IP address](/docs/guides/find-your-linodes-ip-address/), `http://<<host IP address>>:80`.
+1. To verify that the installation was successful, open a browser window and enter the [Linode instance’s IP address](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance), `http://<<host IP address>>:80`.
 
 1. If the instance is not accessible, the instance hosting Apache might require opening firewall ports. To enable `ufw` to let traffic flow between interfaces and the Apache daemon, you must instruct `ufw` to open ports for Apache.
 
@@ -128,8 +127,7 @@ No user can link the SVN app with the repository until an administrative account
 Create a Subversion administrator user. Replace `<<admin_name>>` with the desired administrator name.
 
     htpasswd -cm /etc/apache2/dav_svn.passwd <<admin_name>>
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Ensure you select a strong and secure password for the administrator account.
 {{< /note >}}
 
@@ -197,8 +195,7 @@ AuthName "Subversion Repository"
 
 #</Location>
     {{</ file >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 You may need to restart Subversion using systemctl for your configuration changes to take effect.
 {{< /note >}}
 
@@ -236,7 +233,7 @@ You can access your Subversion repository by pointing your browser to the Apache
 
 This URL accesses the desired Subversion project. Ensure you replace all values with your own Subversion server's information.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 A complete and in-depth discussion of Subversion commands, version control strategies, project skills, and steps can be found in [Subversion's documentation](https://svnbook.red-bean.com/).
 {{< /note >}}
 
@@ -244,6 +241,6 @@ A complete and in-depth discussion of Subversion commands, version control strat
 
 The [SVN Book](https://svnbook.red-bean.com/) is a must-read for those who manage projects using Apache Subversion. There are many tools that support the use of Subversion, including GUIs like [TortoiseSVN](https://tortoisesvn.net/).
 
-You should make sure to back up your Apache Subversion repository at reasonable intervals. One way to do so is by backing up your Subversion server using the [Linode Backup service](/docs/products/storage/backups/).
+You should make sure to back up your Apache Subversion repository at reasonable intervals. One way to do so is by backing up your Subversion server using the [Linode Backup service](https://techdocs.akamai.com/cloud-computing/docs/backup-service).
 
-Refer to our [How to Install and Use the Subversion CLI Client](/docs/guides/subversion-svn-tutorial) for client installation steps, along with the essential commands to support a Subversion workflow.
+Refer to our [How to Install and Use the Subversion CLI Client](/cloud/guides/subversion-svn-tutorial) for client installation steps, along with the essential commands to support a Subversion workflow.

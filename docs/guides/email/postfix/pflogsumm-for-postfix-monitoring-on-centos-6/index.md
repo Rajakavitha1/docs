@@ -1,34 +1,34 @@
 ---
 slug: pflogsumm-for-postfix-monitoring-on-centos-6
+title: Pflogsumm for Postfix Monitoring on CentOS 6
 description: 'This guide shows how you can configure your Postfix mail server to send you daily notification emails with the status of the server by using Pflogsumm.'
+authors: ["Robert Accettura"]
+contributors: ["Robert Accettura"]
+published: 2014-02-05
 keywords: ["pflogsumm", " postfix", " monitoring", " mail server"]
 tags: ["centos","perl","monitoring","email","postfix"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/email/postfix/pflogsumm-for-postfix-monitoring-on-centos-6/','/email/postfix/pflogsumm-centos-6/']
-modified: 2014-02-05
-modified_by:
-  name: Linode
-published: 2014-02-05
-title: Pflogsumm for Postfix Monitoring on CentOS 6
+aliases: []
 external_resources:
  - '[Pflogsumm](http://jimsun.linxnet.com/postfix_contrib.html)'
-authors: ["Robert Accettura"]
+deprecated: true
 ---
 
-![banner_image](Pflogsumm_or_Postfix_Monitoring_on_CentOS_smg.jpg)
+![Header image](Pflogsumm_or_Postfix_Monitoring_on_CentOS_smg.jpg "Pflogsumm for Postfix Monitoring on CentOS 6")
 
-Pflogsumm is a simple Perl script that monitors your [Postfix](/docs/email/postfix/) mail server's activity. This guide will show you how to install Pflogsumm on CentOS 6 and configure it to send you a daily email with your mail server stats.
+Pflogsumm is a simple Perl script that monitors your [Postfix](/cloud/guides/email/postfix) mail server's activity. This guide will show you how to install Pflogsumm on CentOS 6 and configure it to send you a daily email with your mail server stats.
 
-{{< content "email-warning-shortguide" >}}
+{{% content "email-warning-shortguide" %}}
 
 ## Before You Begin
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 Make sure these prerequisites are installed:
 
--   [Postfix](/docs/email/postfix/)
+-   [Postfix](/cloud/guides/email/postfix)
 -   Perl 5.004
 -   Perl's Date::Calc module
 
@@ -109,7 +109,7 @@ This list was taken from the [Pflogsumm](http://jimsun.linxnet.com/postfix_contr
 
 ## Scheduling Reports with Cron
 
-Now you'll set up a Cron job to run the Pflogsumm Perl script and send the mail server stats to you as a daily email. This is great for monitoring your mail server. The example below schedules the email for 1:01 PM every day. For details on how to customize the time the email is sent, you should read the [Cron](/docs/guides/schedule-tasks-with-cron/) article.
+Now you'll set up a Cron job to run the Pflogsumm Perl script and send the mail server stats to you as a daily email. This is great for monitoring your mail server. The example below schedules the email for 1:01 PM every day. For details on how to customize the time the email is sent, you should read the [Cron](/cloud/guides/schedule-tasks-with-cron) article.
 
 1.  Open the **root** user's Crontab by running the following command:
 

@@ -1,18 +1,17 @@
 ---
 slug: sftp-linux
+title: "Transfer Files with SFTP"
+title_meta: "How to Transfer Files with SFTP"
 description: 'Learn how to use SFTP commands to transfer files to and from Linux servers.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-10-01
 keywords: ['what is sftp','SFTP commands','Sftp server','sftp vs ftps', 'scp vs sftp']
 tags: ['linux', 'ssh']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-10-01
-modified_by:
-  name: Linode
-title: "Transfer Files with SFTP"
-title_meta: "How to Transfer Files with SFTP"
 external_resources:
 - '[Wikipedia SFTP Page](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)'
 - '[IETF Draft for SSH File Transfer Protocol](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-13)'
-authors: ["Jeff Novotny"]
 ---
 
 *SSH File Transfer Protocol* (SFTP) provides a mechanism for transferring, accessing, and managing files more securely compared to earlier protocols. It is a free and open-source utility that is available on all Linux systems. SFTP extends version 2.0 of the *Secure Shell* (SSH) protocol to provide greater security. This guide provides some background information about SFTP and explains how to use it to transfer files.
@@ -55,12 +54,12 @@ In summary, SFTP is a good, all-purpose utility with more functionality than the
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Create an SFTP Connection
@@ -99,14 +98,13 @@ ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
      Active: active (running) since Tue 2021-08-31 12:13:14 UTC; 46min ago
     {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Virtually all Linux distributions include SSH and SFTP as part of the default package. However, if the `sftp` command is not available, install the `ssh` package using `apt` or another package manager.
 {{< /note >}}
 
 ### Open the SFTP Port
 
-In some cases, the [UFW firewall](/docs/guides/configure-firewall-with-ufw/) might not be configured to allow SFTP requests. To allow SFTP configurations, enable the `ssh` component.
+In some cases, the [UFW firewall](/cloud/guides/configure-firewall-with-ufw) might not be configured to allow SFTP requests. To allow SFTP configurations, enable the `ssh` component.
 
 1. Verify the current `ufw` settings to see whether `ssh` is allowed. If SFTP requests are allowed, port `22` is shown with an action of `ALLOW`. In this example, SFTP is not yet enabled.
 
@@ -314,4 +312,4 @@ cd path                            Change remote directory to 'path'
 
 ## Use an SFTP GUI Client to Transfer Files
 
-If you prefer to use a graphical user interface (GUI) to work with files remotely, there are several available options. FileZilla is a popular open source SFTP client that supports SFTP, FTPS, FTP, and IPv6. To learn how to install and use this tool, see our [Transfer Files with FileZilla](/docs/guides/filezilla/) guide.
+If you prefer to use a graphical user interface (GUI) to work with files remotely, there are several available options. FileZilla is a popular open source SFTP client that supports SFTP, FTPS, FTP, and IPv6. To learn how to install and use this tool, see our [Transfer Files with FileZilla](/cloud/guides/filezilla) guide.

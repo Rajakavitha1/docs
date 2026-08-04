@@ -1,20 +1,19 @@
 ---
 slug: how-to-install-openjdk-ubuntu-22-04
+title: "How to Install OpenJDK on Ubuntu 22.04"
+title_meta: "Installing OpenJDK on Ubuntu 22.04"
 description: 'This guide explains how to install and test the Open Java Development Kit (OpenJDK) version of the Java Runtime Environment (JRE) on Ubuntu 22.04.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2023-03-20
 keywords: ['Java', 'OpenJDK', 'OpenJDK Ubuntu', 'How to install OpenJDK']
 tags: ['ubuntu', 'java']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-20
-modified_by:
-  name: Linode
-title: "How to Install OpenJDK on Ubuntu 22.04"
-title_meta: "Installing OpenJDK on Ubuntu 22.04"
 external_resources:
 - '[OpenJDK website](https://openjdk.java.net/)'
 - '[OpenJDK Development Guide](https://openjdk.java.net/guide/)'
 - '[Java development site](https://dev.java/)'
 - '[OpenJDK GA Release Archive](https://jdk.java.net/archive/)'
-authors: ["Jeff Novotny"]
 ---
 
 [OpenJDK](https://openjdk.java.net/) is a free, open-source, production-ready implementation of Java based on Oracle's commercial version of Java. This guide explains how to download and install OpenJDK on Ubuntu 22.04. It also demonstrates how to configure OpenJDK and write a short test script to validate the installation.
@@ -36,12 +35,12 @@ For more information about OpenJDK, see the [OpenJDK website](https://openjdk.ja
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Install OpenJDK

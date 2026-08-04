@@ -1,14 +1,14 @@
 ---
 slug: how-to-install-a-lamp-stack-on-debian-11
+title: How to Install a LAMP Stack on Debian 11
+title_meta: 'Install a LAMP Stack on Debian 11 (Bullseye)'
 description: 'Install a LAMP stack on a Debian 11. A LAMP stack includes Linux, Apache, MariaDB, and PHP.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2023-08-30
 keywords: ["debian 11 LAMP server", "debian LAMP", "LAMP howto", "lamp", "debian", "debian 11", "websites", "apache", "mysql", "php", "apache 2.4", "lamp debian"]
 tags: ["web server","php","mysql","apache","debian","lamp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified_by:
-  name: Linode
-published: 2023-08-30
-title: How to Install a LAMP Stack on Debian 11
-title_meta: 'Install a LAMP Stack on Debian 11 (Bullseye)'
 image:
 external_resources:
  - '[Debian Linux Home Page](http://www.debian.org/)'
@@ -20,8 +20,7 @@ relations:
         key: install-lamp-stack
         keywords:
             - distribution: Debian 11
-aliases: ['/web-servers/lamp/how-to-install-a-lamp-stack-on-debian-11/']
-authors: ["Linode"]
+aliases: []
 ---
 
 A *LAMP stack* is a particular bundle of software packages commonly used for hosting web content. The bundle consists of Linux, Apache, MariaDB, and PHP. This guide shows you how to install a LAMP stack on Debian 11 (Bullseye).
@@ -30,7 +29,7 @@ A *LAMP stack* is a particular bundle of software packages commonly used for hos
 
 Prior to installing your LAMP stack:
 
-1.  Ensure that you have followed the [Getting Started](/docs/products/platform/get-started/) and [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides. Ensure that the Linode's [hostname is set](/docs/products/platform/get-started/#set-the-hostname).
+1.  Ensure that you have followed the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides. Ensure that the Linode's [hostname is set](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname).
 
     Check your Linode's hostname. The first command should show your short hostname and the second should show your fully qualified domain name (FQDN).
 
@@ -40,7 +39,7 @@ Prior to installing your LAMP stack:
     ```
 
     {{< note >}}
-    If you have a registered domain name for your website, then [add the domain](/docs/products/networking/dns-manager/guides/create-domain/) to the Linode server on which you plan to install the LAMP stack. If you do not have a registered domain name, then replace `example.com` with the IP address of the Linode server in the following instructions.
+    If you have a registered domain name for your website, then [add the domain](https://techdocs.akamai.com/cloud-computing/docs/create-a-domain) to the Linode server on which you plan to install the LAMP stack. If you do not have a registered domain name, then replace `example.com` with the IP address of the Linode server in the following instructions.
     {{< /note >}}
 
 1.  Update your system:
@@ -50,7 +49,7 @@ Prior to installing your LAMP stack:
     ```
 
     {{< note >}}
-    This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+    This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
     {{< /note >}}
 
 ## Apache

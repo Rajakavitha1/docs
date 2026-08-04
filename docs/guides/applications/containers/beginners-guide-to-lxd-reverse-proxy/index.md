@@ -1,15 +1,15 @@
 ---
 slug: beginners-guide-to-lxd-reverse-proxy
+title: "A Beginner's Guide to LXD: Setting Up a Reverse Proxy to Host Multiple Websites"
+title_meta: "How to Set Up a Reverse Proxy to Host Websites in LXD"
 description: "In this tutorial, we explain how to create a reverse proxy in an LXD container in order to host multiple websites, each in their own additional containers."
+authors: ["Simos Xenitellis"]
+contributors: ["Simos Xenitellis"]
+published: 2019-08-28
+modified: 2021-12-26
 keywords: ["container", "lxd", "lxc", "apache", "nginx", "reverse proxy", "virtual machine", "virtualization"]
 tags: ["proxy","ubuntu","container","apache","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-08-28
-modified: 2021-12-26
-modified_by:
-  name: Linode
-title: "A Beginner's Guide to LXD: Setting Up a Reverse Proxy to Host Mulitple Websites"
-title_meta: "How to Set Up a Reverse Proxy to Host Websites in LXD"
 external_resources:
   - '[LXD Introduction](https://linuxcontainers.org/lxd/)'
   - '[LXD support community](https://discuss.linuxcontainers.org/)'
@@ -19,8 +19,7 @@ external_resources:
   - '[NGINX Reverse Proxy Settings](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)'
   - '[Proxy Protocol](https://www.haproxy.com/blog/haproxy/proxy-protocol/)'
   - '[TLS Termination Proxy](https://en.wikipedia.org/wiki/TLS_termination_proxy)'
-aliases: ['/applications/containers/beginners-guide-to-lxd-reverse-proxy/']
-authors: ["Simos Xenitellis"]
+aliases: []
 ---
 
 ## Introduction
@@ -51,7 +50,7 @@ For simplicity, the term *container* is used throughout this guide to describe t
 
 ### Before You Begin
 
-1.  Complete [A Beginner's Guide to LXD: Setting Up an Apache Web Server In a Container](/docs/guides/beginners-guide-to-lxd/). The guide instructs you to create a container called `web` with the Apache web server for testing purposes. Remove this container by running the following commands.
+1.  Complete [A Beginner's Guide to LXD: Setting Up an Apache Web Server In a Container](/cloud/guides/beginners-guide-to-lxd). The guide instructs you to create a container called `web` with the Apache web server for testing purposes. Remove this container by running the following commands.
 
         lxc stop web
         lxc delete web
@@ -61,12 +60,12 @@ For this guide LXD version 3.3 or later is needed. Check the version with the fo
 
     lxd --version
 
-If the version is not 3.3 or later, update to the latest version by installing the snap package as instructed in [A Beginner's Guide to LXD: Setting Up an Apache Webserver In a Container](/docs/guides/beginners-guide-to-lxd/) and use the following command:
+If the version is not 3.3 or later, update to the latest version by installing the snap package as instructed in [A Beginner's Guide to LXD: Setting Up an Apache Webserver In a Container](/cloud/guides/beginners-guide-to-lxd) and use the following command:
 
     sudo lxd.migrate
 {{< /note >}}
 
-2. This guide uses the hostnames `apache1.example.com` and `nginx1.example.com` for the two example websites. Replace these names with hostnames you own and setup their DNS entries to point them to the IP address of the server you created. For help with DNS see our [DNS Manager Guide](/docs/products/networking/dns-manager/).
+2. This guide uses the hostnames `apache1.example.com` and `nginx1.example.com` for the two example websites. Replace these names with hostnames you own and setup their DNS entries to point them to the IP address of the server you created. For help with DNS see our [DNS Manager Guide](https://techdocs.akamai.com/cloud-computing/docs/dns-manager).
 
 ## Creating the Containers
 
@@ -307,7 +306,7 @@ server {
     ![Web page of Apache server running in a container](apache-server-running-in-lxd-container.png "Web page of Apache server running in a container.")
 
     {{< note respectIndent=false >}}
-If you look at the Apache access.log file (default file `/var/log/apache2/access.log`), it still shows the private IP address of the `proxy` container instead of the real IP address. This issue is specific to the Apache web server and has to do with how the server prints the logs. Other software on the web server is able to use the real IP. To fix this through the Apache logs, see the section [Troubleshooting](/docs/guides/beginners-guide-to-lxd-reverse-proxy/#troubleshooting).
+If you look at the Apache access.log file (default file `/var/log/apache2/access.log`), it still shows the private IP address of the `proxy` container instead of the real IP address. This issue is specific to the Apache web server and has to do with how the server prints the logs. Other software on the web server is able to use the real IP. To fix this through the Apache logs, see the section [Troubleshooting](/cloud/guides/beginners-guide-to-lxd-reverse-proxy#troubleshooting).
 {{< /note >}}
 
 ### Direct Traffic to the NGINX Web Server From the Reverse Proxy
@@ -579,7 +578,7 @@ IMPORTANT NOTES:
 The `certbot` package adds a *systemd timer* in order to activate the automated renewal of Let's Encrypt certificates. You can view the details of this timer by running `systemctl list-timers`.
 {{< /note >}}
 
-1. The certbot tool edits and changes the NGINX configuration files of your websites. In doing so, certbot does not obey initial `listen` directive (`listen 80 proxy_protocol;`) and does not add the `proxy_protocol` parameter to the newly added `listen 443 ssl;` lines. You must edit the configuration files for each website and append "proxy_protocol" to each "listen 443 ssl;" line.
+1. The certbot tool edits and changes the NGINX configuration files of your websites. In doing so, certbot does not obey initial `listen` directive (`listen 80 proxy_protocol;`) and does not add the `proxy_protocol` parameter to the newly added `listen 443 ssl;` lines. You must edit the configuration files for each website and append `proxy_protocol` to each "listen 443 ssl;" line.
 
         sudo nano /etc/nginx/sites-enabled/apache1.example.com
         sudo nano /etc/nginx/sites-enabled/nginx1.example.com

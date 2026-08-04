@@ -3,12 +3,11 @@ slug: linux-symlinks
 title: "How to Create Linux Symlinks"
 title_meta: "The Ultimate Guide to Creating Linux Symlinks"
 description: 'Linux symlinks are used for managing and collating files. Learn the basics of Linux symlinks.'
+authors: ["Stephen Satchell"]
+contributors: ["Stephen Satchell"]
+published: 2023-04-18
 keywords: ['linux symlinks','symbolic link linux','soft link in linux','linux symbolic link','ln command','linux ln','linux create symbolic link','ln linux','linux ln command','create symbolic link linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["Stephen Satchell"]
-published: 2023-04-18
-modified_by:
-  name: Linode
 external_resources:
 - '[freeCodeCamp: Symlink Tutorial in Linux – How to Create and Remove a Symbolic Link](https://www.freecodecamp.org/news/symlink-tutorial-in-linux-how-to-create-and-remove-a-symbolic-link/)'
 - '[LinuxHint: Symbolic Link in Linux](https://linuxhint.com/symbolic-link-linux/)'
@@ -28,7 +27,7 @@ A *symlink* is a type of special file whose "data" is a path to the name of a fi
 -   directory
 -   pipe - via `mkfifo`
 -   special device
--   symlink - see [Chains of Soft Links](/docs/guides/linux-symlinks/#chains-of-soft-links) below
+-   symlink - see [Chains of Soft Links](/cloud/guides/linux-symlinks#chains-of-soft-links) below
 
 Also known as a "soft link" in Linux, the term "shortcut" describes symlinks in other operating systems.
 
@@ -135,7 +134,7 @@ Almost all file-based actions on a symlink act on or affect the target file, but
 
 The exceptions to the above-described rule are the Linux commands `unlink`, `rm`, `rmdir`, and their associated system calls. These commands either fail or remove the symlink itself instead of the target file or directory. These exceptions prevent the inadvertent removal of the target.
 
-See more information about removing symlinks in our [Remove Symbolic Links](/docs/guides/linux-remove-symbolic-link/).
+See more information about removing symlinks in our [Remove Symbolic Links](/cloud/guides/linux-remove-symbolic-link).
 
 ## Finding Dangling Symlinks
 

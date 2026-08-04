@@ -1,14 +1,13 @@
 ---
 slug: pytorch-installation-ubuntu-2004
-description: 'This guide shows you how to install PyTorch on an Ubuntu 20.04 server. PyTorch is a Python-based deep learning framework that can be used with GPU powered systems.'
-keywords: ['pytorch install','pytorch cpu','conda install pytorch','what is pytorch', 'uninstall pytorch']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-05
-modified_by:
-  name: Linode
 title: "Install PyTorch on Ubuntu 20.04"
 title_meta: "How to Install PyTorch on Ubuntu 20.04"
+description: 'This guide shows you how to install PyTorch on an Ubuntu 20.04 server. PyTorch is a Python-based deep learning framework that can be used with GPU powered systems.'
 authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2021-11-05
+keywords: ['pytorch install','pytorch cpu','conda install pytorch','what is pytorch', 'uninstall pytorch']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 This guide shows you how to install [PyTorch](https://pytorch.org/), a Python framework, on an Ubuntu 20.04 Linode. PyTorch provides support for a variety of math-intensive applications that run on GPU and CPU hardware. Linode offers dedicated [CPU instances](https://www.linode.com/products/dedicated-cpu/) and [GPU instances](https://www.linode.com/products/gpu/) that you can use to run PyTorch-based projects.
@@ -21,9 +20,9 @@ PyTorch allows popular Python-based apps to access GPU hardware to speed up mach
 
 ### Prerequisites
 
-The instructions below install PyTorch and Anaconda on an Ubuntu 20.04 instance. For the best results, use a Linode [GPU instance](/docs/products/compute/compute-instances/get-started/) with sufficient memory and storage to accomplish your task. Up to 96GB of memory and 7TB of storage are available.
+The instructions below install PyTorch and Anaconda on an Ubuntu 20.04 instance. For the best results, use a Linode [GPU instance](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-compute-instances) with sufficient memory and storage to accomplish your task. Up to 96GB of memory and 7TB of storage are available.
 
-Optimizing a task may also require using external data sources. If using external data sources and data sets, like [Linode Object Storage](/docs/products/tools/cli/guides/object-storage/), you should prepare them ahead of setting up your PyTorch GPU instance.
+Optimizing a task may also require using external data sources. If using external data sources and data sets, like [Linode Object Storage](https://techdocs.akamai.com/cloud-computing/docs/object-storage-commands), you should prepare them ahead of setting up your PyTorch GPU instance.
 
 1. Update your Ubuntu 20.04 instance. The base packages and libraries must be updated first.
 
@@ -37,15 +36,15 @@ Optimizing a task may also require using external data sources. If using externa
 
         sudo apt install nvidia-cuda-toolkit
 
-    For full instructions, see [Installing the NVIDIA CUDA Toolkit](/docs/products/compute/compute-instances/guides/install-nvidia-cuda/).
+    For full instructions, see [Installing the NVIDIA CUDA Toolkit](https://techdocs.akamai.com/cloud-computing/docs/install-the-nvidia-cuda-toolkit-on-gpu-compute-instances).
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The NVIDIA CUDA Toolkit is not needed on CPU-only (non-GPU) instances.
 {{< /note >}}
 
 ### Use Conda to Install PyTorch
 
-[Anaconda](https://www.anaconda.com/) is a package manager for [Python](/docs/guides/how-to-install-python-on-ubuntu-20-04/) and [R](/docs/guides/how-to-install-r-on-ubuntu-and-debian/). The steps in this section uses Anaconda to install PyTorch.
+[Anaconda](https://www.anaconda.com/) is a package manager for [Python](/cloud/guides/how-to-install-python-on-ubuntu-20-04) and [R](/cloud/guides/how-to-install-r-on-ubuntu-and-debian). The steps in this section uses Anaconda to install PyTorch.
 
 1. In your home directory, create a directory to install Anaconda and move into it.
 
@@ -114,7 +113,7 @@ Verifying transaction: done
 
 ### Use Pip to Install PyTorch
 
-If you don't have access to Anaconda, PyTorch can be installed with Python Pip. Learn about Pip and Python programming environments in our [Using Pipenv to Manage Python Packages and Versions](/docs/guides/manage-python-environments-pipenv/) guide.
+If you don't have access to Anaconda, PyTorch can be installed with Python Pip. Learn about Pip and Python programming environments in our [Using Pipenv to Manage Python Packages and Versions](/cloud/guides/manage-python-environments-pipenv) guide.
 
 1. To install Pip, use the following command:
 

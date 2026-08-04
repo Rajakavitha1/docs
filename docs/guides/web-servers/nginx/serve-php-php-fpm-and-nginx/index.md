@@ -1,26 +1,25 @@
 ---
 slug: serve-php-php-fpm-and-nginx
+title: "Serve PHP with PHP-FPM and NGINX"
 description: "This guide provides you with information on how to proxy PHP requests with the NGINX web server and FastCGI by using PHP-FPM (Fast Process Manager)."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-02-19
+modified: 2021-12-29
 keywords: ["php", "php-fpm", "fastcgi"]
 tags: ["web server","ubuntu","php","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-servers/nginx/serve-php-php-fpm-and-nginx/','/websites/nginx/install-and-configure-nginx-and-php-fastcgi-on-ubuntu-16-04/','/web-servers/nginx/install-and-configure-nginx-and-php-fastcgi-on-ubuntu-16-04/','/web-servers/nginx/nginx-phpfastcgi-ubuntu-14-04/','/web-servers/nginx/php-fastcgi/ubuntu-12-04-precise-pangolin/']
-modified: 2021-12-29
-modified_by:
-  name: Linode
-published: 2018-02-19
-title: "Serve PHP with PHP-FPM and NGINX"
+aliases: []
 image: serve-php-with-phpfpm-and-nginx-smp.jpg
 external_resources:
  - '[PHP Manual](https://secure.php.net/docs.php)'
-authors: ["Linode"]
 ---
 
 The [PHP Fast Process Manager](https://php-fpm.org/) is a [FastCGI](https://en.wikipedia.org/wiki/FastCGI) handler for [PHP](https://secure.php.net/) scripts and applications. It's commonly paired with web servers to serve applications which require a PHP framework, such as web forums or login gateways, while the web server returns HTML, JavaScript, and other non-PHP content.
 
 ## Before You Begin
 
-- **You need a working NGINX setup.** If you do not already have that, complete Part 1 of our Getting Started with NGINX series: [*Basic Installation and Setup*](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/).
+- **You need a working NGINX setup.** If you do not already have that, complete Part 1 of our Getting Started with NGINX series: [*Basic Installation and Setup*](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup).
 
 - You will need root access to the system, or a user account with `sudo` privileges.
 
@@ -47,7 +46,7 @@ The [PHP Fast Process Manager](https://php-fpm.org/) is a [FastCGI](https://en.w
         /etc/php/7.0/fpm/pool.d/www.conf
         /etc/php/7.0/cli/php.ini
 
-3.  The `listen.owner` and `listen.group` directives determines owner for PHP-FPM socket. Those are set to `www-data` by default, but they need to match the user and group NGINX is running as. If you installed NGINX using our [*Getting Started with NGINX*](/docs/web-servers/) series, then your setup will be using the `nginx` user and group. You can verify with:
+3.  The `listen.owner` and `listen.group` directives determines owner for PHP-FPM socket. Those are set to `www-data` by default, but they need to match the user and group NGINX is running as. If you installed NGINX using our [*Getting Started with NGINX*](/cloud/guides/web-servers) series, then your setup will be using the `nginx` user and group. You can verify with:
 
         ps -aux | grep nginx
 
@@ -85,7 +84,7 @@ The [PHP Fast Process Manager](https://php-fpm.org/) is a [FastCGI](https://en.w
 
 ## Configure the NGINX Server Block
 
-1.  Again pulling from [Part 1 of our NGINX series](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/#configuration-recap), we'll start with a basic Server Block for a static HTTP page being served from `/var/www/example.com`. Replace `example.com` with your site's domain or IP address, and the `root` directive with your site's root directory.
+1.  Again pulling from [Part 1 of our NGINX series](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup#configuration-recap), we'll start with a basic Server Block for a static HTTP page being served from `/var/www/example.com`. Replace `example.com` with your site's domain or IP address, and the `root` directive with your site's root directory.
 
     {{< file "/etc/nginx/conf.d/example.com.conf" nginx >}}
 server {

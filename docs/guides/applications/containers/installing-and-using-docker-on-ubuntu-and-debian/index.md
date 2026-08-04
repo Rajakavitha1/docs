@@ -1,26 +1,25 @@
 ---
 slug: installing-and-using-docker-on-ubuntu-and-debian
+title: "Installing and Using Docker on Ubuntu and Debian"
+title_meta: "How to Install and Use Docker on Ubuntu and Debian"
 description: "Check out our guide on how to install Docker Engine on Ubuntu and Debian Linux distribution's latest version. ✓ Click here to read our guide today!"
 og_description: "A guide on installing Docker Engine on Ubuntu and Debian Linux distributions"
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2021-06-16
 keywords: ['docker','docker engine','containers']
 tags: ["docker","containers","debian","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-06-16
-modified_by:
-  name: Linode
-title: "Installing and Using Docker on Ubuntu and Debian"
-title_meta: "How to Install and Use Docker on Ubuntu and Debian"
 external_resources:
 - '[Website for Docker](https://www.docker.com/)'
 - '[Documentation for Docker](https://docs.docker.com/)'
 - '[Website for containerd](https://containerd.io/)'
-aliases: ['/applications/containers/install-docker-ce-ubuntu-1804/', '/guides/install-docker-ce-ubuntu-1804/', '/applications/containers/install-docker-ce/', '/guides/install-docker-ce/', '/guides/how-to-install-docker-ce-on-debian-10/', '/applications/containers/how-to-install-docker-and-pull-images-for-container-deployment/', '/guides/how-to-install-docker-and-pull-images-for-container-deployment/']
+aliases: []
 relations:
     platform:
         key: installing-and-using-docker
         keywords:
             - distribution: Ubuntu and Debian
-authors: ["Linode"]
 ---
 
 Docker is a tool that enables you to create, deploy, and manage lightweight, stand-alone packages called *containers*. These containers have the necessary code, libraries, runtime, system settings, and dependencies needed to run an application.
@@ -29,16 +28,16 @@ This guide covers installing the Docker Engine on various Linux distributions us
 
 ## Before You Begin
 
-1.  Ensure you have command line access to a Linux server running a supported Linux distribution. If not, follow the [Getting Started](/docs/products/platform/get-started/) and [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides to create a new Linode.
+1.  Ensure you have command line access to a Linux server running a supported Linux distribution. If not, follow the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides to create a new Linode.
 
     {{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 1.  Review the following Docker guides to gain a better understanding of Docker, its benefits, and when to use it.
 
-    - [An Introduction to Docker](/docs/guides/introduction-to-docker/)
-    - [When and Why to Use Docker](/docs/guides/when-and-why-to-use-docker/)
+    - [An Introduction to Docker](/cloud/guides/introduction-to-docker)
+    - [When and Why to Use Docker](/cloud/guides/when-and-why-to-use-docker)
 
 
 ## Installing Docker Engine on Ubuntu and Debian
@@ -105,7 +104,7 @@ This message shows that your installation appears to be working correctly.
 
 By default, `sudo` is required to run Docker commands, but a new group, called *docker*, was created during installation. When the Docker daemon starts, it opens a Unix socket for the *docker* group members.
 
-Before continuing, make sure you have a limited user account that *does not* belong to the sudo group. If you haven't created a limited user account yet, see the guides [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) or [Linux Users and Groups](/docs/guides/linux-users-and-groups/) for instructions.
+Before continuing, make sure you have a limited user account that *does not* belong to the sudo group. If you haven't created a limited user account yet, see the guides [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) or [Linux Users and Groups](/cloud/guides/linux-users-and-groups) for instructions.
 
 1.  Enter the command below to add a user to the *docker* group, replacing *[user]* with the name of your limited user account.
 
@@ -145,7 +144,7 @@ There are two possible fixes:
 ## Using Docker Images to Deploy Containers
 
 Docker images are templates that include the instructions and specifications for creating a container. To use Docker, you first need to obtain an image or create your own by building a dockerfile. For more information, see [An Introduction to Docker
-](/docs/guides/introduction-to-docker/).
+](/cloud/guides/introduction-to-docker).
 
 ### Listing Images
 

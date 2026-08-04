@@ -1,28 +1,27 @@
 ---
 slug: visualize-apache-web-server-logs-using-elastic-stack-on-debian-8
+title: "Visualizing Apache Logs Using the Elastic Stack on Debian 8"
+title_meta: "Visualizing Apache Logs With Elastic Stack on Debian 8"
 description: 'This guide will show how to use Elasticsearch, Logstash, and Kibana to collect and visualize web server logs.'
 og_description: 'The Elastic Stack - Elasticsearch, Logstash, & Kibana - provides a free, open-source solution to search, collect, and analyze data. This guide shows how to install all three components to explore Apache web server logs in Kibana.'
+authors: ["Tyler Langlois"]
+contributors: ["Tyler Langlois"]
+published: 2017-09-18
+modified: 2019-01-31
 external_resources:
  - '[Elastic Documentation](https://www.elastic.co/guide/index.html)'
 keywords: ["apache debian 8", "linux web server", "elasticsearch", "logstash", "kibana", "elk stack", "elastic stack"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-09-18
-modified: 2019-01-31
-modified_by:
-  name: Linode
-title: "Visualizing Apache Logs Using the Elastic Stack on Debian 8"
-title_meta: "Visualizing Apache Logs With Elastic Stack on Debian 8"
 dedicated_cpu_link: true
 tags: ["debian","analytics","database","monitoring"]
-aliases: ['/databases/elasticsearch/visualize-apache-web-server-logs-using-elastic-stack-on-debian-8/']
+aliases: []
 relations:
     platform:
         key: visualize-apache-logs-using-elastic-stack
         keywords:
             - distribution: Debian 8
-authors: ["Tyler Langlois"]
+deprecated: true
 ---
-
 
 ![Visualize Apache Web Server Logs Using an Elastic Stack on Debian 8](elastic-stack-visualize-server-logs-title.jpg "Visualize Apache Web Server Logs Using an Elastic Stack on Debian 8")
 
@@ -36,16 +35,16 @@ This guide will explain how to install all three components and use them to expl
 This guide will walk through the installation and set up of version 5 of the Elastic stack, which is the latest at time of this writing.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Follow the steps in our [Apache Web Server on Debian 8 (Jessie)](/docs/web-servers/apache/apache-web-server-debian-8/) guide to set up and configure Apache on your server.
+1.  Follow the steps in our [Apache Web Server on Debian 8 (Jessie)](/cloud/guides/apache-web-server-debian-8) guide to set up and configure Apache on your server.
 
 ## Install OpenJDK 8
 
@@ -175,7 +174,7 @@ By default, Elasticsearch will create five shards and one replica for every inde
 
 ### Logstash
 
-In order to collect Apache access logs, Logstash must be configured to watch any necessary files and then process them, eventually sending them to Elasticsearch. This configuration file assumes that a site has been set up according to the previously mentioned [Apache Web Server on Debian 8 (Jessie)](/docs/web-servers/apache/apache-web-server-debian-8/) guide to find the correct log path.
+In order to collect Apache access logs, Logstash must be configured to watch any necessary files and then process them, eventually sending them to Elasticsearch. This configuration file assumes that a site has been set up according to the previously mentioned [Apache Web Server on Debian 8 (Jessie)](/cloud/guides/apache-web-server-debian-8) guide to find the correct log path.
 
 1.  Create the following Logstash configuration:
 

@@ -1,13 +1,12 @@
 ---
 slug: use-scrapy-to-extract-data-from-html-tags
+title: 'Use Scrapy to Extract Data From HTML Tags'
 description: 'Scrapy is a Python framework for creating web scraping applications. This guide provides you with instructions for using it to scrape the web.'
+authors: ["Florent Houbart"]
+contributors: ["Florent Houbart"]
+published: 2017-12-04
 keywords: ["Scrapy", "Python", "crawling", "spider", "web scraping"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-12-04
-modified: 2017-12-04
-modified_by:
-  name: Linode
-title: 'Use Scrapy to Extract Data From HTML Tags'
 external_resources:
 - '[Scrapy Project page](https://scrapy.org/)'
 - '[Official Scrapy Documentation](https://doc.scrapy.org/en/latest/index.html)'
@@ -15,8 +14,7 @@ audiences: ["intermediate"]
 concentrations: ["Scripting, Automation, and Build Tools"]
 languages: ["python"]
 tags: ["python"]
-aliases: ['/development/python/use-scrapy-to-extract-data-from-html-tags/']
-authors: ["Florent Houbart"]
+aliases: []
 ---
 
 ![Use Scrapy to Extract Data from HTML Tags](Use-Scrapy-to-Extract-Data-From-HTML-Tags-smg.jpg)
@@ -27,12 +25,12 @@ This guide will provide you with instructions to build a spider which recursivel
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
     {{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install a Python 3 Environment

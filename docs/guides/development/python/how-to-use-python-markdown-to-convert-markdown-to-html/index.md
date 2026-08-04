@@ -1,12 +1,12 @@
 ---
 slug: how-to-use-python-markdown-to-convert-markdown-to-html
-description: 'This guide explains how to use the Python-Markdown library to convert markdown files to HTML.'
+title: "Use Python-Markdown to Convert Markdown to HTML"
+description: 'This guide explains how to use the Python-Markdown library to convert Markdown files to HTML.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-07-21
 keywords: ['Python-Markdown','What is Python-Markdown','Python-Markdown Library','Convert Markdown to HTML']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-07-21
-modified_by:
-  name: Linode
-title: "Use Python-Markdown to Convert Markdown to HTML"
 external_resources:
 - '[Python-Markdown website](https://python-markdown.github.io/index.html)'
 - '[Python-Markdown library reference](https://python-markdown.github.io/reference/)'
@@ -15,7 +15,6 @@ external_resources:
 - '[Markdown guide](https://www.markdownguide.org/)'
 - '[HTML Standard](https://html.spec.whatwg.org/)'
 - '[Python Input/Output documentation](https://docs.python.org/3/tutorial/inputoutput.html)'
-authors: ["Jeff Novotny"]
 ---
 
 The [*Markdown*](https://en.wikipedia.org/wiki/Markdown) markup language is a good choice for text formatting. Unfortunately, the Markdown syntax does not align with HTML conventions. Without further modification, Markdown can only be shared as plain text. The [*Python-Markdown*](https://python-markdown.github.io/index.html) library is an open source Python module that converts Markdown text into standards-compliant HTML markup. This guide explains how to install and use the Python-Markdown module and provides some background information about it.
@@ -42,14 +41,14 @@ There are a few minor differences between the behavior of Python-Markdown and th
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Ensure Python is properly installed on the Linode. You must be able to launch and use the Python programming environment and have some basic knowledge of the Python programming language. For information on how to install and use Python, see the [Linode guide to Python](/docs/guides/how-to-install-python-on-ubuntu-20-04/).
+1.  Ensure Python is properly installed on the Linode. You must be able to launch and use the Python programming environment and have some basic knowledge of the Python programming language. For information on how to install and use Python, see the [Linode guide to Python](/cloud/guides/how-to-install-python-on-ubuntu-20-04).
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Install Python-Markdown

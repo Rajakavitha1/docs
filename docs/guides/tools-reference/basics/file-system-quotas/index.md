@@ -1,17 +1,16 @@
 ---
 slug: file-system-quotas
-description: 'How to set Filesystem Quotas on Ubuntu 22.04.'
-keywords: ["filesystem", "quotas", "disk space", "limit disk", "ubuntu"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified_by:
-  name: Linode
-published: 2023-03-14
 title: 'Setting Filesystem Quotas on Ubuntu 22.04'
 title_meta: 'How To Set Filesystem Quotas on Ubuntu 22.04'
+description: 'How to set Filesystem Quotas on Ubuntu 22.04.'
+authors: ["Rajakavitha Kodhandapani"]
+contributors: ["Rajakavitha Kodhandapani"]
+published: 2023-03-14
+keywords: ["filesystem", "quotas", "disk space", "limit disk", "ubuntu"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[Official Documentation for Quota subsystem](https://www.kernel.org/doc/html/next/filesystems/quota.html)'
 tags: ["ubuntu","filesystem","limit disk"]
-authors: ["Rajakavitha Kodhandapani"]
 ---
 
 In this guide, learn how to use quotas to limit the amount of disk space a user or group can use on a filesystem.
@@ -20,16 +19,16 @@ The quota subsystem allows system administrator to set limits on the space used 
 
 ## Before You Begin
 
-- Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+- Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-- Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services.
+- Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services.
 
 - Update your system:
 
         sudo apt-get update && sudo apt-get upgrade
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install the Quota Tools

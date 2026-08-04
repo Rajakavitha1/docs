@@ -1,18 +1,17 @@
 ---
 slug: apt-package-manager
+title: "Using APT to Manage Packages in Debian and Ubuntu"
+title_meta: "How to Use APT to Manage Packages in Debian and Ubuntu"
 description: "This guide will teach you what APT is and walks you through the core features and common commands for using APT to manage packages on Linux."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2022-05-12
+modified: 2022-01-31
 keywords: ['apt', 'apt-get','installing','updating','upgrading','uninstalling','removing','package repositories','debian', 'ubuntu']
 tags: ['apt','apt-get','debian','ubuntu']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-05-12
 image: UsingAPTtoManagePackagesinDebianandUbuntu.jpg
-modified: 2022-01-31
-modified_by:
-  name: Linode
-title: "Using APT to Manage Packages in Debian and Ubuntu"
-title_meta: "How to Use APT to Manage Packages in Debian and Ubuntu"
-aliases: ['/guides/using-apt-package-manager/']
-authors: ["Linode"]
+aliases: []
 ---
 
 *Advanced Package Tool*, more commonly known as [**APT**](https://en.wikipedia.org/wiki/APT_(software)), is a package management system for Ubuntu, Debian, Kali Linux, and other Debian-based Linux distributions. It acts as a front-end to the lower-level [**dpkg**](https://en.wikipedia.org/wiki/Dpkg) package manager, which is used for installing, managing, and providing information on `.deb` packages. In addition to these functions, APT interfaces with repositories to obtain packages and also provides very efficient dependency management.
@@ -25,12 +24,12 @@ This guide aims to walk you through using APT and its command-line tools to perf
 
 Before running the commands within this guide, you will need:
 
-1. **A system running on Debian or Ubuntu.** Other Linux distributions that employ the APT package manager can also be used. Review the [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guide if you do not yet have a compatible system.
+1. **A system running on Debian or Ubuntu.** Other Linux distributions that employ the APT package manager can also be used. Review the [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guide if you do not yet have a compatible system.
 
-1. **Login credentials to the system** for either the root user (not recommended) or a standard user account (belonging to the `sudo` group) and the ability to access the system through [SSH](/docs/guides/connect-to-server-over-ssh/) or [Lish](/docs/products/compute/compute-instances/guides/lish/). Review the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide for assistance on creating and securing a standard user account.
+1. **Login credentials to the system** for either the root user (not recommended) or a standard user account (belonging to the `sudo` group) and the ability to access the system through [SSH](/cloud/guides/connect-to-server-over-ssh) or [Lish](https://techdocs.akamai.com/cloud-computing/docs/access-your-system-console-using-lish). Review the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide for assistance on creating and securing a standard user account.
 
-{{< note respectIndent=false >}}
-Some commands in this guide require elevated privileges and are prefixed with the `sudo` command. If you are logged in as the root use (not recommended), you can omit the `sudo` prefix if desired. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/#understanding-the-sudo-linux-group-and-user) guide.
+{{< note >}}
+Some commands in this guide require elevated privileges and are prefixed with the `sudo` command. If you are logged in as the root use (not recommended), you can omit the `sudo` prefix if desired. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups#understanding-the-sudo-linux-group-and-user) guide.
 {{< /note >}}
 
 ## What's the difference between `apt` and `apt-get`/`apt-cache`?
@@ -140,11 +139,11 @@ The `apt list` command lists all available, installed, or upgradeable packages. 
 
 Additional options, commands, and notes:
 
--   Use [grep](/docs/guides/how-to-use-grep/) to quickly search through the list for specific package names or other strings. Replace *[string]* with the package name or other term you wish to search for.
+-   Use [grep](/cloud/guides/how-to-use-grep) to quickly search through the list for specific package names or other strings. Replace *[string]* with the package name or other term you wish to search for.
 
         apt list --installed | grep [string]
 
--   Use a content viewer like [less](/docs/guides/how-to-use-less/) to interact with the output, which may help you view or search for your desired information.
+-   Use a content viewer like [less](/cloud/guides/how-to-use-less) to interact with the output, which may help you view or search for your desired information.
 
         apt list --installed | less
 
@@ -208,7 +207,7 @@ If you wish to replicate the currently installed packages to another system with
 
     This command creates a new file using the name provided in the last step and appending `.apt-clone.tar.gz`.
 
-1.  Copy the file to your new system. See the [Download Files from Your Linode](/docs/guides/download-files-from-a-compute-instance/) guide or the [File Transfer](/docs/guides/tools-reference/file-transfer/) section for more information.
+1.  Copy the file to your new system. See the [Download Files from Your Linode](/cloud/guides/download-files-from-a-compute-instance) guide or the [File Transfer](/cloud/guides/tools-reference/file-transfer) section for more information.
 
 1.  Install apt-clone on the new system (see Step 1).
 

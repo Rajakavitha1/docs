@@ -1,13 +1,13 @@
 ---
 slug: install-mongodb-on-centos-7
-description: 'This guide shows how to install MongoDB, a document-oriented NoSQL database solution, on a server running CentOS 7.'
-keywords: ["nosql", "database", "mongodb", "key store", "ubuntu", "mongodb tutorial"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified_by:
-  name: Linode
-published: 2016-12-30
 title: 'Installing MongoDB on CentOS 7'
 title_meta: 'How To Install MongoDB on CentOS 7'
+description: 'This guide shows how to install MongoDB, a document-oriented NoSQL database solution, on a server running CentOS 7.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2016-12-30
+keywords: ["nosql", "database", "mongodb", "key store", "ubuntu", "mongodb tutorial"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
  - '[Official MongoDB Documentation](https://docs.mongodb.com/manual/)'
  - '[MongoDB Project](https://www.mongodb.com/)'
@@ -18,8 +18,7 @@ relations:
         keywords:
             - distribution: CentOS 7
 tags: ["nosql","database","centos"]
-aliases: ['/databases/mongodb/install-mongodb-on-centos-7/']
-authors: ["Linode"]
+aliases: []
 ---
 
 In this MongoDB tutorial, we explain how to install the database on CentOS 7, and then provide a short guide on some basic features and functions.
@@ -34,16 +33,16 @@ Since MongoDB can require a significant amount of RAM, we recommend using a [hig
 
 ## Before You Begin
 
-- Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+- Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-- Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services.
+- Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services.
 
 - Update your system:
 
         sudo yum update
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Add the MongoDB Repository

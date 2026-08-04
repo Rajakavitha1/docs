@@ -1,14 +1,13 @@
 ---
 slug: relational-database-overview
+title: "Introduction to Relational Databases and RDBMSs"
 description: "An overview of relational databases, including relational database management systems and how they different from NoSQL databases."
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-06-06
 keywords: ['what is mysql', 'sql vs mysql','mysql overview']
 tags: ['mysql', 'nosql']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-06
-modified_by:
-  name: Linode
-title: "Introduction to Relational Databases and RDBMSs"
-authors: ["Jeff Novotny"]
 ---
 
 Many programs need to save or store data for later use and read data that is recorded. Although there are many ways to do this, the most common approach is to use a *Relational Database Management System* (RDBMS). [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), and [SQLite](https://www.sqlite.org/index.html) are a few industry-standard open-source RDBMSs that have been widely adopted by software development projects. This guide provides an overview of relational databases and RDBMS concepts.
@@ -43,7 +42,7 @@ For example, consider a database for a school. This database has several tables,
 
 For instance, a simplified `Students` table can be defined using the structure displayed below. The top row represents the names of the columns in the table. The table below currently has two rows of data, one for each student.
 
-| first_name | last_name | grade | family_id | student_id |
+| `first_name` | `last_name` | `grade` | `family_id` | `student_id` |
 |:-:|:-:|:-:|:-:|:-:|
 | John | Doe | 4 | 1116 | 5005 |
 | Jane | Student | 5 | 1224 | 5350 |
@@ -110,4 +109,4 @@ The next SQL statement creates the `Class` table. The `CREATE` statement defines
 
 ### SQL vs. NoSQL
 
-NoSQL systems are an alternative to traditional SQL-based RDBMS applications. As the name implies, they use a non-relational model to handle data. They are typically less structured and more flexible than an RDBMS. NoSQL systems are not standardized and can take a variety of formats. However, they are typically key-value, graph, or document-based, not table-based. Some NoSQL applications can use structured domain-specific languages or even accept SQL queries in parallel. A few examples of NoSQL applications include Redis and [MongoDB](/docs/guides/install-mongodb-on-centos-7/). For more information on NoSQL systems, consult the Linode guide for a [comparison between SQL and NoSQL databases](/docs/guides/what-is-nosql/#what-makes-nosql-different-from-sql).
+NoSQL systems are an alternative to traditional SQL-based RDBMS applications. As the name implies, they use a non-relational model to handle data. They are typically less structured and more flexible than an RDBMS. NoSQL systems are not standardized and can take a variety of formats. However, they are typically key-value, graph, or document-based, not table-based. Some NoSQL applications can use structured domain-specific languages or even accept SQL queries in parallel. A few examples of NoSQL applications include Redis and [MongoDB](/cloud/guides/install-mongodb-on-centos-7). For more information on NoSQL systems, consult the Linode guide for a [comparison between SQL and NoSQL databases](/cloud/guides/what-is-nosql#what-makes-nosql-different-from-sql).

@@ -1,19 +1,18 @@
 ---
 slug: oop-principles
-description: "What are the four major OOP principles? This guide will discuss object-oriented programming concepts and provide real-world examples."
-keywords: ['oop principles','oop concepts','oop concepts in java']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-10
-modified_by:
-  name: Linode
 title: "A Guide to OOP Principles in Java"
 title_meta: "Object-Oriented Programming Concepts, Explained"
+description: "What are the four major OOP principles? This guide will discuss object-oriented programming concepts and provide real-world examples."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2022-06-10
+keywords: ['oop principles','oop concepts','oop concepts in java']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[GeeksforGeeks: Object Oriented Programming (OOPs) Concept in Java](https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/)'
 - '[ParTech: Basic Principles of Object-oriented Programming](https://www.partech.nl/en/publications/2020/10/basic-principles-of-object-oriented-programming#:~:text=The%20basic%20principles%20of%20OOP,any%20object%2Doriented%20programming%20language.)'
 - '[Munish Chandel: What are Four Basic Principles of Object Oriented Programming?](https://medium.com/@cancerian0684/what-are-four-basic-principles-of-object-oriented-programming-645af8b43727)'
 - '[Key Lime Interactive: The Four Pillars of Object Oriented Programming](https://info.keylimeinteractive.com/the-four-pillars-of-object-oriented-programming)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Object-oriented programming gives you a set of programming principles to make your code more compartmentalized and reusable. Object-oriented programming accomplishes this by structuring programs around objects. This tutorial covers the core principles of object-oriented programming and provides examples of these concepts written in Java.
@@ -40,7 +39,7 @@ public class ClassName {
 
 - **Objects**: These are derived from classes and populate the abstract of their classes' properties with concrete values. They are the things built from the blueprints provided by classes. Objects also tend to be where the behaviors defined on classes get executed, bringing your application to life.
 
-    Java lets you instantiate an object from a class using the `new` keyword. Here, a new object gets created from the class created above. This example works when the class has a *constructor* defined. You can see an example of a constructor definition in the [Examples of Object Oriented Programming](/docs/guides/oop-principles/#examples-of-object-oriented-programming) section further on.
+    Java lets you instantiate an object from a class using the `new` keyword. Here, a new object gets created from the class created above. This example works when the class has a *constructor* defined. You can see an example of a constructor definition in the [Examples of Object Oriented Programming](/cloud/guides/oop-principles#examples-of-object-oriented-programming) section further on.
 
     {{< file >}}
 ClassName objectName = new ClassName();
@@ -310,6 +309,6 @@ Playing Minecraft.
 
 In this guide you learned the fundamental principles of object-oriented programming. The concepts covered were encapsulation, abstraction, inheritance, and polymorphism. Applying these concepts helps to ensure that you are making the most of what the paradigm can do.
 
-Throughout this tutorial, the focus has been on OOP related to Java. But keep in mind that these concepts apply anywhere that supports object-oriented programming. [JavaScript](/docs/guides/development/javascript/), [Python](/docs/guides/development/python/), and [Ruby](/docs/guides/development/ror/) are popular examples.
+Throughout this tutorial, the focus has been on OOP related to Java. But keep in mind that these concepts apply anywhere that supports object-oriented programming. [JavaScript](/cloud/guides/development/javascript), [Python](/cloud/guides/development/python), and [Ruby](/cloud/guides/development/ror) are popular examples.
 
 

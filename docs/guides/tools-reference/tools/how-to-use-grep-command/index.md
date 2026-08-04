@@ -2,17 +2,16 @@
 slug: how-to-use-grep-command
 title: How to Use the Grep Command to Find Information in Files
 description: "An extensive guide on how to grep for text in files in Unix based systems. Understand search, match, and advanced regex to grep for text in files."
-keywords: ["how to use grep", "grep usage", "grep tutorial"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 authors: ["Linode"]
+contributors: ["Linode"]
 published: 2010-06-30
 modified: 2023-11-14
-modified_by:
-  name: Linode
+keywords: ["how to use grep", "grep usage", "grep tutorial"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
   - '[Grep | Regular-Expressions.info](https://www.regular-expressions.info/grep.html)'
   - '[Perl Regular Expressions](https://perldoc.perl.org/perlre.html)'
-aliases: ['/tools-reference/how-to-grep-for-text-in-files/','/tools-reference/search-and-filter-text-with-grep/','/tools-reference/tools/how-to-grep-for-text-in-files/','/linux-tools/common-commands/grep/','/guides/how-to-grep-for-text-in-files/']
+aliases: []
 tags: ["linux"]
 image: search_and_filter_text_with_grep_smg.png
 ---

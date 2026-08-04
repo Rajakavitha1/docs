@@ -1,35 +1,35 @@
 ---
 slug: import-existing-infrastructure-to-terraform
+title: "Import Existing Infrastructure to Terraform"
 description: 'This guide will describe how to import existing Linode infrastructure into Terraform using the official Linode provider plugin.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-12-17
+modified: 2025-06-18
 keywords: ['terraform','configuration management','import']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-12-17
-modified: 2020-12-03
-modified_by:
-  name: Linode
 image: ImportExistingInfrastructuretoTerraform.png
-title: "Import Existing Infrastructure to Terraform"
 external_resources:
 - '[Terraform Import Usage](https://www.terraform.io/docs/import/usage.html)'
 - '[Terraform Linode Instance Documentation](https://www.terraform.io/docs/providers/linode/r/instance.html)'
-aliases: ['/applications/configuration-management/import-existing-infrastructure-to-terraform/','/applications/configuration-management/terraform/import-existing-infrastructure-to-terraform/']
-authors: ["Linode"]
-tags: ["saas"]
+aliases: []
 ---
 
 Terraform is an orchestration tool that uses declarative code to build, change, and version infrastructure that is made up of server instances and services. You can use [Linode's official Terraform provider](https://www.terraform.io/docs/providers/linode/index.html) to interact with Linode services. Existing Linode infrastructure can be imported and brought under Terraform management. This guide describes how to import existing Linode infrastructure into Terraform using the official Linode provider plugin.
 
-{{< note >}}
-[Terraform’s Linode Provider](https://github.com/terraform-providers/terraform-provider-linode) has been updated and now requires Terraform version 0.12+. To learn how to safely upgrade to Terraform version 0.12+, see [Terraform’s official documentation](https://www.terraform.io/upgrade-guides/0-12.html). View [Terraform v0.12’s changelog](https://github.com/hashicorp/terraform/blob/v0.12.0/CHANGELOG.md) for a full list of new features and version incompatibility notes.
+{{< note title ="Linode Provider Version 3.0.0" >}}
+As of June, 2025, the [Linode Terraform Provider](https://github.com/linode/terraform-provider-linode/) version is 3.0.0. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
+
+The Linode Terraform Provider version 3.0.0 requires `terraform` version 1.0 or greater. See [Terraform's developer documentation](https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/1-0) for guidance on upgrading to version 1.0.
 {{< /note >}}
 
 ## Before You Begin
 
-1.  Terraform and the Linode Terraform provider should be installed in your development environment. You should also have a basic understanding of [Terraform resources](https://www.terraform.io/docs/configuration/resources.html). To install and learn about Terraform, read our [Use Terraform to Provision Linode Environments](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/) guide.
+1.  Terraform and the Linode Terraform provider should be installed in your development environment. You should also have a basic understanding of [Terraform resources](https://www.terraform.io/docs/configuration/resources.html). To install and learn about Terraform, read our [Use Terraform to Provision Linode Environments](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode) guide.
 
-2.  To use Terraform you must have a valid API access token. For more information on creating a Linode API access token, visit our [Getting Started with the Linode API](/docs/products/tools/api/get-started/#get-an-access-token) guide.
+2.  To use Terraform you must have a valid API access token. For more information on creating a Linode API access token, visit our [Getting Started with the Linode API](https://techdocs.akamai.com/linode-api/reference/get-started#get-an-access-token) guide.
 
-3.  This guide uses the Linode CLI to retrieve information about the Linode infrastructure you import to Terraform. For more information on the setup, installation, and usage of the Linode CLI, check out the [Using the Linode CLI](/docs/products/tools/cli/get-started/) guide.
+3.  This guide uses the Linode CLI to retrieve information about the Linode infrastructure you import to Terraform. For more information on the setup, installation, and usage of the Linode CLI, check out the [Using the Linode CLI](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-the-linode-cli) guide.
 
 ## Terraform's Import Command
 
@@ -71,7 +71,7 @@ When importing your infrastructure to Terraform, failure to accurately provide y
 
 ### Create An Empty Resource Configuration
 
-1. Ensure you are in your [Terraform project directory](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform). Create a Terraform configuration file to manage the Linode instance you import in the next section. Your file can be named anything you like, but it must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_instance` resource configuration block in the file:
+1. Ensure you are in your [Terraform project directory](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#install-terraform). Create a Terraform configuration file to manage the Linode instance you import in the next section. Your file can be named anything you like, but it must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_instance` resource configuration block in the file:
 
     {{< note respectIndent=false >}}
 The example resource block defines `example_label` as the label. This can be changed to any value you prefer. This label is used to reference your Linode resource configuration within Terraform. It does not have to be the same label originally assigned to the Linode when it was created outside of Terraform.
@@ -251,11 +251,11 @@ resource "linode_instance" "example_label" {
 {{</ file >}}
 
     {{< note respectIndent=false >}}
-If your Linode uses more than two disks (for instance, if you have attached a [Block Storage Volume](/docs/products/storage/block-storage/)), you need to add those disks to your Linode resource configuration block. In order to add a disk, you must add the disk to the `devices` stanza and create an additional `disk` stanza.
+If your Linode uses more than two disks (for instance, if you have attached a [Block Storage Volume](https://techdocs.akamai.com/cloud-computing/docs/block-storage)), you need to add those disks to your Linode resource configuration block. In order to add a disk, you must add the disk to the `devices` stanza and create an additional `disk` stanza.
     {{< /note >}}
 
     {{< note respectIndent=false >}}
-If you have more than one [configuration profile](/docs/products/compute/compute-instances/guides/configuration-profiles/), you must choose which profile to boot from with the `boot_config_label` key. For example:
+If you have more than one [configuration profile](https://techdocs.akamai.com/cloud-computing/docs/manage-configuration-profiles-on-a-compute-instance), you must choose which profile to boot from with the `boot_config_label` key. For example:
 
     resource "linode_instance" "example_label" {
         boot_config_label = "My Debian 9 Disk Profile"
@@ -306,7 +306,7 @@ If you have more than one [configuration profile](/docs/products/compute/compute
 
 ### Create an Empty Resource Configuration
 
-1. Ensure you are in your [Terraform project directory](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform). Create a Terraform configuration file to manage the domain you import in the next section. Your file can be named anything you like, but must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_domain` resource configuration block to the file:
+1. Ensure you are in your [Terraform project directory](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#install-terraform). Create a Terraform configuration file to manage the domain you import in the next section. Your file can be named anything you like, but must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_domain` resource configuration block to the file:
 
     {{< file "domain_import.tf" >}}
 provider "linode" {
@@ -440,7 +440,7 @@ Due to the way the Linode API accesses domain records, you need to provide both 
 
 ### Create an Empty Resource Configuration
 
-1. Ensure you are in your [Terraform project directory](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform). Create a Terraform configuration file to manage the domain record you import in the next section. Your file can be named anything you like, but must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_domain_record` resource configuration block to the file:
+1. Ensure you are in your [Terraform project directory](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#install-terraform). Create a Terraform configuration file to manage the domain record you import in the next section. Your file can be named anything you like, but must end in `.tf`. Add a Linode provider block with your API access token and an empty `linode_domain_record` resource configuration block to the file:
 
     {{< file "domain_record_import.tf" >}}
 provider "linode" {
@@ -635,7 +635,7 @@ Though it is not required, it's a good idea to include a configuration for the s
 
 ## Import a NodeBalancer to Terraform
 
-Configuring [Linode NodeBalancers](/docs/products/networking/nodebalancers/get-started/) with Terraform requires three separate resource configuration blocks: one to create the NodeBalancer, a second for the NodeBalancer Configuration, and a third for the NodeBalancer Nodes.
+Configuring [Linode NodeBalancers](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-nodebalancers) with Terraform requires three separate resource configuration blocks: one to create the NodeBalancer, a second for the NodeBalancer Configuration, and a third for the NodeBalancer Nodes.
 
 ### Retrieve Your NodeBalancer, NodeBalancer Config, NodeBalancer Node IDs
 

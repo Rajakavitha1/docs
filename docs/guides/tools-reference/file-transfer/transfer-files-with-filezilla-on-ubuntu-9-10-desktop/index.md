@@ -1,22 +1,21 @@
 ---
 slug: transfer-files-with-filezilla-on-ubuntu-9-10-desktop
-deprecated: true
+title: 'Transfer Files with Filezilla on Ubuntu 9.10 Desktop'
 description: 'Securely copying files to and from your Linode with Filezilla, a free and open source file transfer client for Linux desktop systems.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2009-11-13
+modified: 2011-08-22
 keywords: ["filezilla", "ftp", "linux scp", "sftp", "linux sftp program", "linux ftp"]
 tags: ["ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/tools-reference/file-transfer/transfer-files-with-filezilla-on-ubuntu-9-10-desktop/','/networking/file-transfer/transfer-files-filezilla-ubuntu-9-10/']
-modified: 2011-08-22
-modified_by:
-  name: Linode
-published: 2009-11-13
-title: 'Transfer Files with Filezilla on Ubuntu 9.10 Desktop'
-authors: ["Linode"]
+aliases: []
+deprecated: true
 ---
 
 Filezilla is a free, open source file transfer program written for Linux, Mac OS X, and Windows systems. It implements several file transfer protocols, most notably SFTP via SSH. This tool allows you to securely transfer files to and from your Linode using an encrypted channel, avoiding the security problems and usability issues inherent in traditional FTP client/server systems. Filezilla can send both your login credentials and file transfers over the network securely encrypted (provided you're using SFTP), while standard FTP clients send this information as plaintext.
 
-You'll need to make sure your Linode is running an SSH daemon (all Linodes run an OpenSSH server by default), and that you have a user account on the server before following these instructions. If you wish, you may use the `root` account on your Linode to perform file transfers, although you may need to change [file ownership and permissions](/docs/guides/linux-users-and-groups/) on the server after doing so.
+You'll need to make sure your Linode is running an SSH daemon (all Linodes run an OpenSSH server by default), and that you have a user account on the server before following these instructions. If you wish, you may use the `root` account on your Linode to perform file transfers, although you may need to change [file ownership and permissions](/cloud/guides/linux-users-and-groups) on the server after doing so.
 
 ## Installing Filezilla
 
@@ -82,7 +81,7 @@ If you're asked for a password, please double-check the preceding steps in this 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
 - [Filezilla Documentation](http://wiki.filezilla-project.org/Documentation)
-- [Tools & Resources](/docs/tools-reference/)
+- [Tools & Resources](/cloud/guides/tools-reference)
 
 
 

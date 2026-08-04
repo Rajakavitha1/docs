@@ -1,19 +1,17 @@
 ---
 slug: how-to-use-ack-command
+title: "How to Use the ack Command on Linux"
+title_meta: "Using the ack Command on Linux"
 description: "The ack command provides a powerful alternative to grep. The ack command has the benefit of being specifically designed for working with source code repositories, making it a more well-suited tool for developers. In this tutorial, learn everything you need to get started using it."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-03-20
 keywords: ['ack command line', 'ack command in linux', 'ack command examples']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-20
-modified_by:
-  name: Nathaniel Stickman
-title: "How to Use the ack Command on Linux"
-title_meta: "Using the ack Command on Linux"
 external_resources:
 - '[ack!: Documentation](https://beyondgrep.com/documentation/)'
-- '[DigitalOcean: How To Install and Use Ack, a Grep Replacement for Developers, on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-ack-a-grep-replacement-for-developers-on-ubuntu-14-04)'
 - '[Linux Shell Tips: How to Install and Use Ack Command in Linux with Examples](https://www.linuxshelltips.com/ack-command-in-linux/)'
-authors: ["Nathaniel Stickman"]
 ---
 
 The Linux search tool *grep* has plenty to offer, but, if you are working with source code, there is a more efficient alternative. That alternative is *ack*, a faster tool dedicated specifically to searching source code.
@@ -24,9 +22,9 @@ This guide helps introduce you to *ack* and everything it has to offer. It cover
 
 ## Before You Begin
 
-1. Familiarize yourself with our [Getting Started with Linode](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1. Familiarize yourself with our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
+1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1. Update your system.
 
@@ -43,7 +41,7 @@ This guide helps introduce you to *ack* and everything it has to offer. It cover
         ```
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## ack vs grep: Which One to Use?
@@ -226,7 +224,7 @@ rails/db/seeds.rb
 
 *ack* uses the Perl implementation of regular expression syntax, also known as *Perlre*. The full reference for this regex syntax can be found in the [official Perldoc documentation](https://perldoc.perl.org/perlre).
 
-However, that reference can be daunting, especially when starting out with regex. You may, instead, find the coverage of regex filters in our [How to Filter Data Using AWK RegEx](/docs/guides/filter-data-using-awk-regex/) more helpful to start with. The guide does not specifically address Perl regex. Nonetheless, it provides useful examples and breakdowns to help you get a footing with regex's usage and capabilities generally.
+However, that reference can be daunting, especially when starting out with regex. You may, instead, find the coverage of regex filters in our [How to Filter Data Using AWK RegEx](/cloud/guides/filter-data-using-awk-regex) more helpful to start with. The guide does not specifically address Perl regex. Nonetheless, it provides useful examples and breakdowns to help you get a footing with regex's usage and capabilities generally.
 
 #### Count Matches per File
 

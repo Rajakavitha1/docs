@@ -1,7 +1,7 @@
-import { isMobile } from '../helpers';
+import { isMobile } from '../helpers/helpers';
 import { getScrollPosNavbar } from './nav';
 import { AnalyticsEventsCollector } from './nav-analytics';
-import { initConsentManager } from '../components/index';
+import { RecommendationsFetcher } from './recommendations';
 
 export function newNavStore(searchConfig, searchStore, params, Alpine) {
 	const debug = 0 ? console.log.bind(console, '[nav-store]') : function () {};
@@ -36,15 +36,24 @@ export function newNavStore(searchConfig, searchStore, params, Alpine) {
 			toc: false,
 		},
 
-		// TrustArc consent settings. This will also be set on the window object,
-		// but keep it here so we can react on changes.
-		trustecm: {
+		onetrust: {
 			required: false,
-			socialmedia: false,
-			targeting: false,
-			functional: false,
 			performance: false,
+			functional: false,
+			targeting: false,
+			socialmedia: false,
+
+			toggleConsentDialog(event) {
+				if (!window.OneTrust) {
+					return;
+				}
+				debug('toggleConsentDialog');
+				window.OneTrust.ToggleInfoDisplay();
+				event.preventDefault();
+			},
 		},
+
+		recommendations: new RecommendationsFetcher(searchConfig),
 
 		init() {
 			const tabsKey = 'tabs';
@@ -88,11 +97,10 @@ export function newNavStore(searchConfig, searchStore, params, Alpine) {
 					}
 				}
 			});
-			window.trustecm = this.trustecm;
 			let getLastQueryID = () => {
 				return searchStore.results.lastQueryID;
 			};
-			this.analytics = new AnalyticsEventsCollector(searchConfig, getLastQueryID, this.trustecm);
+			this.analytics = new AnalyticsEventsCollector(searchConfig, getLastQueryID, this.onetrust);
 
 			// The callback below may be called multiple times.
 			let analyticsLoadEventPublished = false;
@@ -109,8 +117,17 @@ export function newNavStore(searchConfig, searchStore, params, Alpine) {
 					this.analytics.handler.startNewPage();
 				}
 			};
+		},
 
-			initConsentManager(params.trustarc_domain, this.trustecm, cb);
+		updateOptanonGroups(groups) {
+			// Groups on form ,C0001,C0002,C0003,C0004,C0005,
+			// Split on comma, remove empty strings.
+			let groupArray = groups.split(',').filter(Boolean);
+			this.onetrust.required = groupArray.includes('C0001');
+			this.onetrust.performance = groupArray.includes('C0002');
+			this.onetrust.functional = groupArray.includes('C0003');
+			this.onetrust.targeting = groupArray.includes('C0004');
+			this.onetrust.socialmedia = groupArray.includes('C0005');
 		},
 
 		openSearchPanel(scrollUp = false) {
@@ -137,7 +154,7 @@ export function newNavStore(searchConfig, searchStore, params, Alpine) {
 			}
 
 			// We got here directly, no history. Navigate back to the home page.
-			Turbo.visit('/docs');
+			Turbo.visit(window.docsRelUrl('/'));
 		},
 
 		pushState(href) {
@@ -152,7 +169,7 @@ export function newNavStore(searchConfig, searchStore, params, Alpine) {
 			meta.name = 'robots';
 			meta.content = 'noindex';
 			document.head.appendChild(meta);
-			this.pushState('/docs/topresults/' + queryString);
+			this.pushState(window.docsRelUrl('/topresults/' + queryString));
 		},
 
 		scrollToNavBarIfPinned() {

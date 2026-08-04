@@ -1,19 +1,19 @@
 ---
 slug: install-odoo-10-on-ubuntu-16-04
+title: 'Install Odoo 10 on Ubuntu 16.04'
 description: 'This guide shows you how to install and configure Odoo, an open-source suite of over 4,500 business utilities which you can individually install, on Ubuntu 16.04.'
+authors: ["Damaso Sanoja"]
+contributors: ["Damaso Sanoja"]
+published: 2017-04-04
+modified: 2018-01-02
 keywords: ["Odoo", "Odoo ERP", "CMS", "Ubuntu", "CRM", "OpenERP", "Odoo 10", "Ubuntu 16.04"]
 tags: ["ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2017-04-04
-modified: 2018-01-02
-modified_by:
-  name: Linode
-title: 'Install Odoo 10 on Ubuntu 16.04'
-aliases: ['/websites/cms/install-odoo-10-on-ubuntu-16-04/','/websites/erp/install-odoo-10-on-ubuntu-16-04/']
+aliases: []
 external_resources:
  - '[Odoo User Documentation](https://www.odoo.com/documentation/user/10.0/)'
  - '[Odoo Developer Documentation](https://www.odoo.com/documentation/10.0)'
-authors: ["Damaso Sanoja"]
+deprecated: true
 ---
 
 [Odoo](https://www.odoo.com/) (formerly known as OpenERP) is an open-source suite of business applications including customer relationship management (CRM), sales pipeline, project management, manufacturing, invoicing, accounting, eCommerce, and inventory tools, just to name a few. There are thirty-four main applications created by the Odoo team and more than 5,500 developed by community members, covering a wide range of business needs.
@@ -26,13 +26,13 @@ This guide covers how to install and configure Odoo in under an hour using Git s
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access. **Do not** follow the *Configuring a Firewall* section in the Securing Your Server Guide--we will configure the firewall for an Odoo production server in the next section.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access. **Do not** follow the *Configuring a Firewall* section in the Securing Your Server Guide--we will configure the firewall for an Odoo production server in the next section.
 
 ## Configure UFW Firewall for Odoo
 
-Before installing Odoo, we'll set up some basic firewall rules to allow SSH connections and access to the Odoo server. In this example we'll use Odoo's default port `8069`, but this could be any port you specify later in the configuration file. If you plan to run any other services, you can add their ports here as well. Refer to our guide on how to [Configure a Firewall with UFW](/docs/guides/configure-firewall-with-ufw/#use-ufw-to-manage-firewall-rules) for help with rules and settings:
+Before installing Odoo, we'll set up some basic firewall rules to allow SSH connections and access to the Odoo server. In this example we'll use Odoo's default port `8069`, but this could be any port you specify later in the configuration file. If you plan to run any other services, you can add their ports here as well. Refer to our guide on how to [Configure a Firewall with UFW](/cloud/guides/configure-firewall-with-ufw#use-ufw-to-manage-firewall-rules) for help with rules and settings:
 
     sudo ufw allow ssh
     sudo ufw allow 8069/tcp
@@ -56,7 +56,7 @@ Install the PostgreSQL database, Python, and other necessary server libraries:
 
 3.  Press **CTRL+D** to exit the `postgres` user session.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If you want to run multiple Odoo instances on the same Linode remember to check your PostgreSQL client configuration file (as of the date this guide is published, located at `/etc/postgresql/9.5/main/pg_hba.conf`) and modify it according your needs.
 {{< /note >}}
 
@@ -65,8 +65,7 @@ If you want to run multiple Odoo instances on the same Linode remember to check 
 In order to separate Odoo from other services, create a new Odoo system user to run its processes:
 
     sudo adduser --system --home=/opt/odoo --group odoo
-
-{{< note respectIndent=false >}}
+{{< note >}}
 If you're running multiple Odoo versions on the same Linode, you may want to use different users and directories for each instance.
 {{< /note >}}
 
@@ -85,8 +84,7 @@ For logging, Ubuntu 16.04 uses `systemd` and `journald` by default. With that in
 Clone the Odoo files onto your server:
 
     sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 10.0 --single-branch /opt/odoo
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Using git offers great flexibility. When a new upgrade is available, pull the new branch. You can even install a different version alongside the production one, just change the destination directory and the `--branch X.x` flag. Before upgrading, remember to make a full backup of your database and custom files.
 {{< /note >}}
 
@@ -137,8 +135,7 @@ These commands use the `requirements.txt` files provided with your Odoo installa
 
         sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
         sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
-
-{{< note respectIndent=false >}}
+{{< note >}}
 While wkhtmltopdf version 0.12.2.4 is available in the official Ubuntu 16.04 repository, we don't advise installing it from there due to the large number of dependencies including: `xserver`, `gstreamer`, `libcups`, `wayland`, `qt5` and many more. There isn't an official Xenial package from the project page yet, but the Trusty package from Ubuntu 14.04 is compatible as of this publication.
 {{< /note >}}
 
@@ -430,4 +427,4 @@ If all your tests pass, you can safely update your production installation.
 
 ## Next Steps
 
-If you plan to use Odoo 10 for your business, you may wish to configure SSL/TLS encryption to enable secure connections to your server. To do this, check out our guide on how to [install an SSL certificate with LetsEncrypt](/docs/guides/install-lets-encrypt-to-create-ssl-certificates/).
+If you plan to use Odoo 10 for your business, you may wish to configure SSL/TLS encryption to enable secure connections to your server. To do this, check out our guide on how to [install an SSL certificate with LetsEncrypt](/cloud/guides/install-lets-encrypt-to-create-ssl-certificates).

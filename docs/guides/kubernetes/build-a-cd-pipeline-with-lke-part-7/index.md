@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-7
-description: "In part seven of our series on Kubernetes, you will learn what Helm is, how you can use it, and the differences between Helm version 2 and Helm version 3."
 title: "Building a CD Pipeline Using LKE (Part 7): Managing Stacks with Helm"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: "In part seven of our series on Kubernetes, you will learn what Helm is, how you can use it, and the differences between Helm version 2 and Helm version 3."
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2022-12-14
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-7/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Managing Stacks with Helm](cd-presentation-header-07-managing-stacks-with-helm.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Managing Stacks with Helm")
@@ -25,9 +24,9 @@ Helm allows us to locate, distribute, and manage software for Kubernetes. This p
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Previous section:** [Part 6: DNS, Ingress, and Metrics](/docs/guides/build-a-cd-pipeline-with-lke-part-6/)
-- **Next section:** [Part 8: ExternalDNS](/docs/guides/build-a-cd-pipeline-with-lke-part-8/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Previous section:** [Part 6: DNS, Ingress, and Metrics](/cloud/guides/build-a-cd-pipeline-with-lke-part-6)
+- **Next section:** [Part 8: ExternalDNS](/cloud/guides/build-a-cd-pipeline-with-lke-part-8)
 
 ## Presentation Text
 

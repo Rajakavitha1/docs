@@ -1,17 +1,16 @@
 ---
 slug: filezilla
+title: 'Transfer Files with FileZilla'
 description: 'Securely copying files to and from your Linode with FileZilla, a free and open source file transfer client for Linux, OS X, and Windows systems.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2014-10-13
+modified: 2019-01-15
 keywords: ["filezilla", "ftp", "scp", "sftp", "transfer"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/tools-reference/file-transfer/filezilla/','/networking/file-transfer/transfer-files-filezilla/']
-modified: 2019-01-15
-modified_by:
-  name: Linode
-published: 2014-10-13
-title: 'Transfer Files with FileZilla'
+aliases: []
 external_resources:
  - '[FileZilla Documentation](https://wiki.filezilla-project.org/Documentation)'
-authors: ["Linode"]
 ---
 
 ![Transfer Files with FileZilla](transfer-files-with-filezilla.png "Transfer Files with FileZilla")
@@ -21,8 +20,8 @@ authors: ["Linode"]
 
 ## Before You Begin
 
-- You will need root access to your Linode, or a user account with `sudo` privilege. Note that if you transfer files as `root`, you may need to change file [ownership and permissions](/docs/guides/linux-users-and-groups/) afterwards.
-- Set your system's [hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname).
+- You will need root access to your Linode, or a user account with `sudo` privilege. Note that if you transfer files as `root`, you may need to change file [ownership and permissions](/cloud/guides/linux-users-and-groups) afterwards.
+- Set your system's [hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname).
 - Update your system.
 
 
@@ -52,13 +51,13 @@ authors: ["Linode"]
 
 ## FileZilla with Public Key Authentication
 
-If you followed our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide, you won't be able to connect to your Linode using a password. If you are using Linux or macOS, the SSH keypair generated while following that guide will be automatically used for authentication.
+If you followed our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide, you won't be able to connect to your Linode using a password. If you are using Linux or macOS, the SSH keypair generated while following that guide will be automatically used for authentication.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If you are using macOS, the passphrase for your key will need to be stored in your keychain to successfully connect using an SSH keypair. FileZilla will not be able to use a key that was generated without a passphrase to connect to your Linode.
 {{< /note >}}
 
-If you are using Windows, you'll need to follow a few additional steps to enable key based authentication. The instructions below assume that you have already completed the guide for [generating your SSH key with Putty](/docs/guides/use-public-key-authentication-with-ssh/#windows-operating-system).
+If you are using Windows, you'll need to follow a few additional steps to enable key based authentication. The instructions below assume that you have already completed the guide for [generating your SSH key with Putty](/cloud/guides/use-public-key-authentication-with-ssh#public-key-authentication-with-putty-on-windows).
 
 1.  Install Pageant from the [Putty site](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 

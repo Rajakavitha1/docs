@@ -1,30 +1,28 @@
 ---
 slug: write-to-a-file-from-the-shell
+title: "Write to a File From the Shell"
+title_meta: "How to Write to a File From the Shell"
 description: "This guide shows you convenient and built-in commands for writing to a file direct from the shell, and walks you through some practical examples to get you started."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-08-12
 keywords: ['shell write to file', 'append to file', 'bash write output to file', 'zsh write to file', 'write to file command', 'write variable to file']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-08-12
 image: HowtoWritetoaFileFromtheShell.jpg
-modified_by:
-  name: Nathaniel Stickman
-title: "Write to a File From the Shell"
-title_meta: "How to Write to a File From the Shell"
 external_resources:
 - '[Here Documents](https://tldp.org/LDP/abs/html/here-docs.html)'
 - '[Sed](https://www.gnu.org/software/sed/manual/sed.html)'
-authors: ["Nathaniel Stickman"]
 ---
 
-When working from the command line, it can be convenient to write to files without the need to open a text editor like [Nano](/docs/guides/use-nano-to-edit-files-in-linux/), or Vim. There are some handy Linux operators and commands to make writing to files simple to accomplish. This guide shows you how to use key operators and commands to write to files from the shell. These commands work with [Bash](/docs/guides/intro-bash-shell-scripting/#bash-basics), [Zsh](https://www.zsh.org/) shells, and several other Unix shells.
+When working from the command line, it can be convenient to write to files without the need to open a text editor like [Nano](/cloud/guides/use-nano-to-edit-files-in-linux), or Vim. There are some handy Linux operators and commands to make writing to files simple to accomplish. This guide shows you how to use key operators and commands to write to files from the shell. These commands work with [Bash](/cloud/guides/intro-bash-shell-scripting#bash-basics), [Zsh](https://www.zsh.org/) shells, and several other Unix shells.
 
 ## Writing to a File Using Redirection Operators
 
 ### The Regular Output Operator (`>`)
 
 You can use the regular output operator (`>`) to write text to a file. If it does not exist already, it creates the file.
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 Using the `>` operator on an existing file overwrites that file's contents.
 {{< /note >}}
 
@@ -154,7 +152,7 @@ without evaluating either.
 
 ## Advanced Editing with Sed
 
-[Sed](/docs/guides/manipulate-text-from-the-command-line-with-sed/) is a command-line stream editor that gives you access to advanced file writing features while still working from the shell.
+[Sed](/cloud/guides/manipulate-text-from-the-command-line-with-sed) is a command-line stream editor that gives you access to advanced file writing features while still working from the shell.
 
 The operators in the sections above give you ways to write to files and append content to them. Sed can write to files, but also provides powerful tools for editing and manipulating files.
 
@@ -231,4 +229,4 @@ without evaluating it.
 
 ## Conclusion
 
-With the redirect operators and Sed commands above, you should be able to write to files directly right from the command line. The operators and commands used in this guide are also helpful when you need to work with files in Bash scripts and other shell scripts. If you are interested in learning more about Bash scripts, check out our [series of guides on Bash scripting](/docs/guides/development/bash/).
+With the redirect operators and Sed commands above, you should be able to write to files directly right from the command line. The operators and commands used in this guide are also helpful when you need to work with files in Bash scripts and other shell scripts. If you are interested in learning more about Bash scripts, check out our [series of guides on Bash scripting](/cloud/guides/development/bash).

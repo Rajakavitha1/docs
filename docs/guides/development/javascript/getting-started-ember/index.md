@@ -1,19 +1,18 @@
 ---
 slug: getting-started-ember
-description: "Ember offers a full framework for constructing modern web applications. Using an MVC structure, Ember comes with everyting you need, from templates and routing through components and services. Follow this tutorial to learn more about Ember and see how you can start making your own applications with it."
+title: "How to Build a Website with the Ember Framework"
+title_meta: "Building a Website with the Ember Framework"
+description: "Ember offers a full framework for constructing modern web applications. Using an MVC structure, Ember comes with everything you need, from templates and routing through components and services. Follow this tutorial to learn more about Ember and see how you can start making your own applications with it."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-04-03
 keywords: ['javascript ember tutorial', 'ember js examples', 'create ember project']
 tags: ['web applications']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-04-03
-modified_by:
-  name: Nathaniel Stickman
-title: "How to Build a Website with the Ember Framework"
-title_meta: "Building a Website with the Ember Framework"
 external_resources:
 - '[Ember Guides: Introduction](https://guides.emberjs.com/release/tutorial/part-1/)'
 - '[MDN Web Docs: Getting Started with Ember](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_getting_started)'
 - '[Tutorials Point: EmberJS Tutorial](https://www.tutorialspoint.com/emberjs/index.htm)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Ember is a JavaScript framework for making the process of developing modern web applications better for developers and users. Ember's component and service-based framework give powerful tools for making consistent and efficient applications.
@@ -22,9 +21,9 @@ With this guide, learn what Ember has to offer and how it structures its applica
 
 ## Before You Begin
 
-1. Familiarize yourself with our [Getting Started with Linode](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1. Familiarize yourself with our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
+1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1. Update your system.
 
@@ -41,7 +40,7 @@ With this guide, learn what Ember has to offer and how it structures its applica
         ```
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is the Ember Framework?
@@ -80,7 +79,7 @@ But Ember does have tools that you likely want to install to make working with E
 
 These steps walk you through installing the Ember tooling.
 
-1. Follow our tutorial on how to [Install and Use the Node Package Manager (NPM) on Linux](/docs/guides/install-and-use-npm-on-linux/).
+1. Follow our tutorial on how to [Install and Use the Node Package Manager (NPM) on Linux](/cloud/guides/install-and-use-npm-on-linux).
 
 1. Install the Ember command-line (CLI) tool as a global NPM package:
 
@@ -139,9 +138,9 @@ Ember serves the application on port `4200` by default. You can access the appli
 {{< note >}}
 To access this remotely, you may first need to open the port in your system's firewall. You can learn about how to do that in one of the guides linked below, depending on your system's Linux distribution.
 
-- For **Debian** and **Ubuntu**, refer to our guide on [How to Configure a Firewall with UFW](/docs/guides/configure-firewall-with-ufw/).
+- For **Debian** and **Ubuntu**, refer to our guide on [How to Configure a Firewall with UFW](/cloud/guides/configure-firewall-with-ufw).
 
-- For **AlmaLinux**, **CentOS**, and **Fedora**, refer to our guide on [Enabling and Configuring FirewallD on CentOS](/docs/guides/introduction-to-firewalld-on-centos/)
+- For **AlmaLinux**, **CentOS**, and **Fedora**, refer to our guide on [Enabling and Configuring FirewallD on CentOS](/cloud/guides/introduction-to-firewalld-on-centos)
 {{< /note >}}
 
 ![Ember welcome page](ember-default-app.png)

@@ -1,24 +1,22 @@
 ---
 slug: getting-started-with-nginx-part-4-tls-deployment-best-practices
+title: "Getting Started with NGINX (Part 4): TLS Deployment Best Practices"
+title_meta: "Getting Started with NGINX: TLS Deployment Best Practices"
 description: "This is step four in our guide to Getting Started with NGINX where you will learn best practices, tips, and tricks, when you are deploying HTTPS websites and NGINX."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-02-09
 keywords: ["ssl", "tls", "nginx", "https", "certificate", "hsts", "ocsp", "http2"]
 tags: ["web server","http","nginx","security","ssl"]
 license: '[CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/nginx/nginx-ssl-and-tls-deployment-best-practices/','/web-servers/nginx/tls-deployment-best-practices-for-nginx/','/web-servers/nginx/nginx-ssl-and-tls-deployment-best-practices/','/guides/tls-deployment-best-practices-for-nginx/']
-published: 2018-02-09
-modified: 2018-02-09
-modified_by:
-  name: Linode
-title: "Getting Started with NGINX (Part 4): TLS Deployment Best Practices"
-title_meta: "Getting Started with NGINX: TLS Deployment Best Practices"
-authors: ["Linode"]
+aliases: []
 ---
 
 ![TLS Deployment Best Practices](getting-started-nginx-part-4-tls-deployment-best-practices.jpg)
 
 ## Before you Begin
 
-- This guide is Part 4 of our *Getting Started with NGINX* series and you will need a working NGINX setup with a website accessible via HTTPS. If do not already have that, then complete at least [Part 1: Basic Installation and Setup](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/) and [Part 3: Enable TLS on NGINX for HTTPS Connections](/docs/guides/getting-started-with-nginx-part-3-enable-tls-for-https/) before going further.
+- This guide is Part 4 of our *Getting Started with NGINX* series and you will need a working NGINX setup with a website accessible via HTTPS. If do not already have that, then complete at least [Part 1: Basic Installation and Setup](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup) and [Part 3: Enable TLS on NGINX for HTTPS Connections](/cloud/guides/getting-started-with-nginx-part-3-enable-tls-for-https) before going further.
 
 - You will need root access to the system, or a user account with `sudo` privilege.
 
@@ -28,9 +26,8 @@ authors: ["Linode"]
         cp -r /etc/nginx/conf.d/ /etc/nginx/conf.d-backup-pt4
 
 - To enable any configuration changes you make, you need to run `nginx -s reload` as root.
-
-{{< note type="alert" respectIndent=false >}}
-Most directives in this guide can be added either to NGINX's `http` block, or an individual site's `server` block. The exceptions are `add_header` directives, which are [not inherited](/docs/guides/getting-started-with-nginx-part-2-advanced-configuration/#http-response-header-fields). If you're only hosting one website, or if you want all your hosted sites to have the same NGINX parameters, then adding all your `add_header` directives the `http` block is fine. If you intend to use different header options for different site configurations, [see here](/docs/guides/getting-started-with-nginx-part-2-advanced-configuration/#http-response-header-fields) for a different approach.
+{{< note type="alert" >}}
+Most directives in this guide can be added either to NGINX's `http` block, or an individual site's `server` block. The exceptions are `add_header` directives, which are [not inherited](/cloud/guides/getting-started-with-nginx-part-2-advanced-configuration#http-response-header-fields). If you're only hosting one website, or if you want all your hosted sites to have the same NGINX parameters, then adding all your `add_header` directives the `http` block is fine. If you intend to use different header options for different site configurations, [see here](/cloud/guides/getting-started-with-nginx-part-2-advanced-configuration#http-response-header-fields) for a different approach.
 {{< /note >}}
 
 ## Redirect Incoming HTTP Traffic HTTPS
@@ -74,7 +71,7 @@ server {
 
 For more information on HSTS in NGINX, [see NGINX's blog](https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/).
 
-1.  Add the HSTS header directive to the `http` block of `/etc/nginx/nginx.conf`. If you choose to put it elsewhere, remember that HTTP response header fields are [not inherited](/docs/guides/getting-started-with-nginx-part-2-advanced-configuration/#http-response-header-fields) from parent blocks.
+1.  Add the HSTS header directive to the `http` block of `/etc/nginx/nginx.conf`. If you choose to put it elsewhere, remember that HTTP response header fields are [not inherited](/cloud/guides/getting-started-with-nginx-part-2-advanced-configuration#http-response-header-fields) from parent blocks.
 
     {{< file "/etc/nginx/nginx.conf" nginx >}}
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
@@ -98,7 +95,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 A Diffie-Hellman parameter is a set of randomly generated data used when establishing [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) during initiation of an HTTPS connection. The default size is usually 1024 or 2048 bits, depending on the server's OpenSSL version, but a 4096 bit key will provide greater security.
 
-1.  Change directories to where you maintain your site's TLS certificates. [From Part 3](/docs/guides/getting-started-with-nginx-part-3-enable-tls-for-https/), we're maintaining the server's certificates out of `/root/certs/example.com/` so we'll continue with that here.
+1.  Change directories to where you maintain your site's TLS certificates. [From Part 3](/cloud/guides/getting-started-with-nginx-part-3-enable-tls-for-https), we're maintaining the server's certificates out of `/root/certs/example.com/` so we'll continue with that here.
 
         cd /root/certs/example.com
 
@@ -110,7 +107,7 @@ A Diffie-Hellman parameter is a set of randomly generated data used when establi
 According to the [OpenSSL manual](https://wiki.openssl.org/index.php/Manual:Openssl(1)#STANDARD_COMMANDS), `genpkey -genparam` supersedes `dhparam`.
 {{< /note >}}
 
-3.  Add this to the rest of your *ssl_* directives, be they in the `http` of `/etc/nginx/nginx.conf`, or an HTTPS site's `server` block:
+3.  Add this to the rest of your `ssl_` directives, be they in the `http` of `/etc/nginx/nginx.conf`, or an HTTPS site's `server` block:
 
         ssl_dhparam /root/certs/example.com/dhparam4096.pem;
 
@@ -120,7 +117,7 @@ Web browsers support many OpenSSL cipher suites, some of which are inefficient o
 
 If you have selected a good cipher suite combination with NGINX's `ssl_ciphers` directive, you are increasing the connection's security because NGINX is telling the browser it only wants to communicate through strong cipher and hashing algorithms.
 
-Add this to the rest of your *ssl_* directives, be they in the `http` of `/etc/nginx/nginx.conf`, or an HTTPS site's `server` block:
+Add this to the rest of your `ssl_` directives, be they in the `http` of `/etc/nginx/nginx.conf`, or an HTTPS site's `server` block:
 
 {{< file "/etc/nginx/nginx.conf" nginx >}}
 ssl_prefer_server_ciphers on;
@@ -136,7 +133,7 @@ keepalive_timeout 75;
 
 ## Increase TLS Session Duration
 
-Maintain a connected client's SSL/TLS session for 10 minutes before needing to re-negotiate the connection. Add these to the rest of your *ssl_* directives, be they in the `http` or an HTTPS site's `server` block:
+Maintain a connected client's SSL/TLS session for 10 minutes before needing to re-negotiate the connection. Add these to the rest of your `ssl_` directives, be they in the `http` or an HTTPS site's `server` block:
 
 {{< file "/etc/nginx/nginx.conf" nginx >}}
 ssl_session_cache shared:SSL:10m;

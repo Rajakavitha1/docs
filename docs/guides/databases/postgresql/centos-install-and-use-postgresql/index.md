@@ -1,15 +1,15 @@
 ---
 slug: centos-install-and-use-postgresql
+title: "Install and Use PostgreSQL on CentOS 8"
+title_meta: "How to Install and Use PostgreSQL on CentOS 8"
 description: 'This guide provides an introduction to installing PostgreSQL, an open source object-Relational Database Management System (RDBMS) on CentOS 8.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-02-02
 keywords: ['database','postgresql','centos', 'yum']
 tags: ["database","postgresql","centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-02
 image: postgreSQL.jpg
-modified_by:
-  name: Linode
-title: "Install and Use PostgreSQL on CentOS 8"
-title_meta: "How to Install and Use PostgreSQL on CentOS 8"
 external_resources:
 - '[PostgreSQL](https://www.postgresql.org/)'
 - '[PostgreSQL Downloads Page](https://www.postgresql.org/ftp/source/)'
@@ -29,19 +29,18 @@ relations:
         key: use-postrgesql-database
         keywords:
             - distribution: CentOS 8
-authors: ["Jeff Novotny"]
 ---
 
 This guide demonstrates how to install and use [*PostgreSQL*](https://www.postgresql.org/), a popular open-source *object-relational database management system* (RDBMS). PostgreSQL enhances the original *Structured Query Language* (SQL) specification with many new features but still emphasizes compliance. PostgreSQL transactions are atomic, consistent, isolated, and durable which means the application is *ACID-compliant*. PostgreSQL ranks as one of the most widely-used database systems and is available for CentOS 8 and most other operating systems.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Advantages and Disadvantages of PostgreSQL
@@ -510,8 +509,8 @@ There is a security risk in opening up PostgreSQL to listen for remote connectio
 
 The following Linode guides provide more information on pgAdmin:
 
-- [How to Access PostgreSQL Database Remotely Using pgAdmin on Windows](/docs/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows/)
-- [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/docs/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x/)
+- [How to Access PostgreSQL Database Remotely Using pgAdmin on Windows](/cloud/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows)
+- [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/cloud/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x)
 
 ## Learn More About PostgreSQL
 

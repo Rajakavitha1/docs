@@ -1,16 +1,16 @@
 ---
 slug: centos-wireguard-installation-and-configuration
+title: "Installing and Configuring WireGuard on CentOS 8"
+title_meta: "How to Install and Configure WireGuard on CentOS 8"
 description: 'This guide provides you with step-by-step instructions on how to install and configure the WireGuard Virtual Private Network services on CentOS 8.'
+authors: ["Steven J. Vaughan-Nichols"]
+contributors: ["Steven J. Vaughan-Nichols"]
+published: 2021-05-21
 keywords: ['centos', 'wireguard', 'vpn']
 tags: ['wireguard', 'centos', 'vpn']
 bundles: ['network-security']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-05-21
 image: WireGuard.jpg
-modified_by:
-  name: Linode
-title: "Installing and Configuring WireGuard on CentOS 8"
-title_meta: "How to Install and Configure WireGuard on CentOS 8"
 external_resources:
 - '[WireGuard](https://www.wireguard.com/)'
 - '[WireGuard was merged into the Linux kernel 5.6](https://www.zdnet.com/article/linuxs-wireguard-vpn-is-here-and-ready-to-protect-you/)'
@@ -31,7 +31,6 @@ external_resources:
 - '[Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)'
 - '[CentOS](https://www.centos.org/)'
 - '[wg-quick](https://manpages.debian.org/unstable/wireguard-tools/wg-quick.8.en.html)'
-authors: ["Steven J. Vaughan-Nichols"]
 ---
 
 ## What is WireGuard?
@@ -62,13 +61,13 @@ WireGuard was written by top Linux developer Jason A. Donenfeld as a new approac
 
 WireGuard works by securely encapsulating IP packets over UDP. WireGuard adds a network interface, `lime eth0` or `wlan0` under the name `wg0` and so on. You configure these with your private key and your peers' public keys. This network interface can then be configured with the usual Linux networking utilities such as `ifconfig(8)`; `ip-address(8)`; `route(8)` and `ip-route(8)`. WireGuard specific aspects are configured using the [wg(8)](https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8) tool. All key distribution and pushed configuration issues are out of WireGuard's scope.
 
-Configuring WireGuard is as simple as [setting up SSH](/docs/guides/security). A connection is established by an exchange of public keys between server and client. Only a client that has its public key in its corresponding server configuration file is allowed to connect.
+Configuring WireGuard is as simple as [setting up SSH](/cloud/guides/security). A connection is established by an exchange of public keys between server and client. Only a client that has its public key in its corresponding server configuration file is allowed to connect.
 
 ## Before You Begin
 
-- [Deploy a Linode](/docs/products/compute/compute-instances/guides/create/) running CentOS 8.
-- [Add a limited user account](/docs/products/compute/compute-instances/guides/set-up-and-secure/#add-a-limited-user-account) with `sudo` privileges to your Linode.
-- Set your system's [hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname).
+- [Deploy a Linode](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) running CentOS 8.
+- [Add a limited user account](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#add-a-limited-user-account) with `sudo` privileges to your Linode.
+- Set your system's [hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname).
 
 ## Install WireGuard
 

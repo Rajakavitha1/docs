@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-5
-description: "In part five of our series on Kubernetes, you will learn how to privately access internal services within your cluster using kubectl proxy and kubectl port-forward."
 title: "Building a CD Pipeline Using LKE (Part 5): Accessing Internal Services"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: "In part five of our series on Kubernetes, you will learn how to privately access internal services within your cluster using kubectl proxy and kubectl port-forward."
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2022-12-14
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-5/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Accessing Internal Services](cd-presentation-header-05-accessing-internal-services.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Accessing Internal Services")
@@ -25,9 +24,9 @@ It's often necessary to access internal services within the Kubernetes cluster w
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Previous section:** [Part 4: Kubernetes Review](/docs/guides/build-a-cd-pipeline-with-lke-part-4/)
-- **Next section:** [Part 6: DNS, Ingress, and Metrics](/docs/guides/build-a-cd-pipeline-with-lke-part-6/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Previous section:** [Part 4: Kubernetes Review](/cloud/guides/build-a-cd-pipeline-with-lke-part-4)
+- **Next section:** [Part 6: DNS, Ingress, and Metrics](/cloud/guides/build-a-cd-pipeline-with-lke-part-6)
 
 ## Presentation Text
 

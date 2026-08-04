@@ -1,20 +1,19 @@
 ---
 slug: vpn-firewall-killswitch-for-linux-and-macos-clients
-description: "This guide walks you through setting up a VPN kill switch with iptables on OpenVPN clients."
-keywords: ["vpn", "security"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2018-07-09
-modified_by:
-  name: Linode
-published: 2017-09-29
 title: "Configuring a VPN Kill Switch on OpenVPN Clients Using iptables"
 title_meta: "How to Configure a VPN Kill Switch on OpenVPN Clients"
+description: "This guide walks you through setting up a VPN kill switch with iptables on OpenVPN clients."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2017-09-29
+modified: 2018-07-09
+keywords: ["vpn", "security"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Official OpenVPN Documentation](https://openvpn.net/index.php/open-source/documentation.html)'
 - '[Ubuntu Help Page for iptables](https://help.ubuntu.com/community/IptablesHowTo)'
 tags: ["networking","security","vpn"]
-aliases: ['/networking/vpn/vpn-firewall-killswitch-for-linux-and-macos-clients/']
-authors: ["Linode"]
+aliases: []
 ---
 
 A virtual private network is often used to evade censorship, surveillance, or geolocation by routing internet traffic from your local device to the remote VPN server through an encrypted tunnel. In this scenario, the VPN server is the internet gateway for all connected client devices, and it forwards traffic from clients out to the internet, then receives and routes the traffic back to the client devices. However, there is always a risk that the VPN connection will unexpectedly drop, which can result in your traffic being communicated over the public internet instead of through the encrypted VPN connection.
@@ -25,11 +24,11 @@ For this reason, VPN clients often use firewall rules to ensure that internet tr
 
 This guide assumes that you already have an OpenVPN server running on your Linode, and have at least one client configured to connect to it. If you need help doing this, see our three-part series on setting up an OpenVPN environment:
 
-1.  [Set Up a Hardened OpenVPN Server with Debian](/docs/guides/set-up-a-hardened-openvpn-server/)
+1.  [Set Up a Hardened OpenVPN Server with Debian](/cloud/guides/set-up-a-hardened-openvpn-server)
 
-2.  [Tunnel Your Internet Traffic Through an OpenVPN Server](/docs/guides/tunnel-your-internet-traffic-through-an-openvpn-server/)
+2.  [Tunnel Your Internet Traffic Through an OpenVPN Server](/cloud/guides/tunnel-your-internet-traffic-through-an-openvpn-server)
 
-3.  [Configuring OpenVPN Client Devices](/docs/guides/configuring-openvpn-client-devices/)
+3.  [Configuring OpenVPN Client Devices](/cloud/guides/configuring-openvpn-client-devices)
 
 
 ## Gather Client Device Information
@@ -76,8 +75,7 @@ remote 198.51.100.0 1194
 The majority of GNU/Linux users use either `iptables` or `ufw` to manage their firewall. This guide will cover configuration for both of these options.
 
 ### VPN firewall using iptables
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 You may want to back up your current iptables ruleset with `iptables-save`.
 {{< /note >}}
 
@@ -109,11 +107,10 @@ iptables -A OUTPUT -j ACCEPT -o tun0
 
 This ruleset replaces the pre-exiting iptables rules and instructs the firewall to drop every outgoing connection other than loopback traffic, the local network's subnet and UDP traffic to and from your OpenVPN server's IP on port 1194. In addition, all incoming and outgoing connections are allowed over the virtual network interface `tun0`.
 
-Your VPN firewall is now active, but this ruleset is only temporary and will be cleared when you reboot your Linode. To make the firewall permanent, you can install the `iptables-persistent` package for Debian or Ubuntu-based distributions, or you can see our [iptables](/docs/guides/control-network-traffic-with-iptables/#deploy-your-iptables-rulesets) or [Firewalld](/docs/guides/introduction-to-firewalld-on-centos/#constructing-a-ruleset-with-firewalld) guides to create permanent rulesets and/or profiles.
+Your VPN firewall is now active, but this ruleset is only temporary and will be cleared when you reboot your Linode. To make the firewall permanent, you can install the `iptables-persistent` package for Debian or Ubuntu-based distributions, or you can see our [iptables](/cloud/guides/control-network-traffic-with-iptables#deploy-your-iptables-rulesets) or [Firewalld](/cloud/guides/introduction-to-firewalld-on-centos#constructing-a-ruleset-with-firewalld) guides to create permanent rulesets and/or profiles.
 
 ### VPN Firewall using ufw
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 You may want to back up your current firewall ruleset.
 {{< /note >}}
 

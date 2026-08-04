@@ -1,15 +1,14 @@
 ---
 slug: open-source-software-benefits
+title: "What are the Advantages of Open Source Software?"
+title_meta: "Open Source Software: Benefits Explained"
 description: 'What is open source software and how does it work? We answer these questions, note the advantages and disadvantages of open source software, plus examples.'
+authors: ["Jack Wallen"]
+contributors: ["Jack Wallen"]
+published: 2021-11-24
 keywords: ['benefits of open source','benefits of open source software','advantages of open source software']
 tags: ['linux', 'apache']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-24
-modified_by:
-  name: Linode
-title: "What are the Advantages of Open Source Software?"
-title_meta: "Open Source Software: Benefits Explained"
-authors: ["Jack Wallen"]
 ---
 
 Open-source software and technology is proven within the world of both mid-market and enterprise businesses. Most companies across the globe depend on open-source software at nearly every point in their delivery chain. From the underlying (backend) software that powers business functionality, to the front ends that users interact with, Linux and open-source applications make things happen.
@@ -62,7 +61,7 @@ This lack of vendor lock-in plays into cost, reliability, and flexibility. Any c
 
 ## More Web-Based Tools
 
-The world depends on the cloud and other web-based systems. Although many traditional administrators still prefer to configure and manage from the command-line, the tide is shifting to a web-based frontier. Many open-source operating systems, such as Red Hat, Alma Linux, and Rocky Linux, now ship with Cockpit, a web-based admin GUI, installed by default. The Linux operating system is turning more toward web-based tools for those users who prefer them. Tools like Cockpit, [Webmin](/docs/products/tools/marketplace/guides/webmin/), [phpMyAdmin](/docs/products/tools/marketplace/guides/phpmyadmin/), [cPanel](/docs/products/tools/marketplace/guides/cpanel/), VestaCP, Ajenti, froxlor, aaPanel, ISPConfig, and Sentora, provide companies with centralized administration of their servers and services.
+The world depends on the cloud and other web-based systems. Although many traditional administrators still prefer to configure and manage from the command-line, the tide is shifting to a web-based frontier. Many open-source operating systems, such as Red Hat, Alma Linux, and Rocky Linux, now ship with Cockpit, a web-based admin GUI, installed by default. The Linux operating system is turning more toward web-based tools for those users who prefer them. Tools like Cockpit, [Webmin](/cloud/marketplace-docs/guides/webmin), [phpMyAdmin](/cloud/marketplace-docs/guides/phpmyadmin), [cPanel](/cloud/marketplace-docs/guides/cpanel), VestaCP, Ajenti, froxlor, aaPanel, ISPConfig, and Sentora, provide companies with centralized administration of their servers and services.
 
 The need for more web-based tools is continuing to rise because more companies are migrating their servers from on-premises data centers to third-party hosting services, where Linux enjoys the largest deployment market share.
 
@@ -82,7 +81,7 @@ The advantage of open-source software support is that it's everywhere. Most Linu
 
 ## Containers
 
-Nearly every business now depends on [containers](/docs/guides/applications/containers/). Containerized applications make it possible for businesses to be more agile, more highly scalable, save money, deploy more reliable applications and services, and better lean into cloud-native development.
+Nearly every business now depends on [containers](/cloud/guides/applications/containers). Containerized applications make it possible for businesses to be more agile, more highly scalable, save money, deploy more reliable applications and services, and better lean into cloud-native development.
 
 Containers and open-source go hand-in-hand. They are built with open-source software and deployed on open-source platforms. In fact, without open-source, containers would either not exist or be as readily available. According to the "[Application Container Market - Growth, Trends, COVID-19 Impact, and Forecast (2021-2026)](https://www.researchandmarkets.com/reports/4845968/application-container-market-growth-trends)" the container market is expected to register a compound annual growth rate of 29% between 2021-2026. That's significant and means more businesses will come to depend on containerized technology. This wouldn't be possible without open-source.
 

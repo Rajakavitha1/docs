@@ -1,21 +1,20 @@
 ---
 slug: introduction-to-jinja-templates-for-salt
+title: "Introduction to Jinja Templates for Salt"
 description: 'An introduction to Jinja using Salt configuration management examples.'
-keywords: ['salt','jinja','configuration management']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2018-10-29
 modified: 2019-01-02
-modified_by:
-  name: Linode
+keywords: ['salt','jinja','configuration management']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 image: IntroductiontoJinjaTemplatesforSalt.png
-title: "Introduction to Jinja Templates for Salt"
 external_resources:
 - '[Salt Best Practices](https://docs.saltproject.io/en/latest/topics/best_practices.html#modularity-within-states)'
 - '[Salt States Tutorial](https://docs.saltproject.io/en/latest/topics/tutorials/states_pt1.html)'
 - '[Jinja Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#import)'
-aliases: ['/applications/configuration-management/introduction-to-jinja-templates-for-salt/','/applications/configuration-management/salt/introduction-to-jinja-templates-for-salt/']
+aliases: []
 tags: ["automation","salt"]
-authors: ["Linode"]
 ---
 ## Introduction to Templating Languages
 
@@ -23,7 +22,7 @@ Jinja is a flexible templating language for Python that can be used to generate 
 
 Templating languages are well known within the context of creating web pages in a *Model View Controller* architecture. In this scenario the template engine processes source data, like the data found in a database, and a web template that includes a mixture of HTML and the templating language. These two pieces are then used to generate the final web page for users to consume. Templating languages, however, are not limited to web pages. Salt, a popular Python based configuration management software, supports Jinja to allow for abstraction and reuse within Salt state files and regular files.
 
-This guide will provide an overview of the Jinja templating language used primarily within Salt. If you are not yet familiar with Salt concepts, review the [Beginner's Guide to Salt](/docs/guides/beginners-guide-to-salt/) before continuing. While you will not be creating Salt states of your own in this guide, it is also helpful to review the [Getting Started with Salt - Basic Installation and Setup](/docs/guides/getting-started-with-salt-basic-installation-and-setup/) guide.
+This guide will provide an overview of the Jinja templating language used primarily within Salt. If you are not yet familiar with Salt concepts, review the [Beginner's Guide to Salt](/cloud/guides/beginners-guide-to-salt) before continuing. While you will not be creating Salt states of your own in this guide, it is also helpful to review the [Getting Started with Salt - Basic Installation and Setup](/cloud/guides/getting-started-with-salt-basic-installation-and-setup) guide.
 
 ## Jinja Basics
 
@@ -60,8 +59,7 @@ Applications like Salt can define default behaviors for the Jinja templating eng
 #  trim_blocks: False
 #  lstrip_blocks: False
 {{</ file >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Before including Jinja in your Salt states, be sure to review the [Salt and Jinja Best Practices](#salt-and-jinja-best-practices) section of this guide to ensure that you are creating maintainable and readable Salt states. More advanced Salt tools and concepts can be used to improve the modularity and reusability of some of the Jinja and Salt state examples used throughout this guide.
 {{< /note >}}
 
@@ -222,8 +220,7 @@ include:
 
 {% include 'users.sls' %}
 {{</ file >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 A file referenced by the Jinja `include` tag needs to be specified by its [absolute path from Salt's `file_roots` setting](https://github.com/saltstack/salt/issues/15863#issuecomment-57823633); using a relative path from the current state file will generate an error. To include a file in the same directory as the current state file:
 
     {% include slspath + "/users.sls" %}

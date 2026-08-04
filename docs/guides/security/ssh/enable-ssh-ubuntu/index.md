@@ -1,28 +1,27 @@
 ---
 slug: enable-ssh-ubuntu
-description: 'Want to learn how to enable SSH on Ubuntu? Read our guide to learn what SSH is and how you can install SSH on Ubuntu 20.04 LTS. ✓ Click here!'
-keywords: ['enable SSH ubuntu','ubuntu enable SSH','ubuntu SSH','install SSH ubuntu','ubuntu install SSH','enable SSH ubuntu 20.04','ubuntu install SSH server','SSH ubuntu','ubuntu enable SSH server','install SSH server ubuntu']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-08
-modified_by:
-  name: Linode
 title: "How to Enable SSH on Ubuntu 20.04 LTS"
 title_meta: "Step-by-Step Guide: How to Enable SSH on Ubuntu"
+description: 'Want to learn how to enable SSH on Ubuntu? Read our guide to learn what SSH is and how you can install SSH on Ubuntu 20.04 LTS. ✓ Click here!'
+authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2023-03-08
+keywords: ['enable SSH ubuntu','ubuntu enable SSH','ubuntu SSH','install SSH ubuntu','ubuntu install SSH','enable SSH ubuntu 20.04','ubuntu install SSH server','SSH ubuntu','ubuntu enable SSH server','install SSH server ubuntu']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Ubuntu Server Documentation](https://ubuntu.com/server/docs/service-openssh)'
-authors: ["Tom Henderson"]
 ---
 
 On Linode's Ubuntu 20.04 LTS instances, the installation of `ssh` (client) and `sshd` (server) takes place when the instance is first started. The instructions that follow are to install the SSH if previously removed, or if a non-Linode installation is used. These instructions check if SSH services are correctly started on an Ubuntu instance. If `ssh` or `sshd` is not installed, instructions are supplied on how SSH (as OpenSSH) is installed on Ubuntu 20.04 LTS.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## What is SSH?
@@ -46,7 +45,7 @@ Checking the status of the SSH server requires using `systemctl` to query the st
 To check the status of the SSH server:
 
 ```command
-sudo systemctl status SSH
+sudo systemctl status ssh
 ```
 
 The status should appear:
@@ -112,9 +111,9 @@ There are two different configuration files for SSH: One for client configuratio
 
 Client configuration files are found in two places. The client configuration file for the current user is located in `~/.SSH/config`, while the host SSH configuration file is located in `/etc/SSH/SSH_config`.
 
-It’s suggested to harden the OpenSSH server [immediately after installation or before first use](https://www.linode.com/docs/guides/advanced-ssh-server-security/).
+It’s suggested to harden the OpenSSH server [immediately after installation or before first use](/cloud/guides/advanced-ssh-server-security/).
 
-Additional software can be used to harden SSH servers and protect against various authentication attacks. One such application, [fail2ban](https://www.linode.com/docs/guides/how-to-use-fail2ban-for-ssh-brute-force-protection/), adds a layer of protection to applications like SSH and other commonly used Linux applications.
+Additional software can be used to harden SSH servers and protect against various authentication attacks. One such application, [fail2ban](/cloud/guides/how-to-use-fail2ban-for-ssh-brute-force-protection/), adds a layer of protection to applications like SSH and other commonly used Linux applications.
 
 ## Summary
 

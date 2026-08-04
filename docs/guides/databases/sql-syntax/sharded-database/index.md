@@ -1,17 +1,16 @@
 ---
 slug: sharded-database
+title: "Database Sharding: Concepts, Examples, and Strategies"
 description: 'Database sharding divides data into smaller chunks and distributes it across different database nodes. Learn more about sharding practices and strategies.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-05-26
+modified: 2024-11-14
 keywords: ['sharded database','db sharding','sharding strategy','database sharding examples']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-05-26
-modified_by:
-  name: Linode
-title: "Database Sharding: Concepts, Examples, and Strategies"
 external_resources:
 - '[Wikipedia page on database sharding](https://en.wikipedia.org/wiki/Shard_(database_architecture))'
 - '[MongoDB explanation of database sharding](https://www.mongodb.com/features/database-sharding-explained)'
-authors: ["Jeff Novotny"]
-tags: ["saas"]
 ---
 
 Many software applications use a *relational database management system* (RDBMS) to store data. As the database grows, it becomes more time-and-storage intensive to store the data. One popular solution to this problem is [*database sharding*](https://en.wikipedia.org/wiki/Shard_(database_architecture)). A sharded database distributes the records in a database's tables across different databases on different computer systems. This guide explains how database sharding works and discusses some of the advantages and disadvantages of sharding. It also describes some of the main sharding strategies and provides some database sharding examples.
@@ -24,7 +23,7 @@ Data sharding is a common way of implementing horizontal scaling. Database shard
 
 *Vertical partitioning* and *horizontal partitioning* are two different methods of partitioning tables into shards. Vertical partitioning assigns different columns within a table to different servers, but this technique is not widely used. In most cases, horizontal partitioning/sharding is used to implement sharding, and the two terms are often used interchangeably. Horizontal sharding divides the rows within a table amongst the different shards and keeps the individual table rows intact.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Vertical partitioning and horizontal partitioning should not be confused with vertical and horizontal scaling.
 {{< /note >}}
 
@@ -34,7 +33,7 @@ Each shard can be accessed independently and does not necessarily require access
 
 The following example demonstrates how horizontal sharding works in practice. Before the database is sharded, the example `store` table is organized in the following way:
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 |
 | 1350 | Chicago | IL | 60601 |
@@ -45,7 +44,7 @@ The following example demonstrates how horizontal sharding works in practice. Be
 
 After sharding, one shard has half the rows from the table.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 |
 | 2101| Cleveland | OH | 44114 |
@@ -53,7 +52,7 @@ After sharding, one shard has half the rows from the table.
 
 The second shard contains the remainder of the rows.
 
-| store_ID | city | state | zip_code  |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1350 | Chicago | IL | 60601 |
 | 2250 | Pittsburgh | PA | 15222 |
@@ -61,7 +60,7 @@ The second shard contains the remainder of the rows.
 
 Sharding does not necessarily make any backup copies of the data. Each record is still only stored on a single server. *Replication* is used to copy information to another server, resulting in primary and secondary copies of the data. Replication enhances reliability and robustness at the cost of additional complexity and resources. Sharded databases can be replicated, but the procedure for doing so can be very complex.
 
-Replication and caching are both potential alternatives to sharding, particular in applications which mainly read data from a database. Replication spreads out the queries to multiple servers, while caching speeds up the requests. See our guide [How to Configure Source-Replica Replication in MySQL](/docs/guides/configure-source-replica-replication-in-mysql/) to learn more about  data replication.
+Replication and caching are both potential alternatives to sharding, particular in applications which mainly read data from a database. Replication spreads out the queries to multiple servers, while caching speeds up the requests. See our guide [How to Configure Source-Replica Replication in MySQL](/cloud/guides/configure-source-replica-replication-in-mysql) to learn more about  data replication.
 
 ## Pros and Cons of a Sharded Database
 
@@ -82,7 +81,7 @@ Unfortunately, sharding also has drawbacks. Some of the downsides include:
 
 - Sharding greatly increases the complexity of a software development project. Additional logic is required to shard the database and properly direct queries to the correct shard. This increases development time and cost. A more elaborate network mesh is often necessary, which leads to an increase in lab and infrastructure costs.
 - Latency can be higher than with a standard database design.
-- [SQL join operations](/docs/guides/sql-joins/) affecting multiple shards are more difficult to execute and take longer to complete. Some operations might become too slow to be feasible. However, the right design can facilitate better performance on common queries.
+- [SQL join operations](/cloud/guides/sql-joins) affecting multiple shards are more difficult to execute and take longer to complete. Some operations might become too slow to be feasible. However, the right design can facilitate better performance on common queries.
 - Sharding requires a lot of tuning and tweaking as the database grows. This sometimes requires a reconsideration of the entire sharding strategy and database design. Uneven shard distribution can happen even with proper planning, causing the distribution to unexpectedly become lopsided.
 - It is not always obvious how many shards and servers to use, or how to choose the sharding key. Poor sharding keys can adversely affect performance or data distribution. This causes some shards to be overloaded while others are almost empty, leading to hotspots and inefficiencies.
 - It is more challenging to change the database schema after sharding is implemented. It is also difficult to convert the database back to its pre-sharded state.
@@ -115,14 +114,14 @@ The database sharding examples below demonstrate how range sharding might work u
 
 The first shard contains the following rows:
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 |
 | 1350 | Chicago | IL | 60601 |
 
 The second shard has the following entries:
 
-| store_ID | city | state | zip_code  |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 2101| Cleveland | OH | 44114 |
 | 2250 | Pittsburgh | PA | 15222 |
@@ -145,11 +144,11 @@ Hash sharding does not guarantee that the shards are destined to remain perfectl
 
 The following database sharding example demonstrates a simple hash sharing operation. It uses the simple hash function `store_ID % 3` to assign the records in the `store` database to one of three shards. The first step is to calculate a hash result for each entry.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The hash results are not actually stored inside the database. They are shown in the final column for clarity.
 {{< /note >}}
 
-| store_ID | city | state | zip_code  | hash result |
+| `store_ID` | `city` | `state` | `zip_code` | hash result |
 |:-:|:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 | 2
 | 1350 | Chicago | IL | 60601 | 0
@@ -160,21 +159,21 @@ The hash results are not actually stored inside the database. They are shown in 
 
 Rows having a hash result of `0` map to the first shard.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1350 | Chicago | IL | 60601 |
 | 2250 | Pittsburgh | PA | 15222 |
 
 Those that have a hash result of `1` are assigned to shard number two.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 2101| Cleveland | OH | 44114 |
 | 2459 | New York | NY | 10022 |
 
 The remainder are stored in the third shard.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 |
 | 2459 | New York | NY | 10022 |
@@ -193,7 +192,7 @@ Directory-based sharding is a good choice for the `stores` database. The store e
 
 The first shard contains the entries displayed below.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 2250 | Pittsburgh | PA | 15222 |
 | 2455 | Boston | MA | 02108 |
@@ -201,7 +200,7 @@ The first shard contains the entries displayed below.
 
 The second shard contains the remainder of the data.
 
-| store_ID | city | state | zip_code |
+| `store_ID` | `city` | `state` | `zip_code` |
 |:-:|:-:|:-:|:-:|
 | 1001 | Detroit | MI | 48201 |
 | 1350 | Chicago | IL | 60601 |
@@ -229,6 +228,6 @@ Sharding allows a database to scale horizontally, taking advantage of the increa
 
 Sharding can be accomplished using range sharding, hash sharding, or directory-based sharding. Range sharding is the easiest method, but is more likely to result in unequal shards. Hash sharding more effectively distributes the records, but is more difficult to implement. Directory-based sharding groups related items together on the same shard.
 
-A sharded database can be implemented using multiple Linode servers. Linode allows you to configure a full web application on a powerful Linux operating system running the industry-standard LAMP stack. Choose from a high-performance [*Dedicated CPU*](https://www.linode.com/products/dedicated-cpu/) service, or a flexible and affordable [*Shared CPU*](https://www.linode.com/products/shared/) alternative. Similarly, you can also use [Linode's Managed Database service](/docs/products/databases/managed-databases/) to deploy a database cluster without the need to install and maintain the database infrastructure.
+A sharded database can be implemented using multiple Linode servers. Linode allows you to configure a full web application on a powerful Linux operating system running the industry-standard LAMP stack. Choose from a high-performance [*Dedicated CPU*](https://www.linode.com/products/dedicated-cpu/) service, or a flexible and affordable [*Shared CPU*](https://www.linode.com/products/shared/) alternative. Similarly, you can also use our [Managed Database service](https://techdocs.akamai.com/cloud-computing/docs/managed-databases) to deploy a database cluster without the need to install and maintain the database infrastructure.
 
-{{< content "dbass-eos" >}}
+{{% content "dbass-eos" %}}

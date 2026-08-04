@@ -1,14 +1,14 @@
 ---
 slug: how-to-install-pixelfed
+title: "How to Install and Configure Pixelfed"
+title_meta: "Installing and Configuring Pixelfed"
 description: 'This guide explains how to install and configure the distributed photo-sharing site Pixelfed'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2023-04-10
 keywords: ['install Pixelfed', 'configure Pixelfed', 'How to install Pixelfed on Ubuntu']
 tags: ['apache', 'nginx', 'web server']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-04-10
-modified_by:
-  name: Linode
-title: "How to Install and Configure Pixelfed"
-title_meta: "Installing and Configuring Pixelfed"
 external_resources:
 - '[Pixelfed](https://pixelfed.org/)'
 - '[Pixelfed Documentation](https://docs.pixelfed.org/)'
@@ -16,7 +16,6 @@ external_resources:
 - '[Pixelfed Installation Details](https://docs.pixelfed.org/running-pixelfed/installation)'
 - '[A summary of Pixelfed features](https://pixelfed.org/features)'
 - '[Certbot](https://certbot.eff.org/)'
-authors: ["Jeff Novotny"]
 ---
 
 [Pixelfed](https://pixelfed.org/) is a decentralized federated application that allows users to share photos, art, and videos. This guide explains how to install and configure Pixelfed and provides details about all prerequisites.
@@ -44,16 +43,16 @@ For a more complete list of Pixelfed features, see the [Pixelfed features page](
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Assign a domain name for the Pixelfed server and point it at the IP address of the server. For information on domain names and pointing a domain name to a Linode, see the [Linode DNS Manager guide](/docs/products/networking/dns-manager/).
+1.  Assign a domain name for the Pixelfed server and point it at the IP address of the server. For information on domain names and pointing a domain name to a Linode, see the [Linode DNS Manager guide](https://techdocs.akamai.com/cloud-computing/docs/dns-manager).
 
 1.  (**Optional**) To allow Pixelfed to send emails, enable email on the Linode server.
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Configure the Server to Support Pixelfed
@@ -202,7 +201,7 @@ These settings are found in different sections of the file. In the `vi` editor, 
 
 ### Configure a Virtual Host and HTTPS Support
 
-The next step is to create a virtual host file for the Pixelfed domain. A virtual host allows for the configuration of domain-specific settings. Pixelfed requires HTTPS support, which can be enabled using the [Certbot](https://certbot.eff.org/) application. This guide covers the main steps required to install and use Certbot. For more detailed information about Certbot, Let's Encrypt certificates, and HTTPS, see the [Linode guide to Using Certbot on NGINX](/docs/guides/enabling-https-using-certbot-with-nginx-on-ubuntu/).
+The next step is to create a virtual host file for the Pixelfed domain. A virtual host allows for the configuration of domain-specific settings. Pixelfed requires HTTPS support, which can be enabled using the [Certbot](https://certbot.eff.org/) application. This guide covers the main steps required to install and use Certbot. For more detailed information about Certbot, Let's Encrypt certificates, and HTTPS, see the [Linode guide to Using Certbot on NGINX](/cloud/guides/enabling-https-using-certbot-with-nginx-on-ubuntu).
 
 1.  Create a `/var/www/html/domain_name` directory for the Pixelfed site. In the following command, replace `example.com` with the actual name of the domain.
 

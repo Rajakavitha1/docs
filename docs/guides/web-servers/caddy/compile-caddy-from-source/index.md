@@ -1,18 +1,17 @@
 ---
 slug: compile-caddy-from-source
+title: 'How To Build Caddy From Source'
 description: 'This guide provides you with step-by-step instructions for building Caddy, the fast, open-source, security focused web server from source on Linux.'
-keywords: ["caddy", "web server"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2017-09-14
 modified: 2019-01-07
-modified_by:
-  name: Linode
-title: 'How To Build Caddy From Source'
+keywords: ["caddy", "web server"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Caddy Official Site](https://caddyserver.com)'
 tags: ["web server"]
-aliases: ['/web-servers/caddy/compile-caddy-from-source/']
-authors: ["Linode"]
+aliases: []
 ---
 
 [Caddy](https://caddyserver.com/) is a fast, open-source and security-focused web server written in [Go](https://golang.org/). Caddy includes modern features such as support for virtual hosts, minification of static files, and HTTP/2. Caddy is also the first web-server that can obtain and renew SSL/TLS certificates automatically using [Let's Encrypt](https://letsencrypt.org/).
@@ -21,7 +20,7 @@ authors: ["Linode"]
 
 ### Install Go
 
-1. You need the latest version of Go installed on your Linode. Complete the steps in our guide on [installing Go](/docs/guides/install-go-on-ubuntu/).
+1. You need the latest version of Go installed on your Linode. Complete the steps in our guide on [installing Go](/cloud/guides/install-go-on-ubuntu).
 
 ### Install xcaddy
 
@@ -59,4 +58,4 @@ Install the latest version of `xcaddy`, a command line tool that downloads and b
 
         v2.4.4 h1:QBsN1jXEsCqRpKPBb8ebVnBNgPxwL50HINWWTuZ7evU=
 
-Caddy is now installed on your Linode. Read our guide on [Installing and Configuring Caddy](/docs/guides/install-and-configure-caddy-on-centos-7/) to learn more about Caddy.
+Caddy is now installed on your Linode. Read our guide on [Installing and Configuring Caddy](/cloud/guides/install-and-configure-caddy-on-centos-7) to learn more about Caddy.

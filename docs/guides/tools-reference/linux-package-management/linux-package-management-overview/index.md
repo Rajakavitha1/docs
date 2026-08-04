@@ -1,17 +1,16 @@
 ---
 slug: linux-package-management-overview
+title: "An Overview of Package Management in Linux"
 description: "Learn basics and advanced Linux package management in Debian, Ubuntu, Fedora, etc using apt, yum, aptitude and other package managers."
-keywords: ["dnf", "rpm", "apt", "dpkg", "apt-get", "apt-cache", "pacman", "yum"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2023-09-05
 modified: 2022-05-12
-modified_by:
-  name: Linode
+keywords: ["dnf", "rpm", "apt", "dpkg", "apt-get", "apt-cache", "pacman", "yum"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 image: OverviewofPackageManagementinLinux.jpg
-title: "An Overview of Package Management in Linux"
 tags: ["linux"]
-aliases: ['/guides/linux-package-management/','/tools-reference/basics/linux-package-management/','/tools-reference/linux-package-management/','/using-linux/package-management/']
-authors: ["Linode"]
+aliases: []
 ---
 
 On Linux, software is typically built as a *package*, distributed through *repositories*, and managed on the end-user's system through *package managers*. Each Linux system typically contains thousands of packages, many of which are required dependencies for other packages.
@@ -51,7 +50,7 @@ There are lots of package managers in Linux, each working a bit differently. Her
 
 ### APT
 
-[Using APT to Manage Packages in Debian and Ubuntu](/docs/guides/apt-package-manager/)
+[Using APT to Manage Packages in Debian and Ubuntu](/cloud/guides/apt-package-manager)
 
 - **Distributions:** Ubuntu, Debian, and Kali Linux
 - **Commands:** `apt`, `apt-get`, `apt-cache`
@@ -62,7 +61,7 @@ There are lots of package managers in Linux, each working a bit differently. Her
 
 ### DNF
 
-[Using DNF to Manage Packages in CentOS/RHEL 8 and Fedora](/docs/guides/dnf-package-manager/)
+[Using DNF to Manage Packages in CentOS/RHEL 8 and Fedora](/cloud/guides/dnf-package-manager)
 
 - **Distributions:** RHEL/CentOS 8, Fedora 22, and later versions of both distributions
 - **Commands:** `dnf`, `yum`
@@ -73,29 +72,29 @@ There are lots of package managers in Linux, each working a bit differently. Her
 
 ### YUM
 
-[Using YUM to Manage Packages in CentOS/RHEL 7 and Earlier](/docs/guides/yum-package-manager/)
+[Using YUM to Manage Packages in CentOS/RHEL 7 and Earlier](/cloud/guides/yum-package-manager)
 
 - **Distributions:** RHEL/CentOS 7, Fedora 21, and earlier versions of both distributions
 - **Command:** `yum`
 - **Underlying package management tool:** [RPM](https://linux.die.net/man/8/rpm) (*RPM Package Manager*)
 - **Package file format:** `.rpm`
 
-*Yellowdog Updater, Modified*, more commonly known as [YUM](http://yum.baseurl.org/), is a package management tool for a variety of older RHEL-based distributions (such as CentOS 7) and older versions of Fedora. It provides an easy-to-use interface on top of the low-level functions available in the RPM Package Manger (RPM). It has largely been replaced by it successor *Dandified YUM*, also called DNF, on most newer RPM-based distributions.
+*Yellowdog Updater, Modified*, more commonly known as [YUM](http://yum.baseurl.org/), is a package management tool for a variety of older RHEL-based distributions (such as CentOS 7) and older versions of Fedora. It provides an easy-to-use interface on top of the low-level functions available in the RPM Package Manager (RPM). It has largely been replaced by it successor *Dandified YUM*, also called DNF, on most newer RPM-based distributions.
 
 ### Zypper
 
-[Use Zypper to Manage Packages in openSUSE](/docs/guides/zypper-package-manager/)
+[Use Zypper to Manage Packages in openSUSE](/cloud/guides/zypper-package-manager)
 
 - **Distributions:** openSUSE
 - **Command:** `zypper`
 - **Underlying package management tool:** ZYpp (also called [libzypp](https://doc.opensuse.org/projects/libzypp/HEAD/))
 - **Package file format:** `.rpm`
 
-[Zypper](https://en.opensuse.org/Portal:Zypper) is the CLI tool used for managing packages on openSUSE Linux distributions. Just like DNF and YUM, packages are stored in the `.rpm` file format, though Zypper interfaces with the ZYpp (libzypp) library instead of RPM. Some users report that Zypper is faster than other package mangers and, unlike many others, has the ability to add repositories directly from its own CLI. See the [Zypper manual](https://en.opensuse.org/SDB:Zypper_manual) for more usage details.
+[Zypper](https://en.opensuse.org/Portal:Zypper) is the CLI tool used for managing packages on openSUSE Linux distributions. Just like DNF and YUM, packages are stored in the `.rpm` file format, though Zypper interfaces with the ZYpp (libzypp) library instead of RPM. Some users report that Zypper is faster than other package managers and, unlike many others, has the ability to add repositories directly from its own CLI. See the [Zypper manual](https://en.opensuse.org/SDB:Zypper_manual) for more usage details.
 
 ### Pacman
 
-[Using Pacman to Manage Packages in Arch](/docs/guides/pacman-package-manager/)
+[Using Pacman to Manage Packages in Arch](/cloud/guides/pacman-package-manager)
 
 - **Distributions:** Arch-based, including Arch and Manjaro
 - **Command:** `pacman`
@@ -105,7 +104,7 @@ Arch Linux and other similar distributions (like the popular Manjaro desktop dis
 
 ### Portage
 
-[Using Portage to Manage Packages in Gentoo](/docs/guides/portage-package-manager/)
+[Using Portage to Manage Packages in Gentoo](/cloud/guides/portage-package-manager)
 
 - **Distributions:** Gentoo
 - **Command:** `emerge`
@@ -115,7 +114,7 @@ Arch Linux and other similar distributions (like the popular Manjaro desktop dis
 
 ### Slackware Package Management
 
-[Managing Packages in Slackware](/docs/guides/slackware-package-management/)
+[Managing Packages in Slackware](/cloud/guides/slackware-package-management)
 
 - **Distributions:** Slackware
 - **Commands:** `slackpkg`, `pkgtool`, `installpkg`, `upgradepkg`, `removepkg`

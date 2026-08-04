@@ -1,19 +1,17 @@
 ---
 slug: what-is-systemd
+title: "What is systemd?"
 description: 'This guide provides you with an introduction to systemd, a Linux initialization system and service monitor daemon, as well as systemd unit files.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-09-12
 keywords: ['systemd','linux', 'init', 'unit files']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-09-12
-modified: 2018-09-12
-modified_by:
-  name: Linode
-title: "What is systemd?"
 external_resources:
 - '[systemd Wiki](https://www.freedesktop.org/wiki/Software/systemd/)'
 - '[systemd GitHub](https://github.com/systemd/systemd)'
 tags: ["linux"]
-aliases: ['/quick-answers/linux-essentials/what-is-systemd/']
-authors: ["Linode"]
+aliases: []
 ---
 
 systemd is a Linux initialization system and service manager that includes features like on-demand starting of daemons, mount and automount point maintenance, snapshot support, and processes tracking using Linux control groups. systemd provides a logging daemon and other tools and utilities to help with common system administration tasks.
@@ -22,9 +20,9 @@ systemd is a Linux initialization system and service manager that includes featu
 
 systemd is the default init system for the major Linux distributions but is backwards compatible with SysV init scripts. SysVinit is an initialization system which predates systemd and uses a simplified approach to service startup. systemd not only manages system initialization, but also provides alternatives for other well known utilities, like cron and syslog. Because systemd does several things within the Linux user space, many have criticized it for violating [the Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), which emphasizes simplicity and modularity.
 
-This guide provides an introduction to systemd by taking a closer look at systemd units. The [Mount Units](/docs/guides/what-is-systemd/#mount-units) section will analyze a unit file that is shipped by default with systemd on an Ubuntu 18.04 system, while the [Timer Units](/docs/guides/what-is-systemd/#timer-units) section will create a custom unit file on the same system.
+This guide provides an introduction to systemd by taking a closer look at systemd units. The [Mount Units](/cloud/guides/what-is-systemd#mount-units) section will analyze a unit file that is shipped by default with systemd on an Ubuntu 18.04 system, while the [Timer Units](/cloud/guides/what-is-systemd#timer-units) section will create a custom unit file on the same system.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 All examples in this guide were created with a Linode running Ubuntu 18.04.
 {{< /note >}}
 
@@ -156,15 +154,15 @@ A mount unit file must contain a `[Mount]` section. The example mount unit file 
 - The `Where` option declares an absolute path to a mount point. If the mount point does not exist, it will be created.
 - The `Type` option denotes the file system type.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The official systemd manual notes that configuring mount points through `/etc/fstab` is the recommended approach. systemd has a `system-fstab-generator` that translates the information in the fstab file into systemd mount and swap units at runtime.
 {{< /note >}}
 
-There are many other unit file types available in systemd. Read the [Use systemd to Start a Linux Service at Boot](/docs/guides/start-service-at-boot/) guide to become more familiar with the service unit type.
+There are many other unit file types available in systemd. Read the [Use systemd to Start a Linux Service at Boot](/cloud/guides/start-service-at-boot) guide to become more familiar with the service unit type.
 
 ### Timer Units
 
-You can use systemd timer unit files to automate tasks, similarly to how [cron jobs](/docs/guides/schedule-tasks-with-cron/) are used. However, with timer units you will also have access to systemd's powerful logging capabilities.
+You can use systemd timer unit files to automate tasks, similarly to how [cron jobs](/cloud/guides/schedule-tasks-with-cron) are used. However, with timer units you will also have access to systemd's powerful logging capabilities.
 
 To better understand systemd timer units, this section will outline how a timer unit can be used to create periodic backups for a mysql database.
 
@@ -174,7 +172,7 @@ You will need three separate files:
 - A service unit file, that will handle running the script.
 - A timer unit file, which will define when and how often the service will initialize.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Your script, service unit file, and timer unit file should all have `644` read and write permissions.
 {{< /note >}}
 
@@ -243,8 +241,8 @@ When you start the timer unit, systemd will start it right away. To do this, iss
 
 systemd makes common system administration tasks easier to manage with its `systemctl` and `journalctl` commands. `systemctl` can be used to gather detailed information about the overall state of your server and any individual unit type. It can stop and start the server and modify the system state. In the Timer Unit Files section `systemctl` is used to enable and start an individual timer unit. systemd can be used in a similar way for any unit.
 
-Read our *[Introduction to systemctl](/docs/guides/introduction-to-systemctl/)* guide for a deeper dive into this systemd tool.
+Read our *[Introduction to systemctl](/cloud/guides/introduction-to-systemctl)* guide for a deeper dive into this systemd tool.
 
 systemd's `journalctl` tool provides a centralized process and system logging tool. This command allows you to query the systemd journal, which creates and maintains indexed journals from logging information that is pooled from different areas within the system; areas like standard output and standard error of service units, log messages via syslog, and kernel log messages. In this way, system administrators can use a single tool to monitor and debug a server.
 
-To learn some commonly used `journalctl` commands, see our guide *[Use journalctl to View Your System's Logs](/docs/guides/how-to-use-journalctl/)*.
+To learn some commonly used `journalctl` commands, see our guide *[Use journalctl to View Your System's Logs](/cloud/guides/how-to-use-journalctl)*.

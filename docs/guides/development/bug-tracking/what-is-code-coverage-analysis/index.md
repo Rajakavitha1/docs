@@ -1,17 +1,16 @@
 ---
 slug: what-is-code-coverage-analysis
+title: "What is Code Coverage Analysis?"
 description: 'This guide provides you with an overview of code coverage analysis, a method of exposing untested code which provides a metric that your QA team can use to improve.'
+authors: ["Martin Heller"]
+contributors: ["Martin Heller"]
+published: 2021-02-15
 keywords: ['code coverage analysis']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-15
 image: CodeCoverageAnalysis.png
-modified_by:
-  name: Linode
-title: "What is Code Coverage Analysis?"
 tags: ["automation"]
-authors: ["Martin Heller"]
 ---
-Code coverage is typically part of the [unit testing](/docs/guides/what-is-unit-testing/) phase of the software development lifecycle, although it is often used in other testing phases as well. A code coverage tool watches as the suite of unit tests run; then it reports on which functions, branches, loops, and lines of code have and have not been tested. At the highest level, the reports show the percentage coverage for each category; drilling down often shows untested code.
+Code coverage is typically part of the [unit testing](/cloud/guides/what-is-unit-testing) phase of the software development lifecycle, although it is often used in other testing phases as well. A code coverage tool watches as the suite of unit tests run; then it reports on which functions, branches, loops, and lines of code have and have not been tested. At the highest level, the reports show the percentage coverage for each category; drilling down often shows untested code.
 
 Code coverage analysis tools usually work by [*instrumenting*](https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)) the code being monitored. Instrumentation adds statements to your code to monitor the code execution. Depending on the source language and the tool, the instrumentation can be via source code injection or executable binary instrumentation.
 
@@ -29,5 +28,5 @@ The choice of code coverage tools depends strongly on the programming language, 
 
 [Parasoft](https://www.parasoft.com/) produces commercial testing tools for Java, C/C++, and C#. They all include code coverage and unit testing, as well as static analysis and security testing. [JetBrains](https://www.jetbrains.com/) has its own coverage tool for C# called [dotCover](https://www.jetbrains.com/help/dotcover/Running_Coverage_Analysis_from_the_Command_LIne.html). This tool integrates with Visual Studio, [ReSharper](https://www.jetbrains.com/resharper/), and the CI environment, [TeamCity](https://www.jetbrains.com/teamcity/).
 
-The [Go language](/docs/guides/beginners-guide-to-go/) has its own [code coverage tool](https://golang.org/cmd/cover/), integrated with its test tool. If your code is written in Python, you can use [Coverage.py](https://coverage.readthedocs.io/), which is [open source](https://github.com/nedbat/coveragepy/) with an enterprise support option. There are many JavaScript code coverage tools, like [Istanbul](https://istanbul.js.org/) and [Blanket](https://www.npmjs.com/package/blanket).
+The [Go language](/cloud/guides/beginners-guide-to-go) has its own [code coverage tool](https://golang.org/cmd/cover/), integrated with its test tool. If your code is written in Python, you can use [Coverage.py](https://coverage.readthedocs.io/), which is [open source](https://github.com/nedbat/coveragepy/) with an enterprise support option. There are many JavaScript code coverage tools, like [Istanbul](https://istanbul.js.org/) and [Blanket](https://www.npmjs.com/package/blanket).
 

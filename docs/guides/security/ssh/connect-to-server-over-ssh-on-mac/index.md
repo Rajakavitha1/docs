@@ -1,21 +1,20 @@
 ---
 slug: connect-to-server-over-ssh-on-mac
+title: "Connecting to a Remote Server Over SSH on a Mac"
+title_meta: "How to Connect to a Remote Server Over SSH on a Mac"
 description: "A tutorial outlining how to connect to a remote server over SSH on a Mac computer, including opening the terminal and structuring the ssh command."
+authors: ["Matt Wildman","Linode"]
+contributors: ["Matt Wildman","Linode"]
+published: 2021-06-25
+modified: 2024-04-25
 keywords: ['ssh','linux','mac','connect to server over ssh','connect to linode over ssh']
 tags: ['ssh', 'security']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-06-25
-modified: 2022-01-28
-modified_by:
-  name: Linode
-title: "Connecting to a Remote Server Over SSH on a Mac"
-title_meta: "How to Connect to a Remote Server Over SSH on a Mac"
 relations:
     platform:
         key: connecting-to-server-over-ssh
         keywords:
-            - Environment: Mac
-authors: ["Linode"]
+            - Environment: macOS
 ---
 
 A *secure shell* (SSH) is used for secure communication between devices. When most people refer to SSH, it is within the context of connecting from a local computer to a remote server, commonly for administration tasks related to website hosting.
@@ -24,7 +23,7 @@ This article covers the basics of connecting to a remote server (such as a Linod
 
 ## Before You Begin
 
-Ensure you have a Linux server with an SSH server (like OpenSSH) installed. Most Linux distributions have an SSH server preinstalled. If you wish to deploy a new server, follow the [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guide to create a Linode.
+Ensure you have a Linux server with an SSH server (like OpenSSH) installed. Most Linux distributions have an SSH server preinstalled. If you wish to deploy a new server, follow the [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guide to create a Linode.
 
 ## Open the Terminal
 
@@ -38,37 +37,37 @@ As alternatives to the Terminal app, other popular and highly customizable macOS
 
 ## Connecting to the Remote Server Over SSH
 
-1.  Within the terminal, enter the following command, replacing *[username]* with the username of the remote user and *[ip-address]* with the IP address or domain name of the remote server.
+1.  Within the terminal, enter the following command, replacing {{< placeholder "USERNAME" >}} with the username of the remote user and {{< placeholder "IP_ADDRESS" >}} with the IP address or domain name of the remote server.
 
     ```command
-    ssh [username]@[ip-address]
+    ssh {{< placeholder "USERNAME" >}}@{{< placeholder "IP_ADDRESS" >}}
     ```
 
     The SSH client attempts to connect to the remote server over port 22 (the default SSH port).
 
     {{< note >}}
-    If the server's SSH port is something other than 22, it needs to be specified in the SSH command. To do this, use the `-p` option as shown in the command below. Replace [port-number] with the port number that the remote SSH server is using.
+    If the server's SSH port is something other than 22, it needs to be specified in the SSH command. To do this, use the `-p` option as shown in the command below. Replace {{< placeholder "PORT_NUMBER" >}} with the port number that the remote SSH server is using.
 
     ```command
-    ssh [username]@[ip-address] -p [port-number]
+    ssh {{< placeholder "USERNAME" >}}@{{< placeholder "IP_ADDRESS" >}} -p {{< placeholder "PORT_NUMBER" >}}
     ```
     {{< /note >}}
 
 1.  When you connect with a server for the first time, the SSH client prompts you to check and verify the host key's fingerprint. This is normal, and results in output similar to:
 
     ```output
-    The authenticity of host ‘example.com (93.184.216.34)’ can't be established.
+    The authenticity of host ‘example.com (192.0.2.142)’ can't be established.
     ECDSA key fingerprint is SHA256:d029f87e3d80f8fd9b1be67c7426b4cc1ff47b4a9d0a84.
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-    You can verify the fingerprint by following the instructions on the [Verifying the Authenticity of a Remote Server](/docs/guides/verifying-the-authenticity-of-remote-host/) guide.
+    You can verify the fingerprint by following the instructions on the [Verifying the Authenticity of a Remote Server](/cloud/guides/verifying-the-authenticity-of-remote-host) guide.
 
     {{< note >}}
     If you recently rebuilt your server, you might receive an error message when you try to connect. This happens when the remote host key changes. To fix this, revoke the key for that IP address.
 
     ```command
-    ssh-keygen -R 198.51.100.4
+    ssh-keygen -R {{< placeholder "IP_ADDRESS" >}}
     ```
     {{< /note >}}
 
@@ -78,7 +77,7 @@ As alternatives to the Terminal app, other popular and highly customizable macOS
     Warning: Permanently added 'example' (ECDSA) to the list of known hosts.
     ```
 
-Once you have successfully connected, your terminal should be using the remote shell environment for the server. Your command prompt should now show the username and hostname configured for the server. You can now run any commands that you have available on that server. This includes many of the basic Linux commands, such as `ls`, `cd`, `rm`, and those covered in [Using the Terminal](/docs/guides/using-the-terminal/) guide. Getting to know these commands will help you navigate around your server.
+Once you have successfully connected, your terminal should be using the remote shell environment for the server. Your command prompt should now show the username and hostname configured for the server. You can now run any commands that you have available on that server. This includes many of the basic Linux commands, such as `ls`, `cd`, `rm`, and those covered in [Using the Terminal](/cloud/guides/using-the-terminal) guide. Getting to know these commands will help you navigate around your server.
 
 ## Ending the SSH Session
 
@@ -86,7 +85,7 @@ After you are done, log out of the session by typing `exit`. The terminal then s
 
 ```output
 logout
-Connection to 93.184.216.34 closed.
+Connection to 192.0.2.142 closed.
 ```
 
 At this point, the shell prompt returns to the one for the local workstation and the terminal application can be closed if it's no longer needed.
@@ -97,23 +96,23 @@ Instead of using SSH to open your remote server's console, you can run commands 
 
 ### Sending a Single Command
 
-To run a single command on your remote server, use the following command. Replace *[username]* with the username of the remote user,  *[ip-address]* with the IP address or domain name of the remote server, and *[command]* with the command you wish to run.
+To run a single command on your remote server, use the following command. Replace {{< placeholder "USERNAME" >}} with the username of the remote user,  {{< placeholder "IP_ADDRESS" >}} with the IP address or domain name of the remote server, and {{< placeholder "COMMAND" >}} with the command you wish to run.
 
 ```command
-ssh [username]@[ip-address] [command]
+ssh {{< placeholder "USERNAME" >}}@{{< placeholder "IP_ADDRESS" >}} {{< placeholder "COMMAND" >}}
 ```
 
-As an example, running `ssh me@192.0.2.0 ls` lists all the files in the home directory of the user called `me`. This can be useful to find the uptime of the server (`ssh me@192.0.2.0 uptime`) or maybe determine its Linux distribution and version (`ssh me@192.0.2.0 lsb_release -a`).
+As an example, running `ssh me@192.0.2.142 ls` lists all the files in the home directory of the user called `me`. This can be useful to find the uptime of the server (`ssh me@192.0.2.142 uptime`) or maybe determine its Linux distribution and version (`ssh me@192.0.2.142 lsb_release -a`).
 
 ### Sending Multiple Commands
 
-To run multiple commands on your remote server (one after the other), use the following command. Replace *[command-1]*, *[command-2]*, and *[command-3]* with the commands you wish to run.
+To run multiple commands on your remote server (one after the other), use the following command. Replace {{< placeholder "COMMAND_1" >}}, {{< placeholder "COMMAND_2" >}}, and {{< placeholder "COMMAND_3" >}} with the commands you wish to run.
 
 ```command
-ssh [username]@[ip-address] "[command-1]; [command-2]; [command-3]"
+ssh {{< placeholder "USERNAME" >}}@{{< placeholder "IP_ADDRESS" >}} "{{< placeholder "COMMAND_1" >}}; {{< placeholder "COMMAND_2" >}}; {{< placeholder "COMMAND_3" >}}"
 ```
 
-The commands should be separated by a semi-colon (`;`) and all of the commands together should be surrounded by double quotation marks (`"`). For example, if you wanted to create a file named *bar.txt* in a directory called *foo* within the user **me**'s home directory, run: `ssh me@192.0.2.0 "mkdir foo; cd foo; touch bar.txt`.
+The commands should be separated by a semi-colon (`;`) and all of the commands together should be surrounded by double quotation marks (`"`). For example, if you wanted to create a file named *bar.txt* in a directory called *foo* within the user **me**'s home directory, run: `ssh me@192.0.2.142 "mkdir foo; cd foo; touch bar.txt`.
 
 ### Using sudo
 
@@ -123,10 +122,10 @@ It's recommended to disable root access over SSH and only log in to your remote 
 
 ### Troubleshooting SSH Connection Issues
 
-If SSH isn't connecting you to your Linode, you may need to investigate the state of your server. See the guide [Troubleshooting SSH](/docs/products/compute/compute-instances/guides/troubleshooting-ssh-issues/) for assistance.
+If SSH isn't connecting you to your Linode, you may need to investigate the state of your server. See the guide [Troubleshooting SSH](https://techdocs.akamai.com/cloud-computing/docs/troubleshooting-ssh-on-compute-instances) for assistance.
 
 ### Increasing Security
 
-- Now that you can connect from your Linux machine to the Linode over SSH, save not only time but also make the connection even more secure by using SSH public key authentication. For more information, see [SSH add keys](/docs/guides/use-public-key-authentication-with-ssh/).
+- Now that you can connect from your Linux machine to the Linode over SSH, save not only time but also make the connection even more secure by using SSH public key authentication. For more information, see [SSH add keys](/cloud/guides/use-public-key-authentication-with-ssh).
 
-- See the "Harden SSH Access" section of [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to review how to secure SSH on the server's side, and the [Advanced SSH Server Security](/docs/guides/advanced-ssh-server-security/) for more information on making it even more secure.
+- See the "Harden SSH Access" section of [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to review how to secure SSH on the server's side, and the [Advanced SSH Server Security](/cloud/guides/advanced-ssh-server-security) for more information on making it even more secure.

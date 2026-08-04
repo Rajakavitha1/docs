@@ -1,21 +1,20 @@
 ---
 slug: how-to-self-host-the-vaultwarden-password-manager
-description: "Bitwarden is an open source password management application that can be self-hosted. This guide shows how to run an instance of the vaultwarden project."
-keywords: ["bitwarden self hosted", "free self hosted password manager", "self hosted password manager open source"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-19
-modified_by:
-  name: Linode
 title: "Self-Hosting the vaultwarden Password Manager"
 title_meta: "How to Self-Host the vaultwarden Password Manager"
-tags: ["ubuntu", "security", "web applications", "docker"]
-aliases: ["security/authentication/self-hosted-password-management-with-bitwarden-rs/", "/guides/how-to-self-host-the-bitwarden-rs-password-manager/", "security/authentication/how-to-self-host-the-bitwarden-rs-password-manager/"]
+description: "Bitwarden is an open source password management application that can be self-hosted. This guide shows how to run an instance of the vaultwarden project."
 authors: ["Tyler Langlois"]
+contributors: ["Tyler Langlois"]
+published: 2021-02-19
+keywords: ["bitwarden self hosted", "free self hosted password manager", "self hosted password manager open source"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+tags: ["ubuntu", "security", "web applications", "docker"]
+aliases: []
 ---
 
-The [Vaultwarden](https://github.com/dani-garcia/vaultwarden) project (formerly known as bitwarden_rs) provides a lightweight, single-process, API-compatible service alternative to [Bitwarden](https://bitwarden.com/). [Vaultwarden](https://bitwarden.com/) is an open source password management application that can be self-hosted and run on your infrastructure. By running the vaultwarden service, you can use Bitwarden browser extensions and mobile applications backed by your server.
+The [Vaultwarden](https://github.com/dani-garcia/vaultwarden) project (formerly known as Bitwarden_RS) provides a lightweight, single-process, API-compatible service alternative to [Bitwarden](https://bitwarden.com/). [Vaultwarden](https://bitwarden.com/) is an open source password management application that can be self-hosted and run on your infrastructure. By running the vaultwarden service, you can use Bitwarden browser extensions and mobile applications backed by your server.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 By self-hosting your password manager, you are assuming responsibility for the security and resiliency of sensitive information stored within Vaultwarden. Before storing important information and credentials within the application, ensure that you are confident with the security of the server. Also, take the necessary backup measures mentioned in this tutorial.
 {{< /note >}}
 
@@ -31,15 +30,15 @@ Ubuntu 20.04 is the distribution used in this guide. Generally speaking, any Lin
 
 ### Before You Begin
 
-1. Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting the hostname and timezone.
+1. Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting the hostname and timezone.
 
-1. Follow the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide in order to harden the Linode against malicious users. This step is important to ensure Vaultwarden is secured.
+1. Follow the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide in order to harden the Linode against malicious users. This step is important to ensure Vaultwarden is secured.
 
    {{< note respectIndent=false >}}
-If you choose to configure a firewall, remember to open ports 80 and 443 for the Caddy server. The [Configure a Firewall](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-firewall) section of the guide outlines different firewall software options.
+If you choose to configure a firewall, remember to open ports 80 and 443 for the Caddy server. The [Configure a Firewall](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-firewall) section of the guide outlines different firewall software options.
 {{< /note >}}
 
-1. Make sure you have registered a Fully Qualified Domain Name (FQDN) and set up [A and AAAA](/docs/guides/dns-overview/#a-and-aaaa) DNS records that point to the public [IPv4 and IPv6 addresses](/docs/products/compute/compute-instances/guides/manage-ip-addresses/) of the Linode. Consult the [DNS Records: An Introduction](/docs/guides/dns-overview/) and [DNS Manager](/docs/products/networking/dns-manager/) guides for help with setting up a domain. A proper domain name is important to acquire a certificate for HTTPS connectivity.
+1. Make sure you have registered a Fully Qualified Domain Name (FQDN) and set up [A and AAAA](/cloud/guides/dns-overview#a-and-aaaa) DNS records that point to the public [IPv4 and IPv6 addresses](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance) of the Linode. Consult the [DNS Records: An Introduction](/cloud/guides/dns-overview) and [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guides for help with setting up a domain. A proper domain name is important to acquire a certificate for HTTPS connectivity.
 
 ## Install Docker
 
@@ -236,7 +235,7 @@ As an additional security precaution, you may elect to disable user registration
 
 Before relying on this service for any important data, you should take additional steps to safeguard the data stored within Vaultwarden. Encrypted data is stored within a flat file sqlite3 database. In order to reliably backup this data, you should *not* simply copy the file. Instead, use the sqlite3 `.backup` command. This command ensures that the database is in a consistent state when the backup is taken.
 
-1. Review the [Backing Up Your Data](/docs/guides/backing-up-your-data/) guide in order to determine the best location to store the backups. In this example, a local file system path is used.
+1. Review the [Backing Up Your Data](/cloud/guides/backing-up-your-data) guide in order to determine the best location to store the backups. In this example, a local file system path is used.
 
     {{< note respectIndent=false >}}
 In a more resilient setup, these local backups should be replicated onto another service or host to guard against single-host failure.
@@ -321,9 +320,8 @@ The `Persistent=true` line instructs systemd to fire the timer if the timer was 
 {{< /output >}}
 
    This indicates that a backup is taken in 5 hours and 50 minutes.
-
-{{< note type="alert" respectIndent=false >}}
-Ensure that the backups are kept on a volume or host independent of the Linode in case of a disaster recover recovery scenario. Consider using [Linode Block Storage](/docs/products/storage/block-storage/) as one potential solution for permanent backup storage and archival.
+{{< note type="alert" >}}
+Ensure that the backups are kept on a volume or host independent of the Linode in case of a disaster recover recovery scenario. Consider using [Linode Block Storage](https://techdocs.akamai.com/cloud-computing/docs/block-storage) as one potential solution for permanent backup storage and archival.
 {{< /note >}}
 
 ## Using Vaultwarden

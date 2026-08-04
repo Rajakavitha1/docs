@@ -2,13 +2,12 @@
 slug: terraform-vs-helm
 title: "Comparing Terraform vs Helm: When to Use Each Tool"
 title_meta: "Terraform vs Helm (Comparison Guide): When to Use Each Tool"
-published: 2023-07-26
-modified_by:
-  name: Linode
 description: "Learn how Terraform and Helm can be used to manage your Kubernetes clusters, including the benefits (and downsides) of each and when to use each tool."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-07-26
 keywords: ['terraform vs helm', 'helm charts vs terraform', 'kubernetes helm vs terraform']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["Nathaniel Stickman"]
 ---
 
 Containerization, for all its efficiencies, often brings additional overhead --- especially when it comes to Kubernetes. Keeping up with infrastructure needs can be a major effort as your application grows.
@@ -115,6 +114,6 @@ One caveat to using Helm and Terraform together is the added complexity that may
 
 With the information provided in this guide, you should now be equipped to make an informed decision between Terraform and Helm, or even consider using them in tandem. To learn more about these tools, review some of our other resources:
 
--   Navigate to the [Terraform](/docs/guides/applications/configuration-management/terraform/) section for a list of related guides.
+-   Navigate to the [Terraform](/cloud/guides/applications/configuration-management/terraform) section for a list of related guides.
 
--   For Helm, you can start with our [Introduction to Helm | LKE Workshop](https://www.linode.com/content/introduction-to-helm-lke-workshop-with-jerome-petazzoni/) video. Then, dive deeper with our [How to Install Apps on Kubernetes with Helm 3](/docs/guides/how-to-install-apps-on-kubernetes-with-helm-3/) guide.
+-   For Helm, you can start with our [Introduction to Helm | LKE Workshop](https://www.linode.com/content/introduction-to-helm-lke-workshop-with-jerome-petazzoni/) video. Then, dive deeper with our [How to Install Apps on Kubernetes with Helm 3](/cloud/guides/how-to-install-apps-on-kubernetes-with-helm-3) guide.

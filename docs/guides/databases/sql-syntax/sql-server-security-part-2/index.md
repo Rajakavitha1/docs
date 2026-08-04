@@ -1,18 +1,17 @@
 ---
 slug: sql-server-security-part-2
+title: "Part 2: SQL Server Security Best Practices"
+title_meta: "SQL Server Security Best Practices, Part 2"
 description: 'Learn about the SQL Server security best practices and guidelines to keep your server and data safe. For example, selecting a SQL Server authentication mode.'
+authors: ["Doug Hayman for NanoHertz Solutions Inc"]
+contributors: ["Doug Hayman for NanoHertz Solutions Inc"]
+published: 2022-08-12
 keywords: ['SQL server authentication', 'Restrict SQL traffic', 'SQL Server Patches', 'Backups', 'Auditing']
 tags: ['database']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-08-12
-modified_by:
-  name: Linode
-title: "Part 2: SQL Server Security Best Practices"
-title_meta: "SQL Server Security Best Practices, Part 2"
-authors: ["Doug Hayman for NanoHertz Solutions Inc."]
 ---
 
-This guide is the second in a series of articles that covers SQL Server security best practices. [Part 1 of this series](/docs/guides/sql-server-security/) discussed a SQL Server installation's physical security, operating system security, and application maintenance. Additionally, the previous guide outlined how to disable unnecessary features, enable encryption, and implement data masking.
+This guide is the second in a series of articles that covers SQL Server security best practices. [Part 1 of this series](/cloud/guides/sql-server-security) discussed a SQL Server installation's physical security, operating system security, and application maintenance. Additionally, the previous guide outlined how to disable unnecessary features, enable encryption, and implement data masking.
 
 The second part of this series describes how and why you should:
 
@@ -39,7 +38,7 @@ Protection of data stored with SQL Server depends upon the ability to authentica
 
 You are prompted to select one of these SQL Server authentication modes during SQL Server setup.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 You can change the SQL Server authentication mode even after the initial installation decision has been made.
 {{< /note >}}
 
@@ -67,7 +66,7 @@ If you are using [SQL Server (mixed-mode) authentication](#sql-server-and-window
 1. For the SA (or renamed) account, select a complex password, consisting of lower/upper case letters, numbers, and punctuation symbols.
 1. Do not allow applications to use the SA (or equivalently renamed) account in any of the application connection strings.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Any other user-based (lower-privileged) SQL Server accounts should also use complex, unique passwords.
 {{< /note >}}
 
@@ -83,11 +82,11 @@ Database servers typically have one or more servers connecting to them. Access t
 
 These IP restrictions can be managed with different solutions on different platforms:
 
-- [*iptables*](/docs/guides/control-network-traffic-with-iptables/) can control traffic on Linux operating systems. Other popular firewall options are also available, including [UFW](/docs/guides/configure-firewall-with-ufw/), [nftables](/docs/guides/how-to-use-nftables/), and [FirewallD](/docs/guides/introduction-to-firewalld-on-centos/).
+- [*iptables*](/cloud/guides/control-network-traffic-with-iptables) can control traffic on Linux operating systems. Other popular firewall options are also available, including [UFW](/cloud/guides/configure-firewall-with-ufw), [nftables](/cloud/guides/how-to-use-nftables), and [FirewallD](/cloud/guides/introduction-to-firewalld-on-centos).
 
 - Use the Windows firewall (or any dedicate hardware firewall) on Microsoft platforms.
 
-- You can also [add the free Linode Cloud Firewalls service](/docs/products/networking/cloud-firewall/guides/create-a-cloud-firewall/) to a Linode Compute Instance that hosts SQL Server.
+- You can also [add the free Linode Cloud Firewalls service](https://techdocs.akamai.com/cloud-computing/docs/create-a-cloud-firewall) to a Linode Compute Instance that hosts SQL Server.
 
 ## SQL Server Patches (Service Packs)
 
@@ -127,4 +126,4 @@ Hardware and/or software firewall logs (that is, external to SQL Server) should 
 
 ## Conclusion
 
-In part two of this article series, you reviewed additional methods of enhancing the security of SQL Server databases. These included choosing an [authentication mode](#sql-server-authentication), restricting the [System Administrator account](#system-administrator-sa-account), assignment of [security-friendly accounts](#high-privileged-operating-system-accounts) to SQL Server, [restricting SQL traffic](#restrict-sql-traffic), application of [patch updates](#sql-server-patches-service-packs), [backup strategies](#backups), and use of [auditing](#auditing). To review earlier security recommendations, revisit [Part 1: SQL Server Security Best Practices](/docs/guides/sql-server-security/).
+In part two of this article series, you reviewed additional methods of enhancing the security of SQL Server databases. These included choosing an [authentication mode](#sql-server-authentication), restricting the [System Administrator account](#system-administrator-sa-account), assignment of [security-friendly accounts](#high-privileged-operating-system-accounts) to SQL Server, [restricting SQL traffic](#restrict-sql-traffic), application of [patch updates](#sql-server-patches-service-packs), [backup strategies](#backups), and use of [auditing](#auditing). To review earlier security recommendations, revisit [Part 1: SQL Server Security Best Practices](/cloud/guides/sql-server-security).

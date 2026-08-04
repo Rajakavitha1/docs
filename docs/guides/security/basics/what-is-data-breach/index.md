@@ -1,14 +1,13 @@
 ---
 slug: what-is-data-breach
-description: 'What is a data breach? And what causes a data breach? We provide the answers you need and explain the importance of data breach security.'
-keywords: ['what is data leak','data breach definition','what is data breach']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-25
-modified_by:
-  name: Linode
 title: "What is a Data Breach?"
 title_meta: "Data Breach Definition and Protection Protocols"
+description: 'What is a data breach? And what causes a data breach? We provide the answers you need and explain the importance of data breach security.'
 authors: ["David Chernicoff"]
+contributors: ["David Chernicoff"]
+published: 2022-03-25
+keywords: ['what is data leak','data breach definition','what is data breach']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 If you follow any form of tech media, you rarely go more than a day or two without hearing about some sort of data breach and its impact on business. Even mainstream media often finds itself reporting on data breaches because of the sometimes spectacular nature of the problem. The term data breach, however, is an exceptionally broad one. In essence, it refers to any action that results in the exposure of information to anyone who isn’t authorized to view or access that data.
@@ -19,7 +18,7 @@ From a well-publicized massive data breach that happens to a company like [Targe
 
 In a well-protected corporate environment, the most common causes of data breaches are some forms of brute force attacks, malware, and IT errors, such as improperly configured or unpatched operating systems or applications. These are often referred to as zero-day vulnerabilities.
 
-The major threat is social engineering. In fact, a study titled [“The Psychology of Human Error”](https://www.tessian.com/research/the-psychology-of-human-error/) by Stanford University Professor Jeff Hancock and the security firm Tessian found that in nine out of ten data breach incidents reviewed, the cause was human error; both engineered attacks and simple human error.
+The major threat is social engineering. In fact, a study titled [“The Psychology of Human Error”](https://f.hubspotusercontent20.net/hubfs/1670277/%5BCollateral%5D%20Tessian-Research-Reports/%5BTessian%20Research%5D%20Psychology%20of%20Human%20Error%202022.pdf) by Stanford University Professor Jeff Hancock and the security firm Tessian found that in nine out of ten data breach incidents reviewed, the cause was human error; both engineered attacks and simple human error.
 
 Phishing is the most common form of attack on your corporate network. Users get lackadaisical about how they handle email, and clicking on the wrong file or attachment easily results in a compromised network. Just because a message looks familiar doesn't mean that it isn’t a carefully crafted attack on your corporate network.
 
@@ -37,7 +36,7 @@ While credit card information is the most obvious target for malicious attacks, 
 
 Intellectual property theft is often the goal of these attacks. Actual attacks on your business processes, where databases are corrupted and line-of-business applications are shut down or infected and used as vectors to deploy and hide additional malware, present clear targets. The injection of ransomware into your environment is now an ever-present danger.
 
-Some businesses invest in [ransomware insurance](https://www.techtarget.com/searchsecurity/tip/How-to-find-ransomware-cyber-insurance-coverage) or simply set aside a part of their budget to pay off a ransomware attackers. But especially in the SMB space, the costs to do so can be ruinous, so planning to protect your data is a much more cost effective solution. Beyond simply doing all you can to prevent breaches, investing in strong data protection and [backup schemes](/docs/products/storage/backups/) designed to protect your data from threats (including ransomware), is simply a good idea.
+Some businesses invest in [ransomware insurance](https://www.techtarget.com/searchsecurity/tip/How-to-find-ransomware-cyber-insurance-coverage) or simply set aside a part of their budget to pay off a ransomware attackers. But especially in the SMB space, the costs to do so can be ruinous, so planning to protect your data is a much more cost effective solution. Beyond simply doing all you can to prevent breaches, investing in strong data protection and [backup schemes](https://techdocs.akamai.com/cloud-computing/docs/backup-service) designed to protect your data from threats (including ransomware), is simply a good idea.
 
 Keep in mind these attacks cause additional damage to your business if you are in a highly regulated business such as finance or healthcare. According to [reports made to the federal government](https://www.healthcareitnews.com/news/biggest-healthcare-data-breaches-2021) in 2021, over 40 million patient records were exposed in data breaches, just in this single industry.
 
@@ -49,7 +48,7 @@ The longer an attacker has unfettered access, the longer it is going to take you
 
 Despite all your good intentions, a data breach can still happen. What should you do upon discovering a data breach? Don’t panic.
 
-When a data breach is reported to IT, be ready to implement your incident response plan. For most businesses this means [ramping up the incident response team](/docs/guides/information-security-risk-management/#developing-an-isrm-plan), your group of IT personnel who have specific roles focused on quickly shutting down potential problems. The speed of your response may have a major impact on the effects of the breach.
+When a data breach is reported to IT, be ready to implement your incident response plan. For most businesses this means [ramping up the incident response team](/cloud/guides/information-security-risk-management#developing-an-isrm-plan), your group of IT personnel who have specific roles focused on quickly shutting down potential problems. The speed of your response may have a major impact on the effects of the breach.
 
 Specific roles and plans to make use of personnel should already be in place. Networking teams should be ready to identify and isolate impacted systems, and data management specialists should be in place to secure company databases and data repositories. IT staff responsible for backup and data protection should be checking that data backups are intact and uncorrupted. Cloud specialists should be in a position to check on the integrity of cloud stored data.
 

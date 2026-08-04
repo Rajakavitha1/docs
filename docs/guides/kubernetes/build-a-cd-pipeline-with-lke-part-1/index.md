@@ -1,16 +1,15 @@
 ---
 slug: build-a-cd-pipeline-with-lke-part-1
-description: "In this guide, part 1 of a multi-part series on Kubernetes, you will learn how to set up a continuous deployment pipeline for a Kubernetes app or cluster."
 title: "Building a CD Pipeline Using LKE (Part 1): Get Ready"
-keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+description: "In this guide, part 1 of a multi-part series on Kubernetes, you will learn how to set up a continuous deployment pipeline for a Kubernetes app or cluster."
+authors: ["Linode"]
+contributors: ["Linode"]
 published: 2021-05-06
 modified: 2022-12-14
-modified_by:
-  name: Linode
+keywords: ['kubernetes', 'k8s', 'lke', 'helm', 'gitlab']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 tags: ["kubernetes", "lke"]
-aliases: ['/guides/lke-continuous-deployment-part-1/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ![Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Get Ready](cd-presentation-header-01-get-ready.png "Cloud Native Continuous Deployment with GitLab, Helm, and Linode Kubernetes Engine: Get Ready")
@@ -25,8 +24,8 @@ The goal of this series is to set up a continuous deployment pipeline for a Kube
 
 ## Navigate the Series
 
-- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/docs/guides/build-a-cd-pipeline-with-lke/)
-- **Next section:** [Part 2: Sample Application](/docs/guides/build-a-cd-pipeline-with-lke-part-2/)
+- **Main guide:** [Building a Continuous Deployment Pipeline Using LKE](/cloud/guides/build-a-cd-pipeline-with-lke)
+- **Next section:** [Part 2: Sample Application](/cloud/guides/build-a-cd-pipeline-with-lke-part-2)
 
 ## Presentation Text
 

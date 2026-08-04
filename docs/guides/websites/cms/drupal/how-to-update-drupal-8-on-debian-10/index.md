@@ -1,33 +1,31 @@
 ---
 slug: how-to-update-drupal-8-on-debian-10
+title: Update Drupal 8 on Debian 10
+title_meta: How to Update Drupal 8 on Debian 10
 description: 'This guide will show you how to update your Drupal 8 installation running on a Debian 10 Linode.'
 og_description: 'This guide will show you how to update your Drupal 8 installation running on an Debian 10 Linode.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-02-21
 keywords: ["cms", "apache", "php", "content management system", "drupal 8", "update"]
 tags: ["drupal","lamp","cms","debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2020-02-21
-modified_by:
-    name: Linode
-published: 2020-02-21
 image: Drupal8onDebian10.png
-title: Update Drupal 8 on Debian 10
-title_meta: How to Update Drupal 8 on Debian 10
 relations:
     platform:
         key: how-to-update-drupal-8
         keywords:
            - distribution: Debian 10
-aliases: ['/websites/cms/drupal/how-to-update-drupal-8-on-debian-10/']
-authors: ["Linode"]
+aliases: []
 ---
 
-Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) content management system. While Drupal 8.1 includes a simple feature for incremental updates, you must preform manual Drupal core updates for any preceding versions. This guide demonstrates how to manually install an incremental Drupal 8 update on your Linode. The examples in this guide assume you have a functional [Drupal 8 installation](/docs/guides/how-to-install-and-configure-drupal-on-debian-10/) running a [LAMP stack](/docs/guides/how-to-install-a-lamp-stack-on-debian-10/) on Debian 10.
+Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) content management system. While Drupal 8.1 includes a simple feature for incremental updates, you must preform manual Drupal core updates for any preceding versions. This guide demonstrates how to manually install an incremental Drupal 8 update on your Linode. The examples in this guide assume you have a functional [Drupal 8 installation](/cloud/guides/how-to-install-and-configure-drupal-on-debian-10) running a [LAMP stack](/cloud/guides/how-to-install-a-lamp-stack-on-debian-10) on Debian 10.
 
 ## Before You Begin
 
-1. Complete all the steps in the [Install and Configure Drupal 8 on Debian 10](/docs/guides/how-to-install-and-configure-drupal-on-debian-10/) guide.
+1. Complete all the steps in the [Install and Configure Drupal 8 on Debian 10](/cloud/guides/how-to-install-and-configure-drupal-on-debian-10) guide.
 
-1. If you followed the [Install and Configure Drupal 8 on Debian 10](/docs/guides/how-to-install-and-configure-drupal-on-debian-10/) guide, your site's document root should be in the `/var/www/html/example.com/` directory, where `example.com` is your own site's domain name. You can list all your directories in `/var/www/html` to verify the location of your site's document root.
+1. If you followed the [Install and Configure Drupal 8 on Debian 10](/cloud/guides/how-to-install-and-configure-drupal-on-debian-10) guide, your site's document root should be in the `/var/www/html/example.com/` directory, where `example.com` is your own site's domain name. You can list all your directories in `/var/www/html` to verify the location of your site's document root.
 
         ls /var/wwww/html/
 
@@ -35,7 +33,7 @@ Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) 
 
         sudo apt-get update && sudo apt-get upgrade
 
-    {{< content "limited-user-note-shortguide" >}}
+    {{% content "limited-user-note-shortguide" %}}
 
 ## Create Backups
 
@@ -52,7 +50,7 @@ In this section, you will create an archive of your Drupal site's files and stor
         sudo mv -v example.com-BCKP-*.tar.gz ../backups
 
     {{< note respectIndent=false >}}
-This process can also be scripted and run on a regular basis using [cron](/docs/guides/schedule-tasks-with-cron/).
+This process can also be scripted and run on a regular basis using [cron](/cloud/guides/schedule-tasks-with-cron).
     {{< /note >}}
 
 ## Download Updates

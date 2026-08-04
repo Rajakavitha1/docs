@@ -1,14 +1,14 @@
 ---
 slug: how-to-install-collabora-code
+title: "Install and Configure Collabora CODE"
+title_meta: "Installing and Configuring Collabora CODE"
 description: 'This guide explains how to install and configure Collabora CODE and how to integrate it with Nextcloud'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2023-04-10
 keywords: ['install Collabora', 'configure Collabora', 'Collabora and Nextcloud', 'integrate Collabora into Nextcloud']
 tags: ['nginx']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-04-10
-modified_by:
-  name: Linode
-title: "Install and Configure Collabora CODE"
-title_meta: "Installing and Configuring Collabora CODE"
 external_resources:
 - '[Collabora Office](https://www.collaboraoffice.com/)'
 - '[Collabora CODE](https://www.collaboraoffice.com/code/)'
@@ -21,7 +21,6 @@ external_resources:
 - '[Collabora instructions for other Linux packages](https://www.collaboraoffice.com/code/linux-packages/)'
 - '[Collabora SDK documentation](https://sdk.collaboraonline.com/contents.html)'
 - '[Certbot](https://certbot.eff.org/)'
-authors: ["Jeff Novotny"]
 ---
 
 [Collabora](https://www.collaboraoffice.com/) is a fully-featured open-source alternative to popular office suites such as Microsoft Office. The [*Collabora Online Development Edition*](https://www.collaboraoffice.com/code/) (CODE) edition is the online development version of Collabora. It is typically integrated into the front end of a file storage application such as [Nextcloud](https://nextcloud.com/). This guide explains how to download, install, and configure the CODE edition of Collabora. It also demonstrates how to connect Collabora and Nextcloud, both running on the same Linode, using the Nextcloud Hub.
@@ -46,16 +45,16 @@ For those users who do not want to use Collabora with Nextcloud, integration and
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1.  Create and configure a subdomain name and point it at the Linode. This subdomain name provides access to the Collabora instance. The subdomain is required in addition to the domain or subdomain name used to access the Nextcloud instance. For more information on domains and how to create a DNS record, see the [Linode DNS Manager guide](/docs/products/networking/dns-manager/).
+1.  Create and configure a subdomain name and point it at the Linode. This subdomain name provides access to the Collabora instance. The subdomain is required in addition to the domain or subdomain name used to access the Nextcloud instance. For more information on domains and how to create a DNS record, see the [Linode DNS Manager guide](https://techdocs.akamai.com/cloud-computing/docs/dns-manager).
 
-1.  Collabora CODE requires a supporting storage application such as Nextcloud. For information on configuring Nextcloud, see the [Linode guide to installing Nextcloud on Ubuntu](/docs/guides/how-to-install-nextcloud-on-ubuntu-22-04/). This guide assumes Collabora is being installed on the same server as Nextcloud.
+1.  Collabora CODE requires a supporting storage application such as Nextcloud. For information on configuring Nextcloud, see the [Linode guide to installing Nextcloud on Ubuntu](/cloud/guides/how-to-install-nextcloud-on-ubuntu-22-04). This guide assumes Collabora is being installed on the same server as Nextcloud.
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## How to Install and Configure Collabora CODE
@@ -229,7 +228,7 @@ For details on how to configure the Apache virtual host, see the [Collabora Apac
 
 ### How to Enable HTTPS for the Collabora Domain
 
-The steps in this section explain how to use [Certbot](https://certbot.eff.org/) to request a *Let's Encrypt* TLS certificate and enable HTTPS support. The `snap` package manager can be used to install Certbot. For additional information about Certbot, Let's Encrypt certificates, and HTTPS, consult the [Linode guide to Using Certbot on NGINX](/docs/guides/enabling-https-using-certbot-with-nginx-on-ubuntu/).
+The steps in this section explain how to use [Certbot](https://certbot.eff.org/) to request a *Let's Encrypt* TLS certificate and enable HTTPS support. The `snap` package manager can be used to install Certbot. For additional information about Certbot, Let's Encrypt certificates, and HTTPS, consult the [Linode guide to Using Certbot on NGINX](/cloud/guides/enabling-https-using-certbot-with-nginx-on-ubuntu).
 
 1.  Install the `snap` package manager.
 

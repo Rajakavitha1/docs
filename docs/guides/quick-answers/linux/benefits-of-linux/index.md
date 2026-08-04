@@ -1,14 +1,13 @@
 ---
 slug: benefits-of-linux
-description: 'What are the benefits of Linux? Linode experts give an overview of Linux, what it’s good for and why it’s important. Learn more about the pros of Linux.'
-keywords: ['linux advantages','advantages linux','linux benefits']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-03-11
-modified_by:
-  name: Linode
 title: "10 Benefits of Linux You Need to Know"
 title_meta: "The Advantages of Linux and Why You Should Use It"
+description: 'What are the benefits of Linux? Linode experts give an overview of Linux, what it’s good for and why it’s important. Learn more about the pros of Linux.'
 authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2022-03-11
+keywords: ['linux advantages','advantages linux','linux benefits']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 ---
 
 Operating systems, such as Linux, provide an interface between the application software and the underlying hardware. The best operating systems remain invisible to the user, which is where the benefits of Linux first come into play. However, an operating system has to go further in ensuring that the user’s data remains secure and that applications play together nicely, which is another advantage of Linux. This guide examines the advantages of Linux and why you might consider using it as your operating system.
@@ -45,7 +44,7 @@ One of the pros of Linux is that the Linux kernel is free and it comes under the
 
 ### Fantastic Terminal Support
 
-You don’t need to install special software to contact the backend servers for your project using add-on software with Linux. All you need is the Secure Shell (SSH) utility to access the server securely. In addition, you have access to editors like [Emacs](/docs/guides/emacs-evil-mode/), [Nano](/docs/guides/use-nano-text-editor-commands/), and [Vim](/docs/guides/introduction-to-vim-customization/) that allow you to update config files or hosted Python scripts on the fly. These advantages of using Linux mean that developers spend more time writing and testing code than figuring out some arcane process to complete tasks.
+You don’t need to install special software to contact the backend servers for your project using add-on software with Linux. All you need is the Secure Shell (SSH) utility to access the server securely. In addition, you have access to editors like [Emacs](/cloud/guides/emacs-evil-mode), [Nano](/cloud/guides/use-nano-text-editor-commands), and [Vim](/cloud/guides/introduction-to-vim-customization) that allow you to update config files or hosted Python scripts on the fly. These advantages of using Linux mean that developers spend more time writing and testing code than figuring out some arcane process to complete tasks.
 
 ### Amazing Driver Support
 

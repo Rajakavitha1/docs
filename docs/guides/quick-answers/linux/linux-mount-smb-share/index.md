@@ -2,12 +2,12 @@
 slug: linux-mount-smb-share
 title: "Mount an SMB Share in Linux"
 description: "Learn how to mount a Windows directory in Linux using the SMB Protocol. This enables you to remotely access and modify you files."
+authors: ["John Mueller","Matt Wildman"]
+contributors: ["John Mueller","Matt Wildman"]
+published: 2023-06-06
+modified: 2023-10-03
 keywords: ['linux mount smb share', 'mount smb share linux', 'mount cifs', 'linux cifs mount']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["John Mueller"]
-published: 2023-06-06
-modified_by:
-  name: Linode
 external_resources:
 - '[Server Message Block (SMB) share](https://docs.microsoft.com/en-us/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)'
 - '[Common Internet File System (CIFS) utils](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cifs/d416ff7c-c536-406e-a951-4f04b2fd1d2b)'
@@ -18,11 +18,11 @@ Determining how to share files and directories between computers is a common pro
 This guide covers the Server Message Block (SMB) protocol. Specifically, it discusses using the SMB protocol to mount a Windows SMB share (a shared directory) to a Linux system. By following this guide, you will be able to access all of your files within a Windows folder (such as `C:\My_Files`) on your Linux system at whichever directory you choose as a mount point (such as `/mnt/my_files`). This method of file sharing is appropriate when you need to access entire Windows directories remotely as if they were local resources. In most cases, SMB is a native (or easily installed) file sharing solution for users that need access to the same directory and is commonly shared through a corporate intranet or the same private network.
 
 {{< note >}}
-Network File System (NFS) is another distributed file system protocol that's similar to SMB. While SMB is more commonly used in primarily Windows environments and NFS is used in primary Linux environments, both have cross-platform support. This guide does not cover NFS, but you can learn more about it by reading through our [NFS guides](/docs/guides/networking/nfs/). If you are not in a Windows environment and are looking to share directories between Linux systems, consider using NFS.
+Network File System (NFS) is another distributed file system protocol that's similar to SMB. While SMB is more commonly used in primarily Windows environments and NFS is used in primary Linux environments, both have cross-platform support. This guide does not cover NFS, but you can learn more about it by reading through our [NFS guides](/cloud/guides/networking/nfs). If you are not in a Windows environment and are looking to share directories between Linux systems, consider using NFS.
 {{< /note >}}
 
 {{< note type="warning" >}}
-While security and performance of the SMB protocol has improved over time, it is often still a concern when connecting to an SMB share over the internet. This is typically not recommended unless you are using [SMB over QUIC](https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-over-quic) (recently introduced on Windows 11 and Windows Server 2022), intend to always use the latest protocol version (3.1.1 as of this writing), or are connected through a personal or corporate VPN. If you are not able to implement these recommendations and still wish to share files over the internet, consider if the [SFTP](/docs/guides/sftp-linux/) protocol would work for you instead.
+While security and performance of the SMB protocol has improved over time, it is often still a concern when connecting to an SMB share over the internet. This is typically not recommended unless you are using [SMB over QUIC](https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-over-quic) (recently introduced on Windows 11 and Windows Server 2022), intend to always use the latest protocol version (3.1.1 as of this writing), or are connected through a personal or corporate VPN. If you are not able to implement these recommendations and still wish to share files over the internet, consider if the [SFTP](/cloud/guides/sftp-linux) protocol would work for you instead.
 {{< /note >}}
 
 ## Overview of the SMB Protocol
@@ -97,8 +97,8 @@ The LinuxCIFS utils package provides the tools needed to connect to a share and 
 
 All files in Linux are accessible on a single giant hierarchical directory tree, which starts at the root (`/`). The mount command (used in this tutorial) enables you to access other storage devices or file systems from that same tree. These other storage resources do not have to be physical disks and they do not have to be using the same file system. To learn more about the mount command, review the following guides:
 
-- [Quick Guide to the Linux Mount Command](/docs/guides/linux-mount-command/)
-- [Mount a File System on Linux](/docs/guides/mount-file-system-on-linux/)
+- [Quick Guide to the Linux Mount Command](/cloud/guides/linux-mount-command)
+- [Mount a File System on Linux](/cloud/guides/mount-file-system-on-linux)
 
 The following sections detail how to mount an SMB share on Ubuntu, but the essential process is the same for other Linux distributions.
 
@@ -161,7 +161,7 @@ You don’t want to have to type in your credentials every time you access a sha
 1.  Set ownership of the credentials file to the current user by running the following command:
 
     ```command
-    sudo chown <User Name>:<Credentials Filename>
+    sudo chown <User Name[:Group Name]> <Credentials Filename>
     ```
 
     Replace `<User Name>` with your username and `<Credentials Filename>` with the name of your credentials file.

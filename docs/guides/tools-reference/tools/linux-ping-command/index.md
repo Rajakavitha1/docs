@@ -1,19 +1,18 @@
 ---
 slug: linux-ping-command
+title: "The Linux ping Command"
+title_meta: "Introduction to the Linux ping Command"
 description: "The ping command is ubiquitous for its convenience and simplicity when it comes to testing network responses. But while the basics are straightforward, ping has plenty of options that can greatly enhance your network tests. Learn all about them in this guide."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-03-20
 keywords: ['linux ping command', 'linux ping port', 'linux ping options']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-20
-modified_by:
-  name: Nathaniel Stickman
-title: "The Linux ping Command"
-title_meta: "Introduction to the Linux ping Command"
 external_resources:
 - '[phoenixNAP: Linux Ping Command Tutorial with Examples](https://phoenixnap.com/kb/linux-ping-command-examples)'
 - '[Linuxize: Linux Ping Command Tutorial with Examples](https://linuxize.com/post/linux-ping-command/)'
 - '[GeeksforGeeks: PING Command in Linux with Examples](https://www.geeksforgeeks.org/ping-command-in-linux-with-examples/)'
-authors: ["Nathaniel Stickman"]
 ---
 
 One of the most commonly-used commands on Linux is the *ping* command, used most often to test network connections and troubleshoot connectivity issues. It comes by default on most Linux distributions, making it accessible.
@@ -26,9 +25,9 @@ This guide introduces you to *ping* in all its variety. In this guide, you can l
 
 ## Before You Begin
 
-1. Familiarize yourself with our [Getting Started with Linode](/docs/products/platform/get-started/) guide, and complete the steps for setting your Linode's hostname and timezone.
+1. Familiarize yourself with our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide, and complete the steps for setting your Linode's hostname and timezone.
 
-1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
+1. This guide uses `sudo` wherever possible. Complete the sections of our [How to Secure Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, and remove unnecessary network services.
 
 1. Update your system.
 
@@ -45,7 +44,7 @@ This guide introduces you to *ping* in all its variety. In this guide, you can l
         ```
 
 {{< note >}}
-The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+The steps in this guide are written for non-root users. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Reading the Results of the ping Command

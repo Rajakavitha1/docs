@@ -1,32 +1,36 @@
 ---
 slug: install-the-linode-block-storage-csi-driver-on-unmanaged-kubernetes
+title: "Install the Linode Block Storage CSI Driver on Kubernetes"
 description: 'How to Install the Linode Block Storage CSI Driver.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-07-29
+modified: 2020-12-02
 keywords: ['container','kubernetes','block','storage','volume','csi','interface','driver']
 tags: ["linode platform","kubernetes","container"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-07-29
-modified: 2020-12-02
-modified_by:
-  name: Linode
-title: "Install the Linode Block Storage CSI Driver on Kubernetes"
 external_resources:
 - '[Kubernetes PersistentVolumeClaims Documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)'
 - '[Container Storage Interface (CSI) Spec](https://github.com/container-storage-interface/spec/blob/master/spec.md)'
-aliases: ['/kubernetes/how-to-install-the-linode-block-storage-csi-driver/','/guides/how-to-install-the-linode-block-storage-csi-driver/']
-authors: ["Linode"]
+aliases: []
+deprecated: true
 ---
+
+{{< note type="warning" noTitle=true >}}
+To learn more about the Container Storage Interface (CSI) Driver for Linode Block Storage and for the most up-to-date installation and usage instructions, review the [linode/linode-blockstorage-csi-driver](https://github.com/linode/linode-blockstorage-csi-driver) GitHub repository.
+{{< /note >}}
 
 ## What is the Linode Block Storage CSI Driver?
 
-The [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md) (CSI) defines a standard that storage providers can use to expose block and file storage systems to container orchestration systems. Linode's Block Storage CSI driver follows this specification to allow container orchestration systems, like Kubernetes, to use [Block Storage Volumes](/docs/products/storage/block-storage/) to persist data despite a Pod's lifecycle. A Block Storage Volume can be attached to any Linode to provide additional storage.
+The [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md) (CSI) defines a standard that storage providers can use to expose block and file storage systems to container orchestration systems. Linode's Block Storage CSI driver follows this specification to allow container orchestration systems, like Kubernetes, to use [Block Storage Volumes](https://techdocs.akamai.com/cloud-computing/docs/block-storage) to persist data despite a Pod's lifecycle. A Block Storage Volume can be attached to any Linode to provide additional storage.
 
 ## Before You Begin
 
-This guide assumes you have a working Kubernetes cluster running on Linode. If you have already created a Kubernetes cluster managed with [LKE](/docs/products/compute/kubernetes/), then the Block Storage CSI driver and the `linode` secret token will already be pre-installed on your cluster. See the [Deploying Persistent Volume Claims with the Linode Block Storage CSI Driver](/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver) guide for the next steps for working with Persistent Volume Claims.
+This guide assumes you have a working Kubernetes cluster running on Linode. If you have already created a Kubernetes cluster managed with [LKE](https://techdocs.akamai.com/cloud-computing/docs/linode-kubernetes-engine), then the Block Storage CSI driver and the `linode` secret token will already be pre-installed on your cluster. See the [Deploying Persistent Volume Claims with the Linode Block Storage CSI Driver](/cloud/guides/deploy-volumes-with-the-linode-block-storage-csi-driver) guide for the next steps for working with Persistent Volume Claims.
 
-If you are not using LKE or the [Kubernetes Terraform installer](https://registry.terraform.io/modules/linode/k8s/linode/0.1.2), the Kubernetes cluster will require the Block Storage CSI driver to be installed on the cluster in order to use Linode's Block Storage. If you need to set up an unmanaged Kubernetes cluster, you can follow the [Getting Started with Kubernetes: Use kubeadm to Deploy a Cluster on Linode](/docs/guides/deploy-kubernetes-cluster-using-kubeadm/) guide to do this.
+If you are not using LKE or the [Kubernetes Terraform installer](https://registry.terraform.io/modules/linode/k8s/linode/0.1.2), the Kubernetes cluster will require the Block Storage CSI driver to be installed on the cluster in order to use Linode's Block Storage. If you need to set up an unmanaged Kubernetes cluster, you can follow the [Getting Started with Kubernetes: Use kubeadm to Deploy a Cluster on Linode](/cloud/guides/deploy-kubernetes-cluster-using-kubeadm) guide to do this.
 
-The Linode Block Storage CSI driver **absolutely requires** that the Linode Cloud Controller Manager (CCM) is pre-installed and running on your cluster in order for the CSI to be installed. Follow the steps in our [CCM installation guide](/docs/guides/install-the-linode-ccm-on-unmanaged-kubernetes/) before proceeding.
+The Linode Block Storage CSI driver **absolutely requires** that the Linode Cloud Controller Manager (CCM) is pre-installed and running on your cluster in order for the CSI to be installed. Follow the steps in our [CCM installation guide](/cloud/guides/install-the-linode-ccm-on-unmanaged-kubernetes) before proceeding.
 
 {{< note >}}
 The Block Storage CSI supports Kubernetes version 1.13 or higher. To check the version of Kubernetes you are running, you can issue the following command:
@@ -81,7 +85,7 @@ Once you have your API token, it's time to create your secret.
     read -p "Linode Region of Cluster: " LINODE_REGION
     ```
 
-    You can retrieve a full list of regions by using the [Linode CLI](/docs/products/tools/cli/get-started/):
+    You can retrieve a full list of regions by using the [Linode CLI](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-the-linode-cli):
 
     ```command
     linode-cli regions list
@@ -140,4 +144,4 @@ The above file concatenates a few files needed to run the Block Storage CSI driv
 
 ### Next Steps
 
-Once you have the Block Storage CSI driver installed, you are ready to [provision a Persistent Volume Claim](/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver).
+Once you have the Block Storage CSI driver installed, you are ready to [provision a Persistent Volume Claim](/cloud/guides/deploy-volumes-with-the-linode-block-storage-csi-driver).

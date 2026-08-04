@@ -1,15 +1,15 @@
 ---
 slug: how-to-install-wordpress-using-wp-cli-on-centos-7
+title: 'Install WordPress Using WP-CLI on CentOS 7'
+title_meta: 'How to Install WordPress Using WP-CLI on CentOS 7'
 description: 'Install WordPress Using WP-CLI on CentOS 7'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-08-06
+modified: 2020-02-17
 keywords: ["install WP-CLI", "centos", "wordpress", "apache", "bash completion", "plugin", "WP-CLI", "themes"]
 tags: ["centos","wordpress","cms","lamp"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2018-08-06
-modified: 2020-02-17
-modified_by:
-    name: Linode
-title: 'Install WordPress Using WP-CLI on CentOS 7'
-title_meta: 'How to Install WordPress Using WP-CLI on CentOS 7'
 external_resources:
 - '[WP-CLI Handbook](https://make.wordpress.org/cli/handbook/)'
 - '[WP-CLI Commands](https://developer.wordpress.org/cli/commands/)'
@@ -19,8 +19,7 @@ relations:
         key: how-to-install-wordpress-using-wp-cli
         keywords:
            - distribution: CentOS 7
-aliases: ['/websites/cms/wordpress/how-to-install-wordpress-using-wp-cli-on-centos-7/','/websites/cms/wp-cli/how-to-install-wordpress-using-wp-cli-on-centos-7/']
-authors: ["Linode"]
+aliases: []
 ---
 
 WordPress is well-known for its rich content management feature set, ease of use, and quick installation time. The [WordPress command line interface (WP-CLI)](https://wp-cli.org/) provides useful commands and utilities to install, configure, and manage a WordPress site. This guide walks you through some common tasks you can complete using the WP-CLI.
@@ -37,20 +36,20 @@ This tutorial covers how to complete the following tasks:
 
 Before moving ahead, make sure you have completed the following steps.
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
     {{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
-1.  If you'd like to use your own [Domain Name](/docs/guides/dns-overview/) to host your WordPress installation, ensure that your domain name is [pre-configured](/docs/products/networking/dns-manager/get-started/) to point to your Linode's IP address.
+1.  If you'd like to use your own [Domain Name](/cloud/guides/dns-overview) to host your WordPress installation, ensure that your domain name is [pre-configured](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-dns-manager) to point to your Linode's IP address.
 
-1.  Follow the [Install a LAMP Stack on CentOS 7](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/) guide. **Skip the steps** in the [Configure Apache Virtual Hosts File](/docs/guides/how-to-install-wordpress-using-wp-cli-on-centos-7/#configure-apache-virtual-hosts-file), the [Create a MariaDB Database](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/#create-a-mariadb-database), and the [Optional: Test and Troubleshoot the LAMP Stack](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/#optional-test-and-troubleshoot-the-lamp-stack) section. Those steps will be covered later on in this guide.
+1.  Follow the [Install a LAMP Stack on CentOS 7](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7) guide. **Skip the steps** in the [Configure Apache Virtual Hosts File](/cloud/guides/how-to-install-wordpress-using-wp-cli-on-centos-7#configure-apache-virtual-hosts-file), the [Create a MariaDB Database](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7#create-a-mariadb-database), and the [Optional: Test and Troubleshoot the LAMP Stack](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7#optional-test-and-troubleshoot-the-lamp-stack) section. Those steps will be covered later on in this guide.
 
     {{< note respectIndent=false >}}
-When following the steps to [install PHP](#install-php) in the [Install a LAMP Stack on CentOS 7](/docs/guides/how-to-install-a-lamp-stack-on-centos-7/) guide, you will need to issue the command included below to install the required PHP packages. The command in the linked guide does not currently work with CentOS 7.
+When following the steps to [install PHP](#install-php) in the [Install a LAMP Stack on CentOS 7](/cloud/guides/how-to-install-a-lamp-stack-on-centos-7) guide, you will need to issue the command included below to install the required PHP packages. The command in the linked guide does not currently work with CentOS 7.
 
     sudo apt install php libapache2-mod-php php-mysql
     {{< /note >}}
@@ -502,8 +501,7 @@ The procedure for installing and activating a theme is nearly identical to that 
 ### Update WordPress
 
 To update your WordPress site:
-
-{{< note respectIndent=false >}}
+{{< note >}}
 For more details on best practices when updating your WordPress site, see [WordPress' official documentation](https://wordpress.org/support/article/updating-wordpress/).
 {{< /note >}}
 

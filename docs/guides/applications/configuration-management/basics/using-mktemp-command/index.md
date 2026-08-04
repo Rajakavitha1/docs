@@ -1,17 +1,16 @@
 ---
 slug: using-mktemp-command
+title: "Using mktemp Command to Create Temporary Files and Directories"
+title_meta: "How to Use the mktemp Command to Create Temporary Files and Directories"
 description: 'Learn how to use the mktemp command on an Ubuntu 20.04 Linode server. Using the mktemp command, you can create temporary files and directories.'
+authors: ["Tom Henderson"]
+contributors: ["Tom Henderson"]
+published: 2023-03-19
 keywords: ['mktemp', 'mktemp bash', 'mktemp directory', 'tmpdir']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2023-03-19
-modified_by:
-  name: Linode
-title: "Using mktemp Command to Create Temporary Files and Directories"
-title_meta: "How to Use the mktemp Command to Create Temporary Files and Directories"
 external_resources:
-- '[Setting and Using Linux Environment Variables](/docs/guides/how-to-set-linux-environment-variables/)'
-authors: ["Tom Henderson"]
+- '[Setting and Using Linux Environment Variables](/cloud/guides/how-to-set-linux-environment-variables)'
 ---
 
 The `mktemp` command is used in Linux and BSD derivative operating systems to create temporary files or directories. The temporary filename and directories can be named using a user-defined "template". This utility is installed by default on major Linux distributions.
@@ -135,7 +134,7 @@ mktemp -d --suffix TODAY
 
 ## The TMPDIR Environment Variable
 
-The `TMPDIR` environmental variable enables you to specify a different path for you to store the temporary files. It is stored in a list that is available to applications and shell scripts. The `TMPDIR` variable permits many applications to know where the administrator has designated the storage of temporary directories, especially if the designation varies from the default use of the `/tmp` directory. The `/tmp` directory in some instances may be placed on special media like an SSD for speed purposes. To understand more on environment variables, see the Linode's guide on [Setting and Using Linux Environment Variables](/docs/guides/how-to-set-linux-environment-variables/).
+The `TMPDIR` environmental variable enables you to specify a different path for you to store the temporary files. It is stored in a list that is available to applications and shell scripts. The `TMPDIR` variable permits many applications to know where the administrator has designated the storage of temporary directories, especially if the designation varies from the default use of the `/tmp` directory. The `/tmp` directory in some instances may be placed on special media like an SSD for speed purposes. To understand more on environment variables, see the Linode's guide on [Setting and Using Linux Environment Variables](/cloud/guides/how-to-set-linux-environment-variables).
 
 On some Linux systems, the `TMPDIR` file is called or declared by `systemd-tempfiles`, a daemon that can be set to periodically clean files by creation date, or other attributes not covered in this guide.
 

@@ -1,17 +1,16 @@
 ---
 slug: install-openvas-on-ubuntu-16-04
+title: Install OpenVAS 8 on Ubuntu 16.04
 description: 'This guide shows how to install OpenVAS, the Open Vulnerability Assessment System, which you can use to scan your system for vulnerabilities on Ubuntu 16.04.'
+authors: ["Phil Zona"]
+contributors: ["Phil Zona"]
+published: 2017-02-06
+modified: 2016-12-19
 keywords: ["openvas", "ubuntu", "install openvas"]
-aliases: ['/security/vulnerabilities/install-openvas-on-ubuntu-16-04/','/security/install-openvas-on-ubuntu-16-04/']
+aliases: []
 tags: ["security","ubuntu"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2016-12-19
-modified_by:
-  name: Linode
-published: 2017-02-06
-title: Install OpenVAS 8 on Ubuntu 16.04
 deprecated: true
-authors: ["Phil Zona"]
 ---
 
 OpenVAS, the Open Vulnerability Assessment System, is a framework of tools that allow you to scan your system for thousands of known vulnerabilities. This guide will show you how to install OpenVAS 8 on Ubuntu 16.04.
@@ -26,19 +25,18 @@ OpenVAS consists of:
 * the Greenbone Security Assistant, a graphical interface that allows you to manage vulnerability scans from a web application.
 
 For more information about the architecture of the software, refer to the [OpenVAS website](http://www.openvas.org/software.html).
-
-{{< note type="alert" respectIndent=false >}}
+{{< note type="alert" >}}
 OpenVAS is a powerful security tool that is capable of scanning remote hosts as well as your local machine. This guide is intended to allow you to monitor vulnerabilities on machines that you control or have permission to scan. If you use OpenVAS to scan remote servers owned by others, be sure that you have a full understanding of the responsibilities involved and the potential consequences.
 {{< /note >}}
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install OpenVAS
@@ -72,7 +70,7 @@ The `openvas` repository and its packages are not officially supported by Ubuntu
         sudo openvas-nvt-sync
 
     {{< note respectIndent=false >}}
-This feed is maintained by OpenVAS and is updated about once per week. To keep your NVT feed current, we recommend running this command regularly, or setting up a [cron job](/docs/guides/schedule-tasks-with-cron/) to automate the process.
+This feed is maintained by OpenVAS and is updated about once per week. To keep your NVT feed current, we recommend running this command regularly, or setting up a [cron job](/cloud/guides/schedule-tasks-with-cron) to automate the process.
 {{< /note >}}
 
 5.  Sync Security Content Automation Protocol (SCAP) and Computer Emergency Readiness Team (CERT) vulnerability data to a local database. The synchronization will take several minutes, and you can monitor its progress in the output:

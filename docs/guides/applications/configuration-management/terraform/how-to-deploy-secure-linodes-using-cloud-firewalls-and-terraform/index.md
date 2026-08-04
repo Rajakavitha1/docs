@@ -1,55 +1,47 @@
 ---
 slug: how-to-deploy-secure-linodes-using-cloud-firewalls-and-terraform
+title: "Deploy Secure Linodes using Cloud Firewalls and Terraform"
 description: 'This guide will show you how to use the Terraform application to deploy Linode instances with pre-configured Cloud Firewalls assigned to them.'
+authors: ["Leslie Salazar"]
+contributors: ["Leslie Salazar"]
+published: 2020-07-29
+modified: 2025-06-18
 keywords: ['terraform','infrastructure','firewalls','orchestration']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-07-29
-modified: 2022-11-29
-modified_by:
-  name: Linode
-title: "Deploy Secure Linodes using Cloud Firewalls and Terraform"
 image: feature.png
 external_resources:
 - '[Terraform Linode Provider Official Documentation](https://registry.terraform.io/providers/linode/linode/latest/docs)'
-aliases: ['/applications/configuration-management/terraform/how-to-deploy-secure-linodes-using-cloud-firewalls-and-terraform/']
-authors: ["Leslie Salazar"]
-tags: ["saas"]
+aliases: []
 ---
 
 Terraform modules allow you to better organize your configuration code and to distribute and reuse it. You can host your Terraform modules on remote version control services, like GitHub, for others to use. The Terraform Module Registry hosts community modules that you can reuse for your own Terraform configurations, or you can publish your own modules for consumption by the Terraform community.
 
-In this guide, you will create a Linode Firewalls module which declares commonly used Cloud Firewall configurations. You will then use the module to create a Linode instance and assign the Linode to the Cloud Firewall. You can adopt the example configurations in this guide to create your own reusable Cloud Firewall configurations. For more information on Cloud Firewalls, see the [Cloud Firewalls documentation](/docs/products/networking/cloud-firewall/).
+In this guide, you will create a Linode Firewalls module which declares commonly used Cloud Firewall configurations. You will then use the module to create a Linode instance and assign the Linode to the Cloud Firewall. You can adopt the example configurations in this guide to create your own reusable Cloud Firewall configurations. For more information on Cloud Firewalls, see the [Cloud Firewalls documentation](https://techdocs.akamai.com/cloud-computing/docs/cloud-firewall).
 
 ## Before You Begin
 
-1. If you are new to Terraform, read through our [A Beginner's Guide to Terraform](/docs/guides/beginners-guide-to-terraform/) guide to familiarize yourself with key concepts.
+1. If you are new to Terraform, read through our [A Beginner's Guide to Terraform](/cloud/guides/beginners-guide-to-terraform) guide to familiarize yourself with key concepts.
 
-1. See [Create a Terraform Module](/docs/guides/create-terraform-module/) for a deeper dive into Terraform's standard module structure and other helpful details.
+1. See [Create a Terraform Module](/cloud/guides/create-terraform-module) for a deeper dive into Terraform's standard module structure and other helpful details.
 
-1. You need a Linode API personal access token to use with Terraform. This token will allow you to create, update, and destroy Linode resources. See the [Manage Personal Access Tokens](/docs/products/tools/api/guides/manage-api-tokens/) guide for steps to create a token.
-
-    {{< note respectIndent=false >}}
-    When you create a personal access token ensure that you set **Read/Write** access permissions for Linode instances and Cloud Firewalls.
-    {{< /note >}}
-
-1. [Install Terraform](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform) on your local computer.
+1. You need a Linode API personal access token to use with Terraform. This token will allow you to create, update, and destroy Linode resources. See the [Manage Personal Access Tokens](https://techdocs.akamai.com/cloud-computing/docs/manage-personal-access-tokens) guide for steps to create a token.
 
     {{< note respectIndent=false >}}
-This guide was written using [Terraform version 0.13.0](https://github.com/hashicorp/terraform/releases).
+When you create a personal access token ensure that you set **Read/Write** access permissions for Linode instances and Cloud Firewalls.
     {{< /note >}}
 
-1. Install Git on your computer and complete the steps in the **Configure Git** section of the [Getting Started with Git guide](/docs/guides/how-to-configure-git/#configure-git).
+1. [Install Terraform](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#install-terraform) on your local computer. This guide uses [Terraform version 1.12.2](https://github.com/hashicorp/terraform/releases).
+
+1. Install Git on your computer and complete the steps in the **Configure Git** section of the [Getting Started with Git guide](/cloud/guides/how-to-configure-git#configure-git).
 
 ## Create Your Cloud Firewalls Module
 
-The following steps will create the Cloud Firewalls module, which includes several child modules that split up the required resources between the *root module*, an `inbound_ssh` module, a `mysql` module, and a `web-server` module. The root module is the directory that holds the Terraform configuration files that are applied to build your desired infrastructure. These files provide an entry point into any child modules. Each child module uses the `linode_firewall` resource to create reusable Cloud Firewall rules for specific use cases.
+The following steps will create the Cloud Firewalls module, which includes several child modules that split up the required resources between the *root module*, an `inbound_ssh` module, a `mysql` module, and a `web-server` module.
+
+The root module is the directory that holds the Terraform configuration files that are applied to build your desired infrastructure. These files provide an entry point into any child modules. Each child module uses the `linode_firewall` resource to create reusable Cloud Firewall rules for specific use cases. You can apply up to three Cloud Firewalls per Linode instance.
 
 {{< note >}}
-You can apply up to three Cloud Firewalls per Linode instance.
-{{< /note >}}
-
-{{< note >}}
-You can view the files created throughout this tutorial in the [author's GitHub repository](https://github.com/leslitagordita/main-firewalls). You can clone the repository and use it as a foundation to create your own custom Cloud Firewalls module.
+You can view the files created throughout this tutorial in the [author's GitHub repository](https://github.com/leslitagordita/main-firewalls). You can also clone the repository and use it as a foundation to create your own custom Cloud Firewalls module.
 {{< /note >}}
 
 ### Create Your Module's Directory Structure
@@ -92,7 +84,7 @@ main_firewalls/
     ```
 
     {{< note respectIndent=false >}}
-    If you followed our [install Terraform](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform) steps, then your Terraform executable will be located in the `terraform` directory. If this is not the case, ensure that you can execute Terraform commands from the `main_firewalls` directory.
+If you followed the steps in our guide for [installing Terraform](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode#install-terraform), then your Terraform executable will be located in the `terraform` directory. If this is not the case, ensure that you can execute Terraform commands from the `main_firewalls` directory.
     {{< /note >}}
 
 ### Create the Inbound SSH Child Module
@@ -101,12 +93,18 @@ When applied to a Terraform configuration, the `inbound_ssh` module will create 
 
 1. Using your preferred text editor, create the `inbound_ssh` module's `main.tf` file. Copy and save the contents of the example below.
 
+    {{< note title ="Linode Provider Version 3.0.0" >}}
+    As of June, 2025, the Linode Terraform Provider version is 3.0.0. To determine the current version, see the [Linode Namespace](https://registry.terraform.io/namespaces/linode) in the Terraform Registry.
+
+    The Linode Terraform Provider version 3.0.0 requires `terraform` version 1.0 or greater. See [Terraform's developer documentation](https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/1-0) for guidance on upgrading to version 1.0.
+    {{< /note >}}
+
     ```file {title="~/main_firewalls/inbound_ssh/main.tf"}
     terraform {
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.16.0"
+          version = "3.0.0"
         }
       }
     }
@@ -163,7 +161,7 @@ The `mysql` child module creates a Cloud Firewall with an inbound rule commonly 
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.16.0"
+          version = "3.0.0"
         }
       }
     }
@@ -226,7 +224,7 @@ The `web_server` child module, when applied, creates a Cloud Firewall with inbou
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.16.0"
+          version = "3.0.0"
         }
       }
     }
@@ -304,7 +302,7 @@ Now that all the Cloud Firewalls child modules have been created, you can create
       required_providers {
         linode = {
           source = "linode/linode"
-          version = "1.16.0"
+          version = "3.0.0"
         }
       }
     }
@@ -342,7 +340,7 @@ Now that all the Cloud Firewalls child modules have been created, you can create
     }
     ```
 
-    - The `provider` block is a requirement to use the Linode provider. Since Cloud Firewalls is currently in an open beta, you must use the `api_version` argument to tell Terraform to use Linode's beta [API v4 endpoints](/docs/api/).
+    - The `provider` block is a requirement to use the Linode provider. Since Cloud Firewalls is currently in an open beta, you must use the `api_version` argument to tell Terraform to use Linode's beta [API v4 endpoints](https://techdocs.akamai.com/linode-api/reference/api).
 
     - The `locals` block declares a local variable `key` whose value will be provided by an input variable. The `linode_ids` local variable is used by the `web_server` module instance in the next block to retrieve the Linode ids for the Linodes to be assigned to the Cloud Firewall that will be created.
 
@@ -389,7 +387,7 @@ Now that all the Cloud Firewalls child modules have been created, you can create
 
     variable "image" {
       description = "Image to use for Linode instance."
-      default = "linode/ubuntu18.04"
+      default = "linode/ubuntu24.04"
     }
 
     variable "label" {
@@ -505,4 +503,4 @@ Whenever a new provider is used in a Terraform configuration, it must first be i
 
 ## Next Steps
 
-To learn how to [version control](/docs/guides/create-terraform-module/#version-control-your-terraform-module) the `main-firewalls` module that you created in this guide, see the [Create a Terraform Module](/docs/guides/create-terraform-module/) guide.
+To learn how to [version control](/cloud/guides/create-terraform-module#version-control-your-terraform-module) the `main-firewalls` module that you created in this guide, see the [Create a Terraform Module](/cloud/guides/create-terraform-module) guide.

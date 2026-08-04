@@ -1,17 +1,15 @@
 ---
 slug: getting-started-with-nginx-part-1-installation-and-basic-setup
-description: "An in-depth look at the NGINX web server. Includes assessment, installation, and configuration best practices."
-keywords: ["nginx", "web server", "configure nginx", "optimize nginx"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-servers/nginx/install-nginx-web-server-on-debian-8/','/web-servers/nginx/nginx-installation-and-basic-setup/','/security/ssl/ssl-certificates-with-nginx/index.cfm/','/web-servers/nginx/how-to-install-nginx-on-debian-7-wheezy/','/guides/nginx-installation-and-basic-setup/']
-modified: 2018-02-09
-modified_by:
-  name: Linode
-published: 2018-02-09
 title: "Getting Started with NGINX (Part 1): Installation and Basic Setup"
 title_meta: "Getting Started with NGINX: Installation and Basic Setup"
-tags: ["web server","nginx"]
+description: "An in-depth look at the NGINX web server. Includes assessment, installation, and configuration best practices."
 authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-02-09
+keywords: ["nginx", "web server", "configure nginx", "optimize nginx"]
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+aliases: []
+tags: ["web server","nginx"]
 ---
 
 ![Getting Started with NGINX - Part 1: Installation and Basic Setup](Getting-Started-with-NGINX-Part-1-smg.jpg)
@@ -21,7 +19,7 @@ This guide is the first of a four-part series. Parts One and Two will walk you t
 ## Before You Begin
 
 * You will need root access to the system, or a user account with `sudo` privilege.
-* Set your system's [hostname](/docs/products/compute/compute-instances/guides/set-up-and-secure/#configure-a-custom-hostname).
+* Set your system's [hostname](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#configure-a-custom-hostname).
 * Update your system.
 
 ## Install NGINX
@@ -126,8 +124,7 @@ Add a second `listen` directive for IPv6 to the `server` block of `/etc/nginx/co
 If your site uses SSL/TLS, you would add:
 
     listen [::]:443 ssl;
-
-{{< note respectIndent=false >}}
+{{< note >}}
 You can also specify your Linode's public IP addresses for NGINX to listen on. For example, the line would then be `listen 203.0.113.4:80;`.
 {{< /note >}}
 
@@ -163,7 +160,7 @@ server {
 }
 {{< /file >}}
 
-There are various other options available to NGINX's gzip module. See the [NGINX docs](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) for more information, and if you prefer to compile your NGINX build, you can include the [*ngx_http_gzip_static_module*](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html) which further suits static content compression.
+There are various other options available to NGINX's gzip module. See the [NGINX docs](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) for more information, and if you prefer to compile your NGINX build, you can include the [`ngx_http_gzip_static_module`](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html) which further suits static content compression.
 
 ## Configuration Recap
 
@@ -232,4 +229,4 @@ http {
 
 ## Part 2: (Slightly More) Advanced Configurations
 
-By now you should have a basic NGINX installation and a some foundational settings to get you started. For slightly more advanced configurations, yet still applicable to anyone hosting a site on a Linode, see Part 2 of this series: [(Slightly more) Advanced Configurations for NGINX](/docs/guides/getting-started-with-nginx-part-2-advanced-configuration/)
+By now you should have a basic NGINX installation and a some foundational settings to get you started. For slightly more advanced configurations, yet still applicable to anyone hosting a site on a Linode, see Part 2 of this series: [(Slightly more) Advanced Configurations for NGINX](/cloud/guides/getting-started-with-nginx-part-2-advanced-configuration)

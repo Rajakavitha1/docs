@@ -1,19 +1,18 @@
 ---
 slug: mongodb-introduction
+title: "What Is MongoDB and Why Use It?"
+title_meta: "Introduction to MongoDB and Its Use Cases"
 description: 'This article introduces MongoDB, explains how it differs from other SQL databases, and provides some use cases.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-01-14
 keywords: ['what is mongodb','mongodb vs sql','is mongodb a relational database','nosql']
 tags: ['mysql', 'database']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-01-14
-modified_by:
-  name: Linode
-title: "What Is MongoDB and Why Use It?"
-title_meta: "Introduction to MongoDB and Its Use Cases"
 external_resources:
 - '[MongoDB Basics Tutorial](https://university.mongodb.com/courses/M001/about)'
 - '[MongoDB Documentation](https://docs.mongodb.com/)'
-aliases: ['/guides/mongodb-and-its-use-cases/']
-authors: ["Jeff Novotny"]
+aliases: []
 ---
 
 [*MongoDB*](https://www.mongodb.com/) is a *document-oriented database* and an alternative to traditional *Relational DataBase Management System* (RDBMS) applications. MongoDB is a *NoSQL* database that stores data in a more flexible and less structured manner. This guide provides an introduction to MongoDB and describes how it works. It also explains how MongoDB differs from SQL-based databases including [MySQL](https://www.mysql.com/) and lists its main use cases.
@@ -34,7 +33,7 @@ MongoDB does not use the *Structured Query Language* (SQL) for queries. It inste
 
 MongoDB has some other distinctive characteristics. It is designed as a distributed database, which allows it to scale and store large amounts of data and achieve high availability. MongoDB also supports ad hoc queries based on regular expressions or JavaScript functions. MongoDB provides support for real-time aggregation as a way to sort and organize the queries.
 
-For information on how to install MongoDB on a Linode, see our guide on [How To Install MongoDB on CentOS 7](/docs/guides/install-mongodb-on-centos-7/), or the guide on [How To Install MongoDB on Ubuntu 16.04](/docs/guides/install-mongodb-on-ubuntu-16-04/).
+For information on how to install MongoDB on a Linode, see our guide on [How To Install MongoDB on CentOS 7](/cloud/guides/install-mongodb-on-centos-7), or the guide on [How To Install MongoDB on Ubuntu 16.04](/cloud/guides/install-mongodb-on-ubuntu-16-04).
 
 {{< note >}}
 Earlier releases of MongoDB had some problems with security issues and some significant bugs. These have been fixed in recent releases and application security is now comparable to other databases.

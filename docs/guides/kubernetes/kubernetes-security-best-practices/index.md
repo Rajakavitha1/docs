@@ -1,21 +1,20 @@
 ---
 slug: kubernetes-security-best-practices
+title: "Kubernetes Security Best Practices Overview"
+title_meta: "Kubernetes Security Best Practices"
 description: 'This guide covers some of the best security practices in Kubernetes so you can deploy clusters that are secured and keep your infrastructure safe.'
+authors: ["Jack Wallen"]
+contributors: ["Jack Wallen"]
+published: 2021-09-17
 keywords: ['Kubernetes security best practices']
 tags: ['kubernetes', 'container']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-09-17
-modified_by:
-  name: Linode
-title: "Kubernetes Security Best Practices Overview"
-title_meta: "Kubernetes Security Best Practices"
-authors: ["Jack Wallen"]
 ---
 
-If you are [deploying your first Kubernetes cluster](/docs/guides/deploy-kubernetes-cluster-using-kubeadm/), it's important to consider the security best practices that are available to keep your workload safe. Kubernetes provides several out-of-the-box features to help secure your cluster. This guide provides an overview of three Kubernetes features to you can use to secure different components of a cluster. The three areas covered are Role-Based Access Control (RBAC), Secrets, and Network Policies.
+If you are [deploying your first Kubernetes cluster](/cloud/guides/deploy-kubernetes-cluster-using-kubeadm), it's important to consider the security best practices that are available to keep your workload safe. Kubernetes provides several out-of-the-box features to help secure your cluster. This guide provides an overview of three Kubernetes features to you can use to secure different components of a cluster. The three areas covered are Role-Based Access Control (RBAC), Secrets, and Network Policies.
 
 {{< note >}}
-This guide assumes some familiarity with Kubernetes terminology and concepts. If you are newer to Kubernetes, refer to our [A Beginner's Guide to Kubernetes](/docs/guides/beginners-guide-to-kubernetes-part-1-introduction/).
+This guide assumes some familiarity with Kubernetes terminology and concepts. If you are newer to Kubernetes, refer to our [A Beginner's Guide to Kubernetes](/cloud/guides/beginners-guide-to-kubernetes-part-1-introduction).
 {{< /note >}}
 
 ## Use Security Policies and Role-Based Access Control

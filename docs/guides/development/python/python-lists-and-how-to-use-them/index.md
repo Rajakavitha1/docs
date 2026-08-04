@@ -1,25 +1,24 @@
 ---
 slug: python-lists-and-how-to-use-them
+title: "Python Lists and How to Use Their Built-In Methods"
+title_meta: "Python Lists and How to Use Them"
 description: "This guide shows you how to use the Lists feature in Python to append and remove items from a list, and then convert those list items into a sortable string."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-08-20
 keywords: ['python list','python list append','python list sort']
 tags: ['python']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-08-20
-modified_by:
-  name: Nathaniel Stickman
-title: "Python Lists and How to Use Their Built-In Methods"
-title_meta: "Python Lists and How to Use Them"
 external_resources:
 - '[Python 3 Documentation: List Comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)'
 - "[O'Reilly: How Do I Use the Slice Notation in Python?](https://www.oreilly.com/content/how-do-i-use-the-slice-notation-in-python/)"
-authors: ["Nathaniel Stickman"]
 ---
 
 Python includes many built-in methods and operations that help you manipulate lists. This guide shows you how to use the `append()`, `insert()`, and `remove()` built-in list methods. You also learn how to write a list comprehensions, and how to sort lists.
 
 ## Before You Begin
 
-1. This guide uses Python 3 syntax. Although there is some overlap, some of the code may not work with Python 2. To install Python 3, follow our [How to Install Python 3](/docs/guides/how-to-install-python-on-debian-10/) guide, using the **Distribution** drop down to select your Linux distribution.
+1. This guide uses Python 3 syntax. Although there is some overlap, some of the code may not work with Python 2. To install Python 3, follow our [How to Install Python 3](/cloud/guides/how-to-install-python-on-debian-10) guide, using the **Distribution** drop down to select your Linux distribution.
 
 1. All commands in this guide can be entered either in a **Python script** or in the **Python interpreter** (also known as the Python Interactive Shell). You can learn more about either method through the Python 3 installation guide linked above.
 
@@ -162,7 +161,7 @@ Print the remaining items in `example_list`:
 [0, 4, 8]
 {{< /output >}}
 
-You can learn more about Python's slice notation in the [Reverse a List](/docs/guides/python-lists-and-how-to-use-them/#reverse-a-list) section below. The links provided at the end of this guide also provide more information.
+You can learn more about Python's slice notation in the [Reverse a List](/cloud/guides/python-lists-and-how-to-use-them#reverse-a-list) section below. The links provided at the end of this guide also provide more information.
 
 ## How to Sort a List in Python
 
@@ -280,7 +279,7 @@ Print the strings stored in the `example_string_from_list` variable:
 1 2 3 4 5
 {{< /output >}}
 
-To learn how to convert a string to a list, see our guide [How to Convert Data Types in Python](/docs/guides/how-to-convert-datatypes-in-python/#converting-strings-to-lists).
+To learn how to convert a string to a list, see our guide [How to Convert Data Types in Python](/cloud/guides/how-to-convert-datatypes-in-python#converting-strings-to-lists).
 
 ## How to Find an Item in a List in Python
 

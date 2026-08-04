@@ -1,4 +1,10 @@
 ---
+slug: understanding-https-tls-certbot-shortguide
+title: "Shortguide"
+description: "Shortguide"
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2021-07-01
 # Shortguide: Understanding HTTPS, TLS, Let's Encrypt, and Certbot
 
 headless: true
@@ -6,22 +12,15 @@ show_on_rss_feed: false
 
 # Ignore the below front matter. It is included to comply with existing tests.
 
-slug: understanding-https-tls-certbot-shortguide
-title: "Shortguide"
-description: "Shortguide"
 keywords: ["shortguide"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-01
-modified_by:
-  name: Linode
-authors: ["Linode"]
 ---
 
 ## Understanding HTTPS, TLS, Let's Encrypt, and Certbot
 
 ### HTTPS and TLS/SSL
 
-HTTPS builds upon the original *Hypertext Transfer Protocol* (HTTP) standard to offer a more secure browsing experience. It encrypts network traffic using the *Transport Layer Security* (TLS) protocol, which replaces the older (and now deprecated) *Secure Sockets Layer* (SSL) technology. HTTPS protects the privacy and integrity of any data in transit and authenticates a website for the end-user. For this reason, HTTPS must be implemented on websites that handle financial or personal data. However, all domains are strongly encouraged to enable HTTPS and a majority of all sites now use it. Review the [Understanding TLS Certificates and Connections](/docs/guides/what-is-a-tls-certificate/) to learn more about TLS.
+HTTPS builds upon the original *Hypertext Transfer Protocol* (HTTP) standard to offer a more secure browsing experience. It encrypts network traffic using the *Transport Layer Security* (TLS) protocol, which replaces the older (and now deprecated) *Secure Sockets Layer* (SSL) technology. HTTPS protects the privacy and integrity of any data in transit and authenticates a website for the end-user. For this reason, HTTPS must be implemented on websites that handle financial or personal data. However, all domains are strongly encouraged to enable HTTPS and a majority of all sites now use it. Review the [Understanding TLS Certificates and Connections](/cloud/guides/what-is-a-tls-certificate) to learn more about TLS.
 
 ### Let's Encrypt
 

@@ -1,18 +1,17 @@
 ---
 slug: apache-airflow-tutorial-creating-connections-and-variables
+title: "Create Connections and Variables in Apache Airflow"
 description: "This guide introduces Airflow Variables and Connections and how to use the Airflow CLI to  create variables that you can encrypt and source control."
 og_description: "This Apache Airflow tutorial introduces you to Airflow Variables and Connections. You also learn how to use the Airflow CLI to quickly create variables that you can encrypt and source control. Similarly, the tutorial provides a basic example for creating Connections using a Bash script and the Airflow CLI. These two examples can be incorporated into your Airflow data pipelines using Python."
+authors: ["Angel D'az"]
+contributors: ["Angel D'az"]
+published: 2020-03-30
 keywords: ['apache airflow tutorial', 'apache airflow features']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-03-30
-modified_by:
-  name: Angel D'az
-title: "Create Connections and Variables in Apache Airflow"
 image: ApacheAirflowTut_CreateConn_Var.png
 external_resources:
 - '[Apache Airflow Official Documentation](https://airflow.apache.org/docs/stable/)'
-aliases: ['/applications/big-data/apache-airflow-tutorial-creating-connections-and-variables/']
-authors: ["Angel D'az"]
+aliases: []
 ---
 
 ## What is Apache Airflow?
@@ -36,7 +35,7 @@ In this Apache Airflow tutorial, you learn how to:
 
 ## Airflow Variables and Connections
 
-Airflow needs to access data from external sources, like [databases](https://www.linode.com/blog/marketplace-apps/new-web-development-and-database-marketplace-apps/), [APIs](/docs/api/), and [servers](https://www.linode.com/products/shared/). You use [Airflow *Connections*](https://airflow.apache.org/docs/stable/howto/connection/index.html) to create connections to your data sources. Your connections form the building blocks of your Airflow DAGs, because they define your data's sources, [staging area](https://airflow.apache.org/docs/stable/best-practices.html#staging-environment), and destination.
+Airflow needs to access data from external sources, like [databases](https://www.linode.com/blog/marketplace-apps/new-web-development-and-database-marketplace-apps/), [APIs](https://techdocs.akamai.com/linode-api/reference/api), and [servers](https://www.linode.com/products/shared/). You use [Airflow *Connections*](https://airflow.apache.org/docs/stable/howto/connection/index.html) to create connections to your data sources. Your connections form the building blocks of your Airflow DAGs, because they define your data's sources, [staging area](https://airflow.apache.org/docs/stable/best-practices.html#staging-environment), and destination.
 
 You use Airflow variables to store reusable values, like URIs, database usernames, configurations, and any other values required by your DAGs. The variables are stored in Airflow's metadata database.
 

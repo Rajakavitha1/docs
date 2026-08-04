@@ -1,17 +1,15 @@
 ---
 slug: how-to-install-nodejs-and-nginx-on-debian
+title: 'How to Install Node.js and NGINX on Debian 8'
 description: In this guide, you will learn how to install, configure, and test NGINX and Node.js to serve static site content on a Debian 8 server.
+authors: ["Joe D."]
+contributors: ["Joe D."]
+published: 2015-01-14
+modified: 2017-04-11
 keywords: ["linode guide", "hosting a website", "website", "linode setup", " install node.js", " install nginx", " debian", " front-end requests", " back-end requests"]
 tags: ["debian", "nginx", "web server", "proxy"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2017-04-11
-modified_by:
-    name: Linode
-published: 2015-01-14
-title: 'How to Install Node.js and NGINX on Debian 8'
-aliases: ['/development/nodejs/how-to-install-nodejs-and-nginx-on-debian/','/websites/nodejs/how-to-install-nodejs-and-nginx-on-debian/index.cfm/','/websites/nodejs/nodejs-nginx-debian/','/websites/nodejs/how-to-install-nodejs-and-nginx-on-debian/']
-deprecated: true
-deprecated_link: 'development/nodejs/how-to-install-nodejs-and-nginx-on-debian-10/'
+aliases: []
 external_resources:
  - '[Node.js](http://nodejs.org)'
  - '[NGINX](http://nginx.com/)'
@@ -26,7 +24,8 @@ relations:
         key: install-nodejs-nginx
         keywords:
             - distribution: Debian 8
-authors: ["Joe D."]
+deprecated: true
+deprecated_link: 'development/nodejs/how-to-install-nodejs-and-nginx-on-debian-10/'
 ---
 
 ![Install Node.js and NGINX on Debian](How_to_Install_Nodejs_and_Nginx_on_Debian_smg.jpg)
@@ -34,7 +33,7 @@ authors: ["Joe D."]
 Node.js is a JavaScript platform which can serve dynamic, responsive content. JavaScript is usually a client-side, browser language like HTML or CSS. However, Node.js is a server-side, JavaScript platform, comparable to PHP. Node.js often works with other popular server applications like NGINX or Apache. In this guide, NGINX is configured to handle front-end, static file requests, and Node.js is configured to handle back-end file requests.
 
 ## Install and Configure NGINX
-This guide can be started immediately after terminal login on a new Linode, it's written for the `root` user. However, before installation you might want to make sure the Linode is up-to-date with our [Getting Started](/docs/products/platform/get-started/) guide and secured with our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide.
+This guide can be started immediately after terminal login on a new Linode, it's written for the `root` user. However, before installation you might want to make sure the Linode is up-to-date with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and secured with our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide.
 
 1.  Install NGINX as well as screen, which you'll use later:
 
@@ -182,7 +181,7 @@ console.log("Server is listening on port 3000.")      //Terminal output
 {{< /file >}}
 
 
-5.  Run a new [screen](/docs/guides/using-gnu-screen-to-manage-persistent-terminal-sessions) session:
+5.  Run a new [screen](/cloud/guides/using-gnu-screen-to-manage-persistent-terminal-sessions) session:
 
         screen
 

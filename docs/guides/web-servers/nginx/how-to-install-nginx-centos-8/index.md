@@ -1,16 +1,16 @@
 ---
 slug: how-to-install-nginx-centos-8
+title: "Installing NGINX on CentOS 8"
+title_meta: "How to Install NGINX on CentOS 8"
 description: "Learn the basics of installing and configuring NGINX on your CentOS 8 server in this quick guide."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2018-04-16
+modified: 2020-02-14
 keywords: ["nginx", "load balancing", "centos", "centos 8", "web server", "static content", "install nginx"]
 tags: ["centos","web server","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2020-02-14
-modified_by:
-  name: Linode
-published: 2018-04-16
 image: L_NGINX_on_CentOS8.png
-title: "Installing NGINX on CentOS 8"
-title_meta: "How to Install NGINX on CentOS 8"
 external_resources:
   - '[NGINX Official Installation Docs](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/)'
 relations:
@@ -18,8 +18,7 @@ relations:
         key: how-to-install-nginx
         keywords:
             - distribution: CentOS 8
-aliases: ['/web-servers/nginx/how-to-install-nginx-centos-8/']
-authors: ["Linode"]
+aliases: []
 ---
 
 ## What is NGINX?
@@ -28,17 +27,17 @@ NGINX is an open source web server with powerful load balancing, reverse proxy, 
 
 ## Before You Begin
 
-1.  Set up your Linode in the [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) and [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide.
+1.  Set up your Linode in the [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) and [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide.
 
-1.  If you want a custom domain name for your site, you can set this up using our [DNS Manager](/docs/products/networking/dns-manager/) guide.
+1.  If you want a custom domain name for your site, you can set this up using our [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide.
 
-    - Don't forget to update your `/etc/hosts` file with your Linode's public IP address and your site's fully qualified domain name as explained in the [Update Your System's hosts File](/docs/products/compute/compute-instances/guides/set-up-and-secure/#update-your-systems-hosts-file) section of the [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide.
+    - Don't forget to update your `/etc/hosts` file with your Linode's public IP address and your site's fully qualified domain name as explained in the [Update Your System's hosts File](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance#update-your-systems-hosts-file) section of the [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide.
 
 1. Install the SELinux core policy Python utilities. This will give you the ability to manage SELinux settings in a fine-grained way.
 
         sudo dnf install -y policycoreutils-python-utils
 
-    {{< content "limited-user-note-shortguide" >}}
+    {{% content "limited-user-note-shortguide" %}}
 
 ## Install NGINX
 
@@ -144,9 +143,9 @@ http {
 
 - For more advanced configuration options, including security and performance optimizations and TLS setup, see our four-part series on NGINX:
 
-  - [Part 1: Installation and Basic Setup](/docs/guides/getting-started-with-nginx-part-1-installation-and-basic-setup/)
-  - [Part 2: (Slightly More) Advanced Configurations](/docs/guides/getting-started-with-nginx-part-2-advanced-configuration/)
-  - [Part 3: Enable TLS for HTTPS Connections](/docs/guides/getting-started-with-nginx-part-3-enable-tls-for-https/)
-  - [Part 4: TLS Deployment Best Practices](/docs/guides/getting-started-with-nginx-part-4-tls-deployment-best-practices/)
+  - [Part 1: Installation and Basic Setup](/cloud/guides/getting-started-with-nginx-part-1-installation-and-basic-setup)
+  - [Part 2: (Slightly More) Advanced Configurations](/cloud/guides/getting-started-with-nginx-part-2-advanced-configuration)
+  - [Part 3: Enable TLS for HTTPS Connections](/cloud/guides/getting-started-with-nginx-part-3-enable-tls-for-https)
+  - [Part 4: TLS Deployment Best Practices](/cloud/guides/getting-started-with-nginx-part-4-tls-deployment-best-practices)
 
-- Changes to your NGINX configurations may require updates to your SELinux policies and contexts. For an introduction to SELinux, see our [Getting Started with SELinux](/docs/guides/a-beginners-guide-to-selinux-on-centos-7/) guide.
+- Changes to your NGINX configurations may require updates to your SELinux policies and contexts. For an introduction to SELinux, see our [Getting Started with SELinux](/cloud/guides/a-beginners-guide-to-selinux-on-centos-7) guide.

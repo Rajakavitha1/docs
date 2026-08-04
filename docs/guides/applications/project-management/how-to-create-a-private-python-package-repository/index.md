@@ -1,20 +1,19 @@
 ---
 slug: how-to-create-a-private-python-package-repository
+title: 'How to Create a Private Python Package Repository'
 description: 'This tutorial will show how to create your own private, Python package repository. Learn everything you need to know about the process.'
+authors: ["Sam Foo"]
+contributors: ["Sam Foo"]
+published: 2017-09-15
+modified: 2017-09-12
 keywords: ["pip", "Python", "PyPA", "virtualenv", "package management"]
 tags: ["python", "apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2017-09-12
-modified_by:
-  name: Sam Foo
-published: 2017-09-15
-title: 'How to Create a Private Python Package Repository'
 external_resources:
  - '[pip](https://pip.readthedocs.io/en/stable/#)'
- - '[pypiserver Documentation](https://pypiserver.readthedocs.io/en/latest/)'
+ - '[pypiserver/pypiserver on GitHub](https://github.com/pypiserver/pypiserver)'
  - '[Apache Documentation](https://httpd.apache.org/docs/2.4/)'
-aliases: ['/applications/project-management/how-to-create-a-private-python-package-repository/']
-authors: ["Sam Foo"]
+aliases: []
 ---
 
 ![How to Create a Private Python Package Repository](Private_Python_Pack_Repo.jpg "How to Create a Private Python Package Repository")
@@ -29,7 +28,7 @@ Package management in Python is available through a variety of different program
 
 ## Before You Begin
 
-1.  Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's timezone.
+1.  Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's timezone.
 
 2.  This guide assumes usage of Python 3 and a working installation of `pip` along with `setuptools`. Starting with Python 3.4, `pip` comes with the default installation. On Debian distributions, `pip` can be installed using the apt package manager with `sudo apt install python-pip`.
 

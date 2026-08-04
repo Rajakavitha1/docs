@@ -1,15 +1,14 @@
 ---
 slug: what-is-open-source-software
+title: "What is Open Source Software?"
+title_meta: "Open Source Software Definition and Examples"
 description: 'What is open source software and how does it work? We answer these questions, note the advantages and disadvantages of open source software, plus examples.'
+authors: ["Jack Wallen"]
+contributors: ["Jack Wallen"]
+published: 2021-11-19
 keywords: ['what is open source software','open source software','keywords','open source software definition']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-19
-modified_by:
-  name: Linode
-title: "What is Open Source Software?"
-title_meta: "Open Source Software Definition and Examples"
-authors: ["Jack Wallen"]
 ---
 
 Every application you use starts as an idea. No matter the platform it’s installed on or its purpose, every piece of software begins in the planning phase. That idea is then turned into a project and at its heart is the source code, which is written by either a single software engineer or a team. The source code is then compiled into a functioning application that you run on your desktop computer or server.
@@ -104,7 +103,7 @@ Linux is the largest open-source project in existence. Linux is an open-source k
 
 Open-source software is an integral piece of almost everything you do electronically—from refrigerators, cars, phones, televisions, smart speakers, home hubs, lighting, digital display boards, kiosks, banks, and the cloud, open-source is probably powering it. Although you might not be using open-source software directly on your computer, you are using it via the accounts and services you depend on daily.
 
-For more information on open-source solutions, start with [our documentation library](https://www.linode.com/docs), where there is plenty of information on open-source software.
+For more information on open-source solutions, start with [our documentation library](/cloud), where there is plenty of information on open-source software.
 
 
 

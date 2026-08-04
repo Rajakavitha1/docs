@@ -1,22 +1,21 @@
 ---
 slug: how-to-install-apps-on-kubernetes-with-helm-2
+title: 'Installing Apps on Kubernetes with Helm 2'
+title_meta: 'How to Install Apps on Kubernetes with Helm 2'
 description: 'Learn how to install apps on your K8s cluster with Helm 2, a popular package management system for Kubernetes.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2019-03-26
 keywords: ["helm", "kubernetes", "container", "k8s"]
 tags: ["kubernetes","cms"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-03-26
-modified_by:
-  name: Linode
-title: 'Installing Apps on Kubernetes with Helm 2'
-title_meta: 'How to Install Apps on Kubernetes with Helm 2'
-aliases: ['/how-to-install-apps-on-kubernetes-with-helm/','/kubernetes/how-to-install-apps-on-kubernetes-with-helm-2/']
-deprecated: true
-deprecated_link: 'kubernetes/how-to-install-apps-on-kubernetes-with-helm-3/'
+aliases: []
 concentrations: ["Kubernetes"]
 external_resources:
   - '[Helm 2 Documentation](https://v2.helm.sh/docs/)'
   - '[Helm Security on Bitnami Engineering](https://engineering.bitnami.com/articles/helm-security.html)'
-authors: ["Linode"]
+deprecated: true
+deprecated_link: 'kubernetes/how-to-install-apps-on-kubernetes-with-helm-3/'
 ---
 
 ![How to Install Apps on Kubernetes with Helm](how-to-install-apps-on-kubernetes-with-helm.png)
@@ -251,7 +250,7 @@ The [`helm install` command](https://v2.helm.sh/docs/using_helm/#helm-install-in
     ghostEmail: email@example.com
     ```
 
-    Replace the value for ghostHost with a domain or subdomain that you own and would like to assign to the app, and the value for ghostEmail with your email.
+    Replace the value for `ghostHost` with a domain or subdomain that you own and would like to assign to the app, and the value for `ghostEmail` with your email.
 
     {{< note >}}
     If you don't own a domain name and won't continue to use the Ghost website after finishing this guide, you can make up a domain for this configuration file.
@@ -379,7 +378,7 @@ The [`helm install` command](https://v2.helm.sh/docs/using_helm/#helm-install-in
 
 1. You haven't set up DNS for your site yet, but you can instead access the admin interface by visiting the `ghost` URL on your LoadBalancer IP address (e.g. `http://104.237.148.15/ghost`). Visit this page in your browser and then enter your email and password. You should be granted access to the administrative interface.
 
-1. Set up DNS for your app. You can do this by creating an *A record* for your domain which is assigned to the external IP for your app's LoadBalancer. Review Linode's [DNS Manager](/docs/products/networking/dns-manager/) guide for instructions.
+1. Set up DNS for your app. You can do this by creating an *A record* for your domain which is assigned to the external IP for your app's LoadBalancer. Review Linode's [DNS Manager](https://techdocs.akamai.com/cloud-computing/docs/dns-manager) guide for instructions.
 
 ## Upgrade your App
 

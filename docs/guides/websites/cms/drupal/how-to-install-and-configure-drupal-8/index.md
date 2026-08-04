@@ -1,18 +1,16 @@
 ---
 slug: how-to-install-and-configure-drupal-8
+title: Install and Configure Drupal 8
 description: 'This guide will show you how to install and configure the popular content management system, Drupal 8 on your Linode running Debian or Ubuntu..'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2015-11-19
 keywords: ["drupal", "cms", "apache", "php", "content management system", "drupal 8"]
 tags: ["drupal","apache","lamp","php","cms","debian"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/cms/install-and-configure-drupal-8/','/websites/cms/managing-web-content-with-drupal-8-beta/','/web-applications/cms-guides/drupal/','/websites/cms/drupal/how-to-install-and-configure-drupal-8/']
-modified: 2015-11-19
-modified_by:
-    name: Linode
-published: 2015-11-19
+aliases: []
 deprecated: true
 deprecated_link: 'websites/cms/drupal/how-to-install-and-configure-drupal-on-debian-10/'
-title: Install and Configure Drupal 8
-authors: ["Linode"]
 ---
 
 Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) content management system. This guide demonstrates how to install Drupal 8 on your Linode running Debian or Ubuntu.
@@ -21,9 +19,9 @@ Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) 
 
 ## Before You Begin
 
-1.  Familiarize yourself with our [Getting Started](/docs/products/platform/get-started/) guide and complete the steps for setting your Linode's hostname and timezone.
+1.  Familiarize yourself with our [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
 
-2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to create a standard user account, harden SSH access, remove unnecessary network services and create firewall rules for your web server; you may need to make additional firewall exceptions for your specific application.
+2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to create a standard user account, harden SSH access, remove unnecessary network services and create firewall rules for your web server; you may need to make additional firewall exceptions for your specific application.
 
 3.  Update your system:
 
@@ -31,9 +29,9 @@ Drupal 8 is the latest version of the popular [Drupal](https://www.drupal.org/) 
 
 4.  Install and configure a LAMP stack. You can do this in one of two ways:
 
-    *  See our [Hosting a Website](/docs/guides/hosting-a-website-ubuntu-18-04/) guide to configure each component manually.
+    *  See our [Hosting a Website](/cloud/guides/hosting-a-website-ubuntu-18-04) guide to configure each component manually.
 
-    *  Deploy using our LAMP [StackScript](/docs/products/tools/stackscripts/).
+    *  Deploy using our LAMP [StackScript](https://techdocs.akamai.com/cloud-computing/docs/stackscripts).
 
 ## Download and Prepare Drupal 8
 
@@ -73,9 +71,9 @@ $settings['trusted_host_patterns'] = array(
 {{< /file >}}
 
 
-    {{< note respectIndent=false >}}
-*trusted_host_patterns* also accepts IP addresses or localhost.
-{{< /note >}}
+    {{< note >}}
+    `trusted_host_patterns` also accepts IP addresses or localhost.
+    {{< /note >}}
 
 ## Configure Apache 2.4
 
@@ -123,7 +121,7 @@ Require all granted
 
     ![Drupal 8 choose installation profile.](drupal-choose-installation-profile.png)
 
-3.  Complete the database configuration using the DB name, username and password you created when [setting up your LAMP stack](/docs/guides/hosting-a-website-ubuntu-18-04/#create-a-database) with a MySQL or MariaDB database.
+3.  Complete the database configuration using the DB name, username and password you created when [setting up your LAMP stack](/cloud/guides/hosting-a-website-ubuntu-18-04#create-a-database) with a MySQL or MariaDB database.
 
     ![Drupal 8 database configuration.](drupal-database-configuration.png)
 

@@ -1,15 +1,14 @@
 ---
 slug: history-of-machine-learning
+title: "The History of Machine Learning: A Comprehensive Overview"
+title_meta: "Machine Learning and Artificial Intelligence Background"
 description: 'Want to learn about the history of machine learning? Our comprehensive guide discusses all you need to know, including who invented it and its evolution.'
+authors: ["Pam Baker"]
+contributors: ["Pam Baker"]
+published: 2022-02-25
 keywords: ['machine learning history','when was machine learning invented','who invented machine learning']
 tags: ['python']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-02-25
-modified_by:
-  name: Linode
-title: "The History of Machine Learning: A Comprehensive Overview"
-title_meta: "Machine Learning and Artificial Intelligence Background"
-authors: ["Pam Baker"]
 ---
 
 Machine learning (ML) is a subset of artificial intelligence (AI) and it is fast becoming the very backbone of most software today. It exists in several different forms from chatbots on websites and digital assistants like Siri and Alexa, to algorithms driving social media like Facebook, and a variety of office software. Machine learning is so prevalent that it is difficult to list all the places where it digitally resides and all the tasks it performs.
@@ -34,7 +33,7 @@ Machine learning was once a stepping stone on the path to AI’s development, th
 
 However, machine learning is much narrower in its focus and capabilities than general AI. It eventually became apparent that it would be faster and easier (although still not easy) to develop machine learning to more immediate and diverse payloads than to aim it solely at AI’s development.
 
-Machine learning has its own subset, called [deep learning](/docs/guides/deep-learning-frameworks-overview/), which is even narrower than ML as it is far more specialized. General AI is a smaller subset of self-aware AI, a truly powerful but wholly futuristic form.
+Machine learning has its own subset, called [deep learning](/cloud/guides/deep-learning-frameworks-overview), which is even narrower than ML as it is far more specialized. General AI is a smaller subset of self-aware AI, a truly powerful but wholly futuristic form.
 
 A tidbit in interesting history in machine learning: Deep learning was invented in 1943, which was nine years before machine learning came along. There is some debate over who invented deep learning as it traces back to Walter Pitts and Warren McCulloch’s model in 1943. It didn't widely go by the name “deep learning” until Gregory Hinton rebranded neural net research by that moniker in 2006.
 
@@ -147,4 +146,4 @@ This is also the year that Google Assistant, an AI-powered virtual assistant, wa
 
 ## Conclusion
 
-Today, there are many available open-source tools and frameworks that you can use to power machine learning applications. PyTorch is a Python-based machine learning framework that makes use of CPU and GPU to accelerate its processing performance. You can [install PyTorch on an Ubuntu 20.04 Linode server](/docs/guides/pytorch-installation-ubuntu-2004/) and make use of [GPU](/docs/products/compute/compute-instances/plans/gpu/) or [dedicated CPU](/docs/products/compute/compute-instances/plans/dedicated-cpu/) compute instances.
+Today, there are many available open-source tools and frameworks that you can use to power machine learning applications. PyTorch is a Python-based machine learning framework that makes use of CPU and GPU to accelerate its processing performance. You can [install PyTorch on an Ubuntu 20.04 Linode server](/cloud/guides/pytorch-installation-ubuntu-2004) and make use of [GPU](https://techdocs.akamai.com/cloud-computing/docs/gpu-compute-instances) or [dedicated CPU](https://techdocs.akamai.com/cloud-computing/docs/dedicated-cpu-compute-instances) compute instances.

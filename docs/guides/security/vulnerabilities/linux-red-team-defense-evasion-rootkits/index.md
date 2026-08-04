@@ -1,19 +1,21 @@
 ---
 slug: linux-red-team-defense-evasion-rootkits
+title: "Linux Red Team Defense Evasion - Rootkits"
 description: 'This guide covers the process of evading detection on Linux systems by leveraging rootkits.'
+authors: ["HackerSploit"]
+contributors: ["HackerSploit"]
+published: 2021-11-03
 keywords: ['security']
 tags: ['security']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-11-03
-modified_by:
-  name: Linode
-title: "Linux Red Team Defense Evasion - Rootkits"
-authors: ["HackerSploit"]
+deprecated: true
 ---
 
-{{< content "hackersploit-red-team-series-note-shortguide" >}}
+{{% content "hackersploit-red-team-series-note-shortguide" %}}
 
-{{< content "hackersploit-caution-shortguide" >}}
+{{% content "hackersploit-note-shortguide" %}}
+
+{{% content "hackersploit-caution-shortguide" %}}
 
 ## Before You Begin
 
@@ -77,8 +79,6 @@ We can leverage the ability to load Apache2 modules to load our own rootkit modu
 
 Command injection vulnerabilities allow attackers to execute arbitrary commands on the target operating system.
 
-To achieve this, we will be using the apache-rootkit module that can be found here: https://github.com/ChristianPapathanasiou/apache-rootkit
-
 Apache-rootkit is a malicious Apache module with rootkit functionality that can be loaded into an Apache2 configuration with ease and with minimal artifacts.
 
 The following procedures outline the process of setting up the apache-rootkit module on a target Linux system:
@@ -95,10 +95,7 @@ The following procedures outline the process of setting up the apache-rootkit mo
 
         cd /tmp
 
-1. The next step will involve cloning the apache-rootkit repository on to the target system, this can be done by running the following command:
-
-        git clone https://github.com/ChristianPapathanasiou/apache-rootkit.git
-
+1. The next step will involve cloning the apache-rootkit repository on to the target system.
 1. After cloning the repository you will need to navigate to the “apache-rootkit” directory:
 
         cd apache-rootkit

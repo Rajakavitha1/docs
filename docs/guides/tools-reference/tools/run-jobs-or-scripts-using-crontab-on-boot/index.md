@@ -1,18 +1,17 @@
 ---
 slug: run-jobs-or-scripts-using-crontab-on-boot
+title: "Run Jobs or Scripts Using Crontab on Boot"
+title_meta: "How to Run Jobs or Scripts Using Crontab on Boot"
 description: 'This guide explains how to use the cron utility and the crontab file to run jobs or scripts when your Linode boots, as well as best practices when using cron.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-07-02
 keywords: ['crontab on boot']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-02
-modified_by:
-  name: Linode
-title: "Run Jobs or Scripts Using Crontab on Boot"
-title_meta: "How to Run Jobs or Scripts Using Crontab on Boot"
 external_resources:
 - '[Wikipedia Cron Page](https://en.wikipedia.org/wiki/Cron)'
 - '[Crontab Man Page](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html)'
-authors: ["Jeff Novotny"]
 ---
 
 The cron utility is a job-scheduling tool found on all Linux and Unix operating systems, as well as macOS. Although cron is typically used to schedule jobs at fixed times, dates, and intervals, it can also launch jobs at system boot time. This guide explains how to use the cron utility and the crontab file to run a job or script when the system boots.
@@ -39,9 +38,9 @@ Similarly, the `@reboot` shortcut tells the cron task to run the job at system b
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 ## Use Crontab to Schedule a Job or Script to Run at System Startup
 
@@ -130,4 +129,4 @@ cron.service - Regular background program processing daemon
 
 ## Learn More About the Cron Utility
 
-To learn more about cron jobs, see our [Schedule Tasks with Cron](/docs/guides/schedule-tasks-with-cron/) guide. To view highly-detailed and technical information about cron and crontab, you can also refer to the [*Linux 'man' page for the crontab command*](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html).
+To learn more about cron jobs, see our [Schedule Tasks with Cron](/cloud/guides/schedule-tasks-with-cron) guide. To view highly-detailed and technical information about cron and crontab, you can also refer to the [*Linux 'man' page for the crontab command*](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html).

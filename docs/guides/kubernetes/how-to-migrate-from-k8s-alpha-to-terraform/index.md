@@ -1,28 +1,27 @@
 ---
 slug: how-to-migrate-from-k8s-alpha-to-terraform
+title: "Migrating from k8s-alpha CLI to Terraform"
+title_meta: "How to Migrate from k8s-alpha CLI to Terraform"
 description: "The Linode k8s-alpha CLI tool is deprecated. This guide will help you migrate from the k8s-alpha CLI to Terraform."
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-01-14
 keywords: ['kubernetes','k8s','beginner','architecture','migrate','terraform','k8s-alpha']
 tags: ["linode platform","kubernetes","automation"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-01-14
-modified_by:
-  name: Linode
 image: L_Migratefromk8s-alphaCLItoTerraform.png
-title: "Migrating from k8s-alpha CLI to Terraform"
-title_meta: "How to Migrate from k8s-alpha CLI to Terraform"
 concentrations: ["Kubernetes"]
-deprecated: true
 external_resources:
 - '[Kubernetes Concepts Documentation](https://kubernetes.io/docs/concepts/)'
-- '[Beginners Guide to Terraform](/docs/guides/beginners-guide-to-terraform/)'
-- '[Using Terraform to Provision Linode Environments](/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/)'
-aliases: ['/kubernetes/how-to-migrate-from-k8s-alpha-to-terraform/']
-authors: ["Linode"]
-_build:
+- '[Beginners Guide to Terraform](/cloud/guides/beginners-guide-to-terraform)'
+- '[Using Terraform to Provision Linode Environments](/cloud/guides/how-to-build-your-infrastructure-using-terraform-and-linode)'
+aliases: []
+build:
   list: false
+deprecated: true
 ---
 
-The [k8s-alpha CLI](/docs/guides/how-to-deploy-kubernetes-on-linode-with-k8s-alpha-cli/) is deprecated. On **March 31st, 2020**, it will be **removed** from the [linode-cli](https://github.com/linode/linode-cli). After March 31, 2020, you will no longer be able to create or manage clusters created by the k8s-alpha CLI plugin, however, you will still be able to successfully manage your clusters using the [Kubernetes Terraform installer for Linode Instances](https://github.com/linode/terraform-linode-k8s).
+The [k8s-alpha CLI](/cloud/guides/how-to-deploy-kubernetes-on-linode-with-k8s-alpha-cli) is deprecated. On **March 31st, 2020**, it will be **removed** from the [linode-cli](https://github.com/linode/linode-cli). After March 31, 2020, you will no longer be able to create or manage clusters created by the k8s-alpha CLI plugin, however, you will still be able to successfully manage your clusters using the [Kubernetes Terraform installer for Linode Instances](https://github.com/linode/terraform-linode-k8s).
 
 ## In This Guide
 You will use the Kubernetes Terraform installer for Linode Instances to continue to manage and support clusters created using the k8s-alpha CLI plugin following the EOL date and beyond. You will learn how to:
@@ -55,7 +54,7 @@ drwxr-xr-x  3 username  staff    96 Dec 11 08:10 terraform.tfstate.d
 - `cluster.tf` is the Terraform module file. This is the most important file here because it will allow you to scale, upgrade, and delete your cluster.
 
 {{< note >}}
-For more information regarding these files and directories and their contents, see our [Beginner's Guide to Terraform](/docs/guides/beginners-guide-to-terraform/)
+For more information regarding these files and directories and their contents, see our [Beginner's Guide to Terraform](/cloud/guides/beginners-guide-to-terraform)
 {{< /note >}}
 
 ### Scale a Cluster

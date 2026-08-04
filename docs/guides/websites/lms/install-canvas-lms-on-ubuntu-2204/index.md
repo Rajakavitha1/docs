@@ -1,19 +1,23 @@
 ---
 slug: install-canvas-lms-on-ubuntu-2204
+title: How to Install Canvas on Ubuntu 22.04
+title_meta: Installing Canvas on Ubuntu 22.04
 description: 'Canvas is a learning management system that you can use to create a fully-featured website for education or training courses. This guide walks you through installing Canvas on Ubuntu 22.04.'
+authors: ["John Mueller"]
+contributors: ["John Mueller"]
+published: 2023-04-25
 keywords: ['Install canvas lms', 'canvas lms', 'install canvas ubuntu 22.04', 'self-host canvas lms']
 tags: ['canvas', 'ubuntu', 'ssl', 'apache', 'redis']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["John Mueller"]
-published: 2023-04-25
-modified_by:
-  name: Linode
-title: How to Install Canvas on Ubuntu 22.04
-title_meta: Installing Canvas on Ubuntu 22.04
 external_resources:
 - '[Canvas](https://www.instructure.com/canvas)'
 - '[What is Learning Management System](https://www.shareknowledge.com/blog/what-learning-management-system-and-why-do-i-need-one)'
 - '[PostgreSQL Client Authentication](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html)'
+relations:
+    platform:
+        key: how-to-install-canvas
+        keywords:
+            - distribution: Ubuntu 22.04
 ---
 
 [Canvas](https://www.instructure.com/canvas) is a modern open-source Learning Management System (LMS) by Instructure, Inc. that helps makes distance learning possible. An LMS like Canvas is a software application or web-based technology that you use to plan, implement, and assess a specific learning process. This guide helps you install all of its prerequisites, install Canvas LMS on Ubuntu, perform required Canvas setups, ensure your Canvas setup is secure, and then access your Canvas setup. This guide uses the **Ubuntu 22.04** distribution.
@@ -40,7 +44,7 @@ The following sections help you install the software you need before you can clo
 
 You may have one or more of these software installed. To verify installation, type the name of the software followed by `--version`, such as `git --version`, and press **Enter**. Some products, such as Node.js, use `-v` in place of `--version`. If the version you have installed is equal to or higher than the version used for the guide, then you don’t need to perform another installation. If you have an older software version, update it.
 
-You also need to install an email application. Canvas uses this email service to send notifications to users. There are numerous email server options and the one you choose depends on how you want to configure email for your server. One option is to use a third-party mail service such as [Mailgun](https://www.mailgun.com/). Another option is to install and configure a local email server using a product combination like [Postfix, Dovecot, and MySQL](/docs/guides/email-with-postfix-dovecot-and-mysql/). You can also use an existing email server that you already have in place. You need to know email essentials like the email domain, the username and password for an email account, and the address of the Simple Mail Transfer Protocol (SMTP) server for this guide.
+You also need to install an email application. Canvas uses this email service to send notifications to users. There are numerous email server options and the one you choose depends on how you want to configure email for your server. One option is to use a third-party mail service such as [Mailgun](https://www.mailgun.com/). Another option is to install and configure a local email server using a product combination like [Postfix, Dovecot, and MySQL](/cloud/guides/email-with-postfix-dovecot-and-mysql). You can also use an existing email server that you already have in place. You need to know email essentials like the email domain, the username and password for an email account, and the address of the Simple Mail Transfer Protocol (SMTP) server for this guide.
 
 ### Update and Upgrade Your Ubuntu 22.04 Instance
 
@@ -214,7 +218,7 @@ To install Ruby on Ubuntu 22.04, you don't necessarily need to install the Ruby 
 
 To install the Ruby Bundler on Ubuntu 22.04, you need to have a few prerequisites installed:
 
-- **Ruby**: The Ruby programming language should be installed on your Ubuntu 22.04 machine. You can install it by following the steps explained in the [Install Ruby](/docs/guides/install-canvas-lms-on-ubuntu-2204/#install-ruby) section.
+- **Ruby**: The Ruby programming language should be installed on your Ubuntu 22.04 machine. You can install it by following the steps explained in the [Install Ruby](/cloud/guides/install-canvas-lms-on-ubuntu-2204#install-ruby) section.
 
 - **RubyGems**: RubyGems is a package manager for the Ruby programming language. It should be installed with Ruby by default. You can check if it's installed by running the command `gem -v` in the terminal. If a version number is displayed, then RubyGems is installed.
 

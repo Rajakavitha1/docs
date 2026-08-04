@@ -1,24 +1,22 @@
 ---
 slug: install-asterisk-on-centos-7
+title: 'How to Install Asterisk on CentOS 7'
 description: 'This guide shows how to install Asterisk, the open-source private branch exchange (PBX) application for running your own VoIP services, on CentOS 7.'
+authors: ["Nick Rahl"]
+contributors: ["Nick Rahl"]
+published: 2015-09-30
+modified: 2020-12-03
 keywords: ["asterisk 13", "centos 7", "centos", "open source", "private branch exchange", "pbx", "asterisk pbx", "sip", "session initiation protocol", "sip protocol", "IP PBX systems", "VoIP gateways"]
 tags: ["centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2015-09-30
-modified: 2020-12-03
-modified_by:
-    name: Linode
-title: 'How to Install Asterisk on CentOS 7'
 dedicated_cpu_link: true
 relations:
     platform:
         key: asterisk-freepbx-telephone
         keywords:
             - distribution: CentOS 7
-aliases: ['/applications/voip/install-asterisk-on-centos-7/']
-authors: ["Nick Rahl"]
+aliases: []
 ---
-
 
 ![How to Install Asterisk on CentOS 7](how-to-install-asterisk-on-centos-7.jpg "How to Install Asterisk on CentOS 7")
 
@@ -29,20 +27,20 @@ Asterisk is an open source *private branch exchange* (PBX) server that uses *Ses
 This guide covers the steps necessary to provision a new CentOS 7 Linode as a dedicated Asterisk server for your home or office.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Before You Begin
 
 1.  Create a CentOS 7 Linode in your closest data center. A 2GB Linode is enough to handle 10-20 concurrent calls using a non-compressed codec, depending on the processing required on each channel.
 
-1.  Ensure you have followed the [Getting Started](/docs/products/platform/get-started/) and [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guides to prepare your Linode. **Do not** complete the steps to set up a firewall.
+1.  Ensure you have followed the [Getting Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guides to prepare your Linode. **Do not** complete the steps to set up a firewall.
 
 1.  Update your system:
 
         sudo yum update
 
-1.  Disable SELinux and reboot your Linode. If you have [Lassie](/docs/products/compute/compute-instances/guides/monitor-and-maintain/#configure-shutdown-watchdog) enabled, your Linode is back up and running in a few minutes.
+1.  Disable SELinux and reboot your Linode. If you have [Lassie](https://techdocs.akamai.com/cloud-computing/docs/recover-from-unexpected-shutdowns-with-lassie) enabled, your Linode is back up and running in a few minutes.
 
         sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 

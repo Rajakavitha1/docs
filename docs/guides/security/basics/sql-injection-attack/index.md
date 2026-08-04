@@ -1,20 +1,19 @@
 ---
 slug: sql-injection-attack
-description: 'SQL injection is a type of attack that alters SQL queries. Learn about the different types of SQL injection attacks, how to detect them, and prevention tips.'
-keywords: ['sql injection attack','sql injection example','what is a sql injection']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-03
-modified_by:
-  name: Linode
 title: "SQL Injection Attack: What It Is and How to Prevent It"
 title_meta: "What is SQL Injection? Attack Examples & Prevention Tips"
+description: 'SQL injection is a type of attack that alters SQL queries. Learn about the different types of SQL injection attacks, how to detect them, and prevention tips.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-06-03
+keywords: ['sql injection attack','sql injection example','what is a sql injection']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Open Web Application Security Project website](https://owasp.org/)'
 - '[Wikipedia SQL Injection page](https://en.wikipedia.org/wiki/SQL_injection)'
 - '[Netsparker SQL Injection Cheat Sheet](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet)'
 - '[OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)'
 - '[OWASP Security Code Review guide](https://owasp.org/www-project-code-review-guide/)'
-authors: ["Jeff Novotny"]
 ---
 
 Security is an important issue for all web applications and databases, especially those using the *Structured Query Language* (SQL). Although criminals most frequently focus on high-value targets, even small online applications can be victimized. When important information is stolen or an application is compromised, the financial, logistical, and reputation costs can be severe. Criminals and hackers frequently use a technique named *SQL Injection* (SQLi) to gain unauthorized entry to a remote database. This guide describes a SQL injection attack and explains how it is used. It also discusses how to detect SQLi vulnerabilities and how to defend against them.
@@ -42,8 +41,8 @@ No matter the purpose of the attack, it can inflict tremendous consequences upon
 
 Any organization can be targeted, even personal websites and small forums. According to the [*Wikipedia SQL Injection page*](https://en.wikipedia.org/wiki/SQL_injection), the average web application is attacked around four times per month. New exploits are always being developed, and it is difficult to design a truly bulletproof site. However, many hackers target sites indiscriminately using brute force. A database that has been secured through a few basic techniques is much more secure and difficult to compromise.
 
-{{< note respectIndent=false >}}
-This guide is intended as an introduction to SQL injections and does not cover every possible type of attack. [Web security](/docs/guides/software-security-best-practices/) is a very complex field, and many possible attacks demand careful consideration. You should consult with web security professionals before launching any application that stores private personal or financial information.
+{{< note >}}
+This guide is intended as an introduction to SQL injections and does not cover every possible type of attack. [Web security](/cloud/guides/software-security-best-practices) is a very complex field, and many possible attacks demand careful consideration. You should consult with web security professionals before launching any application that stores private personal or financial information.
 {{< /note >}}
 
 ### What is a SQL Query?
@@ -90,7 +89,7 @@ Some out-of-band attacks might only work if certain features are enabled on the 
 
 Many SQL injection attacks take advantage of SQL keywords and syntax. The object is to use valid queries to get the database to operate in an undesirable manner. The particular details of these dangerous commands vary between the various RDBMS applications. However, most attacks use a few basic methods. The following SQL injection examples demonstrate some commonly used approaches.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Although the core SQL syntax is standardized, the implementation varies between RDBMS applications. The different database applications also offer unique enhancements and features. These might be more or less secure. Some of the following attacks might work on some databases and not others. Consult the database documentation for more details.
 {{< /note >}}
 
@@ -166,7 +165,7 @@ To ensure a web application is not vulnerable to common web attacks, consider se
 
 - During the design specification process, document how to handle security threats.
 - At the implementation stage, build common classes or functions to sanitize input and detect suspicious data. Every client should call these routines to ensure every case is covered.
-- Develop a strategy for input validation, also known as sanitization, to detect malicious input. All user-provided data should be verified to ensure it is legitimate. At the same time, valid input must still be allowed. See the section on [Preventing a SQL Injection Attack](/docs/guides/sql-injection-attack/#preventing-a-sql-injection-attack) for more information.
+- Develop a strategy for input validation, also known as sanitization, to detect malicious input. All user-provided data should be verified to ensure it is legitimate. At the same time, valid input must still be allowed. See the section on [Preventing a SQL Injection Attack](/cloud/guides/sql-injection-attack#preventing-a-sql-injection-attack) for more information.
 - Use established quality assurance techniques and tools to ensure common SQLi attacks are blocked. Build automated test and regression scripts to validate fixes and ensure security holes are not introduced.
 - Stay informed about new security issues and emerging threats. Keep the web server and RDBMS updated to the most recent release using the latest security updates.
 
@@ -186,7 +185,7 @@ Several basic coding principles can greatly enhance database security. Most atta
 - **Use stored procedures**: This is an alternative to parameterized queries with the same goal. Stored procedures are saved inside the database, allowing the application to use them at any time. Typically, the procedures automatically parameterize the code. As an added precaution, only a user who has `execute` privileges can run these procedures. Unfortunately, there might be cases where this technique is not completely foolproof. Consult the user documentation for the RDBMS for more information.
 - **Use non-standard names for tables and columns**: Many attackers look for standard tables such as `customers` or fields including `username` and `password`. Adding a prefix or suffix to each string or column provides additional protection at the cost of a bit of extra complexity and longer strings for each name.
 - **Escape the input fields**: This technique is not considered effective on its own, but provides another layer of protection as part of a total security strategy. Every RDBMS has a method of escaping user-supplied data. This involves recalculating the input so it is treated as pure text, rather than keywords or application-specific symbols. Some applications convert the input characters into their hex equivalents. The PHP programming language, which is often used in conjunction with SQL, also provides tools for escaping SQL queries.
-- **Restrict the access privileges of the database user**: Determine the level of access every account requires and configure the user roles accordingly. This limits the damage any individual user can inflict. A similar optimization is to limit the system privileges of the database owner. Even if a user gains access to an administrative account, they cannot use it to gain further access to the server. SQL views can also be used to further limit access. Our guide [SQL Database Security: User Management](/docs/guides/sql-security/) discusses how to develop an access management strategy for an RDBMS.
+- **Restrict the access privileges of the database user**: Determine the level of access every account requires and configure the user roles accordingly. This limits the damage any individual user can inflict. A similar optimization is to limit the system privileges of the database owner. Even if a user gains access to an administrative account, they cannot use it to gain further access to the server. SQL views can also be used to further limit access. Our guide [SQL Database Security: User Management](/cloud/guides/sql-security) discusses how to develop an access management strategy for an RDBMS.
 
 ## Conclusion
 

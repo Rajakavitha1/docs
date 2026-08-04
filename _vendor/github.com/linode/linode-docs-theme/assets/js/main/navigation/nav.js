@@ -1,6 +1,6 @@
 'use strict';
 
-import { isMobile, toggleBooleanClass } from '../helpers/index';
+import { isMobile, toggleBooleanClass } from '../helpers/helpers';
 import { isTopResultsPage } from '../search';
 import { newQuery, QueryHandler } from '../search/query';
 
@@ -73,7 +73,7 @@ const applyUIState = function (self, init = false) {
 	setClassAndWatch(self.$store.nav.pinned, '$store.nav.pinned', 'topbar-pinned');
 };
 
-export function newNavController(weglot_api_key) {
+export function newNavController() {
 	return {
 		init: function () {
 			applyUIState(this, true);
@@ -91,6 +91,10 @@ export function newNavController(weglot_api_key) {
 					this.$store.search.query.p = 0;
 				}
 			});
+		},
+
+		onOptanonGroupsUpdated: function (groups) {
+			this.$store.nav.updateOptanonGroups(groups);
 		},
 
 		onEffect: function () {

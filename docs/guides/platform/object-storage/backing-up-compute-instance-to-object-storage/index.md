@@ -2,34 +2,33 @@
 slug: backing-up-compute-instance-to-object-storage
 title: "Backing Up a Compute Instance to Object Storage"
 description: "Linode Object Storage is an efficient solution to store backups of Compute Instances. Learn how to create backups and store them in object storage buckets."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2023-09-08
 keywords: ['how to backup object storage','linux backup','snapshot object storage']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["Nathaniel Stickman"]
-published: 2023-09-08
-modified_by:
-  name: Linode
 external_resources:
 - '[Oracle Cloud Infrastructure Documentation: Backing Up Snapshots to Object Storage Using rclone](https://docs.oracle.com/en-us/iaas/Content/File/Tasks/backing-up-snapshots-to-object-storage.htm)'
 - '[Ubuntu Forums: Heliode - Howto: Backup and Restore Your System!](https://ubuntuforums.org/showthread.php?t=35087)'
 ---
 
-Linode's [Object Storage](https://www.linode.com/products/object-storage/) service is an S3-compatible cloud-based file storage solution that offers high availability. In addition to many other data-storage uses, Linode Object Storage can efficiently store backups of your Linode Compute Instances.
+Linode's [Object Storage](https://www.linode.com/products/object-storage/) service is an Amazon S3-compatible cloud-based file storage solution that offers high availability. In addition to many other data-storage uses, Linode Object Storage can efficiently store backups of your Linode Compute Instances.
 
 In this tutorial, learn how to create full-system backups from the command line and store them on Linode Object Storage. Afterwards, find out how to automate and schedule the entire process.
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Back Up Your Data to a Single Archive File
 
-There are a significant number of tools, third-party applications, and services that offer system backup solutions. Several useful methods are covered in our guide on [Backing Up Your Data](/docs/guides/backing-up-your-data/), including some methods specific to Linode instances.
+There are a significant number of tools, third-party applications, and services that offer system backup solutions. Several useful methods are covered in our guide on [Backing Up Your Data](/cloud/guides/backing-up-your-data), including some methods specific to Linode instances.
 
 Since the goal of this tutorial is to store backups on Object Storage, utilities that output a single backup file are preferred. After all, it's much easier to store and manage each backup as a single object than as many separate objects.
 
@@ -67,11 +66,11 @@ The tar command also supports incremental backups, using its `--listed-increment
 
 With your backup made and stored in a convenient `backup.tgz` file, you can start the process of storing it on an Object Storage bucket.
 
-The [rclone](https://rclone.org/) utility handles that process efficiently, especially when you plan on automating backups (covered in the next section). You can learn more about rclone and its usage with S3 object storage in our guide [Use Rclone to Sync Files to Linode Object Storage](/docs/guides/rclone-object-storage-file-sync/).
+The [rclone](https://rclone.org/) utility handles that process efficiently, especially when you plan on automating backups (covered in the next section). You can learn more about rclone and its usage with object storage in our guide [Use Rclone to Sync Files to Linode Object Storage](/cloud/guides/rclone-object-storage-file-sync).
 
 Follow along with the steps here to set up rclone and store your initial backup file to a Linode Object Storage instance.
 
-1.  Create a Linode Object Storage bucket and generate access keys. Our [Object Storage - Get Started](/docs/products/storage/object-storage/get-started/) guide explains how.
+1.  Create a Linode Object Storage bucket and generate access keys. Our [Object Storage - Get Started](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-object-storage) guide explains how.
 
     You need to keep track of some information from this step, as it is necessary further on:
 
@@ -81,7 +80,7 @@ Follow along with the steps here to set up rclone and store your initial backup 
 
     -   The access key and secret access key you generate. The Cloud Manager only displays the secret key once after generating it, so be sure to hold on to it.
 
-1.  Install rclone. You can generally do so from your system's package manager, but for the latest release of rclone, you should follow the installation instructions in our [rclone guide](/docs/guides/rclone-object-storage-file-sync/#download-and-install-rclone-on-linux-and-macos).
+1.  Install rclone. You can generally do so from your system's package manager, but for the latest release of rclone, you should follow the installation instructions in our [rclone guide](/cloud/guides/rclone-object-storage-file-sync#download-and-install-rclone-on-linux-and-macos).
 
 1.  Create the `~/.config/rclone` directory if it does not yet exist. This is where your rclone configuration files will be stored.
 
@@ -202,7 +201,7 @@ The instructions below walk you through this process. This example uses the `tar
     Typically, cron prefers the crontab file to end with a new line, so be sure to add one after your entry.
     {{< /note >}}
 
-    Learn more about scheduling tasks with cron in our guide [Using Cron to Schedule Tasks for Certain Times or Intervals](/docs/guides/schedule-tasks-with-cron/). There you can see more options for setting up cron jobs and a full breakdown of scheduling frequency.
+    Learn more about scheduling tasks with cron in our guide [Using Cron to Schedule Tasks for Certain Times or Intervals](/cloud/guides/schedule-tasks-with-cron). There you can see more options for setting up cron jobs and a full breakdown of scheduling frequency.
 
 The example above schedules a daily task, so checking your Object Storage bucket the next day should show a new backup file. You can verify the results with a command like this:
 

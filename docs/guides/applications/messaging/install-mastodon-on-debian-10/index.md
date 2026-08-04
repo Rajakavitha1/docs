@@ -1,16 +1,16 @@
 ---
 slug: install-mastodon-on-debian-10
+title: "Install a Mastodon Server on Debian 10"
+title_meta: "How to Install a Mastodon Server on Debian 10"
 description: "Learn how to install the open-source, self-hosted microblogging platform Mastodon on Debian 10 Linux."
+authors: ["Nathaniel Stickman"]
+contributors: ["Nathaniel Stickman"]
+published: 2021-06-04
+modified: 2022-11-29
 keywords: ['mastodon','micro blog','microblogging','fediverse','twitter alternative','debian 10']
 tags: ['docker', 'debian']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-06-04
-modified: 2022-11-29
-modified_by:
-  name: Linode
 image: MASTODON3.jpg
-title: "Install a Mastodon Server on Debian 10"
-title_meta: "How to Install a Mastodon Server on Debian 10"
 external_resources:
 - '[Mastodon](https://docs.joinmastodon.org/)'
 - '[Fediverse](https://en.wikipedia.org/wiki/Fediverse)'
@@ -27,7 +27,6 @@ relations:
         key: install-mastodon
         keywords:
            - distribution: Debian 10
-authors: ["Nathaniel Stickman"]
 ---
 
 {{< youtube "IPSbNdBmWKE" >}}
@@ -42,17 +41,17 @@ Mastodon servers range in size from small private instances to massive public in
 
 ## Before You Begin
 
-1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1. If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1. Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1. Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-1. Complete the steps in the [Add DNS Records](/docs/guides/set-up-web-server-host-website/#add-dns-records) section to register a domain name to point to your Mastodon instance.
+1. Complete the steps in the [Add DNS Records](/cloud/guides/set-up-web-server-host-website#add-dns-records) section to register a domain name to point to your Mastodon instance.
 
-1. Install and configure UFW for managing your machine's firewall rules. Refer to the [How to Configure a Firewall with UFW](/docs/guides/configure-firewall-with-ufw/) guide.
+1. Install and configure UFW for managing your machine's firewall rules. Refer to the [How to Configure a Firewall with UFW](/cloud/guides/configure-firewall-with-ufw) guide.
 
 1. Prepare an SMTP server for Mastodon to send email notifications to users when they register for the site, get a follower, receive a message, and for other Mastodon activity.
 
-    - You can create your own SMTP server — and even host it on the same machine as your Mastodon server — by following the [Email with Postfix, Dovecot, and MySQL](/docs/guides/email-with-postfix-dovecot-and-mysql/) guide.
+    - You can create your own SMTP server — and even host it on the same machine as your Mastodon server — by following the [Email with Postfix, Dovecot, and MySQL](/cloud/guides/email-with-postfix-dovecot-and-mysql) guide.
 
         {{< note respectIndent=false >}}
 This guide uses PostgreSQL database as a backend for Mastodon. You can setup the SMTP server with PostgreSQL database instead of MySQL.
@@ -63,23 +62,23 @@ This guide uses PostgreSQL database as a backend for Mastodon. You can setup the
 1. Replace occurrences of `example.com` in this guide with the domain name you are using for your Mastodon instance.
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Install Docker and Docker Compose
 
 Mastodon can be installed using its included [Docker Compose](https://docs.docker.com/compose/) file. Docker Compose installs and runs all of the requisites for the Mastodon environment in Docker containers. If you have not used Docker before, it is recommended that you review the following guides:
 
-- [Introduction to Docker](/docs/guides/introduction-to-docker/)
-- [How to Use Docker Compose](/docs/guides/how-to-use-docker-compose/)
+- [Introduction to Docker](/cloud/guides/introduction-to-docker)
+- [How to Use Docker Compose](/cloud/guides/how-to-use-docker-compose)
 
 ### Install Docker
 
-{{< content "installing-docker-shortguide" >}}
+{{% content "installing-docker-shortguide" %}}
 
 ### Install Docker Compose
 
-{{< content "install-docker-compose" >}}
+{{% content "install-docker-compose" %}}
 
 ## Download Mastodon
 

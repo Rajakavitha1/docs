@@ -1,23 +1,21 @@
 ---
 slug: securing-apache2-with-modsecurity
+title: Securing Apache 2 With ModSecurity
+title_meta: How to Secure Apache 2 With ModSecurity
 description: 'This guide shows how you can use ModSecurity, a free web application firewall that can prevent attacks like XSS and SQL injection on your site, using Apache 2.'
+authors: ["Hackersploit"]
+contributors: ["Hackersploit"]
+published: 2021-03-26
 keywords: ["apache2 configure modsecurity", "apache2 modsecurity", "apache modsecurity"]
 tags: ["security","web server","apache"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2021-03-26
-modified_by:
-  name: Linode
-published: 2021-03-26
-title: Securing Apache 2 With ModSecurity
-title_meta: How to Secure Apache 2 With ModSecurity
-aliases: ['security/basics/securing-apache2-with-modsecurity/']
+aliases: []
 image: SecureApache2_ModSecurity.png
 relations:
     platform:
         key: securing-web-servers-with-modsecurity
         keywords:
             - web server: Apache 2
-authors: ["Hackersploit"]
 ---
 
 ## What is ModSecurity?
@@ -30,7 +28,7 @@ In order to install and configure ModSecurity, you need to have a Linux server w
 
 - Apache 2
 
-For instructions, see our guide on [How to Install Apache Web Server on Ubuntu](/docs/guides/how-to-install-apache-web-server-ubuntu-18-04/). Installation instructions for several other Linux distributions are also accessible from this guide.
+For instructions, see our guide on [How to Install Apache Web Server on Ubuntu](/cloud/guides/how-to-install-apache-web-server-ubuntu-18-04). Installation instructions for several other Linux distributions are also accessible from this guide.
 
 {{< note >}}
 This demonstration has been performed on Ubuntu 20.04. However, all techniques demonstrated are distribution agnostic with the exception of package names and package managers.
@@ -146,7 +144,7 @@ To begin using ModSecurity, enable it in the Apache configuration file by follow
 </VirtualHost>
     ```
 
-    If you are running a website that uses SSL, add `SecRuleEngine` directive to that website's configuration file as well. See our guide on [SSL Certificates with Apache on Debian & Ubuntu](/docs/guides/ssl-apache2-debian-ubuntu/#configure-apache-to-use-the-ssl-certificate) for more information.
+    If you are running a website that uses SSL, add `SecRuleEngine` directive to that website's configuration file as well. See our guide on [SSL Certificates with Apache on Debian & Ubuntu](/cloud/guides/ssl-apache2-debian-ubuntu#configure-apache-to-use-the-ssl-certificate) for more information.
 
 1.  Restart the apache2 service to apply the configuration:
     ```

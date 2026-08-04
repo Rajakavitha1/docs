@@ -1,15 +1,14 @@
 ---
 slug: popular-linux-games-overview-and-configuration-tips
+title: "An Overview of Popular Linux Games and Configuration Tips"
+title_meta: "Popular Linux Games and Configuration Tips"
 description: 'This guide discusses popular Linux games and helpful configuration tips for common issues when setting them up.'
+authors: ["Sandro Villinger"]
+contributors: ["Sandro Villinger"]
+published: 2021-09-03
 keywords: ['best linux games']
 tags: ['linux']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-09-03
-modified_by:
-  name: Linode
-title: "An Overview of Popular Linux Games and Configuration Tips"
-title_meta: "Popular Linux Games and Configuration Tips"
-authors: ["Sandro Villinger"]
 ---
 
 Once a niche industry, gaming under Linux is now a growing market for publishers and gamers alike. In this guide, you learn about popular Linux games and helpful configurations for common issues when setting them up.
@@ -66,7 +65,7 @@ The Linux version on Steam should run normally. However, some gamers have recent
 
 Rocket League combines soccer with remote-controlled cars. Rocket League is no longer a small indie title, it’s one of the most played games ever. The game is addictive and supports a four-player co-op. It includes great graphics and an upbeat dance soundtrack.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The official support for Linux has been stopped, but the game still runs well although some features might not work anymore. You can still play locally with friends.
 {{< /note >}}
 
@@ -80,6 +79,6 @@ There are a plethora of big games that are not natively available on Linux. In s
 
 ### How Do I Find Linux Games on Steam?
 
-The biggest gaming client, [Steam](/docs/guides/install-steamcmd-for-a-steam-game-server/), lets you find, buy, and run Linux games easily. Open Steam, go to the [Store Page](https://store.steampowered.com/), click on **Categories**, and then click **SteamOS + Linux**.
+The biggest gaming client, [Steam](/cloud/guides/install-steamcmd-for-a-steam-game-server), lets you find, buy, and run Linux games easily. Open Steam, go to the [Store Page](https://store.steampowered.com/), click on **Categories**, and then click **SteamOS + Linux**.
 
 This brings you to the storefront for Linux games. Scroll down to the **New and Trending**, **Top Sellers**, and **Upcoming** tabs to find the available games.

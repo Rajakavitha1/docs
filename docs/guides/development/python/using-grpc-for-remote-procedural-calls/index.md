@@ -1,17 +1,16 @@
 ---
 slug: using-grpc-for-remote-procedural-calls
+title: "Use gRPC and Python for Remote Procedural Calls"
 description: 'This guide shows how you can use gRPC, a open source remote procedure call framework which enables cross-platform communications between clients and a central server.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2021-07-30
 keywords: ['what is grpc', 'grpc vs rest', 'grpc tutorial']
 tags: ['python']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-07-30
-modified_by:
-  name: Linode
-title: "Use gRPC and Python for Remote Procedural Calls"
 external_resources:
 - '[gRPC](https://grpc.io/)'
 - '[Google Developers Page for Protocol Buffers](https://developers.google.com/protocol-buffers/docs/overview)'
-authors: ["Jeff Novotny"]
 ---
 
 [*gRPC*](https://grpc.io/) is an open-source **remote procedure call** (RPC) framework that enables cross-platform and cross-language communication between clients and a central server. gRPC allows for the specification of a common interface or API to define shared functions, constants, and message types. The server implements the full interface, while clients use stub functions to call the methods in the API. Client and server applications can be written in one of several supported programming languages, which do not have to necessarily match up. This guide introduces and explains gRPC, and describes how to implement an application with remote function calls using gRPC and Python.
@@ -72,7 +71,7 @@ gRPC has many advantages over traditional client-server architectures.
 gRPC is often compared and contrasted with **Representational State Transfer** (REST). REST also uses a client-server architecture. Both systems are useful for implementing microservices. However, there are major differences between the two technologies.
 
 - REST does not use RPCs. In a RESTful system, a client sends a request to a remote **Uniform Resource Identifier** (URI). It later receives a response encoded in XML, HTML, JSON, or another similar format. The request and reply typically use HTTP/HTTPS methods such as `GET` and `POST`.
-- All browsers support REST, and it is widely used throughout the internet. gRPC has more limited web capabilities. **gRPC Web** does provide some measure of web support. (gRPC Web is explained in the [next section](/docs/guides/using-grpc-for-remote-procedural-calls/#grpc-web)). In general, REST is more commonly used for web applications, while gRPC is used inside internal networks. gRPC is also frequently used in embedded systems, facilitating communication between the different components of the device.
+- All browsers support REST, and it is widely used throughout the internet. gRPC has more limited web capabilities. **gRPC Web** does provide some measure of web support. (gRPC Web is explained in the [next section](/cloud/guides/using-grpc-for-remote-procedural-calls#grpc-web)). In general, REST is more commonly used for web applications, while gRPC is used inside internal networks. gRPC is also frequently used in embedded systems, facilitating communication between the different components of the device.
 - gRPC uses HTTP/2 and can take advantage of its inherent client-response communication model. This allows it to transmit requests or responses via a stream. REST uses HTTP version 1.1 and has to handle one request at a time using inefficient short-lived connections.
 - Performance is better with gRPC compared to REST. It also more efficiently uses bandwidth due to its lightweight design.
 - gRPC can be quickly translated into the target programming language for the application using the protoc compiler. REST does not have an equivalent feature, although third-party tools can streamline the process somewhat.
@@ -90,7 +89,7 @@ This simple RPC application accepts a single request and returns a single respon
 
 Extensive information about using gRPC with Python can be found in [gRPC's Python Documentation](https://grpc.io/docs/languages/python/). This page contains links to a series of resources, including the gRPC Python API and a basic tutorial.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The following example uses an insecure communication channel between the client and the server. To enhance the security of gRPC applications, consult the [gRPC Authentication Documentation](https://grpc.io/docs/guides/auth/).
 {{< /note >}}
 
@@ -107,12 +106,12 @@ This procedure is geared towards Ubuntu users but is generally applicable to all
 
 **### Before You Begin**
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system. You may also wish to set the timezone, configure your hostname, create a limited user account, and harden SSH access.
 
-{{< note respectIndent=false >}}
-The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+The steps in this guide are written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you are not familiar with the `sudo` command, see the [Linux Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ### Install Python**
@@ -229,8 +228,7 @@ service Teams {
     {{< note type="alert" respectIndent=false >}}
 Do not edit either of the auto-generated files. This could render them unusable.
     {{< /note >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 To create a response-streaming, request-streaming, or bidirectionally-streaming RPC, declare the message to be streamed as a `stream`. For instance, to allow `GetTeam` to return a stream of team messages, declare it using the following format:
 
     rpc GetTeam (TeamRequest) returns (stream TeamResponse) {}.
@@ -344,8 +342,7 @@ if **__name__** == '**__main__**':
     logging.basicConfig()
     serve()
     {{< /file >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 To return a stream of teams, `GetTeam` would `yield` each response message rather than returning it. Typically, the routine would iterate over the entire database or dictionary using a `for ... in` control structure and would `yield` each relevant entry in turn. This line would then become `yield teams_pb2.TeamResponse(city=tmp_city_name, nickname=tmp_team_name)`.
 {{< /note >}}
 
@@ -414,8 +411,7 @@ if **__name__** == '**__main__**':
     logging.basicConfig()
     run()
     {{< /file >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 If `GetTeam` returned a stream, the `stub.GetTeam` function call would have received a list of messages in response. The client would then process these messages, possibly with a Python list comprehension or a `for ... in` control structure.
 {{< /note >}}
 

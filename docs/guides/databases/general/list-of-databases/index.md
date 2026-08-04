@@ -2,12 +2,11 @@
 slug: list-of-databases
 title: "Comparing DBMSs: The 8 Most Popular Databases"
 description: "Searching for a list of the most popular databases? Our article covers what to look for in a database and top options for data storage."
+authors: ["Jack Wallen"]
+contributors: ["Jack Wallen"]
+published: 2022-02-25
 keywords: ['database',database lists'','best database']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-02-25
-modified_by:
-  name: Linode
-authors: ["Jack Wallen"]
 ---
 
 Databases power nearly every digital platform on the planet: From websites, to blogs, to social media, to streaming services. Most end-users know databases such as MySQL as a tool to store data. That's a pretty accurate, although fundamental, description of what a database is. However, they are much more than that.
@@ -39,7 +38,7 @@ DBMSs use two primary types of database: Relational and Non-Relational. The dist
 
 A relational database is one that stores information in tables containing related data. What gives a relational database its name is that relationships can be made between two or more tables. The relationships correlate rows belonging to two different tables into a third table. Relational databases are best used when the data they contain doesn't often change and when the accuracy of the data is crucial.
 
-Non-relational databases (also called [NoSQL Databases](/docs/guides/what-is-nosql/)) store their information in a non-tabular form. Instead, non-relational databases store data in data models, of which the four most common types are:
+Non-relational databases (also called [NoSQL Databases](/cloud/guides/what-is-nosql)) store their information in a non-tabular form. Instead, non-relational databases store data in data models, of which the four most common types are:
 
 - **Document-oriented** - data is stored as JSON documents.
 - **Key-value** - data is stored in key pairs.
@@ -101,7 +100,7 @@ The disadvantages of Oracle Database include:
 - **Complexity** - It's one of the more complex relational databases on the market.
 - **Cost** - Oracle Database can be up to 10 times more costly than MS SQL.
 
-Find out how to [use Oracle Database Express Edition with Linode](/docs/guides/databases/oracle/).
+Find out how to [use Oracle Database Express Edition with Linode](/cloud/guides/databases/oracle).
 
 #### MySQL
 
@@ -127,7 +126,7 @@ The Advantages of using MySQL include:
 - **Speed** - Is one of the fastest relational databases, thanks to a unique storage engine.
 - **Integration** - MySQL enjoys integration into thousands of third-party applications, such as blogging systems, CRMs, HRMs, ERPs, and many other types of applications.
 
-Learn [how to install a MySQL instance on a Linode server](/docs/guides/installing-and-configuring-mysql-on-ubuntu-2004/).
+Learn [how to install a MySQL instance on a Linode server](/cloud/guides/installing-and-configuring-mysql-on-ubuntu-2004).
 
 #### Microsoft SQL Server
 
@@ -189,13 +188,13 @@ As far as disadvantages, PostgreSQL suffers a few, such as:
 
 - More complicated than MySQL.
 - Slower than MySQL.
-- No easy way to migrate data from other RDBMSes.
+- No easy way to migrate data from other RDBMSs.
 - Poor data compression.
 - Complicated horizontal scaling.
 - Poor clustering support.
 - No built-in support for machine learning.
 
-Check out our guide on [how to install PostgreSQL on an Ubuntu 20.04 server](/docs/guides/how-to-install-use-postgresql-ubuntu-20-04/) for more information.
+Check out our guide on [how to install PostgreSQL on an Ubuntu 20.04 server](/cloud/guides/how-to-install-use-postgresql-ubuntu-20-04) for more information.
 
 ### Non-Relational Databases
 
@@ -236,7 +235,7 @@ The disadvantages of using Redis include the following:
 - Basic security features.
 - Only runs on one CPU core in single-threaded mode, so scalability requires several instances of Redis.
 
-Check out our guide on [how to install and configure Redis on an Ubuntu 20.04 server](/docs/guides/install-redis-ubuntu/) for more information.
+Check out our guide on [how to install and configure Redis on an Ubuntu 20.04 server](/cloud/guides/install-redis-ubuntu) for more information.
 
 #### MongoDB
 
@@ -275,7 +274,7 @@ The disadvantages of the MongoDB database include:
 - Can be slow if indexes aren't used correctly.
 - Because relationships aren't defined well, they can lead to duplicated data.
 
-Check out our guide on [MongoDB use cases](/docs/guides/mongodb-introduction/) for more information.
+Check out our guide on [MongoDB use cases](/cloud/guides/mongodb-introduction) for more information.
 
 #### Apache Cassandra
 
@@ -309,7 +308,7 @@ The disadvantages of Apache Cassandra include:
 - Although writes are fast, reads can be slow.
 - Limited official documentation.
 
-Checkout our guides on [Apache Cassandra](/docs/guides/databases/cassandra/) to learn more.
+Checkout our guides on [Apache Cassandra](/cloud/guides/databases/cassandra) to learn more.
 
 #### CouchDB
 
@@ -345,7 +344,7 @@ The disadvantages of CouchDB include:
 - No support for transactions.
 - Large database replication is unreliable.
 
-Check out our guide on [Using CouchDB 2.0 on Ubuntu 20.04](/docs/guides/use-couchdb-2-0-on-ubuntu-20-04/) for more information.
+Check out our guide on [Using CouchDB 2.0 on Ubuntu 20.04](/cloud/guides/use-couchdb-2-0-on-ubuntu-20-04) for more information.
 
 ## Conclusion
 

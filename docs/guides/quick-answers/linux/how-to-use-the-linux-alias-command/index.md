@@ -1,17 +1,16 @@
 ---
 slug: how-to-use-the-linux-alias-command
-description: 'Save time with the Linux "alias" command by creating customizable shortcuts.'
-keywords: ["linux alias command"]
-aliases: ['/quick-answers/linux/how-to-use-the-linux-alias-command/']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2020-11-06
-modified_by:
-  name: Heather Zoppetti
-published: 2020-11-17
 title: Using the Linux alias Command
 title_meta: How to Use the Linux alias Command
-tags: ["linux"]
+description: 'Save time with the Linux "alias" command by creating customizable shortcuts.'
 authors: ["Linode"]
+contributors: ["Linode"]
+published: 2020-11-17
+modified: 2020-11-06
+keywords: ["linux alias command"]
+aliases: []
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+tags: ["linux"]
 ---
 
 The command line terminal is a convenient and fast tool for interfacing with the Linux operating system. However, you may find yourself sending the same commands again and again while issuing instructions to your system. This may cost you a significant amount of time, especially if your commands are lengthy, hard to remember, or just repetitive. To help save time and reduce frustration, this guide shows you how to use the `alias` command to create customizable shortcuts.
@@ -106,8 +105,7 @@ For example, to remove the `update` temporary alias from [above](#create-a-tempo
 To remove all aliases:
 
     unalias -a
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Removing all aliases also removes the system default aliases.
 {{< /note >}}
 
@@ -138,4 +136,4 @@ Here are some helpful `alias` examples that you may wish to save:
 
 ## Next Steps
 
-To learn more about saving permanent aliases in Bash configuration files as well as using arguments in aliases utilizing Bash functions, see the guide [How to Add the Linux alias Command in the .bashrc File](/docs/guides/how-to-add-linux-alias-command-in-bashrc-file/).
+To learn more about saving permanent aliases in Bash configuration files as well as using arguments in aliases utilizing Bash functions, see the guide [How to Add the Linux alias Command in the .bashrc File](/cloud/guides/how-to-add-linux-alias-command-in-bashrc-file).

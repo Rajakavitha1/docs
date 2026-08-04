@@ -1,23 +1,22 @@
 ---
 slug: deploy-prometheus-operator-with-grafana-on-lke
+title: "Deploying Prometheus Operator and Grafana on LKE (Linode Kubernetes Engine)"
+title_meta: "How to Deploy Prometheus Operator and Grafana on LKE"
 description: 'Learn how to quickly deploy Prometheus Operator monitoring stack including Grafana on Linode Kubernetes Engine.'
 og_description: 'Great monitoring means fast issue resolution. Learn how to quickly deploy Prometheus Operator monitoring stack including Grafana on Linode Kubernetes Engine.'
+authors: ["Ben Bigger"]
+contributors: ["Ben Bigger"]
+published: 2020-07-29
 keywords: ['kubernetes', 'lke', 'prometheus', 'grafana']
 tags: ["monitoring","kubernetes","container"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-07-29
 image: DeployPromOp_Graf_LKE.png
-modified_by:
-  name: Linode
-title: "Deploying Prometheus Operator and Grafana on LKE (Linode Kubernetes Engine)"
-title_meta: "How to Deploy Prometheus Operator and Grafana on LKE"
 external_resources:
 - '[Prometheus Operator Helm Chart on Github](https://github.com/helm/charts/tree/master/stable/prometheus-operator): Useful for reviewing configuration parameters and troubleshooting.'
 - '[Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)'
 - '[Alertmanager Documentation](https://prometheus.io/docs/alerting/latest/alertmanager/)'
 - '[Grafana Tutorials](https://grafana.com/tutorials/)'
-aliases: ['/kubernetes/deploy-prometheus-operator-with-grafana-on-linode-kubernetes-engine/','/guides/deploy-prometheus-operator-with-grafana-on-linode-kubernetes-engine/']
-authors: ["Ben Bigger"]
+aliases: []
 ---
 
 In this guide, you will deploy the [Prometheus Operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) to your Linode Kubernetes Engine (LKE) cluster using [Helm](https://helm.sh/), either as:
@@ -45,11 +44,11 @@ While there are several options for deploying the Prometheus Operator, using [He
 This guide was written using [Kubernetes version 1.17](https://v1-17.docs.kubernetes.io/docs/setup/release/notes/).
 {{< /note >}}
 
-1. [Deploy an LKE Cluster](/docs/products/compute/kubernetes/). This guide was written using an example node pool with three [2 GB Linodes](https://www.linode.com/pricing/). Depending on the workloads you will be deploying on your cluster, you may consider using Linodes with more available resources.
+1. [Deploy an LKE Cluster](https://techdocs.akamai.com/cloud-computing/docs/linode-kubernetes-engine). This guide was written using an example node pool with three [2 GB Linodes](https://www.linode.com/pricing/). Depending on the workloads you will be deploying on your cluster, you may consider using Linodes with more available resources.
 
-1. Install [Helm 3](/docs/guides/how-to-install-apps-on-kubernetes-with-helm-3/#install-helm) to your local environment.
+1. Install [Helm 3](/cloud/guides/how-to-install-apps-on-kubernetes-with-helm-3#install-helm) to your local environment.
 
-1. Install [kubectl](/docs/products/compute/kubernetes/guides/kubectl/) to your local environment and [connect to your cluster](/docs/products/compute/kubernetes/guides/kubectl/).
+1. Install [kubectl](https://techdocs.akamai.com/cloud-computing/docs/manage-a-cluster-with-kubectl) to your local environment and [connect to your cluster](https://techdocs.akamai.com/cloud-computing/docs/manage-a-cluster-with-kubectl).
 
 1. Create the `monitoring` namespace on your LKE cluster:
 
@@ -77,7 +76,7 @@ This guide was written using [Kubernetes version 1.17](https://v1-17.docs.kubern
 
 1. (Optional) For [public access with HTTPS and basic auth](#prometheus-operator-deployment-with-https-and-basic-auth) configured for your web interfaces of your monitoring tools:
 
-    - Purchase a domain name from a reliable domain registrar and configure your registrar to [use Linode's nameservers](/docs/products/networking/dns-manager/guides/authoritative-name-servers/) with your domain. Using Linode's DNS Manager, [create a new Domain](/docs/products/networking/dns-manager/guides/create-domain/) for the one that you have purchased.
+    - Purchase a domain name from a reliable domain registrar and configure your registrar to [use Linode's nameservers](https://techdocs.akamai.com/cloud-computing/docs/configure-your-domains-authoritative-name-servers) with your domain. Using Linode's DNS Manager, [create a new Domain](https://techdocs.akamai.com/cloud-computing/docs/create-a-domain) for the one that you have purchased.
 
     - Ensure that `htpasswd` is installed to your local environment. For many systems, this tool has already been installed. Debian and Ubuntu users will have to install the apache2-utils package with the following command:
 
@@ -151,13 +150,12 @@ In this section, you will create a Helm chart values file and use it to deploy P
 1.  Using Helm, deploy a Prometheus Operator release labeled `lke-monitor` in the `monitoring` namespace on your LKE cluster with the settings established in your `values.yaml` file:
 
     ```command
-    helm install \
-    lke-monitor stable/kube-prometheus-stack\
+    helm install lke-monitor kube-prometheus-stack \
+    --repo https://prometheus-community.github.io/helm-charts \
     -f ~/lke-monitor/values.yaml \
     --namespace monitoring \
-    --set grafana.adminPassword=$GRAFANA_ADMINPASSWORD \
-    --set prometheusOperator.createCustomResource=false \
-    --repo https://prometheus-community.github.io/helm-charts
+    --set grafana.adminPassword="$GRAFANA_ADMINPASSWORD" \
+    --set prometheusOperator.createCustomResource=false
     ```
 
     {{< note >}}
@@ -290,7 +288,7 @@ In this section, you will install the NGINX Ingress Controller using Helm, which
     nginx-ingress-controller   LoadBalancer   10.128.41.200   192.0.2.0      80:30889/TCP,443:32300/TCP   59s   app.kubernetes.io/component=controller,app=nginx-ingress,release=nginx-ingress
     ```
 
-1.  Copy the IP address of the `EXTERNAL IP` field and navigate to Linode's DNS Manager and [create an A record](/docs/products/networking/dns-manager/guides/manage-dns-records/) using this external IP address and a hostname value corresponding to the subdomain you plan to use with your domain.
+1.  Copy the IP address of the `EXTERNAL IP` field and navigate to Linode's DNS Manager and [create an A record](https://techdocs.akamai.com/cloud-computing/docs/manage-dns-records) using this external IP address and a hostname value corresponding to the subdomain you plan to use with your domain.
 
 Now that your NGINX Ingress Controller has been deployed and your domain's A record has been updated, you are ready to enable HTTPS on your monitoring interfaces.
 

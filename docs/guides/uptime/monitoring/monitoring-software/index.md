@@ -3,12 +3,11 @@ slug: monitoring-software
 title: "A Complete Guide to System Monitoring Software"
 title_meta: "How to Choose the Best System Monitoring System"
 description: 'A wide variety of system monitoring software is available. This guide showcases the top free & open source, paid commercial, and service-based options.'
+authors: ["David Robert Newman"]
+contributors: ["David Robert Newman"]
+published: 2023-09-26
 keywords: ['monitoring software','system monitoring software','best system monitoring software','system monitoring tools','systems monitoring','it monitoring tools','it monitoring software','best monitoring software','system performance monitoring','software installation monitoring']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["David Robert Newman"]
-published: 2023-09-26
-modified_by:
-  name: Linode
 ---
 
 "You can’t manage what you can’t measure" is a business school axiom that applies equally well to the IT world. After all, a lack of visibility into key systems can lead to trouble.
@@ -89,7 +88,7 @@ Here are six open source system monitoring tools, two enterprise-grade commercia
 
 **[Nagios](https://www.nagios.com/)** is among the most venerable and widely used system monitoring applications. It’s a highly extensible monitoring and alerting system that can email or text you as soon as a system or service goes offline.
 
-Nagios has two versions. Nagios Core is the open source version, while Nagios XI offers a proprietary interface and commercial support (which is also free for up to seven nodes). Akamai Connected Cloud offers [instructions for monitoring Debian and Ubuntu systems using Nagios](/docs/guides/monitor-and-configure-nagios-alerts-on-debian-10-ubuntu-2004/).
+Nagios has two versions. Nagios Core is the open source version, while Nagios XI offers a proprietary interface and commercial support (which is also free for up to seven nodes). Akamai Cloud offers [instructions for monitoring Debian and Ubuntu systems using Nagios](/cloud/guides/monitor-and-configure-nagios-alerts-on-debian-10-ubuntu-2004).
 
 Both Nagios versions have flexible options for monitoring and alerting. Both versions also support a vast collection of "plugins" that extend monitoring capabilities and the types of monitored components.
 
@@ -225,4 +224,4 @@ RMM products are strongest in situations when it comes to endpoint monitoring *a
 
 There are many options when it comes to system monitoring software. In fact, your best choice may be a mix of two or more tools. A useful starting point is to envision how you’d like to consume monitored data, then work backwards from there. This approach is far more efficient than configuring every single system and service in your organization, only to discover a given monitoring interface really doesn’t serve your needs after all.
 
-Fortunately, with VM and container hosting on Akamai Connected Cloud, you can spin up a prototype monitoring setup to test out several options. [Contact Akamai](https://www.linode.com/company/contact/) today if you’d like to learn more about options for hosting system monitoring software.
+Fortunately, with VM and container hosting on Akamai Cloud, you can spin up a prototype monitoring setup to test out several options. [Contact Akamai](https://www.linode.com/company/contact/) today if you’d like to learn more about options for hosting system monitoring software.

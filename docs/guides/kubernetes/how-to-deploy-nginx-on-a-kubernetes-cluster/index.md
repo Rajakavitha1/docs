@@ -1,26 +1,25 @@
 ---
 slug: how-to-deploy-nginx-on-a-kubernetes-cluster
+title: 'How to Install, Configure, and Deploy NGINX on a Kubernetes Cluster'
 description: 'This guide will show you how to install, configure and deploy NGINX on Kubernetes Cluster.'
+og_description: 'Kubernetes can be configured to provide highly available, horizontally autoscaling, automated deployments. This guide shows you how to set up a Kubernetes cluster on a Linode and manage the lifecycle of an NGINX service.'
+authors: ["Kiran Singh"]
+contributors: ["Kiran Singh"]
+published: 2017-11-27
+modified: 2021-08-13
 keywords: ["kubernetes","docker","container","deployment","nginx"]
 tags: ["docker","centos","kubernetes","ubuntu","nginx","debian","networking","container"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified_by:
-  name: Linode
-modified: 2021-08-13
-published: 2017-11-27
 image: DeployNGINX_Linode.png
-title: 'How to Install, Configure, and Deploy NGINX on a Kubernetes Cluster'
-aliases: ['/applications/containers/how-to-deploy-nginx-on-a-kubernetes-cluster/','/applications/containers/kubernetes/how-to-deploy-nginx-on-a-kubernetes-cluster/','/kubernetes/how-to-deploy-nginx-on-a-kubernetes-cluster/']
-og_description: 'Kubernetes can be configured to provide highly available, horizontally autoscaling, automated deployments. This guide shows you how to set up a Kubernetes cluster on a Linode and manage the lifecycle of an NGINX service.'
-deprecated: true
-deprecated_link: 'applications/containers/getting-started-with-kubernetes/'
+aliases: []
 concentrations: ["Kubernetes"]
 external_resources:
 - '[Kubernetes](https://kubernetes.io/)'
 - '[Google Borg](https://research.google.com/pubs/pub43438.html)'
 - '[kubelet Definition](https://kubernetes.io/docs/admin/kubelet/)'
 - '[CNI Spec](https://github.com/containernetworking/cni/blob/master/SPEC.md)'
-authors: ["Kiran Singh"]
+deprecated: true
+deprecated_link: 'applications/containers/getting-started-with-kubernetes/'
 ---
 
 ![Kubernetes on Linode](Nginx_Kubernetes.jpg)
@@ -37,7 +36,7 @@ You can now create a Kubernetes cluster with one command using the Linode CLI. T
 
 You will need:
 
-- Two or more Linodes with [Private IPs](/docs/products/compute/compute-instances/guides/manage-ip-addresses/#adding-an-ip-address)
+- Two or more Linodes with [Private IPs](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance#adding-an-ip-address)
 - Each Linode should have a 64-bit distribution of either:
     - Ubuntu 16.04+
     - Debian 9
@@ -53,9 +52,9 @@ The steps in this guide create a two-node cluster. Evaluate your own resource re
 
 1.  Create two Linodes with at least 2GB memory within the same data center.
 
-1.  For each node, go into the **Networking** tab of the Linode Cloud Manager and add a [private IP](/docs/products/compute/compute-instances/guides/manage-ip-addresses/#adding-an-ip-address). It is possible to build a Kubernetes cluster using public IPs between data centers, but performance and security may suffer.
+1.  For each node, go into the **Networking** tab of the Linode Cloud Manager and add a [private IP](https://techdocs.akamai.com/cloud-computing/docs/managing-ip-addresses-on-a-compute-instance#adding-an-ip-address). It is possible to build a Kubernetes cluster using public IPs between data centers, but performance and security may suffer.
 
-1.  Configure a firewall with [UFW](/docs/guides/configure-firewall-with-ufw/) or [iptables](/docs/guides/control-network-traffic-with-iptables/) to ensure only the two nodes can communicate with each other.
+1.  Configure a firewall with [UFW](/cloud/guides/configure-firewall-with-ufw) or [iptables](/cloud/guides/control-network-traffic-with-iptables) to ensure only the two nodes can communicate with each other.
 
     When configuring your firewall, a good place to start is to create rules for the ports Kubernetes requires to function. This includes any inbound traffic on Master nodes and their required ports. If you have changed any custom ports, you should ensure those ports are also open. Master Nodes will have a public IP address or `192.168.0.0/16`. See the chart below for more details.
 
@@ -181,7 +180,7 @@ yum install ebtables ethtool
 
 ### Install Docker
 
-{{< content "installing-docker-shortguide" >}}
+{{% content "installing-docker-shortguide" %}}
 
 ### Install kubeadm, kubectl, and kubelet
 
@@ -466,7 +465,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-For more details on Helm and installing Helm, see [How to Install Apps on Kubernetes with Helm 3](/docs/guides/how-to-install-apps-on-kubernetes-with-helm-3/).
+For more details on Helm and installing Helm, see [How to Install Apps on Kubernetes with Helm 3](/cloud/guides/how-to-install-apps-on-kubernetes-with-helm-3).
 
 ### Installing Ingress Controller
 

@@ -1,18 +1,17 @@
 ---
 slug: how-to-convert-datatypes-in-python
-description: 'Learn how to convert various data types to other data types in Python using built in functions. For example, learn to convert a string to an int in Python.'
-keywords: ['convert data type python','How to convert data types in python','convert string to int python']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2022-06-03
-modified_by:
-  name: Linode
 title: "Convert Data Types in Python"
 title_meta: "How to Convert Data Types in Python"
+description: 'Learn how to convert various data types to other data types in Python using built in functions. For example, learn to convert a string to an int in Python.'
+authors: ["Jeff Novotny"]
+contributors: ["Jeff Novotny"]
+published: 2022-06-03
+keywords: ['convert data type python','How to convert data types in python','convert string to int python']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 external_resources:
 - '[Python String documentation](https://docs.python.org/3/library/string.html)'
 - '[Standard Python types](https://docs.python.org/3/library/stdtypes.html)'
 - '[Advanced Python types](https://docs.python.org/3/library/datatypes.html)'
-authors: ["Jeff Novotny"]
 ---
 
 Python is a dynamically typed language, so programmers might not always consider the type of each variable they create. However, the type of a variable is often important, and it might be necessary to convert it to another data type. This guide explains how typecasting works and illustrates how to convert data types in Python. It covers several common examples, such as how to convert an integer to a string.
@@ -45,7 +44,7 @@ The Python `type` function is used to determine the type of the data. In this ex
 
 ## Before You Begin
 
-Ensure Python is already installed on your machine and you understand how to launch and use the Python programming environment. To run Python on Ubuntu, use the command `python3`. For more information regarding how to use Python, see the [Linode guide to Python](/docs/guides/how-to-install-python-on-ubuntu-20-04/).
+Ensure Python is already installed on your machine and you understand how to launch and use the Python programming environment. To run Python on Ubuntu, use the command `python3`. For more information regarding how to use Python, see the [Linode guide to Python](/cloud/guides/how-to-install-python-on-ubuntu-20-04).
 
 ## Converting Integers and Floats in Python
 
@@ -93,7 +92,7 @@ z is 52.0 and is of type <class 'float'>
 
 As of Python 3, when two integers are divided, the result is a float. The numerator and denominator are both internally pre-converted to floats before the operation. This means the result is a float even if the modulus is zero.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 Python 2 returns an integer in this case.
 {{< /note >}}
 
@@ -104,8 +103,7 @@ Python 2 returns an integer in this case.
 {{< output >}}
 z is 2.0 and is of type <class 'float'>
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 The closely-related `hex()` and `oct()` methods can convert an integer to its hexadecimal or octal string equivalent.
 {{< /note >}}
 
@@ -136,14 +134,13 @@ To convert a float to the **nearest** integer, use the `round()` function instea
 {{< output >}}
 x is 51 and is of type <class 'int'>
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Some information is permanently lost whenever a float is converted to an integer. This can have drastic effects on the accuracy of future calculations. Ensure you understand the implications of this data loss within the context of your program before proceeding. When in doubt, create a new variable to store the converted value.
 {{< /note >}}
 
 ## Converting Strings in Python
 
-A Python string consists of an immutable sequence of Unicode characters, and is represented internally as an array. The individual characters in a string can be accessed using *string indexing*, which is similar to [how list items are accessed](/docs/guides/python-lists-and-how-to-use-them/). Python string indexing is zero-based, so the index `[1]` refers to the second character in the string. Python provides a number of built-in methods for use in string processing and manipulation.
+A Python string consists of an immutable sequence of Unicode characters, and is represented internally as an array. The individual characters in a string can be accessed using *string indexing*, which is similar to [how list items are accessed](/cloud/guides/python-lists-and-how-to-use-them). Python string indexing is zero-based, so the index `[1]` refers to the second character in the string. Python provides a number of built-in methods for use in string processing and manipulation.
 
 Integers can be converted to strings and vice versa. Strings can also be converted to complex data types including lists, sets, and tuples. For more information on strings, see the [*Python documentation*](https://docs.python.org/3/library/string.html).
 
@@ -217,8 +214,7 @@ Strings can also be converted to floats using the `float()` function. Python can
 {{< output >}}
 z is 10.0 and is of type <class 'float'>
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Do not confuse the `int()` function with `ord()`. `ord()` converts a character to its ASCII integer representation. This function uses the [*character to ASCII conversion table*](https://www.ibm.com/docs/en/sdse/6.4.0?topic=configuration-ascii-characters-from-33-126) to determine the ASCII values.
 {{< /note >}}
 
@@ -228,8 +224,8 @@ In Python, a *list* is an ordered array of objects. The items are mutable, so th
 
 Lists and strings are conceptually very similar. Both are ordered sequences, and the individual items are accessed the same way. This makes it easy to convert a string to a list. The first letter in the string becomes item `[0]` in the list. The second letter becomes the second list item, and so on.
 
-{{< note respectIndent=false >}}
-The elements of a list can be strings or numbers, or even compound objects. However, strings can only contain a sequence of Unicode characters. [Lists can also be converted to strings in Python](/docs/guides/python-lists-and-how-to-use-them/#convert-a-python-list-to-a-string), but the steps are more complicated.
+{{< note >}}
+The elements of a list can be strings or numbers, or even compound objects. However, strings can only contain a sequence of Unicode characters. [Lists can also be converted to strings in Python](/cloud/guides/python-lists-and-how-to-use-them#convert-a-python-list-to-a-string), but the steps are more complicated.
 {{< /note >}}
 
 To convert a Python string to a list, use the `list()` function and provide the string as input. This results in a list containing the characters in the original string, formatted in list notation.
@@ -253,12 +249,11 @@ To convert a string to a tuple, use the `tuple()` function. The characters in th
 {{< output >}}
 z is ('t', 'e', 's', 't') and is of type <class 'tuple'>
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Although it is relatively uncommon, a string can also be converted to a *set*. A set is an unordered collection of unique elements. Use the function `set()` and provide the string as a parameter.
 {{< /note >}}
 
-To learn more about Python tuples, see our guide [An Introduction to Python Tuples](/docs/guides/python-tuples/#convert-a-python-tuple-to-a-list).
+To learn more about Python tuples, see our guide [An Introduction to Python Tuples](/cloud/guides/python-tuples#convert-a-python-tuple-to-a-list).
 
 ## Conclusion
 

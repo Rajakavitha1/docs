@@ -1,13 +1,12 @@
 ---
 slug: how-to-install-postgresql-relational-databases-on-centos-7
+title: 'How to Install PostgreSQL Relational Databases on CentOS 7'
 description: 'The PostgreSQL relational database is a powerful open source database platform. Learn how to install it on CentOS 7 in this simple tutorial.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2016-12-12
 keywords: ["postgresql", "CentOS 7", "open source database", "relational database"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2016-12-12
-modified_by:
-  name: Nick Brewer
-published: 2016-12-12
-title: 'How to Install PostgreSQL Relational Databases on CentOS 7'
 external_resources:
  - '[PostgreSQL Online Documentation](http://www.postgresql.org/docs/)'
  - '[psql manual page](http://www.rootr.net/man/man/psql/1)'
@@ -16,9 +15,8 @@ relations:
         key: use-postrgesql-database
         keywords:
             - distribution: CentOS 7
-aliases: ['/databases/postgresql/use-postgresql-relational-databases-on-centos-7/','/databases/postgresql/how-to-install-postgresql-relational-databases-on-centos-7/']
+aliases: []
 tags: ["database","postgresql","centos"]
-authors: ["Linode"]
 ---
 
 The [PostgreSQL](http://www.postgresql.org/) relational database system is a powerful, scalable, and standards-compliant open-source database platform. This guide will help you install and configure PostgreSQL on your CentOS 7 Linode.
@@ -27,16 +25,16 @@ The [PostgreSQL](http://www.postgresql.org/) relational database system is a pow
 
 ## Before You Begin
 
-1.  Familiarize yourself with our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) and complete the steps for setting your Linode's hostname and timezone.
+1.  Familiarize yourself with our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) and complete the steps for setting your Linode's hostname and timezone.
 
-2.  Complete the sections of our [Securing Your Server guide](/docs/products/compute/compute-instances/guides/set-up-and-secure/) to create a standard user account, harden SSH access and remove unnecessary network services.
+2.  Complete the sections of our [Securing Your Server guide](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) to create a standard user account, harden SSH access and remove unnecessary network services.
 
 3.  Update your system:
 
         sudo yum update
 
 {{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/docs/guides/linux-users-and-groups/) for more information.
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, visit the [Users and Groups guide](/cloud/guides/linux-users-and-groups) for more information.
 {{< /note >}}
 
 ## Install PostgreSQL
@@ -111,7 +109,7 @@ The `postgres` user should not be used for other purposes (e.g., connecting to o
 
     Note that this user is distinct from the `postgres` Linux user. The Linux user is used to access the database, and the PostgreSQL user is used to perform administrative tasks on the databases.
 
-    The password set in this step will be used to connect to the database via the network. Peer authentication will be used by default for local connections. See the [Secure Local PostgreSQL Access section](/docs/guides/how-to-install-postgresql-relational-databases-on-centos-7/#secure-local-access) for information about changing this setting.
+    The password set in this step will be used to connect to the database via the network. Peer authentication will be used by default for local connections. See the [Secure Local PostgreSQL Access section](/cloud/guides/how-to-install-postgresql-relational-databases-on-centos-7#secure-local-access) for information about changing this setting.
 
 ### Access the PostgreSQL Shell
 
@@ -476,5 +474,5 @@ If you installed PostgreSQL from the [Postgres repositories](#install-from-the-p
 
 PostgreSQL listens for connections on `localhost` by default, and it is not advised to reconfigure it to listen on public IP addresses. If you wish to make PostgreSQL externally accessible, it's recommended that you follow the Postgres documentation for [using SSL](https://www.postgresql.org/docs/9.2/static/ssl-tcp.html) to secure your remote connections. Alternatively, you could connect to PostgreSQL over an [SSH tunnel](https://www.postgresql.org/docs/9.2/static/ssh-tunnels.html). To access your databases remotely using a graphical tool, please follow one of these guides:
 
--   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Windows](/docs/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows/)
--   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/docs/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x/)
+-   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Windows](/cloud/guides/how-to-access-postgresql-database-remotely-using-pgadmin-on-windows)
+-   [Securely Manage Remote PostgreSQL Servers with pgAdmin on Mac OS X](/cloud/guides/securely-manage-remote-postgresql-servers-with-pgadmin-on-macos-x)

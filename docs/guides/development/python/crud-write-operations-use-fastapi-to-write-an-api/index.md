@@ -1,22 +1,21 @@
 ---
 slug: crud-write-operations-use-fastapi-to-write-an-api
-description: "If you are familiar with FastAPI, you can use this guide to add CRUD write operations to your API."
-keywords: ['CRUD operations in Python']
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-04-09
-modified_by:
-  name: Linode
 title: "CRUD Write Operations: How to Use FastAPI to Write an API"
 title_meta: "CRUD Write Operations: Using FastAPI to Write an API"
-tags: ["python", "django"]
+description: "If you are familiar with FastAPI, you can use this guide to add CRUD write operations to your API."
 authors: ["Chelsea Troy"]
+contributors: ["Chelsea Troy"]
+published: 2021-04-09
+keywords: ['CRUD operations in Python']
+license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+tags: ["python", "django"]
 ---
 
 FastAPI is a high-performance Python *micro-framework* designed to help developers build APIs quickly. Out-of-the-box, it generates interactive API documentation powered by the [Swagger UI](https://github.com/swagger-api/swagger-ui). This Python framework is minimal by default, but can be configured, and extended to fit your API's use case.
 
 ## In this Guide
 
-This guide shows you how to create write operations for your RESTful API. Its examples continue from the [CRUD Read Operations: Use FastAPI to Write an API](/docs/guides/crud-read-operations-use-fastapi-to-write-an-api/) guide. Throughout this guide you learn how to use FastAPI to create the following REST API endpoints:
+This guide shows you how to create write operations for your RESTful API. Its examples continue from the [CRUD Read Operations: Use FastAPI to Write an API](/cloud/guides/crud-read-operations-use-fastapi-to-write-an-api) guide. Throughout this guide you learn how to use FastAPI to create the following REST API endpoints:
 
 1. **Create Programming Languages**: creates a new Programming Languages resource using JSON payload data.
 1. **Update Programming Language**: updates a resource with new data.
@@ -29,10 +28,10 @@ This guide shows you how to create write operations for your RESTful API. Its ex
 FastAPI requires the following items to be installed on your system:
 
 - Python 3.6+  and [pip](https://pypi.org/project/pip/)
-- [Gunicorn](/docs/guides/flask-and-gunicorn-on-ubuntu/#install-and-configure-gunicorn) or [Hypercorn](https://pypi.org/project/Hypercorn/). These tools are used as the web server gateway for your API.
+- [Gunicorn](/cloud/guides/flask-and-gunicorn-on-ubuntu#install-and-configure-gunicorn) or [Hypercorn](https://pypi.org/project/Hypercorn/). These tools are used as the web server gateway for your API.
 
-{{< note respectIndent=false >}}
-If you have not followed the steps in the [CRUD Read Operations: Use FastAPI to Write an API](/docs/guides/crud-read-operations-use-fastapi-to-write-an-api/) guide, ensure that you have created a `main.py` file with [the code](/docs/guides/crud-read-operations-use-fastapi-to-write-an-api/main.py) included in the previous guide's examples.
+{{< note >}}
+If you have not followed the steps in the [CRUD Read Operations: Use FastAPI to Write an API](/cloud/guides/crud-read-operations-use-fastapi-to-write-an-api) guide, ensure that you have created a `main.py` file with the code included in the previous guide's examples.
 {{< /note >}}
 
 ### Install FastAPI and Hypercorn
@@ -204,6 +203,6 @@ Visit your API's documentation (`http://127.0.0.1:8000/docs`) to view all the en
 
 ![five endpoints together](troy_five_endpoints_together.png)
 
-FastAPI's syntax is similar to the syntax used by [Flask or Bottle](/docs/guides/how-to-choose-python-api-framework/). With a few adjustments, much of the example code used in this guide would work with those frameworks. Regardless of framework, the RESTful web API conventions covered i this guide, like data lookup efficiency, and idempotence apply across any backend stack.
+FastAPI's syntax is similar to the syntax used by [Flask or Bottle](/cloud/guides/how-to-choose-python-api-framework). With a few adjustments, much of the example code used in this guide would work with those frameworks. Regardless of framework, the RESTful web API conventions covered i this guide, like data lookup efficiency, and idempotence apply across any backend stack.
 
 

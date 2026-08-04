@@ -1,40 +1,39 @@
 ---
 slug: installing-nginx-on-ubuntu-12-04-lts-precise-pangolin
-deprecated: true
+title: 'Installing Nginx on Ubuntu 12.04 LTS (Precise Pangolin)'
 description: 'A basic guide to installing nginx from source on Ubuntu 12.04 LTS (Precise Pangolin)'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2012-10-24
+modified: 2015-09-16
 keywords: ["nginx", "nginx ubuntu 12.04", "http", "web servers", "ubuntu", "ubuntu l2.04", "ubuntu precise pangolin"]
 tags: ["web server","ubuntu","nginx"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/websites/nginx/websites-with-nginx-on-ubuntu-12-04-lts-precise-pangolin/index.cfm/','/websites/nginx/installing-nginx-on-ubuntu-12-04-lts-precise-pangolin/','/websites/nginx/websites-with-nginx-on-ubuntu-12-04-lts-precise-pangolin/','/web-servers/nginx/installation/ubuntu-12-04-precise-pangolin/','/web-servers/nginx/installing-nginx-on-ubuntu-12-04-lts-precise-pangolin/','/websites/nginx/install-nginx-ubuntu-12-04/']
-modified: 2015-09-16
-modified_by:
-  name: Elle Krout
-published: 2012-10-24
-title: 'Installing Nginx on Ubuntu 12.04 LTS (Precise Pangolin)'
+aliases: []
 external_resources:
- - '[Linode nginx Documentation](/docs/web-servers/nginx/)'
+ - '[Linode nginx Documentation](/cloud/guides/web-servers/nginx)'
  - '[nginx Community Documentation](http://wiki.nginx.org)'
- - '[Configure Perl and FastCGI with nginx](/docs/guides/nginx-and-perlfastcgi-on-ubuntu-10-04-lts-lucid/)'
- - '[Configure PHP and FastCGI with nginx](/docs/guides/nginx-and-phpfastcgi-on-ubuntu-10-04-lts-lucid/)'
+ - '[Configure Perl and FastCGI with nginx](/cloud/guides/nginx-and-perlfastcgi-on-ubuntu-10-04-lts-lucid)'
+ - '[Configure PHP and FastCGI with nginx](/cloud/guides/nginx-and-phpfastcgi-on-ubuntu-10-04-lts-lucid)'
 relations:
     platform:
         key: how-to-install-nginx
         keywords:
             - distribution: Ubuntu 12.04
-authors: ["Linode"]
+deprecated: true
 ---
 
-Nginx is a lightweight, high performance web server designed to deliver large amounts of static content quickly and with efficient use of system resources. In contrast to the [Apache server](/docs/web-servers/apache/), Nginx uses an asynchronous event-driven model which provides more predictable performance under load.
+Nginx is a lightweight, high performance web server designed to deliver large amounts of static content quickly and with efficient use of system resources. In contrast to the [Apache server](/cloud/guides/web-servers/apache), Nginx uses an asynchronous event-driven model which provides more predictable performance under load.
 
-{{< note respectIndent=false >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/guides/linux-users-and-groups/) guide.
+{{< note >}}
+This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/cloud/guides/linux-users-and-groups) guide.
 {{< /note >}}
 
 ## Before You Begin
 
-1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](/docs/products/platform/get-started/) and [Creating a Compute Instance](/docs/products/compute/compute-instances/guides/create/) guides.
+1.  If you have not already done so, create a Linode account and Compute Instance. See our [Getting Started with Linode](https://techdocs.akamai.com/cloud-computing/docs/getting-started) and [Creating a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/create-a-compute-instance) guides.
 
-1.  Follow our [Setting Up and Securing a Compute Instance](/docs/products/compute/compute-instances/guides/set-up-and-secure/) guide to update your system and configure your hostname. You may also wish to set the timezone, create a limited user account, and harden SSH access.
+1.  Follow our [Setting Up and Securing a Compute Instance](https://techdocs.akamai.com/cloud-computing/docs/set-up-and-secure-a-compute-instance) guide to update your system and configure your hostname. You may also wish to set the timezone, create a limited user account, and harden SSH access.
 
     To check your hostname run:
 
@@ -257,4 +256,4 @@ Regardless of installation source or method, Nginx can be tested by navigating t
 
 ![Nginx welcome](nginx-welcome.png)
 
-Continue reading our introduction to [Basic NGINX Configuration](/docs/guides/how-to-configure-nginx/) for more information about using and setting up a web server.
+Continue reading our introduction to [Basic NGINX Configuration](/cloud/guides/how-to-configure-nginx) for more information about using and setting up a web server.

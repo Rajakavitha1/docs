@@ -1,17 +1,16 @@
 ---
 slug: how-to-install-drupal-with-linode-kubernetes-engine
+title: "Installing Drupal on LKE"
+title_meta: "How to Install Drupal on LKE (Linode Kubernetes Engine)"
 description: "Learn how to install and configure the Drupal CMS with Linode Kubernetes Engine to develop websites."
+authors: ["Rajakavitha Kodhandapani"]
+contributors: ["Rajakavitha Kodhandapani"]
+published: 2019-11-07
 keywords: ['kubernetes','drupal','websites', 'cms', 'k8s']
 tags: ["mysql","kubernetes","container","cms","drupal"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2019-11-07
-modified_by:
-  name: Linode
-title: "Installing Drupal on LKE"
-title_meta: "How to Install Drupal on LKE (Linode Kubernetes Engine)"
 
-aliases: ['/kubernetes/how-to-install-drupal-with-linode-kubernetes-engine/']
-authors: ["Rajakavitha Kodhandapani"]
+aliases: []
 ---
 
 [Drupal](https://www.drupal.org) is an advanced and powerful content management framework, built on the PHP scripting language and supported by a database engine like MySQL. Drupal provides a flexible system that can be used to manage websites for a variety of use cases. For example, you can create rich, interactive “community” websites with forums, user blogs, and private messaging.
@@ -27,16 +26,16 @@ This guide provides instructions to:
 {{< note type="alert" >}}
 This guide’s example instructions create several billable resources on your Linode account. If you do not want to keep using the example cluster that you create, be sure to delete it when you have finished the guide.
 
-If you remove the resources afterward, you will only be billed for the hour(s) that the resources were present on your account. Consult the [Billing and Payments](/docs/products/platform/billing/) guide for detailed information about how hourly billing works and for a table of plan pricing.
+If you remove the resources afterward, you will only be billed for the hour(s) that the resources were present on your account. Consult the [Billing and Payments](https://techdocs.akamai.com/cloud-computing/docs/understanding-how-billing-works) guide for detailed information about how hourly billing works and for a table of plan pricing.
 {{< /note >}}
 
 ## Before You Begin
 
-Familiarize yourself with Kubernetes using our series [A Beginner's Guide to Kubernetes](/docs/guides/beginners-guide-to-kubernetes/) and [Advantages of Using Kubernetes](/docs/guides/kubernetes-use-cases/).
+Familiarize yourself with Kubernetes using our series [A Beginner's Guide to Kubernetes](/cloud/guides/beginners-guide-to-kubernetes) and [Advantages of Using Kubernetes](/cloud/guides/kubernetes-use-cases).
 
 ## Create an LKE Cluster
 
-Follow the instructions in [Deploying and Managing a Cluster with Linode Kubernetes Engine Tutorial](/docs/products/compute/kubernetes/) to create and connect to an LKE cluster.
+Follow the instructions in [Deploying and Managing a Cluster with Linode Kubernetes Engine Tutorial](https://techdocs.akamai.com/cloud-computing/docs/linode-kubernetes-engine) to create and connect to an LKE cluster.
 
 ## Create Manifest Files
 
@@ -370,7 +369,7 @@ You need to log into the `mysql` Pod to set the root password for the Drupal UI 
 1. In the browser, type the IP address listed under `EXTERNAL_IP` from the `kubectl get services drupal` command above followed by the port `:8081`, for example, `http://192.0.2.3:8081`. The Drupal configuration page appears.
 
     {{< note >}}
-    If you have a registered domain name that you want to use for the Drupal website, add the domain in [Cloud Manager](http://cloud.linode.com) and select **Insert default records from one of my NodeBalancers** option. In this case, the `EXTERNAL_IP` address is the IP address of the NodeBalancer. For more information, see [Add a Domain](/docs/products/networking/dns-manager/guides/create-domain/).
+    If you have a registered domain name that you want to use for the Drupal website, add the domain in [Cloud Manager](http://cloud.linode.com) and select **Insert default records from one of my NodeBalancers** option. In this case, the `EXTERNAL_IP` address is the IP address of the NodeBalancer. For more information, see [Add a Domain](https://techdocs.akamai.com/cloud-computing/docs/create-a-domain).
     {{< /note >}}
 
     ![Drupal Configuration Screen](install-drupal-setup.png "Drupal Configuration Screen")

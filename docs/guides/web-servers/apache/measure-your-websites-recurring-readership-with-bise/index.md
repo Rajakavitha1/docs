@@ -1,19 +1,18 @@
 ---
 slug: measure-your-websites-recurring-readership-with-bise
+title: "Measure a Website's Recurring Readership with Bise"
 description: "Learn how to install, configure, and run Bise, a simple analytics tool that measures the size of your website’s recurring readership."
+authors: ["Jason McIntosh"]
+contributors: ["Jason McIntosh"]
+published: 2020-08-17
 keywords: ["Bise", "Apache", "Analytics", "Blogging"]
 tags: ["web server","apache","analytics"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2020-08-17
-modified_by:
-  name: Linode
-title: "Measure a Website's Recurring Readership with Bise"
 image: MeasureWebsiteRecReader_Bise.png
 external_resources:
   - "[Bise's README file, containing concise instructions](https://github.com/jmacdotorg/bise/blob/master/README.md)"
   - "[Meditations upon Bise's motivations and intended use, written by its developer](https://fogknife.com/2018-01-17-more-thoughts-on-counting-blog-readership.html)"
-aliases: ['/web-servers/apache/measure-your-websites-recurring-readership-with-bise/']
-authors: ["Jason McIntosh"]
+aliases: []
 ---
 
 ## Introduction
@@ -33,8 +32,7 @@ Front page                 426       54
 From Twitter                39        1
 From web searches          910        6
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 Bise assumes that the logs it analyzes are written in the [Common Log Format](https://en.wikipedia.org/wiki/Common_Log_Format). For example, Apache writes logs in this format by default.
 {{< /note >}}
 
@@ -68,13 +66,13 @@ So, if your website's logs indicate that a user at a certain IP address spent a 
 
 To use Bise, you should have the following:
 
-* A website running on Apache, or another web server configured to write out its access logs in the Common Log Format. Visit the [Apache section](/docs/web-servers/apache/) for help with installing Apache.
+* A website running on Apache, or another web server configured to write out its access logs in the Common Log Format. Visit the [Apache section](/cloud/guides/web-servers/apache) for help with installing Apache.
 
 * Access to those logs! Bise needs read-access to those log files in order to work. The [If You Don't Have Read-Access to the Logs](#if-you-don-t-have-read-access-to-the-logs) section will provide suggestions if you don't currently have read access.
 
-* [Cpanminus](/docs/guides/manage-cpan-modules-with-cpan-minus/), to install Bise's prerequisite libraries.
+* [Cpanminus](/cloud/guides/manage-cpan-modules-with-cpan-minus), to install Bise's prerequisite libraries.
 
-* [Cron](/docs/guides/schedule-tasks-with-cron/), if you plan to run Bise on a regular schedule. Any Linux machine almost certainly has this installed as well.
+* [Cron](/cloud/guides/schedule-tasks-with-cron), if you plan to run Bise on a regular schedule. Any Linux machine almost certainly has this installed as well.
 
     {{< note respectIndent=false >}}
 Any other scheduling software that can run command-line scripts for you will also work, but this guide will demonstrate using Bise with Cron, specifically.
@@ -92,7 +90,7 @@ At the time of this writing, Bise lacks any kind of one-step installation soluti
         git clone https://github.com/jmacdotorg/bise.git
 
     {{< note respectIndent=false >}}
-You can follow the [How to Install Git](/docs/guides/how-to-install-git-on-linux-mac-and-windows/) guide if `git` is not installed on your system.
+You can follow the [How to Install Git](/cloud/guides/how-to-install-git-on-linux-mac-and-windows) guide if `git` is not installed on your system.
 {{< /note >}}
 
 1. In your terminal, set your current working directory to your new `bise` directory:
@@ -117,13 +115,13 @@ Install Bise's prerequisites using `cpanm`:
 
 - **If you do not have `cpanm` installed**, then you have two options:
 
-    * Install `cpanm`, as described in [this Linode guide](/docs/guides/manage-cpan-modules-with-cpan-minus/). Then, run the command described above.
+    * Install `cpanm`, as described in [this Linode guide](/cloud/guides/manage-cpan-modules-with-cpan-minus). Then, run the command described above.
 
     * Run this command, which will load and run a temporary copy of `cpanm` and then proceed to install Bise's dependencies:
 
             curl -fsSL https://cpanmin.us | perl - --sudo --installdeps .
 
-{{< note respectIndent=false >}}
+{{< note >}}
 You can leave out the `sudo` command or the `--sudo` option from the above commands. If you do, the libraries will be installed in your home directory's `perl5/` subdirectory, rather than installing them as root at system level. Doing so may require further configuration to allow `perl` to load libraries from that location. When run without `sudo`, the install command's output will show this further guidance.
 {{< /note >}}
 
@@ -153,7 +151,7 @@ By default, Bise looks for a config file in `../conf/conf.yaml`, relative to its
 
 You could further customize Bise's installation by moving the executable file found in `bin/bise` to some other location, such as `/usr/local/bin`. You would then need to run Bise with its `-c` command-line option. This option specifies a config-file path.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 The rest of this guide will assume you're running Bise out of `bin/bise`, within the copy of its cloned or downloaded source directory.
 {{< /note >}}
 
@@ -181,8 +179,7 @@ Bise will scan the provided log files in order from newest to oldest. It will st
 For example, this command will run Bise with all your Apache server's access logs:
 
     bin/bise /var/log/apache2/*access.log*
-
-{{< note respectIndent=false >}}
+{{< note >}}
 This example assumes that your access logs have the default locations and filename conventions.
 {{< /note >}}
 
@@ -208,7 +205,7 @@ Bise's output can be customized. The six rows in this table are defined by `conf
 
 By default, Apache keeps its log files visible to only administrative users. Your own user account might not have the right permissions to read them. Bise won't work until you resolve this situation.
 
-{{< note respectIndent=false >}}
+{{< note >}}
 If you receive a `Permission denied` error when attempting to view the contents of your machine's log directory, then this is the case with your Apache setup:
 
     ls -l /var/log/apache2/
@@ -272,17 +269,17 @@ reports:
 
 If you're happy with the behavior of the default rows, you can certainly continue using them as-is! You can also modify or remove these report-row directives, or add new ones, depending upon your needs.
 
-There are four kinds of rows you can define, each of which examines a different part of your access logs. These correspond to the values for the `test_type` parameter: [path](#test-type-path), [path_regex](#test-type-path-regex), [referer_regex](#test-type-referer-regex), and [agent_regex](#test-type-agent-regex).
+There are four kinds of rows you can define, each of which examines a different part of your access logs. These correspond to the values for the `test_type` parameter: [`path`](#test_type-path), [`path_regex`](#test_type-path_regex), [`referer_regex`](#test_type-referer_regex), and [`agent_regex`](#test_type-agent_regex).
 
-{{< note respectIndent=false >}}
-Three of the row types involve the use of regular expressions. You should probably understand [the basics of this text-processing technology](/docs/guides/how-to-use-grep-command/#regular-expression-overview) before defining your own row definitions with any of these types.
+{{< note >}}
+Three of the row types involve the use of regular expressions. You should probably understand [the basics of this text-processing technology](/cloud/guides/how-to-use-grep-command#regular-expression-overview) before defining your own row definitions with any of these types.
 
 Note also that Bise ignores whitespace in regular expressions, allowing you to write more complex regexes with inline comments, as one of the examples below will illustrate.
 {{< /note >}}
 
 Let's step through the file's available `test_type` configuration directives, and then examine the [other configuration options](#other-configuration-options).
 
-### test_type: path
+### `test_type`: path
 
 Row definitions with a `test_type` set to `path` will count any access whose requested URL path matches the value of `test`, exactly.
 
@@ -294,7 +291,7 @@ The following row definition will count any request for the path `/`, and only t
   test: /
 {{< /file >}}
 
-### test_type: path_regex
+### `test_type`: `path_regex`
 
 Counts any access whose requested URL path matches the value of `test`, evaluated as a regular expression.
 
@@ -311,7 +308,7 @@ The following "All visitors" definition from the default configuration will matc
 
 As noted earlier, Bise's regular expression processor ignores whitespace, allowing configuration files to add newlines and commentary in the middle of regexes like this.
 
-### test_type: referer_regex
+### `test_type`: `referer_regex`
 
 Counts any access whose referer URL matches the value of `test`, evaluated as a regular expression.
 
@@ -323,7 +320,7 @@ This line from the default configuration will count any visit that arrived by wa
   test: \bt\.co\b
 {{< /file >}}
 
-### test_type: agent_regex
+### `test_type`: `agent_regex`
 
 Counts any access whose User-agent string matches the value of `test`, evaluated as a regular expression.
 
@@ -345,7 +342,7 @@ The configuration file lets you set these optional directives as well:
 
 ## Running Bise as a cron Task
 
-Once you have Bise creating meaningful reports about your website's readership, consider having your system run it regularly. For example, you could automatically run the report once a week. The [Cron utility](/docs/guides/schedule-tasks-with-cron/) can be used to schedule this task.
+Once you have Bise creating meaningful reports about your website's readership, consider having your system run it regularly. For example, you could automatically run the report once a week. The [Cron utility](/cloud/guides/schedule-tasks-with-cron) can be used to schedule this task.
 
 Cron's normal behavior is to mail you anything a scheduled program prints as output or error messages. So, you can use Cron to receive periodic emails about your website's readership levels.
 
@@ -404,7 +401,6 @@ The output will look similar to this:
     "end_time":"2020-05-04T18:02:18"
 }
 {{< /output >}}
-
-{{< note respectIndent=false >}}
+{{< note >}}
 This example output has been formatted with line breaks and whitespace. By default, your output will appear as a single line.
 {{< /note >}}

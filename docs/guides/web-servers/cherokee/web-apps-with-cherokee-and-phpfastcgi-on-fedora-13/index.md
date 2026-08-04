@@ -1,29 +1,26 @@
 ---
 slug: web-apps-with-cherokee-and-phpfastcgi-on-fedora-13
-deprecated: true
+title: 'Web Apps with Cherokee and PHP-FastCGI on Fedora 13'
 description: 'This guide shows how to use the fast, flexible, open-source Cherokee web server with PHP-FastCGI to serve dynamic website content on Fedora 13.'
+authors: ["Linode"]
+contributors: ["Linode"]
+published: 2010-09-17
+modified: 2011-05-17
 keywords: ["cherokee php-fastcgi", "cherokee fastcgi", "cherokee fedora 13", "cherokee", "fedora 13 web server"]
 tags: ["web server","fedora","php"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-aliases: ['/web-servers/cherokee/web-apps-with-cherokee-and-phpfastcgi-on-fedora-13/','/websites/cherokee/web-apps-with-cherokee-and-phpfastcgi-on-fedora-13/','/web-servers/cherokee/php-fastcgi-fedora-13/']
-modified: 2011-05-17
-modified_by:
-  name: Linode
-published: 2010-09-17
-title: 'Web Apps with Cherokee and PHP-FastCGI on Fedora 13'
+aliases: []
 relations:
     platform:
         key: cherokee-php-fastcgi
         keywords:
             - distribution: Fedora 13
-authors: ["Linode"]
+deprecated: true
 ---
-
-
 
 Cherokee is a fast, flexible web server for POSIX compliant operating systems such as Linux. It's designed to be easy to administer, and includes support for a wide range of common web server functions. This tutorial explains how to configure Cherokee to serve dynamic content with PHP via FastCGI on Fedora 13.
 
-This document assumes that your system is already running the Cherokee web server. If you haven't already installed Cherokee, please follow our [Fedora 13 Cherokee installation](/docs/guides/websites-with-the-cherokee-web-server-on-fedora-13/) guide before continuing with these instructions. Please make sure you are logged into your Linode as root via SSH.
+This document assumes that your system is already running the Cherokee web server. If you haven't already installed Cherokee, please follow our [Fedora 13 Cherokee installation](/cloud/guides/websites-with-the-cherokee-web-server-on-fedora-13) guide before continuing with these instructions. Please make sure you are logged into your Linode as root via SSH.
 
 ## Install Required Packages
 
@@ -38,8 +35,8 @@ Issue the following commands to install support for PHP and FastCGI:
 Issue the following sequence of commands to create scripts to control `spawn-fcgi` and the PHP-FastCGI process, set the permissions for these scripts, ensure that PHP-FastCGI starts as part of the boot process, and start PHP-FastCGI For the first time:
 
     cd /opt/
-    wget -O php-fastcgi-rpm.sh http://www.linode.com/docs/assets/597-php-fastcgi-rpm.sh
-    wget -O php-fastcgi-init-rpm.sh http://www.linode.com/docs/assets/596-php-fastcgi-init-rpm.sh
+    wget -O php-fastcgi-rpm.sh 597-php-fastcgi-rpm.sh
+    wget -O php-fastcgi-init-rpm.sh 596-php-fastcgi-init-rpm.sh
     mv /opt/php-fastcgi-rpm.sh /usr/bin/php-fastcgi
     mv /opt/php-fastcgi-init-rpm.sh /etc/init.d/php-fastcgi
     chmod 755 /usr/bin/php-fastcgi
@@ -64,7 +61,7 @@ Create directories for your site by issuing the following commands. Substitute y
     mkdir /srv/www/example.com/www/logs
     chown -R www-data:www-data /srv/www/example.com
 
-If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/docs/guides/websites-with-the-cherokee-web-server-on-fedora-13/#secure-admin-panel-access).
+If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/cloud/guides/websites-with-the-cherokee-web-server-on-fedora-13#secure-admin-panel-access).
 
     cherokee-admin -b &
 
@@ -76,7 +73,7 @@ On the "Permissions" tab, change the user and group.
 
 ![Permissions tab on the general page of the Cherokee admin panel on Fedora 13.](252-fedora-13-03-general-permissions-large.png)
 
-Navigate to the "vServers" page and click the "New" button. Supply your domain name and the path to your site's document root.
+Navigate to the vServers page and click the "New" button. Supply your domain name and the path to your site's document root.
 
 ![Adding a new virtual server on the vServers page of the Cherokee admin panel on Fedora 13.](253-fedora-13-04-vservers-new-manual-large.png)
 
